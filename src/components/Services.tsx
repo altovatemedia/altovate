@@ -6,7 +6,7 @@ const Packages = () => {
     {
       icon: Star,
       title: "Der Markenmagnet",
-      price: "9.900 €",
+      price: "5.500 €",
       subline: "Dein komplettes Marken-Makeover – Website, Ads, Content, Funnel & Automatisierung. Damit Kunden & Bewerber dich sehen. Und wollen.",
       description: [
         "High-End Website inkl. Copy & CI",
