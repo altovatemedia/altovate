@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background">
-      {/* Bold geometric shapes */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-primary rounded-2xl opacity-20 animate-float"></div>
-      <div className="absolute top-40 right-20 w-24 h-24 border-4 border-primary rounded-full opacity-10" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-32 left-20 w-12 h-12 bg-primary/30 rotate-45" style={{ animationDelay: '2s' }}></div>
+      {/* Animated background elements */}
+      <div className="absolute top-20 left-10 w-16 h-16 bg-primary/20 rounded-2xl opacity-60 animate-float"></div>
+      <div className="absolute top-40 right-20 w-24 h-24 border-4 border-primary/30 rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-32 left-20 w-12 h-12 bg-primary/40 rotate-45 animate-bounce" style={{ animationDelay: '2s' }}></div>
 
       {/* Content */}
       <div className="container mx-auto px-6 text-center z-10">

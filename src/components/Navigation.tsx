@@ -28,9 +28,12 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-black tracking-tight">
-            <span className="text-primary">ALTO</span>
-            <span className="text-foreground">VATE</span>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" 
+              alt="Altovate Logo" 
+              className="h-8 md:h-10"
+            />
           </div>
 
           {/* Desktop Navigation */}
