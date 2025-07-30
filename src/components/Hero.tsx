@@ -56,6 +56,27 @@ const Hero = () => {
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
+
+          {/* Customer Logos */}
+          <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <p className="text-sm text-muted-foreground/60 mb-8 font-medium">
+              Marken, die auf uns setzen
+            </p>
+            
+            <div className="overflow-hidden">
+              <div className="flex items-center justify-center space-x-12 animate-[slide-in-right_20s_linear_infinite]">
+                {/* Logo placeholders - white transparent style */}
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">TECHCORP</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">INNOVATE AG</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">DIGITAL SOLUTIONS</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">FUTURE WORKS</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">SMART BUSINESS</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">TECHCORP</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">INNOVATE AG</div>
+                <div className="text-white/30 font-bold text-lg whitespace-nowrap">DIGITAL SOLUTIONS</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
