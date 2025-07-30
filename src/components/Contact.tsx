@@ -20,7 +20,7 @@ const Contact = () => {
             </h2>
             
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Lassen Sie uns bei einem kostenlosen Erstgespräch über Ihre 
+              Lass uns bei einem kostenlosen Erstgespräch über deine 
               Herausforderungen sprechen und gemeinsam Lösungen entwickeln.
             </p>
 
@@ -88,22 +88,22 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Vorname</label>
-                  <Input placeholder="Ihr Vorname" />
+                  <Input placeholder="Dein Vorname" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Nachname</label>
-                  <Input placeholder="Ihr Nachname" />
+                  <Input placeholder="Dein Nachname" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">E-Mail</label>
-                <Input type="email" placeholder="ihre@email.de" />
+                <Input type="email" placeholder="deine@email.de" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Unternehmen</label>
-                <Input placeholder="Ihr Unternehmen" />
+                <Input placeholder="Dein Unternehmen" />
               </div>
 
               <div>
@@ -114,7 +114,7 @@ const Contact = () => {
               <div>
                 <label className="block text-sm font-medium mb-2">Nachricht</label>
                 <Textarea 
-                  placeholder="Erzählen Sie uns von Ihrem Projekt oder Ihren Herausforderungen..."
+                  placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..."
                   rows={5}
                 />
               </div>
