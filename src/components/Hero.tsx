@@ -5,21 +5,33 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/10 overflow-hidden">
       {/* Floating particles background */}
-      <div className="absolute inset-0 opacity-60">
+      <div className="absolute inset-0 opacity-80">
         {/* Large floating particles */}
-        <div className="absolute top-20 left-10 w-3 h-3 bg-primary rounded-full opacity-40 animate-pulse" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-        <div className="absolute top-32 right-20 w-2 h-2 bg-primary/60 rounded-full opacity-60 animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
-        <div className="absolute top-60 left-1/4 w-1 h-1 bg-primary/80 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s', animationDuration: '2.5s' }}></div>
-        <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-primary/30 rounded-full opacity-70 animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '3.5s' }}></div>
-        <div className="absolute bottom-60 left-1/2 w-2 h-2 bg-primary/50 rounded-full opacity-40 animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '2.8s' }}></div>
-        <div className="absolute top-1/2 right-10 w-1.5 h-1.5 bg-primary/70 rounded-full opacity-80 animate-pulse" style={{ animationDelay: '2.2s', animationDuration: '4.2s' }}></div>
-        <div className="absolute bottom-20 left-20 w-3 h-3 bg-primary/40 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '3s', animationDuration: '3.8s' }}></div>
-        <div className="absolute top-40 left-1/2 w-1 h-1 bg-primary rounded-full opacity-60 animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '2.2s' }}></div>
+        <div className="absolute top-20 left-10 w-3 h-3 bg-primary rounded-full opacity-60 animate-pulse" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+        <div className="absolute top-32 right-20 w-2 h-2 bg-primary/60 rounded-full opacity-80 animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+        <div className="absolute top-60 left-1/4 w-1 h-1 bg-primary/80 rounded-full opacity-70 animate-pulse" style={{ animationDelay: '2s', animationDuration: '2.5s' }}></div>
+        <div className="absolute bottom-40 right-1/3 w-4 h-4 bg-primary/30 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '3.5s' }}></div>
+        <div className="absolute bottom-60 left-1/2 w-2 h-2 bg-primary/50 rounded-full opacity-60 animate-pulse" style={{ animationDelay: '0.8s', animationDuration: '2.8s' }}></div>
+        <div className="absolute top-1/2 right-10 w-1.5 h-1.5 bg-primary/70 rounded-full opacity-100 animate-pulse" style={{ animationDelay: '2.2s', animationDuration: '4.2s' }}></div>
+        <div className="absolute bottom-20 left-20 w-3 h-3 bg-primary/40 rounded-full opacity-70 animate-pulse" style={{ animationDelay: '3s', animationDuration: '3.8s' }}></div>
+        <div className="absolute top-40 left-1/2 w-1 h-1 bg-primary rounded-full opacity-80 animate-pulse" style={{ animationDelay: '1.2s', animationDuration: '2.2s' }}></div>
         
-        {/* Subtle magenta glow areas */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-radial from-primary/15 to-transparent rounded-full blur-3xl opacity-40"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl opacity-20"></div>
+        {/* Additional particles for more density */}
+        <div className="absolute top-80 right-40 w-2 h-2 bg-primary/70 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '0.5s', animationDuration: '3.2s' }}></div>
+        <div className="absolute top-16 left-1/3 w-1 h-1 bg-primary/60 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '2.8s', animationDuration: '2.7s' }}></div>
+        <div className="absolute bottom-80 right-16 w-1.5 h-1.5 bg-primary/80 rounded-full opacity-60 animate-pulse" style={{ animationDelay: '1.8s', animationDuration: '4.5s' }}></div>
+        <div className="absolute top-36 right-60 w-1 h-1 bg-primary rounded-full opacity-70 animate-pulse" style={{ animationDelay: '3.2s', animationDuration: '2.1s' }}></div>
+        <div className="absolute bottom-32 left-40 w-2.5 h-2.5 bg-primary/50 rounded-full opacity-80 animate-pulse" style={{ animationDelay: '0.3s', animationDuration: '3.7s' }}></div>
+        <div className="absolute top-72 left-16 w-1 h-1 bg-primary/90 rounded-full opacity-60 animate-pulse" style={{ animationDelay: '4s', animationDuration: '2.9s' }}></div>
+        <div className="absolute bottom-48 right-80 w-2 h-2 bg-primary/40 rounded-full opacity-90 animate-pulse" style={{ animationDelay: '1.7s', animationDuration: '3.1s' }}></div>
+        <div className="absolute top-28 left-80 w-1.5 h-1.5 bg-primary/75 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2.5s', animationDuration: '4.8s' }}></div>
+        
+        {/* Enhanced magenta glow areas */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary/40 to-transparent rounded-full blur-3xl opacity-60"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-radial from-primary/35 to-transparent rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-primary/25 to-transparent rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-radial from-primary/30 to-transparent rounded-full blur-2xl opacity-40"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-52 h-52 bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl opacity-60"></div>
       </div>
 
       {/* Content */}
