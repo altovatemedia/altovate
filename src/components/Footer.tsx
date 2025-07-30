@@ -5,9 +5,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="text-2xl font-bold tracking-tight mb-4">
-              <span className="text-accent">Alto</span>
-              <span></span>
+            <div className="mb-4">
+              <img 
+                src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" 
+                alt="Altovate Logo" 
+                className="h-8"
+              />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Boutique Marketing Agentur für ganzheitliches, 
