@@ -95,7 +95,7 @@ const Packages = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black mb-8">
-            Unsere <span className="text-primary">Services</span>
+            Unsere <span className="text-primary">Angebote an dich</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
             Nicht billig. Aber günstiger als ein leerer Kalender.
