@@ -49,9 +49,16 @@ const Packages = () => {
     },
     {
       icon: Users,
-      title: "Content Kickstart",
+      title: "Trust Content Kit",
       price: "ab 1.800 €",
-      description: "Content-Strategie & Umsetzung"
+      subline: "Du weißt, dass du gut bist. Wir sorgen dafür, dass es auch alle anderen sehen – mit Content, der verkauft, ohne zu nerven.",
+      description: [
+        "Professionelles Fotoshooting & Kurzvideos (Reels/Stories)",
+        "12 fertige Social-Media-Posts (Text, Bild/Video, Hashtags)",
+        "Redaktionsplan & Posting-Empfehlung",
+        "Beratung zu Kanälen & Plattformstrategie",
+        "Optional: Content-Vorlagen + Canva-Übergabe"
+      ]
     },
     {
       icon: Bot,
