@@ -115,9 +115,9 @@ const Packages = () => {
                 >
                   {pkg.isPopular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                        BELIEBT
-                      </span>
+                       <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
+                         BEST BANG FOR YOUR BUCK
+                       </span>
                     </div>
                   )}
                   
