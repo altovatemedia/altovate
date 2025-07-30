@@ -1,15 +1,13 @@
 import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-primary text-primary-foreground py-16">
+  return <footer className="bg-primary text-primary-foreground py-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="text-2xl font-bold tracking-tight mb-4">
               <span className="text-accent">Alto</span>
-              <span>vate</span>
+              <span></span>
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Boutique Marketing Agentur für ganzheitliches, 
@@ -84,8 +82,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
