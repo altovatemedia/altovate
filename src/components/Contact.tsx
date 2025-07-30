@@ -61,7 +61,7 @@ const Contact = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h3 className="font-semibold">München, Deutschland</h3>
+                  <h3 className="font-semibold">Saarburg, Deutschland</h3>
                   <p className="text-muted-foreground">Deutschlandweit tätig</p>
                 </div>
               </div>
