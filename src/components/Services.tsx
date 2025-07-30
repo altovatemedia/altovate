@@ -6,7 +6,7 @@ const Packages = () => {
     {
       icon: Star,
       title: "Der Markenmagnet",
-      price: "9.900 €",
+      price: "5.500 €",
       subline: "Dein komplettes Marken-Makeover – Website, Ads, Content, Funnel & Automatisierung. Damit Kunden & Bewerber dich sehen. Und wollen.",
       description: [
         "High-End Website inkl. Copy & CI",
@@ -108,29 +108,31 @@ const Packages = () => {
             <Popover key={pkg.title}>
               <PopoverTrigger asChild>
                 <div 
-                  className={`bold-card p-8 transition-all duration-300 hover:scale-105 hover:shadow-elegant relative cursor-pointer ${
-                    pkg.isPopular ? 'ring-2 ring-primary bg-primary/5' : ''
+                  className={`bold-card transition-all duration-300 hover:scale-105 hover:shadow-elegant relative cursor-pointer ${
+                    pkg.isPopular 
+                      ? 'ring-4 ring-primary bg-gradient-to-br from-primary/10 to-primary/5 md:col-span-2 lg:col-span-1 lg:row-span-2 lg:scale-110 p-12' 
+                      : 'p-8'
                   }`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {pkg.isPopular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                        BELIEBT
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground px-6 py-2 rounded-full text-base font-black shadow-lg animate-pulse">
+                        ⭐ PREMIUM PAKET ⭐
                       </span>
                     </div>
                   )}
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <pkg.icon className="w-8 h-8 text-primary" />
+                    <div className={`${pkg.isPopular ? 'w-20 h-20' : 'w-16 h-16'} mx-auto mb-6 bg-primary/10 rounded-xl flex items-center justify-center`}>
+                      <pkg.icon className={`${pkg.isPopular ? 'w-10 h-10' : 'w-8 h-8'} text-primary`} />
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-2 text-foreground">
+                    <h3 className={`${pkg.isPopular ? 'text-2xl' : 'text-xl'} font-bold mb-2 text-foreground`}>
                       {pkg.title}
                     </h3>
                     
-                    <div className="text-3xl font-black text-primary mb-4">
+                    <div className={`${pkg.isPopular ? 'text-4xl' : 'text-3xl'} font-black text-primary mb-4`}>
                       {pkg.price}
                     </div>
                     
