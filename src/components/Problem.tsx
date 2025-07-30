@@ -62,8 +62,14 @@ const Problem = () => {
 
         {/* Bottom emphasis */}
         <div className="text-center">
-          <p className="text-2xl md:text-3xl font-black text-primary">
+          <p className="text-2xl md:text-3xl font-black text-primary mb-6">
             Ergebnis?
+          </p>
+          <p className="text-xl md:text-2xl text-foreground font-bold mb-4">
+            Du verlierst täglich Umsatz, Bewerber und Chancen – ohne es zu merken.
+          </p>
+          <p className="text-lg md:text-xl text-primary font-semibold">
+            Zeit, das zu ändern.
           </p>
         </div>
       </div>
