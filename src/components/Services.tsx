@@ -24,7 +24,15 @@ const Packages = () => {
       icon: Zap,
       title: "Website Refresh",
       price: "ab 3.000 €",
-      description: "Moderne Website, die konvertiert"
+      subline: "Dein Unternehmen ist längst gewachsen – deine Website leider nicht. Wir holen sie ins Jetzt. Modern. Schnell. Aussagekräftig.",
+      description: [
+        "Design-Update deiner bestehenden Website",
+        "Conversion-optimiertes UX-Layout",
+        "Klare Struktur, starke Texte (optional)",
+        "SEO-Basics & DSGVO-Fit",
+        "Mobile- & Ladezeitoptimierung",
+        "Anbindung von Tracking & Terminen (z. B. Calendly)"
+      ]
     },
     {
       icon: TrendingUp,
