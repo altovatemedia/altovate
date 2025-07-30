@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Altovate Design System - High-End Marketing Agency
-Colors: Black, White, Light Grey, Neon Blue
+/* Altovate Design System - Bold Marketing Agency
+Colors: White, Dark Grey, Magenta Primary
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
@@ -18,39 +18,39 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 342 81% 62%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 95%;
+    --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 8%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 195 100% 50%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 342 81% 62%;
+    --accent-foreground: 0 0% 100%;
 
-    --neon: 195 100% 50%;
-    --neon-glow: 195 100% 50%;
+    --magenta: 342 81% 62%;
+    --magenta-dark: 342 81% 52%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 90%;
     --input: 0 0% 92%;
-    --ring: 195 100% 50%;
+    --ring: 342 81% 62%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-neon: linear-gradient(135deg, hsl(var(--neon)), hsl(195 100% 40%));
-    --gradient-dark: linear-gradient(135deg, hsl(var(--primary)), hsl(0 0% 15%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--magenta-dark)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--foreground)), hsl(0 0% 15%));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
 
     /* Shadows */
-    --shadow-neon: 0 0 20px hsl(var(--neon) / 0.3);
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.05);
+    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.4);
+    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 8px 25px -5px hsl(var(--primary) / 0.1);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -126,20 +126,20 @@ All colors MUST be HSL.
 @layer components {
   /* Hero Button Variant */
   .btn-hero {
-    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-300 
-           px-8 py-4 bg-gradient-to-r from-accent to-accent/80 text-accent-foreground 
-           hover:shadow-[0_0_30px_hsl(var(--neon)/0.5)] hover:scale-105 
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent;
+    @apply inline-flex items-center justify-center rounded-xl text-lg font-bold transition-all duration-300 
+           px-12 py-4 bg-primary text-primary-foreground 
+           hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)] hover:scale-105 hover:bg-primary/90
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
   }
 
-  /* Glass Card Effect */
-  .glass-card {
-    @apply backdrop-blur-lg bg-card/80 border border-border/50 rounded-xl shadow-lg;
+  /* Bold Card Effect */
+  .bold-card {
+    @apply bg-card border border-border rounded-xl shadow-card;
   }
 
-  /* Neon Text Effect */
-  .neon-text {
-    @apply text-accent drop-shadow-[0_0_10px_hsl(var(--neon)/0.5)];
+  /* Primary Text Effect */
+  .primary-text {
+    @apply text-primary font-bold;
   }
 
   /* Fade In Animation */

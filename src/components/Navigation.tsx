@@ -28,9 +28,9 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold tracking-tight">
-            <span className="neon-text">Alto</span>
-            <span className="text-foreground">vate</span>
+          <div className="text-2xl font-black tracking-tight">
+            <span className="text-primary">ALTO</span>
+            <span className="text-foreground">VATE</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -49,7 +49,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button className="btn-hero">
-              Erstgespräch buchen
+              Jetzt Gespräch buchen
             </Button>
           </div>
 
@@ -76,9 +76,9 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button className="btn-hero w-full mt-4">
-                Erstgespräch buchen
-              </Button>
+               <Button className="btn-hero w-full mt-4">
+                 Jetzt Gespräch buchen
+               </Button>
             </div>
           </div>
         )}
