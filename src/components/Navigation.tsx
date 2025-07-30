@@ -15,10 +15,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Leistungen', href: '#services' },
+    { name: 'Lösungen', href: '#services' },
+    { name: 'Case Studies', href: '#cases' },
+    { name: 'Preise', href: '#packages' },
     { name: 'Über uns', href: '#about' },
-    { name: 'Cases', href: '#cases' },
-    { name: 'Kontakt', href: '#contact' },
   ];
 
   return (
