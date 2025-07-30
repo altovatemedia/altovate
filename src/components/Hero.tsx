@@ -20,8 +20,8 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-2xl md:text-3xl text-muted-foreground font-medium mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Vielleicht liegt's nicht an deinem Angebot –<br />
-            <span className="text-foreground font-bold">sondern an deinem Online-Auftritt.</span>
+            Deine Website ist outdated. Deine Anzeige klingt nach Amtsblatt.<br />
+            <span className="text-foreground font-bold">Auf Social Media herrscht Totenstille? Dann wird auch keiner anklopfen.</span>
           </p>
 
           {/* CTA Button */}
