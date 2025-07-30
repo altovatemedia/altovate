@@ -36,9 +36,16 @@ const Packages = () => {
     },
     {
       icon: TrendingUp,
-      title: "Ad-Booster",
-      price: "ab 2.500 €", 
-      description: "Meta Ads, die performen"
+      title: "Ad Impact Engine",
+      price: "ab 1.500 €", 
+      subline: "Deine Zielgruppe scrollt jeden Tag – aber nicht zu dir. Wir ändern das. Mit Ads, die gesehen werden. Und funktionieren.",
+      description: [
+        "Zielgerichtetes Ad-Setup (Meta & Google)",
+        "Conversion-optimierte Creatives (Video, Grafik, Copywriting)",
+        "A/B-Tests & Hook-Strategien",
+        "Pixel-Integration & Tracking",
+        "Reporting & Kampagnen-Feintuning"
+      ]
     },
     {
       icon: Users,
