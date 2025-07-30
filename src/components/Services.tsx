@@ -62,9 +62,16 @@ const Packages = () => {
     },
     {
       icon: Bot,
-      title: "Automatisierung & Chatbot",
+      title: "SmartFlow System",
       price: "ab 1.200 €",
-      description: "Prozesse automatisieren"
+      subline: "Leads kommen rein. Bewerber stellen Fragen. Kunden wollen Infos. Mit uns bekommst du ein System, das alles abfängt – bevor du überhaupt reagieren musst.",
+      description: [
+        "WhatsApp- & Website-Chatbot-Setup",
+        "Automatisierte Leadqualifizierung & Bewerberlogik",
+        "E-Mail-Automation (z. B. Bewerbungseingang, Follow-ups)",
+        "Terminvereinbarung via Bot (inkl. Kalender-Integration)",
+        "Übergabe & einfache Anpassung durch dein Team"
+      ]
     },
     {
       icon: Heart,
