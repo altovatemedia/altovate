@@ -14,8 +14,8 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8 animate-fade-in-up">
-            Du fragst dich, warum sich 
-            <span className="text-primary block">niemand bei dir bewirbt?</span>
+            Niemand bewirbt sich? 
+            <span className="text-primary block">Kein Wunder.</span>
           </h1>
 
           {/* Subheadline */}
