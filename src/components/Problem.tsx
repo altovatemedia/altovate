@@ -54,7 +54,7 @@ const Problem = () => {
                 {problem.title}
               </h3>
               <p className="text-muted-foreground font-medium">
-                Weil heute keiner mehr sucht. Du wirst gekauft, wenn du ins Blickfeld kommst.
+                {problem.description}
               </p>
             </div>
           ))}
