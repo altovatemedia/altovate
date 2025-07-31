@@ -5,7 +5,7 @@ const Problem = () => {
     {
       icon: UserX,
       title: "Keine Bewerber",
-      description: "Deine Stellenanzeige sieht aus wie vom Amt"
+      description: '"Gute Bezahlung" und "flache Hierarchien" reichen heute nicht mehr.'
     },
     {
       icon: TrendingDown,
