@@ -15,7 +15,7 @@ const Problem = () => {
     {
       icon: X,
       title: "Keine Zeit",
-      description: "Du hast keine Zeit, dich auch noch darum zu kümmern"
+      description: "Dir ist klar, dass's gemacht werden muss – aber du hast Wichtigeres auf dem Tisch."
     }
   ];
 
