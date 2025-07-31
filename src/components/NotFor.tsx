@@ -31,11 +31,8 @@ const NotFor = () => {
                 className="p-6 bold-card text-left"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-center space-x-3 mb-3">
-                  <X className="w-6 h-6 text-primary flex-shrink-0" />
-                  <h3 className="text-xl font-bold text-foreground">{item.headline}</h3>
-                </div>
-                <p className="text-muted-foreground ml-9">{item.subline}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{item.headline}</h3>
+                <p className="text-muted-foreground">{item.subline}</p>
               </div>
             ))}
           </div>
