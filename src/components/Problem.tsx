@@ -10,7 +10,7 @@ const Problem = () => {
     {
       icon: TrendingDown,
       title: "Kaum Kundenanfragen", 
-      description: "Auf Google findet man dich nicht mal beim Scrollen"
+      description: "Weil heute keiner mehr sucht. Du wirst gekauft, wenn du ins Blickfeld kommst."
     },
     {
       icon: X,
