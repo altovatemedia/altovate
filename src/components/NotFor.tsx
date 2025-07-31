@@ -2,9 +2,18 @@ import { X } from 'lucide-react';
 
 const NotFor = () => {
   const notForItems = [
-    "Wenn du 300 € Budget hast",
-    "Wenn du keine Veränderung willst", 
-    "Wenn du denkst, ein Azubi kann das nebenher machen"
+    {
+      headline: "❌ Wenn du dein Budget lieber ins Amtsblatt steckst",
+      subline: "…damit es direkt ungelesen im Papiermüll landet –neben der Traueranzeige von Oma Gerda."
+    },
+    {
+      headline: "❌ Wenn du denkst, ein Azubi kriegt das schon irgendwie hin",
+      subline: "Dann ist dein Ernst mit Sichtbarkeit genau so gering wie dein Output."
+    },
+    {
+      headline: "❌ Wenn du lieber wartest, bis die Guten bei der Konkurrenz unterschrieben haben",
+      subline: "Veränderung ist unbequem – aber Stillstand ist teuer."
+    }
   ];
 
   return (
@@ -18,12 +27,15 @@ const NotFor = () => {
           <div className="space-y-6">
             {notForItems.map((item, index) => (
               <div 
-                key={item}
-                className="flex items-center justify-center space-x-4 p-6 bold-card"
+                key={index}
+                className="p-6 bold-card text-left"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <X className="w-8 h-8 text-primary flex-shrink-0" />
-                <span className="text-xl font-bold text-foreground">{item}</span>
+                <div className="flex items-center space-x-3 mb-3">
+                  <X className="w-6 h-6 text-primary flex-shrink-0" />
+                  <h3 className="text-xl font-bold text-foreground">{item.headline}</h3>
+                </div>
+                <p className="text-muted-foreground ml-9">{item.subline}</p>
               </div>
             ))}
           </div>
