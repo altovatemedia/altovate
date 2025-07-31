@@ -19,8 +19,7 @@ const Solution = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-            <span className="font-bold text-primary">Altovate ist deine externe Marketing-Abteilung.</span><br />
-            Website, Ads, Funnel, Content & Automatisierung – alles fertig. Alles in deinem Namen.
+            Mehr Anfragen. Mehr Umsatz. Mehr „Habt ihr noch Stellen frei?" Du wirst sichtbar, begehrenswert – und bleibst dabei ganz bei deinem Kerngeschäft.
           </p>
 
           {/* Benefits */}
