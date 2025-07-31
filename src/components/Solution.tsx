@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 
 const Solution = () => {
   const benefits = [
-    "Website + Content + Ads + Funnel",
-    "Chatbot + Social Media",
-    "Alles in deinem Namen",
-    "Fertig in 30 Tagen"
+    "Online-Auftritt, den man nicht übersehen kann",
+    "Werbeanzeigen, die wahrgenommen – und geklickt – werden",
+    "Automatisierte Kundenbetreuung, während du im Urlaub bist",
+    'Content, bei dem man denkt: „Von denen will ich mehr sehen"'
   ];
 
   return (
