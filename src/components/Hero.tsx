@@ -65,20 +65,20 @@ const Hero = () => {
             
             <div className="overflow-hidden">
               <div className="flex items-center justify-center space-x-12 animate-[slide-in-right_20s_linear_infinite]">
-                {/* Customer logos with 70% transparency */}
-                <img src="/lovable-uploads/20b3354d-89ca-417b-a3ff-c092e830ff91.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/7a54adf2-89a7-418f-97d9-092a8af2d01a.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/10e41798-04a2-4f15-9807-b65a1508c684.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/e1cd4aee-4421-4876-a62d-93058e50eac7.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/4b1973ca-1098-49ac-a715-ba35c759aeff.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/35e2f5d7-67ec-4cea-8a37-7c2b2b24caaf.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/6955d880-2be3-4c02-9a31-2158bd04c916.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/2b229eaa-8f25-4e88-99f0-8ae6f9dadbd1.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/872d9752-d5dc-43be-8703-9c7466665d3f.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/87959f29-60ce-4484-aa87-209980902007.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
+                {/* Customer logos with reduced transparency for better recognition */}
+                <img src="/lovable-uploads/20b3354d-89ca-417b-a3ff-c092e830ff91.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/7a54adf2-89a7-418f-97d9-092a8af2d01a.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/10e41798-04a2-4f15-9807-b65a1508c684.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/e1cd4aee-4421-4876-a62d-93058e50eac7.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/4b1973ca-1098-49ac-a715-ba35c759aeff.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/35e2f5d7-67ec-4cea-8a37-7c2b2b24caaf.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/6955d880-2be3-4c02-9a31-2158bd04c916.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/2b229eaa-8f25-4e88-99f0-8ae6f9dadbd1.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/872d9752-d5dc-43be-8703-9c7466665d3f.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/87959f29-60ce-4484-aa87-209980902007.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
                 {/* Duplicate for seamless loop */}
-                <img src="/lovable-uploads/20b3354d-89ca-417b-a3ff-c092e830ff91.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
-                <img src="/lovable-uploads/7a54adf2-89a7-418f-97d9-092a8af2d01a.png" alt="Customer Logo" className="h-8 opacity-30 filter brightness-0 invert" />
+                <img src="/lovable-uploads/20b3354d-89ca-417b-a3ff-c092e830ff91.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
+                <img src="/lovable-uploads/7a54adf2-89a7-418f-97d9-092a8af2d01a.png" alt="Customer Logo" className="h-8 opacity-60 filter brightness-0 invert" />
               </div>
             </div>
           </div>
