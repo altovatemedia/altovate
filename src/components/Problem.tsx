@@ -1,4 +1,4 @@
-import { X, UserX, TrendingDown } from 'lucide-react';
+import { X, UserX, TrendingDown, Hourglass } from 'lucide-react';
 
 const Problem = () => {
   const problems = [
@@ -13,7 +13,7 @@ const Problem = () => {
       description: "Weil heute keiner mehr sucht. Du wirst gekauft, wenn du ins Blickfeld kommst."
     },
     {
-      icon: X,
+      icon: Hourglass,
       title: "Keine Zeit",
       description: "Dir ist klar, dass's gemacht werden muss – aber du hast Wichtigeres auf dem Tisch."
     }
