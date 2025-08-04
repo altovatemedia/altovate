@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { Ban } from 'lucide-react';
 
 const NotFor = () => {
   const notForItems = [
@@ -31,7 +31,7 @@ const NotFor = () => {
                 className="p-6 bold-card text-left flex items-start space-x-4"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <X className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <Ban className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-foreground mb-3">{item.headline}</h3>
                   <p className="text-muted-foreground">{item.subline}</p>
