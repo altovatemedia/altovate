@@ -1,9 +1,92 @@
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 const Contact = () => {
-  return <section id="contact" className="py-24 bg-background">
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: '',
+    privacy: false
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.privacy) {
+      toast({
+        title: "Datenschutz erforderlich",
+        description: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+      toast({
+        title: "Pflichtfelder ausfüllen",
+        description: "Bitte füllen Sie alle Pflichtfelder aus.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create email content
+    const subject = `Kontaktanfrage von ${formData.firstName} ${formData.lastName}`;
+    const body = `
+Neue Kontaktanfrage über die Website:
+
+Name: ${formData.firstName} ${formData.lastName}
+E-Mail: ${formData.email}
+Unternehmen: ${formData.company || 'Nicht angegeben'}
+Telefon: ${formData.phone || 'Nicht angegeben'}
+
+Nachricht:
+${formData.message}
+
+---
+Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
+    `;
+
+    // Create mailto link
+    const mailtoLink = `mailto:info@altovate.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "E-Mail wird geöffnet",
+      description: "Ihre E-Mail-Anwendung sollte sich jetzt öffnen.",
+    });
+
+    // Reset form
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      company: '',
+      phone: '',
+      message: '',
+      privacy: false
+    });
+  };
+
+  return (
+    <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
@@ -82,47 +165,92 @@ const Contact = () => {
           <div className="glass-card p-8">
             <h3 className="text-2xl font-semibold mb-6">Nachricht senden</h3>
             
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Vorname</label>
-                  <Input placeholder="Dein Vorname" />
+                  <Input 
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="Dein Vorname" 
+                    required
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Nachname</label>
-                  <Input placeholder="Dein Nachname" />
+                  <Input 
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Dein Nachname" 
+                    required
+                  />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">E-Mail</label>
-                <Input type="email" placeholder="deine@email.de" />
+                <Input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="deine@email.de" 
+                  required
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Unternehmen</label>
-                <Input placeholder="Dein Unternehmen" />
+                <Input 
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  placeholder="Dein Unternehmen" 
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Telefon (optional)</label>
-                <Input type="tel" placeholder="+49 123 456 789" />
+                <Input 
+                  type="tel" 
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="+49 123 456 789" 
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-medium mb-2">Nachricht</label>
-                <Textarea placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..." rows={5} />
+                <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..." 
+                  rows={5} 
+                  required
+                />
               </div>
 
               <div className="flex items-start space-x-3">
-                <input type="checkbox" className="mt-1" id="privacy" />
+                <input 
+                  type="checkbox" 
+                  className="mt-1" 
+                  id="privacy" 
+                  name="privacy"
+                  checked={formData.privacy}
+                  onChange={handleInputChange}
+                  required
+                />
                 <label htmlFor="privacy" className="text-sm text-muted-foreground">
                   Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
                   <a href="#" className="text-accent hover:underline">Datenschutzerklärung</a> zu.
                 </label>
               </div>
 
-              <Button className="btn-hero w-full group">
+              <Button type="submit" className="btn-hero w-full group">
                 Nachricht senden
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -130,6 +258,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default Contact;
