@@ -6,7 +6,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-4">
-              <img src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" alt="Altovate Logo" className="h-8" />
+              <img src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" alt="Altovate Logo" className="h-8 brightness-0 invert" />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Boutique Marketing Agentur für ganzheitliches, 
