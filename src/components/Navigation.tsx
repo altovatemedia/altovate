@@ -51,7 +51,13 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="btn-hero">
+            <Button 
+              className="btn-hero"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Jetzt Gespräch buchen
             </Button>
           </div>
@@ -79,7 +85,14 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-               <Button className="btn-hero w-full mt-4">
+               <Button 
+                 className="btn-hero w-full mt-4"
+                 onClick={() => {
+                   const contactSection = document.getElementById('contact');
+                   contactSection?.scrollIntoView({ behavior: 'smooth' });
+                   setIsMobileMenuOpen(false);
+                 }}
+               >
                  Jetzt Gespräch buchen
                </Button>
             </div>
