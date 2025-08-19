@@ -51,7 +51,13 @@ const Hero = () => {
 
           {/* CTA Button */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <Button className="btn-hero group text-xl">
+            <Button 
+              className="btn-hero group text-xl"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Jetzt sichtbar werden
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </Button>
