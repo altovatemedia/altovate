@@ -2,10 +2,8 @@ import { Mail, Phone, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-
 const Contact = () => {
-  return (
-    <section id="contact" className="py-24 bg-background">
+  return <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
@@ -41,7 +39,7 @@ const Contact = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h3 className="font-semibold">kontakt@altovate.de</h3>
+                  <h3 className="font-semibold">info@altovate.de</h3>
                   <p className="text-muted-foreground">Antwort innerhalb von 24h garantiert</p>
                 </div>
               </div>
@@ -51,7 +49,7 @@ const Contact = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h3 className="font-semibold">+49 (0) 123 456 789</h3>
+                  <h3 className="font-semibold">+49 (0) 1520 892 2097</h3>
                   <p className="text-muted-foreground">Mo-Fr 9:00-18:00 Uhr</p>
                 </div>
               </div>
@@ -113,10 +111,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-sm font-medium mb-2">Nachricht</label>
-                <Textarea 
-                  placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..."
-                  rows={5}
-                />
+                <Textarea placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..." rows={5} />
               </div>
 
               <div className="flex items-start space-x-3">
@@ -135,8 +130,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;

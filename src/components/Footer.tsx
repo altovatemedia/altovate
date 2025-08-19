@@ -6,11 +6,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-4">
-              <img 
-                src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" 
-                alt="Altovate Logo" 
-                className="h-8"
-              />
+              <img src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" alt="Altovate Logo" className="h-8" />
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
               Boutique Marketing Agentur für ganzheitliches, 
@@ -59,15 +55,15 @@ const Footer = () => {
             <div className="space-y-3 text-primary-foreground/80">
               <div className="flex items-center space-x-3">
                 <Mail size={16} />
-                <span>kontakt@altovate.de</span>
+                <span>info@altovate.de</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} />
-                <span>+49 (0) 123 456 789</span>
+                <span>+49 (0) 1520 892 2097</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} />
-                <span>München, Deutschland</span>
+                <span>Saarburg, Deutschland</span>
               </div>
             </div>
           </div>
