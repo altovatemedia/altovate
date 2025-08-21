@@ -1,7 +1,18 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Calculate star position based on scroll (0-100%)
+  const starPosition = Math.min(100, (scrollY / window.innerHeight) * 100);
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/10 overflow-hidden">
       {/* Floating particles background */}
@@ -37,6 +48,22 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
+          {/* Glowing Line with Moving Star */}
+          <div className="relative w-64 h-1 mx-auto mb-8 animate-fade-in-up overflow-hidden">
+            {/* Base line with fade-out gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+            
+            {/* Moving glowing star */}
+            <div 
+              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-100 ease-out"
+              style={{
+                left: `${starPosition}%`,
+                transform: `translateX(-50%) translateY(-50%)`,
+                boxShadow: `0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), 0 0 60px rgba(255,255,255,0.2)`
+              }}
+            ></div>
+          </div>
+
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8 animate-fade-in-up">
             Niemand bewirbt sich? 
