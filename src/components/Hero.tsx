@@ -49,19 +49,29 @@ const Hero = () => {
       <div className="container mx-auto px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
           {/* Glowing Line with Moving Star */}
-          <div className="relative w-64 h-1 mx-auto mb-8 animate-fade-in-up overflow-hidden">
-            {/* Base line with fade-out gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+          <div className="relative w-80 h-1 mx-auto mb-8 animate-fade-in-up overflow-hidden">
+            {/* Base line with strong taper to sides */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent blur-sm"></div>
             
-            {/* Moving glowing star */}
+            {/* Moving glowing star with enhanced flow effect */}
             <div 
-              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-100 ease-out"
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full transition-all duration-300 ease-out"
               style={{
-                left: `${starPosition}%`,
+                left: `${50 + (starPosition * 0.4)}%`, // Start at 50% (center), move right with scroll
                 transform: `translateX(-50%) translateY(-50%)`,
-                boxShadow: `0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), 0 0 60px rgba(255,255,255,0.2)`
+                boxShadow: `
+                  0 0 15px hsl(var(--primary)),
+                  0 0 30px hsl(var(--primary) / 0.6),
+                  0 0 45px hsl(var(--primary) / 0.3),
+                  0 0 60px hsl(var(--primary) / 0.1)
+                `,
+                background: `radial-gradient(circle, hsl(var(--primary)), hsl(var(--primary) / 0.8))`
               }}
-            ></div>
+            >
+              {/* Inner bright core */}
+              <div className="absolute inset-0 bg-white rounded-full scale-50 opacity-80"></div>
+            </div>
           </div>
 
           {/* Main Headline */}
