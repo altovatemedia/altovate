@@ -13,6 +13,9 @@ const Hero = () => {
 
   // Calculate star position based on scroll (0-100%)
   const starPosition = Math.min(100, (scrollY / window.innerHeight) * 100);
+  
+  // Calculate vertical flow using sine wave for organic movement
+  const verticalFlow = Math.sin((starPosition / 100) * Math.PI * 2) * 8;
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/10 overflow-hidden">
       {/* Floating particles background */}
@@ -59,7 +62,7 @@ const Hero = () => {
               className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full transition-all duration-300 ease-out"
               style={{
                 left: `${50 + (starPosition * 0.7)}%`, // Start at 50% (center), move right with stronger scroll effect
-                transform: `translateX(-50%) translateY(-50%)`,
+                transform: `translateX(-50%) translateY(calc(-50% + ${verticalFlow}px))`,
                 boxShadow: `
                   0 0 20px rgba(255, 255, 255, 0.9),
                   0 0 40px rgba(255, 255, 255, 0.6),
