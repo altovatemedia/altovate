@@ -56,21 +56,21 @@ const Hero = () => {
             
             {/* Moving glowing star with enhanced flow effect */}
             <div 
-              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full transition-all duration-300 ease-out"
+              className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full transition-all duration-300 ease-out"
               style={{
-                left: `${50 + (starPosition * 0.4)}%`, // Start at 50% (center), move right with scroll
+                left: `${50 + (starPosition * 0.7)}%`, // Start at 50% (center), move right with stronger scroll effect
                 transform: `translateX(-50%) translateY(-50%)`,
                 boxShadow: `
-                  0 0 15px hsl(var(--primary)),
-                  0 0 30px hsl(var(--primary) / 0.6),
-                  0 0 45px hsl(var(--primary) / 0.3),
-                  0 0 60px hsl(var(--primary) / 0.1)
+                  0 0 20px rgba(255, 255, 255, 0.9),
+                  0 0 40px rgba(255, 255, 255, 0.6),
+                  0 0 60px rgba(255, 255, 255, 0.3),
+                  0 0 80px rgba(255, 255, 255, 0.1)
                 `,
-                background: `radial-gradient(circle, hsl(var(--primary)), hsl(var(--primary) / 0.8))`
+                background: `radial-gradient(circle, #ffffff, rgba(255, 255, 255, 0.8))`
               }}
             >
               {/* Inner bright core */}
-              <div className="absolute inset-0 bg-white rounded-full scale-50 opacity-80"></div>
+              <div className="absolute inset-0 bg-white rounded-full scale-75 opacity-100"></div>
             </div>
           </div>
 
