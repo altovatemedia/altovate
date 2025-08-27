@@ -47,7 +47,11 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
-				magenta: 'hsl(var(--magenta))',
+				magenta: {
+					DEFAULT: 'hsl(var(--magenta))',
+					dark: 'hsl(var(--magenta-dark))',
+					light: 'hsl(var(--magenta-light))'
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
