@@ -2,59 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Altovate Design System - Bold Marketing Agency
-Colors: White, Dark Grey, Magenta Primary
+/* Altovate Design System - Dark & Magenta
+Pure black background (#000000) with vibrant magenta accent (#ff1c5c)
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 10%;
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 10%;
+    --popover: 0 0% 3%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 343 100% 55%;
+    --primary: 343 98% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 80%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 75%;
 
-    --accent: 343 100% 55%;
+    --accent: 343 98% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --magenta: 343 100% 55%;
-    --magenta-dark: 343 100% 45%;
+    --magenta: 343 98% 55%;
+    --magenta-dark: 343 98% 45%;
+    --magenta-light: 343 98% 65%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 18%;
-    --ring: 343 100% 55%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 343 98% 55%;
 
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--magenta-dark)));
-    --gradient-dark: linear-gradient(135deg, hsl(var(--foreground)), hsl(0 0% 15%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--magenta)), hsl(var(--magenta-dark)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--magenta) / 0.3), transparent 70%);
 
     /* Shadows */
-    --shadow-primary: 0 0 30px hsl(var(--primary) / 0.4);
-    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 8px 25px -5px hsl(var(--primary) / 0.1);
+    --shadow-primary: 0 0 40px hsl(var(--magenta) / 0.5);
+    --shadow-elegant: 0 20px 60px -10px hsl(var(--magenta) / 0.3);
+    --shadow-card: 0 8px 32px -8px hsl(var(--magenta) / 0.2);
+    --shadow-glow: 0 0 80px hsl(var(--magenta) / 0.4);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: all 0.4s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -124,12 +128,26 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Hero Button Variant */
+  /* Hero Button Variants */
   .btn-hero {
     @apply inline-flex items-center justify-center rounded-xl text-lg font-bold transition-all duration-300 
-           px-12 py-4 bg-primary text-primary-foreground 
-           hover:bg-primary-foreground hover:text-primary hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)] hover:scale-105
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+           px-12 py-4 bg-gradient-to-r from-magenta to-magenta-dark text-white
+           hover:shadow-[0_0_50px_hsl(var(--magenta)/0.8)] hover:scale-105 hover:brightness-110
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta
+           border border-magenta/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl text-lg font-semibold transition-all duration-300
+           px-12 py-4 bg-transparent border-2 border-magenta text-magenta
+           hover:bg-magenta hover:text-white hover:shadow-[0_0_30px_hsl(var(--magenta)/0.6)] hover:scale-105
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta;
+  }
+
+  .btn-glow {
+    @apply relative overflow-hidden bg-gradient-to-r from-magenta to-magenta-dark text-white
+           before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+           before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700;
   }
 
   /* Bold Card Effect */

@@ -1,6 +1,7 @@
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import Problem from '@/components/Problem';
+import FreebieBar from '@/components/sections/FreebieBar';
+import NewNavigation from '@/components/sections/NewNavigation';
+import NewHero from '@/components/sections/NewHero';
+import PainPoints from '@/components/sections/PainPoints';
 import Solution from '@/components/Solution';
 import Services from '@/components/Services';
 import Timeline from '@/components/Timeline';
@@ -11,13 +12,14 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       {/* Scroll Progress Indicator */}
       <div className="scroll-progress" style={{ width: '0%' }}></div>
       
-      <Navigation />
-      <Hero />
-      <Problem />
+      <FreebieBar />
+      <NewNavigation />
+      <NewHero />
+      <PainPoints />
       <Solution />
       <Services />
       <Timeline />
