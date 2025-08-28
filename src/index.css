@@ -38,7 +38,6 @@
     --accent-foreground: var(--text);
     --destructive: 0 84% 60%;
     --destructive-foreground: 255 255 255;
-    --border-hsl: var(--border);
     --input: var(--border);
     --ring: var(--primary);
 
@@ -99,7 +98,6 @@
     --accent-foreground: var(--text);
     --destructive: 0 63% 31%;
     --destructive-foreground: var(--text);
-    --border-hsl: var(--border);
     --input: var(--border);
     --ring: var(--primary);
 
@@ -117,7 +115,7 @@
 
 @layer base {
   * {
-    @apply border-border-hsl;
+    @apply border-border;
   }
   
   html {
