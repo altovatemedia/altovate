@@ -80,11 +80,11 @@ const CaseStudies = () => {
       size: "small"
     },
     {
-      id: 'papalu',
-      title: "Papa Lu",
-      logo: "Papa Lu",
-      logoSrc: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png", // Papa Lu logo
-      text: "Mit emotionalem Content, Reels und Storytelling haben wir Papa Lu als Place-to-be in Trier positioniert. Ergebnis: virale Posts, volle Tische und eine treue Stammkundschaft.",
+      id: 'brotchi',
+      title: "Brotchi",
+      logo: "Brotchi",
+      logoSrc: "/lovable-uploads/6170c901-73fe-4289-8501-d44012e34622.png", // Brotchi logo
+      text: "Mit einem neuen Gastro-Konzept, modernem Branding und authentischem Storytelling haben wir Brotchi von Grund auf aufgebaut. Ergebnis: klare Markenidentität, starke Wiedererkennung und ein erfolgreicher Launch im hart umkämpften Food-Markt.",
       size: "small"
     }
   ];
