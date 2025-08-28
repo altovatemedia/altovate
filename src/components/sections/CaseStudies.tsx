@@ -133,7 +133,7 @@ const CaseStudies = () => {
                     src={study.logoSrc} 
                     alt={study.logo}
                     className="max-h-10 max-w-24 object-contain"
-                    style={study.id === 'phillys' ? {} : {
+                    style={{
                       filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
                     }}
                   />
