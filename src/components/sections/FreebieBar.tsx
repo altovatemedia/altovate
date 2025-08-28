@@ -1,27 +1,10 @@
 import { useState, useEffect } from 'react';
 
 const FreebieBar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100 && !hasScrolled) {
-        setHasScrolled(true);
-        setTimeout(() => setIsVisible(false), 2000); // Fade out after 2 seconds of scrolling
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasScrolled]);
-
   const handleClick = () => {
     // TODO: Open lead capture modal
     console.log('Open lead capture for template download');
   };
-
-  if (!isVisible) return null;
 
   return (
     <div className="bg-white relative z-50 transition-all duration-500">
