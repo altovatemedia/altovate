@@ -179,7 +179,7 @@ const CaseStudies = () => {
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-100 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center min-w-[80px]">
+                <div className="inline-block bg-gray-100 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
