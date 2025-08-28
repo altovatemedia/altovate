@@ -18,7 +18,7 @@ const NewNavigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Lösungen', href: '#signature-offer' },
+    { name: 'Das komplette marketing-system', href: '#signature-offer' },
     { name: 'Ergebnisse die für sich sprechen', href: '#proof' },
     { name: 'Pakete & Preise', href: '#pricing' },
     { name: 'Über uns', href: '#about' },
