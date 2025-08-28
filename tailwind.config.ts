@@ -36,13 +36,13 @@ export default {
 				'section-mobile': '3rem',
 			},
 			colors: {
-				border: 'hsl(var(--border))',
+				border: 'hsl(var(--border-hsl))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: 'hsl(var(--primary-hsl))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -61,11 +61,6 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
-				magenta: {
-					DEFAULT: 'hsl(var(--magenta))',
-					dark: 'hsl(var(--magenta-dark))',
-					light: 'hsl(var(--magenta-light))'
-				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -74,6 +69,36 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				
+				// Theme-aware semantic tokens
+				'theme-bg': 'hsl(var(--bg))',
+				'theme-surface': 'hsl(var(--surface))',
+				'theme-soft': 'hsl(var(--bg-soft))',
+				'theme-text': 'hsl(var(--text))',
+				'theme-muted': 'hsl(var(--text-muted))',
+				'theme-border': 'hsl(var(--border))',
+				'primary-ghost': 'hsl(var(--primary-ghost) / 0.08)',
+				'primary-ghost-dark': 'hsl(var(--primary-ghost) / 0.16)',
+				success: 'hsl(var(--success))',
+				
+				// Custom brand colors  
+				magenta: {
+					50: '#fef2f4',
+					100: '#fde6ea', 
+					200: '#fbd0d9',
+					300: '#f7aab8',
+					400: '#f17a92',
+					500: 'hsl(var(--primary-hsl))', // #EA3B5F
+					600: '#d31e47',
+					700: '#b11639',
+					800: '#951536',
+					900: '#801433',
+					DEFAULT: 'hsl(var(--primary-hsl))',
+					dark: 'hsl(var(--primary-hsl))',
+					light: 'hsl(var(--primary-hsl))'
+				},
+				
+				// Sidebar colors
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

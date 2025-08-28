@@ -102,7 +102,7 @@ const PricingToggle = () => {
   ];
 
   return (
-    <section className="py-section bg-muted/30">
+    <section className="py-section bg-theme-soft">
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header with Toggle */}
         <div className="text-center mb-16">
@@ -110,13 +110,13 @@ const PricingToggle = () => {
             <h2 className="finom-h2">Pakete & Preise</h2>
             
             {/* Toggle Switch */}
-            <div className="flex items-center gap-4 bg-white rounded-full p-2 shadow-card">
+            <div className="flex items-center gap-4 bg-theme-surface rounded-full p-2 shadow-[var(--elev-1)]">
               <button
                 onClick={() => setIsMonthly(false)}
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                   !isMonthly 
                     ? 'bg-primary text-white shadow-sm' 
-                    : 'text-muted-foreground hover:text-foreground'
+                    : 'text-theme-muted hover:text-theme-text'
                 }`}
               >
                 Einmalig
@@ -126,7 +126,7 @@ const PricingToggle = () => {
                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                   isMonthly 
                     ? 'bg-primary text-white shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
+                    : 'text-theme-muted hover:text-theme-text'
                 }`}
               >
                 12 Monate
@@ -150,7 +150,7 @@ const PricingToggle = () => {
                 key={index}
                 className={`relative ${
                   offer.isHighlight
-                    ? 'finom-card border-2 border-primary shadow-elegant transform scale-105'
+                    ? 'finom-card border-2 border-primary shadow-[var(--elev-1)] transform scale-105'
                     : 'finom-card hover-lift'
                 }`}
               >
@@ -165,14 +165,14 @@ const PricingToggle = () => {
                 <div className="text-center mb-6">
                   <h3 className="finom-h3 mb-2">{offer.title}</h3>
                   <div className="text-3xl font-bold text-primary mb-1">{offer.price}</div>
-                  <div className="text-sm text-muted-foreground">Einmalzahlung</div>
+                  <div className="text-sm text-theme-muted">Einmalzahlung</div>
                 </div>
 
                 <div className="space-y-3 mb-8">
                   {offer.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm text-theme-text">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -197,7 +197,7 @@ const PricingToggle = () => {
                 key={index}
                 className={`relative ${
                   plan.isHighlight
-                    ? 'finom-card border-2 border-primary shadow-elegant transform scale-105'
+                    ? 'finom-card border-2 border-primary shadow-[var(--elev-1)] transform scale-105'
                     : 'finom-card hover-lift'
                 }`}
               >
@@ -213,15 +213,15 @@ const PricingToggle = () => {
                 <div className="text-center mb-6">
                   <h3 className="finom-h3 mb-2">{plan.title}</h3>
                   <div className="text-3xl font-bold text-primary mb-1">{plan.price}</div>
-                  <div className="text-sm text-muted-foreground">{plan.period}</div>
-                  <div className="text-xs text-muted-foreground mt-1">12 Monate Mindestlaufzeit</div>
+                  <div className="text-sm text-theme-muted">{plan.period}</div>
+                  <div className="text-xs text-theme-muted mt-1">12 Monate Mindestlaufzeit</div>
                 </div>
 
                 <div className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm text-theme-text">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -243,7 +243,7 @@ const PricingToggle = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <p className="finom-body text-muted-foreground mb-6">
+          <p className="finom-body text-theme-muted mb-6">
             Nicht sicher welches Paket das richtige ist? Lass uns gemeinsam die beste Lösung finden.
           </p>
           <Button 
