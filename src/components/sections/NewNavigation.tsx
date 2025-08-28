@@ -30,8 +30,7 @@ const NewNavigation = () => {
   };
 
   const handleBookCall = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    window.open('https://form.typeform.com/to/qqa5obkc', '_blank');
     setIsMobileMenuOpen(false);
   };
 
