@@ -84,7 +84,18 @@ const CaseStudies = () => {
     }
   ];
 
-  const logos = ["Philly's", "Circle Fitness", "BAV Workflow", "Ayler Kupp", "Papa Lu", "Taza", "Brotchi", "SG Hochwald", "LumaVision", "Zec+"];
+  const logos = [
+    { name: "Philly's", src: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png" },
+    { name: "Circle Fitness", src: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png" },
+    { name: "BAV Workflow", src: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png" },
+    { name: "Ayler Kupp", src: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png" },
+    { name: "Papa Lu", src: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png" },
+    { name: "Taza", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
+    { name: "Brotchi", src: "/lovable-uploads/6170c901-73fe-4289-8501-d44012e34622.png" },
+    { name: "SG Hochwald", src: "/lovable-uploads/3c245c78-a67c-4767-80b3-8787c63e8cca.png" },
+    { name: "LumaVision", src: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png" },
+    { name: "Zec+", src: "/lovable-uploads/6f42872a-3902-411d-8ec7-91f5166a2f41.png" }
+  ];
 
   return (
     <section ref={sectionRef} className="py-section bg-[#F9F9FB]">
@@ -184,10 +195,13 @@ const CaseStudies = () => {
               {[...logos, ...logos].map((logo, index) => (
                 <div
                   key={index}
-                  className="logo-item px-8 text-[#7A7A7A] hover:text-[#09002C] transition-colors duration-300 
-                           font-semibold text-lg whitespace-nowrap cursor-pointer"
+                  className="logo-item px-8 flex items-center justify-center h-16 transition-all duration-300 hover:scale-105"
                 >
-                  {logo}
+                  <img 
+                    src={logo.src} 
+                    alt={logo.name}
+                    className="max-h-12 max-w-32 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  />
                 </div>
               ))}
             </div>
