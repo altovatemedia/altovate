@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-2 md:mb-0">
-              <a href="#" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
+              <a href="/impressum" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
                 Impressum
               </a>
               <a href="/datenschutz" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
