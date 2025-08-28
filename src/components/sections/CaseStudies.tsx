@@ -68,7 +68,7 @@ const CaseStudies = () => {
       logo: "BAV Workflow",
       logoSrc: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png", // Updated BAV logo
       text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
-      kpi: { value: 120, label: "+ Leads pro Monat" },
+      kpi: { value: 120, label: "Komplexe Themen einfach erklärt" },
       size: "large"
     },
     {
