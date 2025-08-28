@@ -47,56 +47,39 @@ const CaseStudies = () => {
     {
       id: 'phillys',
       title: "Philly's Burger",
-      subtitle: "Expansion & Launch",
       logo: "Philly's",
-      challenge: "Launch der neuen Filiale in Saarbrücken – Ziel: Reichweite & Franchise-Strategie.",
-      solution: "CI-konforme Launch-Kampagnen (Social Media, Ads, Print) + Content-Produktion & Onboarding.",
-      result: "Rekordumsatz, Warteschlangen bis auf die Straße, Franchise-System in Planung.",
-      kpi: { value: 60000, label: "Reichweite in 4 Tagen" },
+      text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
+      kpi: { value: 60, label: "K Reichweite in 4 Tagen" },
       size: "large"
     },
     {
       id: 'circle',
       title: "Circle Fitness",
-      subtitle: "Content & Lead-Generierung", 
       logo: "Circle Fitness",
-      challenge: "Leads & Bewerber über Social Media gewinnen.",
-      solution: "Kontinuierliche Content-Produktion (Grafiken, Videos), Performance-Ads, Recruiting-Kampagnen.",
-      result: "Stetige Lead-Gewinnung, mehr Bewerbungen über Social Media, modernes Markenimage.",
-      kpi: { value: 45, label: "+ Bewerbungen pro Monat" },
+      text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
+      kpi: { value: 45, label: "+ Bewerbungen über Social Media" },
       size: "large"
     },
     {
       id: 'bav',
       title: "BAV Workflow",
-      subtitle: "Digitale Benefits",
       logo: "BAV Workflow",
-      challenge: "Komplexe Benefits verständlich & modern darstellen.",
-      solution: "Website-Relaunch, ROI-Calculator im Lovable-Stil, Werbemittel & LinkedIn-Strategie.",
-      result: "Mehr qualifizierte Leads, professionelle Außendarstellung, bessere Conversion-Rates.",
-      kpi: { value: 120, label: "+ Leads / Monat" },
+      text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
+      kpi: { value: 120, label: "+ Leads pro Monat" },
       size: "large"
     },
     {
       id: 'ayler',
       title: "Ayler Kupp",
-      subtitle: "Weinhotel & Events",
       logo: "Ayler Kupp",
-      challenge: "Sichtbarkeit für Events & Gäste steigern.",
-      solution: "Social-Media-Betreuung, Content-Produktion, Event-Marketing.",
-      result: "Ausgebuchte Veranstaltungen, mehr Reichweite im Saarland & Luxemburg.",
-      kpi: { value: 85, label: "% ausgebuchte Events" },
+      text: "Für das Weinhotel Ayler Kupp betreuen wir Social Media und Events. Durch kontinuierlichen Content & Event-Marketing steigerten wir die Reichweite im Saarland & Luxemburg – und füllten die Veranstaltungen.",
       size: "small"
     },
     {
       id: 'papalu',
       title: "Papa Lu",
-      subtitle: "Trend-Gastronomie Trier",
       logo: "Papa Lu", 
-      challenge: "Junge Zielgruppe ansprechen, Trend-Gastronomie pushen.",
-      solution: "Emotionaler Social-Content (Reels, Stories), Positionierung als Place-to-be in Trier.",
-      result: "Virale Posts, täglich volle Tische, Stammkundschaft aufgebaut.",
-      kpi: { value: 250, label: "K+ Reach viral Post" },
+      text: "Mit emotionalem Content, Reels und Storytelling haben wir Papa Lu als Place-to-be in Trier positioniert. Ergebnis: virale Posts, volle Tische und eine treue Stammkundschaft.",
       size: "small"
     }
   ];
@@ -108,10 +91,10 @@ const CaseStudies = () => {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#09002C] mb-6">
             Ergebnisse, die für sich sprechen.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-[720px] mx-auto leading-relaxed">
+          <p className="text-lg text-[#09002C]/70 max-w-[720px] mx-auto leading-relaxed">
             Von regionalen Heroes bis zu wachsenden Marken – wir helfen Unternehmen, sichtbar zu werden, 
             Leads zu generieren und ihre Marke klar zu positionieren.
           </p>
@@ -126,10 +109,10 @@ const CaseStudies = () => {
                 key={study.id}
                 className="case-study-card bg-white rounded-2xl p-8 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
-                         transition-all duration-300 group opacity-0 translate-y-8"
+                         hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-50 px-4 py-2 rounded-full text-sm font-medium text-gray-700 mb-6">
+                <div className="inline-block bg-gray-50 px-4 py-2 rounded-full text-sm font-medium text-[#09002C] mb-6">
                   {study.logo}
                 </div>
 
@@ -141,35 +124,24 @@ const CaseStudies = () => {
 
                 {/* Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900">{study.title}</h3>
+                  <h3 className="text-xl font-bold text-[#09002C]">{study.title}</h3>
                   
-                  <div className="space-y-3 text-sm">
-                    <div>
-                      <span className="font-semibold text-red-600">Challenge:</span>
-                      <p className="text-gray-600 mt-1">{study.challenge}</p>
-                    </div>
-                    
-                    <div className="border-l-2 border-gray-100 pl-4">
-                      <span className="font-semibold text-blue-600">Lösung:</span>
-                      <p className="text-gray-600 mt-1">{study.solution}</p>
-                    </div>
-                    
-                    <div>
-                      <span className="font-semibold text-green-600">Ergebnis:</span>
-                      <p className="text-gray-600 mt-1">{study.result}</p>
-                    </div>
-                  </div>
+                  <p className="text-[#09002C]/70 text-sm leading-relaxed">
+                    {study.text}
+                  </p>
 
                   {/* KPI Highlight */}
-                  <div className="pt-4 border-t border-gray-100">
-                    <div className="text-2xl font-bold text-[#EA3B5F]">
-                      <span data-count={study.kpi.value} data-key={study.id}>
-                        {counters[study.id] || 0}
-                      </span>
-                      {study.kpi.value >= 1000 ? 'K' : ''}
+                  {study.kpi && (
+                    <div className="pt-4 border-t border-gray-100">
+                      <div className="text-2xl font-bold text-[#EA3B5F]">
+                        <span data-count={study.kpi.value} data-key={study.id}>
+                          {counters[study.id] || 0}
+                        </span>
+                        {study.kpi.value >= 1000 ? 'K' : study.kpi.label.includes('K') ? 'K' : ''}
+                      </div>
+                      <div className="text-sm text-[#09002C]/50">{study.kpi.label}</div>
                     </div>
-                    <div className="text-sm text-gray-500">{study.kpi.label}</div>
-                  </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -182,9 +154,9 @@ const CaseStudies = () => {
                 key={study.id}
                 className="case-study-card bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
-                         transition-all duration-300 group opacity-0 translate-y-8"
+                         hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-50 px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 mb-4">
+                <div className="inline-block bg-gray-50 px-3 py-1.5 rounded-full text-xs font-medium text-[#09002C] mb-4">
                   {study.logo}
                 </div>
 
@@ -194,23 +166,11 @@ const CaseStudies = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-gray-900">{study.title}</h3>
+                  <h3 className="text-lg font-bold text-[#09002C]">{study.title}</h3>
                   
-                  <div className="space-y-2 text-xs">
-                    <p><span className="font-semibold text-red-600">Challenge:</span> {study.challenge}</p>
-                    <p><span className="font-semibold text-blue-600">Lösung:</span> {study.solution}</p>
-                    <p><span className="font-semibold text-green-600">Ergebnis:</span> {study.result}</p>
-                  </div>
-
-                  <div className="pt-3 border-t border-gray-100">
-                    <div className="text-xl font-bold text-[#EA3B5F]">
-                      <span data-count={study.kpi.value} data-key={study.id}>
-                        {counters[study.id] || 0}
-                      </span>
-                      {study.kpi.value >= 1000 ? 'K' : ''}
-                    </div>
-                    <div className="text-xs text-gray-500">{study.kpi.label}</div>
-                  </div>
+                  <p className="text-[#09002C]/70 text-xs leading-relaxed">
+                    {study.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -224,7 +184,7 @@ const CaseStudies = () => {
               {[...logos, ...logos].map((logo, index) => (
                 <div
                   key={index}
-                  className="logo-item px-8 text-[#7A7A7A] hover:text-gray-900 transition-colors duration-300 
+                  className="logo-item px-8 text-[#7A7A7A] hover:text-[#09002C] transition-colors duration-300 
                            font-semibold text-lg whitespace-nowrap cursor-pointer"
                 >
                   {logo}
