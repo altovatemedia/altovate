@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       {/* Scroll Progress Indicator */}
       <div className="scroll-progress" style={{ width: '0%' }}></div>
       

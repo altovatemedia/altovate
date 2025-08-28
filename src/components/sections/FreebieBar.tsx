@@ -8,21 +8,17 @@ const FreebieBar = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-gradient-to-r from-magenta to-magenta-dark text-white py-3 px-4 relative overflow-hidden">
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-magenta/20 via-magenta-light/30 to-magenta/20 animate-pulse"></div>
-      
-      <div className="container mx-auto relative z-10">
+    <div className="bg-gray-50 border-b border-gray-200 py-3 px-4 relative">
+      <div className="container mx-auto relative">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 text-sm md:text-base font-medium">
-            <Rocket className="w-5 h-5 animate-bounce" />
-            <span>
-              <strong>🚀 Gratis-Template:</strong> So wirst du als Top-Arbeitgeber wahrgenommen (und musst nie wieder Bewerber suchen).
+          <div className="flex items-center space-x-3 text-sm md:text-base">
+            <Rocket className="w-5 h-5 text-primary" />
+            <span className="text-gray-700">
+              <strong className="text-gray-900">🚀 Gratis-Template:</strong> So wirst du als Top-Arbeitgeber wahrgenommen.
             </span>
             <Button 
-              variant="ghost" 
               size="sm" 
-              className="ml-4 bg-white/20 hover:bg-white/30 text-white font-semibold px-6 py-1 rounded-full transition-all duration-300 hover:scale-105"
+              className="ml-4 bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2 rounded-full transition-all duration-200 shadow-card hover:shadow-hover"
               onClick={() => {
                 // TODO: Open lead capture modal
                 console.log('Open lead capture for template download');
@@ -36,7 +32,7 @@ const FreebieBar = () => {
             variant="ghost"
             size="sm"
             onClick={() => setIsVisible(false)}
-            className="text-white/80 hover:text-white hover:bg-white/20 p-1"
+            className="text-gray-500 hover:text-gray-700 hover:bg-gray-100 p-1"
           >
             <X className="w-4 h-4" />
           </Button>

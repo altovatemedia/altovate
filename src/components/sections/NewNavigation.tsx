@@ -25,15 +25,15 @@ const NewNavigation = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-black/90 backdrop-blur-lg border-b border-magenta/20 shadow-lg' 
-        : 'bg-transparent'
+        ? 'bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-card' 
+        : 'bg-white/80 backdrop-blur-sm'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="text-3xl font-black text-white">
-              ALTO<span className="text-magenta">VATE</span>
+            <div className="text-3xl font-black text-gray-900">
+              ALTO<span className="text-primary">VATE</span>
             </div>
           </div>
 
@@ -43,10 +43,10 @@ const NewNavigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white/90 hover:text-magenta font-medium transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-magenta transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
             
@@ -67,7 +67,7 @@ const NewNavigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-magenta"
+              className="text-gray-700 hover:text-primary"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -76,13 +76,13 @@ const NewNavigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-magenta/20 absolute left-0 right-0 top-full">
+          <div className="md:hidden bg-white border-t border-gray-200 absolute left-0 right-0 top-full shadow-card">
             <div className="px-6 py-8 space-y-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-white hover:text-magenta font-medium text-lg transition-colors"
+                  className="block text-gray-700 hover:text-primary font-medium text-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
