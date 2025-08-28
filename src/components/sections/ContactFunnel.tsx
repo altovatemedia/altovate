@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, ArrowLeft, CheckCircle2, Calendar } from 'lucide-react';
+import { ArrowRight, ArrowLeft, CheckCircle2, Calendar, Clock, BarChart3, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -322,63 +322,116 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
   };
 
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id="contact" className="py-24 bg-bg-soft">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
-          {/* Progress Bar */}
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-4">
-              {Array.from({ length: totalSteps }, (_, i) => (
-                <div key={i} className="flex items-center">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                    i + 1 <= currentStep 
-                      ? 'bg-primary text-white' 
-                      : 'bg-bg-soft text-text-muted'
-                  }`}>
-                    {i + 1 <= currentStep ? (
-                      i + 1 < currentStep ? <CheckCircle2 className="w-5 h-5" /> : i + 1
-                    ) : i + 1}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          
+          {/* Left: Intro Block */}
+          <div className="animate-fade-in-up lg:animate-slide-in-left">
+            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
+              <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
+                Bereit für den nächsten Schritt?
+              </h2>
+              
+              <p className="text-lg text-text-muted mb-8 leading-relaxed">
+                Beantworte 4 kurze Fragen und erhalte sofort dein individuelles Ergebnis + Einladung zum kostenlosen Erstgespräch.
+              </p>
+              
+              {/* Benefits */}
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: Clock, text: 'In <3 Minuten fertig' },
+                  { icon: BarChart3, text: 'Sofortiges Ergebnis' },
+                  { icon: Users, text: 'Persönliche Empfehlung' }
+                ].map((benefit, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <benefit.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="text-text font-medium">{benefit.text}</span>
                   </div>
-                  {i < totalSteps - 1 && (
-                    <div className={`w-12 md:w-20 h-1 mx-2 rounded-full transition-all duration-300 ${
-                      i + 1 < currentStep ? 'bg-primary' : 'bg-bg-soft'
-                    }`} />
-                  )}
+                ))}
+              </div>
+              
+              {/* Visual Element */}
+              <div className="bg-bg-soft rounded-xl p-6 border border-border">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-2xl font-bold text-primary">92%</div>
+                    <div className="text-sm text-text-muted">Erfolgsrate</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-text">30</div>
+                    <div className="text-sm text-text-muted">Tage bis Erfolg</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-text">5.000€</div>
+                    <div className="text-sm text-text-muted">Fixpreis</div>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
-            <p className="text-center text-sm text-text-muted">
-              Schritt {currentStep} von {totalSteps}
-            </p>
           </div>
 
-          {/* Card Container */}
-          <div className="bg-bg-soft rounded-3xl p-8 md:p-12 shadow-elegant min-h-[500px] flex flex-col justify-center">
-            {renderStep()}
+          {/* Right: Funnel */}
+          <div className="animate-fade-in-up lg:animate-slide-in-right">
+            <div className="max-w-[520px] mx-auto">
+              {/* Progress Bar */}
+              <div className="mb-8">
+                <div className="flex items-center justify-between mb-4">
+                  {Array.from({ length: totalSteps }, (_, i) => (
+                    <div key={i} className="flex items-center">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                        i + 1 <= currentStep 
+                          ? 'bg-primary text-white' 
+                          : 'bg-white text-text-muted border border-border'
+                      }`}>
+                        {i + 1 <= currentStep ? (
+                          i + 1 < currentStep ? <CheckCircle2 className="w-5 h-5" /> : i + 1
+                        ) : i + 1}
+                      </div>
+                      {i < totalSteps - 1 && (
+                        <div className={`w-8 md:w-12 h-1 mx-2 rounded-full transition-all duration-300 ${
+                          i + 1 < currentStep ? 'bg-primary' : 'bg-border'
+                        }`} />
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-sm text-text-muted">
+                  Schritt {currentStep} von {totalSteps}
+                </p>
+              </div>
 
-            {/* Navigation Buttons */}
-            {currentStep > 1 && currentStep < 5 && (
-              <div className="flex justify-between mt-12">
-                <Button 
-                  variant="outline"
-                  onClick={() => setCurrentStep(prev => prev - 1)}
-                  className="rounded-full px-6"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Zurück
-                </Button>
-                
-                {currentStep === 4 && data.timeline && (
-                  <Button 
-                    onClick={() => setCurrentStep(5)}
-                    className="bg-primary hover:bg-primary/90 text-white rounded-full px-8"
-                  >
-                    Weiter
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+              {/* Funnel Card */}
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
+                {renderStep()}
+
+                {/* Navigation Buttons */}
+                {currentStep > 1 && currentStep < 5 && (
+                  <div className="flex justify-between mt-12">
+                    <Button 
+                      variant="outline"
+                      onClick={() => setCurrentStep(prev => prev - 1)}
+                      className="rounded-full px-6"
+                    >
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Zurück
+                    </Button>
+                    
+                    {currentStep === 4 && data.timeline && (
+                      <Button 
+                        onClick={() => setCurrentStep(5)}
+                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-8"
+                      >
+                        Weiter
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    )}
+                  </div>
                 )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
