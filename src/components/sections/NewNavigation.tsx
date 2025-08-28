@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { useGlassmorphism } from '@/hooks/useScrollAnimation';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useGlassmorphism();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +37,10 @@ const NewNavigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 border-b border-border transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/90 backdrop-blur-xl shadow-card' 
-        : 'bg-white'
-    }`}>
+    <nav 
+      ref={navRef}
+      className="glass-nav fixed top-0 left-0 right-0 z-40 border-b border-white/20 transition-all duration-300"
+    >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -67,11 +68,7 @@ const NewNavigation = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button 
-              className={`bg-primary text-white rounded-full px-6 py-3 font-bold transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-[#C81F41] ${
-                isScrolled 
-                  ? 'shadow-[0_6px_20px_rgba(234,59,95,0.4)]' 
-                  : 'shadow-[0_4px_14px_rgba(234,59,95,0.25)]'
-              } hover:shadow-[0_8px_25px_rgba(234,59,95,0.4)] hover:scale-[1.05]`}
+              className="btn-hero text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={handleBookCall}
             >
               Jetzt Gespräch buchen
@@ -102,7 +99,7 @@ const NewNavigation = () => {
               ))}
               <div className="pt-4">
                 <Button 
-                  className="bg-primary text-white rounded-full px-6 py-3 font-bold transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-[#C81F41] shadow-[0_4px_14px_rgba(234,59,95,0.25)] hover:shadow-[0_8px_25px_rgba(234,59,95,0.4)] hover:scale-[1.05] w-full"
+                  className="btn-hero text-lg px-8 py-4 w-full hover:scale-105 transition-all duration-300"
                   onClick={handleBookCall}
                 >
                   Jetzt Gespräch buchen

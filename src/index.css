@@ -58,6 +58,13 @@
 
     /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(9, 0, 44, 0.1);
 
     /* Sidebar */
     --sidebar-background: var(--color-bg);
@@ -106,17 +113,33 @@ body {
 }
 
 @layer components {
-  /* Primary Button Variants */
+  /* Enhanced Button Effects with Glow */
   .btn-hero {
-    @apply bg-primary hover:bg-primary/90 text-white font-bold text-base py-[14px] px-[22px] rounded-full transition-all duration-300 shadow-card hover:shadow-hover transform hover:scale-[1.02];
+    @apply bg-primary hover:bg-primary/90 text-white font-bold text-base py-[14px] px-[22px] rounded-full shadow-card transform hover:scale-105 transition-all duration-300;
+    box-shadow: 0 8px 30px rgba(9, 0, 44, 0.06);
+  }
+  
+  .btn-hero:hover {
+    box-shadow: 
+      0 16px 40px rgba(9, 0, 44, 0.08),
+      0 0 20px rgba(234, 59, 95, 0.3),
+      0 0 40px rgba(234, 59, 95, 0.1);
   }
 
   .btn-secondary {
-    @apply bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold text-base py-[14px] px-[22px] rounded-full transition-all duration-300 shadow-card hover:shadow-hover transform hover:scale-[1.02];
+    @apply bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold text-base py-[14px] px-[22px] rounded-full shadow-card transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-secondary:hover {
+    box-shadow: 
+      0 16px 40px rgba(9, 0, 44, 0.08),
+      0 0 20px rgba(234, 59, 95, 0.2);
   }
 
   .btn-ghost {
-    @apply bg-white/10 backdrop-blur-sm border border-white/20 text-primary hover:bg-primary/10 font-bold text-base py-[14px] px-[22px] rounded-full transition-all duration-300;
+    @apply backdrop-blur-sm border border-white/20 text-primary hover:bg-primary/10 font-bold text-base py-[14px] px-[22px] rounded-full transform hover:scale-105 transition-all duration-300;
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
   }
 
   /* Card Variants */
@@ -198,21 +221,138 @@ body {
     @apply translate-x-6;
   }
 
-  /* Case Studies animations */
+  /* Enhanced Case Studies with Scale Effect */
   .case-study-card {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(32px) scale(0.95);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .case-study-card.animate-in {
     opacity: 1 !important;
-    transform: translateY(0) !important;
+    transform: translateY(0) scale(1) !important;
   }
 
   .case-study-card:hover {
-    box-shadow: 0 16px 40px rgba(9,0,44,0.12), 0 0 0 1px rgba(234, 59, 95, 0.1);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 
+      0 20px 50px rgba(9,0,44,0.15), 
+      0 0 30px rgba(234, 59, 95, 0.1),
+      0 0 0 1px rgba(234, 59, 95, 0.05);
+    backdrop-filter: blur(10px);
   }
+
+  /* Glassmorphism Navigation */
+  .glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Glassmorphism CTA Boxes */
+  .glass-cta {
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 
+      0 8px 32px rgba(9, 0, 44, 0.1),
+      inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+
+  /* Advanced Scroll Animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide-in-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slide-in-bottom.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered Animation Delays */
+  .slide-in-bottom:nth-child(1) { transition-delay: 0ms; }
+  .slide-in-bottom:nth-child(2) { transition-delay: 150ms; }
+  .slide-in-bottom:nth-child(3) { transition-delay: 300ms; }
+  .slide-in-bottom:nth-child(4) { transition-delay: 450ms; }
+
+  /* Hero Parallax Background */
+  .parallax-bg {
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+  }
+
+  /* Enhanced Hover Effects */
+  .hover-float {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-float:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+      0 25px 50px rgba(9, 0, 44, 0.15),
+      0 0 20px rgba(234, 59, 95, 0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Footer Link Animations */
+  .footer-link {
+    @apply text-muted-foreground transition-all duration-300 relative;
+  }
+
+  .footer-link:hover {
+    @apply text-primary;
+    transform: translateY(-2px);
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--primary));
+    transition: width 0.3s ease-out;
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  /* Interactive Module Boxes */
+  .module-box {
+    @apply transition-all duration-500 ease-out;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+
+  .module-box.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .module-box:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 
+      0 20px 40px rgba(9, 0, 44, 0.12),
+      0 0 25px rgba(234, 59, 95, 0.15);
+  }
+
+  /* Logo Carousel with Enhanced Effects */
 
   .logo-marquee {
     position: relative;
