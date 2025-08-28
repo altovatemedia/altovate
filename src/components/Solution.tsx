@@ -14,7 +14,7 @@ const Solution = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center">
           {/* Header */}
-          <h2 className="text-4xl md:text-6xl font-black mb-8 text-white">
+          <h2 className="text-4xl md:text-6xl font-black mb-8 text-foreground">
             In nur <span className="text-primary">30 Tagen</span> machen wir dich zur Marke, die jeder kennt - und <span className="text-primary">jeder will</span>.
           </h2>
 
