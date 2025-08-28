@@ -1,86 +1,107 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
+
 const Footer = () => {
-  return <footer className="bg-primary text-primary-foreground py-16">
+  return (
+    <footer className="bg-[#EA3B5F] text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="mb-4">
-              <img src="/lovable-uploads/2d6dd797-8727-415d-b55c-97819b9ba308.png" alt="Altovate Logo" className="h-8 brightness-0 invert" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          
+          {/* Spalte 1 - Logo & Claim */}
+          <div>
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
+                alt="Altovate Logo" 
+                className="h-8 w-auto object-contain brightness-0 invert" 
+              />
             </div>
-            <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-              Boutique Marketing Agentur für ganzheitliches, 
-              sichtbarkeitsorientiertes Marketing.
+            <p className="text-white mb-8 text-lg font-medium leading-relaxed">
+              Altovate – Marketing, das sichtbar macht.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
-                <Linkedin size={20} />
+              <a 
+                href="#" 
+                className="text-white/80 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] p-2 rounded-full"
+              >
+                <Linkedin size={24} strokeWidth={1.5} />
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
-                <Twitter size={20} />
+              <a 
+                href="#" 
+                className="text-white/80 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] p-2 rounded-full"
+              >
+                <Instagram size={24} strokeWidth={1.5} />
               </a>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Spalte 2 - Unternehmen */}
           <div>
-            <h3 className="font-semibold mb-4">Leistungen</h3>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Website Design</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Social Media</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Performance Marketing</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Medienproduktion</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Arbeitgebermarke</a></li>
+            <h3 className="font-bold mb-6 text-lg text-white">Unternehmen</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Über uns
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Case Studies
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Preise
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Impressum
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300">
+                  Datenschutz
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Spalte 3 - Kontakt */}
           <div>
-            <h3 className="font-semibold mb-4">Unternehmen</h3>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Über uns</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Case Studies</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Karriere</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Partner</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold mb-4">Kontakt</h3>
-            <div className="space-y-3 text-primary-foreground/80">
-              <div className="flex items-center space-x-3">
-                <Mail size={16} />
+            <h3 className="font-bold mb-6 text-lg text-white">Kontakt</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 text-white/80">
+                <Mail size={18} className="flex-shrink-0" />
                 <span>info@altovate.de</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone size={16} />
+              <div className="flex items-center space-x-3 text-white/80">
+                <Phone size={18} className="flex-shrink-0" />
                 <span>+49 (0) 1520 892 2097</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPin size={16} />
+              <div className="flex items-center space-x-3 text-white/80">
+                <MapPin size={18} className="flex-shrink-0" />
                 <span>Saarburg, Deutschland</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-primary-foreground/60 text-sm">
-            © 2024 Altovate. Alle Rechte vorbehalten.
-          </p>
-          <div className="flex space-x-6 text-sm text-primary-foreground/60 mt-4 md:mt-0">
-            <a href="#" className="hover:text-accent transition-colors">Impressum</a>
-            <a href="#" className="hover:text-accent transition-colors">Datenschutz</a>
-            <a href="#" className="hover:text-accent transition-colors">AGB</a>
+        {/* Copyright */}
+        <div className="border-t border-white/20 mt-12 pt-8">
+          <div className="text-right">
+            <p className="text-white/60 text-sm">
+              © Altovate 2025
+            </p>
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
