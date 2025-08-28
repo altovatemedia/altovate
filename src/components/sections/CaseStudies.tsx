@@ -140,12 +140,19 @@ const CaseStudies = () => {
 
                 {/* Case Study Image */}
                 <div className="w-full h-48 rounded-xl mb-6 overflow-hidden">
-                  <img 
-                    src={study.id === 'bav' ? '/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png' : undefined}
-                    alt={study.id === 'bav' ? 'BAV Workflow Website Screenshot' : 'Case Study Image'}
-                    className={study.id === 'bav' ? 'w-full h-full object-cover object-center' : 'w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400 text-sm'}
-                  />
-                  {study.id !== 'bav' && (
+                  {study.id === 'phillys' ? (
+                    <img 
+                      src="/lovable-uploads/24cbce68-76e8-453f-8fce-f12458644af2.png"
+                      alt="Philly's Mac n' Cheese Campaign"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : study.id === 'bav' ? (
+                    <img 
+                      src="/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png"
+                      alt="BAV Workflow Website Screenshot"
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-400 text-sm">
                       Case Study Image
                     </div>
