@@ -146,6 +146,12 @@ const CaseStudies = () => {
                       alt="Philly's Mac n' Cheese Campaign"
                       className="w-full h-full object-cover object-center"
                     />
+                  ) : study.id === 'circle' ? (
+                    <img 
+                      src="/lovable-uploads/8c5b3133-3900-4dff-ac8b-7840e5d85931.png"
+                      alt="Circle Fitness Mobile Campaign"
+                      className="w-full h-full object-cover object-center"
+                    />
                   ) : study.id === 'bav' ? (
                     <img 
                       src="/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png"
