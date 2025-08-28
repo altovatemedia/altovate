@@ -74,6 +74,11 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			},
+			boxShadow: {
+				'card': 'var(--shadow-card)',
+				'hover': 'var(--shadow-hover)',
+				'elegant': 'var(--shadow-elegant)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
