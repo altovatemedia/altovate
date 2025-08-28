@@ -197,4 +197,37 @@ body {
   .toggle-switch[data-state="checked"] .toggle-switch-thumb {
     @apply translate-x-6;
   }
+
+  /* Case Studies animations */
+  .case-study-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .logo-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .logo-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee {
+      animation: none;
+    }
+    .case-study-card {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }
