@@ -70,7 +70,7 @@ const PainPoints = () => {
             <div
               key={index}
               data-index={index}
-              className={`group relative finom-card
+              className={`group relative finom-card h-full flex flex-col
                          ${visibleItems.includes(index) 
                            ? 'opacity-100 translate-y-0' 
                            : 'opacity-0 translate-y-12'}`}
