@@ -199,20 +199,38 @@ body {
   }
 
   /* Case Studies animations */
+  .case-study-card {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .case-study-card.animate-in {
     opacity: 1 !important;
     transform: translateY(0) !important;
   }
 
-  .logo-marquee {
-    animation: marquee 40s linear infinite;
+  .case-study-card:hover {
+    box-shadow: 0 16px 40px rgba(9,0,44,0.12), 0 0 0 1px rgba(234, 59, 95, 0.1);
   }
 
-  .logo-marquee:hover {
+  .logo-marquee {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .logo-track {
+    display: inline-flex;
+    animation: marquee-scroll 30s linear infinite;
+    align-items: center;
+  }
+
+  .logo-marquee:hover .logo-track {
     animation-play-state: paused;
   }
 
-  @keyframes marquee {
+  @keyframes marquee-scroll {
     0% {
       transform: translateX(0);
     }
