@@ -44,9 +44,11 @@ const NewNavigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-foreground">
-              Altovate
-            </span>
+            <img 
+              src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
+              alt="Altovate"
+              className="h-8 w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
