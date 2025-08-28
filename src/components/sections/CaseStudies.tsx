@@ -57,7 +57,7 @@ const CaseStudies = () => {
       id: 'circle',
       title: "Circle Fitness",
       logo: "Circle Fitness",
-      logoSrc: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png", // Circle logo
+      logoSrc: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png", // Updated Circle logo
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
       kpi: { value: 45, label: "+ Bewerbungen über Social Media" },
       size: "large"
@@ -91,7 +91,7 @@ const CaseStudies = () => {
 
   const logos = [
     { name: "Philly's", src: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png" }, // Updated Philly's logo
-    { name: "Circle Fitness", src: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png" },
+    { name: "Circle Fitness", src: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png" }, // Updated Circle logo
     { name: "BAV Workflow", src: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png" },
     { name: "Ayler Kupp", src: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png" },
     { name: "Papa Lu", src: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png" },
