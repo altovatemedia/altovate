@@ -37,7 +37,7 @@ const SignatureOffer = () => {
       ]
     },
     {
-      title: "Content Kickstart Day",
+      title: "Content Kickstart",
       price: "ab 1.800 €",
       features: [
         "Professioneller Drehtag",
