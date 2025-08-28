@@ -110,19 +110,40 @@ const SignatureOffer = () => {
         {/* Modules Grid */}
         <div className="mb-12">
           <h3 className="finom-h3 text-center mb-4">
-            Einzelmodule
+            Einzelmodule – separat buchbar, im Markenmagnet-Paket inklusive
           </h3>
-          <p className="finom-lead text-center text-muted-foreground mb-12">
-            Im Paket enthalten – auch separat buchbar
-          </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {modules.map((module, index) => (
-              <div key={index} className="finom-card hover-lift">
-                <h4 className="text-xl font-bold mb-2">{module.title}</h4>
-                <div className="text-2xl font-bold text-primary mb-4">{module.price}</div>
+              <div key={index} className="finom-card hover-lift group relative">
+                <h4 className="text-xl font-bold mb-4">{module.title}</h4>
                 
-                <div className="space-y-2">
+                {/* Mobile: 0 € im Paket first, then crossed out price */}
+                <div className="block md:hidden mb-4">
+                  <div className="text-2xl font-bold text-[hsl(var(--color-success))] mb-2">
+                    0 € im Paket
+                  </div>
+                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through">
+                    {module.price}
+                  </div>
+                </div>
+                
+                {/* Desktop: crossed out price first, then 0 € im Paket */}
+                <div className="hidden md:block mb-4">
+                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through mb-2">
+                    {module.price}
+                  </div>
+                  <div className="text-2xl font-bold text-[hsl(var(--color-success))]">
+                    0 € im Paket
+                  </div>
+                </div>
+                
+                {/* Hover Badge */}
+                <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Im Markenmagnet enthalten
+                </div>
+                
+                <div className="space-y-2 mt-4">
                   {module.features.map((feature, idx) => (
                     <div key={idx} className="text-sm text-muted-foreground">
                       • {feature}
@@ -137,14 +158,18 @@ const SignatureOffer = () => {
         {/* CTA */}
         <div className="text-center">
           <Button 
-            className="btn-secondary text-lg px-8 py-4"
+            className="btn-hero text-lg px-8 py-4 mb-3"
             onClick={() => {
               const contactSection = document.getElementById('contact');
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Kostenloses Beratungsgespräch
+            Kostenlos im Markenmagnet enthalten – jetzt starten
+            <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
+          <p className="text-sm text-muted-foreground">
+            Oder separat buchen, falls du nicht das ganze Paket willst.
+          </p>
         </div>
       </div>
     </section>
