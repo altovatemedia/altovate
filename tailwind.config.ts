@@ -18,6 +18,23 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
+			},
+			fontSize: {
+				'finom-h1': ['4.5rem', { lineHeight: '1.05', fontWeight: '800' }],
+				'finom-h2': ['3rem', { lineHeight: '1.1', fontWeight: '800' }],
+				'finom-h3': ['2rem', { lineHeight: '1.2', fontWeight: '700' }],
+				'finom-lead': ['1.375rem', { lineHeight: '1.5', fontWeight: '500' }],
+				'finom-body': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],
+			},
+			maxWidth: {
+				'content': '1160px',
+			},
+			spacing: {
+				'section': '6rem',
+				'section-mobile': '3rem',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -43,6 +60,11 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
+				},
+				magenta: {
+					DEFAULT: 'hsl(var(--magenta))',
+					dark: 'hsl(var(--magenta-dark))',
+					light: 'hsl(var(--magenta-light))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

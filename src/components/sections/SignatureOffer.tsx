@@ -1,11 +1,7 @@
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import useScrollReveal from '@/hooks/useScrollReveal';
 
 const SignatureOffer = () => {
-  const headerRef = useScrollReveal();
-  const cardRef = useScrollReveal();
-  const modulesRef = useScrollReveal();
   const mainOffer = {
     title: "Die visibility engine",
     price: "5.000 €",
@@ -63,10 +59,10 @@ const SignatureOffer = () => {
   ];
 
   return (
-    <section id="signature-offer" className="py-section bg-theme-bg">
+    <section id="signature-offer" className="py-section bg-white">
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-16">
+        <div className="text-center mb-16">
           <h2 className="finom-h2 mb-6">
             Das komplette Marketing-System
           </h2>
@@ -77,7 +73,7 @@ const SignatureOffer = () => {
         </div>
 
         {/* Main Offer Card */}
-        <div ref={cardRef} className="highlight-card max-w-4xl mx-auto mb-20">
+        <div className="highlight-card max-w-4xl mx-auto mb-20">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="flex-1">
               <div className="flex items-center gap-4 mb-4">
@@ -87,7 +83,7 @@ const SignatureOffer = () => {
                 </span>
               </div>
               
-              <p className="text-theme-muted mb-6">{mainOffer.subtitle}</p>
+              <p className="text-muted-foreground mb-6">{mainOffer.subtitle}</p>
               
               <div className="space-y-4">
                 {mainOffer.features.map((feature, index) => (
@@ -100,7 +96,7 @@ const SignatureOffer = () => {
             </div>
 
             <div className="text-center lg:text-right">
-              <div className="text-4xl font-bold text-theme-text mb-2">
+              <div className="text-4xl font-bold text-foreground mb-2">
                 {mainOffer.price}
               </div>
               <Button className="btn-hero text-lg px-8 py-4">
@@ -112,7 +108,7 @@ const SignatureOffer = () => {
         </div>
 
         {/* Modules Grid */}
-        <div ref={modulesRef} className="mb-12">
+        <div className="mb-12">
           <h3 className="finom-h3 text-center mb-4">
             Einzelmodule – separat buchbar, im visibility engine-Paket inklusive
           </h3>
@@ -120,24 +116,24 @@ const SignatureOffer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {modules.map((module, index) => (
               <div key={index} className="finom-card hover-lift group relative">
-                <h4 className="text-xl font-bold mb-4 text-theme-text">{module.title}</h4>
+                <h4 className="text-xl font-bold mb-4">{module.title}</h4>
                 
                 {/* Mobile: 0 € im Paket first, then crossed out price */}
                 <div className="block md:hidden mb-4">
-                  <div className="text-2xl font-bold text-success mb-2">
+                  <div className="text-2xl font-bold text-[hsl(var(--color-success))] mb-2">
                     0 € im Paket
                   </div>
-                  <div className="text-sm text-theme-muted line-through">
+                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through">
                     {module.price}
                   </div>
                 </div>
                 
                 {/* Desktop: crossed out price first, then 0 € im Paket */}
                 <div className="hidden md:block mb-4">
-                  <div className="text-sm text-theme-muted line-through mb-2">
+                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through mb-2">
                     {module.price}
                   </div>
-                  <div className="text-2xl font-bold text-success">
+                  <div className="text-2xl font-bold text-[hsl(var(--color-success))]">
                     0 € im Paket
                   </div>
                 </div>
@@ -149,7 +145,7 @@ const SignatureOffer = () => {
                 
                 <div className="space-y-2 mt-4">
                   {module.features.map((feature, idx) => (
-                    <div key={idx} className="text-sm text-theme-muted">
+                    <div key={idx} className="text-sm text-muted-foreground">
                       • {feature}
                     </div>
                   ))}
@@ -171,7 +167,7 @@ const SignatureOffer = () => {
             Kostenlos in visibility engine enthalten – jetzt starten
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-          <p className="text-sm text-theme-muted">
+          <p className="text-sm text-muted-foreground">
             Oder separat buchen, falls du nicht das ganze Paket willst.
           </p>
         </div>

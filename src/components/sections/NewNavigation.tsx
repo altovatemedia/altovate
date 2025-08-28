@@ -35,16 +35,16 @@ const NewNavigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-40 border-b border-border transition-all duration-300 ${
       isScrolled 
-        ? 'backdrop-blur-xl shadow-lg' 
-        : ''
+        ? 'bg-white/90 backdrop-blur-xl shadow-card' 
+        : 'bg-white'
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-gray-900">
+            <span className="text-xl font-bold text-foreground">
               Altovate
             </span>
           </div>
@@ -55,17 +55,21 @@ const NewNavigation = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-300"
+                className="text-text hover:text-primary font-medium transition-colors duration-300"
               >
                 {item.name}
               </button>
             ))}
           </div>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
             <Button 
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full"
+              className={`bg-primary text-white rounded-full px-6 py-3 font-bold transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-[#C81F41] ${
+                isScrolled 
+                  ? 'shadow-[0_6px_20px_rgba(234,59,95,0.4)]' 
+                  : 'shadow-[0_4px_14px_rgba(234,59,95,0.25)]'
+              } hover:shadow-[0_8px_25px_rgba(234,59,95,0.4)] hover:scale-[1.05]`}
               onClick={handleBookCall}
             >
               Jetzt Gespräch buchen
@@ -73,32 +77,30 @@ const NewNavigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              className="p-2 text-gray-500 hover:text-gray-900 transition-colors duration-300"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="md:hidden border-t border-border bg-white">
             <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-3 text-gray-700 hover:text-primary font-medium transition-colors duration-300"
+                  className="block w-full text-left px-3 py-3 text-text hover:text-primary font-medium transition-colors duration-300"
                 >
                   {item.name}
                 </button>
               ))}
               <div className="pt-4">
                 <Button 
-                  className="bg-primary hover:bg-primary/90 text-white w-full px-6 py-3 rounded-full"
+                  className="bg-primary text-white rounded-full px-6 py-3 font-bold transition-all duration-300 hover:bg-gradient-to-r hover:from-primary hover:to-[#C81F41] shadow-[0_4px_14px_rgba(234,59,95,0.25)] hover:shadow-[0_8px_25px_rgba(234,59,95,0.4)] hover:scale-[1.05] w-full"
                   onClick={handleBookCall}
                 >
                   Jetzt Gespräch buchen
