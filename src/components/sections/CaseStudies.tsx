@@ -50,7 +50,7 @@ const CaseStudies = () => {
       logo: "Philly's",
       logoSrc: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png", // Updated Philly's logo
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
-      kpi: { value: 60, label: "K Reichweite in 4 Tagen" },
+      kpi: { value: 60, label: "Zielgerichtete Views in 4 Tagen" },
       size: "large"
     },
     {
