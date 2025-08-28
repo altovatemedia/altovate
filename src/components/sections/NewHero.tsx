@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Monitor, TrendingUp, Camera, Settings, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const NewHero = () => {
@@ -60,25 +60,69 @@ const NewHero = () => {
           <div className="relative">
             <div className="finom-card max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-6 items-center">
-                {/* Website mockup */}
-                <div className="bg-muted rounded-xl p-6 hover-lift">
-                  <div className="w-full h-32 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg mb-4"></div>
-                  <div className="text-foreground font-semibold">Premium Website</div>
-                  <div className="text-muted-foreground text-sm">Conversion-optimiert</div>
+                
+                {/* Premium Website */}
+                <div className="bg-[#F3F2F7] rounded-xl p-8 hover:shadow-[0_0_40px_rgba(234,59,95,0.2)] 
+                             transition-all duration-300 group animate-fade-in-up hover:-translate-y-1">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                      <div className="relative w-16 h-16 md:w-20 md:h-20">
+                        <Monitor 
+                          size={64} 
+                          className="text-[#EA3B5F] stroke-[1.5] group-hover:drop-shadow-[0_0_15px_rgba(234,59,95,0.5)]
+                                   transition-all duration-300" 
+                        />
+                        <TrendingUp 
+                          size={24} 
+                          className="absolute -top-2 -right-2 text-[#09002C] stroke-[2] 
+                                   group-hover:animate-bounce" 
+                        />
+                      </div>
+                    </div>
+                    <div className="text-[#09002C] font-bold text-lg mb-2">Premium Website</div>
+                    <div className="text-[#09002C]/70 text-sm">Conversion-optimiert</div>
+                  </div>
                 </div>
                 
-                {/* Content mockup */}
-                <div className="bg-muted rounded-xl p-6 hover-lift">
-                  <div className="w-full h-32 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg mb-4"></div>
-                  <div className="text-foreground font-semibold">Content Engine</div>
-                  <div className="text-muted-foreground text-sm">Videos & Fotos</div>
+                {/* Content Engine */}
+                <div className="bg-[#F3F2F7] rounded-xl p-8 hover:shadow-[0_0_40px_rgba(234,59,95,0.2)] 
+                             transition-all duration-300 group animate-fade-in-up hover:-translate-y-1"
+                     style={{ animationDelay: '0.1s' }}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                      <Camera 
+                        size={64} 
+                        className="text-[#EA3B5F] stroke-[1.5] group-hover:drop-shadow-[0_0_15px_rgba(234,59,95,0.5)]
+                                 transition-all duration-300 md:w-20 md:h-20" 
+                      />
+                    </div>
+                    <div className="text-[#09002C] font-bold text-lg mb-2">Content Engine</div>
+                    <div className="text-[#09002C]/70 text-sm">Videos & Fotos</div>
+                  </div>
                 </div>
                 
-                {/* Automation mockup */}
-                <div className="bg-muted rounded-xl p-6 hover-lift">
-                  <div className="w-full h-32 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg mb-4"></div>
-                  <div className="text-foreground font-semibold">Smart Automation</div>
-                  <div className="text-muted-foreground text-sm">KI-gestützt</div>
+                {/* Smart Automation */}
+                <div className="bg-[#F3F2F7] rounded-xl p-8 hover:shadow-[0_0_40px_rgba(234,59,95,0.2)] 
+                             transition-all duration-300 group animate-fade-in-up hover:-translate-y-1"
+                     style={{ animationDelay: '0.2s' }}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative mb-6 group-hover:scale-105 transition-transform duration-300">
+                      <div className="relative w-16 h-16 md:w-20 md:h-20">
+                        <Settings 
+                          size={64} 
+                          className="text-[#EA3B5F] stroke-[1.5] group-hover:drop-shadow-[0_0_15px_rgba(234,59,95,0.5)]
+                                   transition-all duration-300 group-hover:animate-spin-slow" 
+                        />
+                        <Zap 
+                          size={20} 
+                          className="absolute -top-1 -right-1 text-[#09002C] stroke-[2] fill-[#09002C]
+                                   group-hover:animate-pulse" 
+                        />
+                      </div>
+                    </div>
+                    <div className="text-[#09002C] font-bold text-lg mb-2">Smart Automation</div>
+                    <div className="text-[#09002C]/70 text-sm">KI-gestützt</div>
+                  </div>
                 </div>
               </div>
             </div>
