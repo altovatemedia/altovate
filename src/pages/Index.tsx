@@ -2,6 +2,8 @@ import FreebieBar from '@/components/sections/FreebieBar';
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
 import PainPoints from '@/components/sections/PainPoints';
+import SignatureOffer from '@/components/sections/SignatureOffer';
+import PricingToggle from '@/components/sections/PricingToggle';
 import Solution from '@/components/Solution';
 import Services from '@/components/Services';
 import Timeline from '@/components/Timeline';
@@ -20,6 +22,8 @@ const Index = () => {
       <NewNavigation />
       <NewHero />
       <PainPoints />
+      <SignatureOffer />
+      <PricingToggle />
       <Solution />
       <Services />
       <Timeline />

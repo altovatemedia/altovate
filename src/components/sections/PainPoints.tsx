@@ -47,18 +47,18 @@ const PainPoints = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white relative">
-      <div className="container mx-auto px-6 relative">
+    <section ref={sectionRef} className="py-section bg-white relative">
+      <div className="container mx-auto px-6 relative max-w-content">
         {/* Section header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-3 mb-8">
             <AlertTriangle className="w-8 h-8 text-red-500" />
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-900">
+            <h2 className="finom-h2">
               Das tut <span className="text-red-500">weh</span>
             </h2>
           </div>
           
-          <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="finom-lead max-w-3xl mx-auto">
             Du verlierst täglich Umsatz, Bewerber und Chancen – 
             <span className="text-primary font-semibold"> ohne es zu merken.</span>
           </p>
@@ -70,8 +70,7 @@ const PainPoints = () => {
             <div
               key={index}
               data-index={index}
-              className={`group relative bg-white border border-gray-200 rounded-3xl p-8 shadow-card
-                         transition-all duration-700 transform hover:shadow-hover hover:-translate-y-2
+              className={`group relative finom-card
                          ${visibleItems.includes(index) 
                            ? 'opacity-100 translate-y-0' 
                            : 'opacity-0 translate-y-12'}`}
@@ -84,11 +83,11 @@ const PainPoints = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="finom-h3 mb-4">
                   {point.title}
                 </h3>
                 
-                <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                <p className="finom-body text-muted-foreground mb-6">
                   {point.description}
                 </p>
 
@@ -106,14 +105,14 @@ const PainPoints = () => {
         {/* CTA */}
         <div className="text-center">
           <Button 
-            className="btn-hero text-2xl px-20 py-8"
+            className="btn-hero text-xl px-12 py-4"
             onClick={() => {
               const offerSection = document.getElementById('signature-offer');
               offerSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Zeit, das zu ändern
-            <ArrowRight className="ml-4 w-8 h-8" />
+            <ArrowRight className="ml-3 w-6 h-6" />
           </Button>
         </div>
       </div>
