@@ -102,7 +102,7 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-section bg-[#F9F9FB]">
+    <section ref={sectionRef} id="proof" className="py-section bg-[#F9F9FB]">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

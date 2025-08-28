@@ -102,7 +102,7 @@ const PricingToggle = () => {
   ];
 
   return (
-    <section className="py-section bg-muted/30">
+    <section id="pricing" className="py-section bg-muted/30">
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header with Toggle */}
         <div className="text-center mb-16">
