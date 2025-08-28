@@ -48,7 +48,7 @@ const CaseStudies = () => {
       id: 'phillys',
       title: "Philly's Burger",
       logo: "Philly's",
-      logoSrc: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png", // Philly's logo
+      logoSrc: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png", // Updated Philly's logo
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
       kpi: { value: 60, label: "K Reichweite in 4 Tagen" },
       size: "large"
@@ -90,7 +90,7 @@ const CaseStudies = () => {
   ];
 
   const logos = [
-    { name: "Philly's", src: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png" },
+    { name: "Philly's", src: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png" }, // Updated Philly's logo
     { name: "Circle Fitness", src: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png" },
     { name: "BAV Workflow", src: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png" },
     { name: "Ayler Kupp", src: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png" },
@@ -128,12 +128,12 @@ const CaseStudies = () => {
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-100 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center min-w-[100px]">
+                <div className="inline-block bg-gray-100 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
                     className="max-h-10 max-w-24 object-contain"
-                    style={{
+                    style={study.id === 'phillys' ? {} : {
                       filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
                     }}
                   />
