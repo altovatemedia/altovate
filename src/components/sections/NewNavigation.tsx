@@ -20,7 +20,7 @@ const NewNavigation = () => {
   const navItems = [
     { name: 'Lösungen', href: '#signature-offer' },
     { name: 'Case Studies', href: '#proof' },
-    { name: 'Preise', href: '#pricing' },
+    { name: 'Pakete & Preise', href: '#pricing' },
     { name: 'Über uns', href: '#about' },
   ];
 
