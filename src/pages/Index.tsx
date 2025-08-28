@@ -9,7 +9,7 @@ import Services from '@/components/Services';
 import Timeline from '@/components/Timeline';
 import NotFor from '@/components/NotFor';
 import FAQ from '@/components/FAQ';
-import Contact from '@/components/Contact';
+import ContactFunnel from '@/components/sections/ContactFunnel';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -29,7 +29,7 @@ const Index = () => {
       <Timeline />
       <NotFor />
       <FAQ />
-      <Contact />
+      <ContactFunnel />
       <Footer />
     </div>
   );
