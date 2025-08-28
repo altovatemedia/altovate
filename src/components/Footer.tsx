@@ -22,7 +22,7 @@ const Footer = () => {
               </p>
               <div className="flex space-x-3">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/company/altovatemedia/?viewAsMember=true" 
                   className="text-white/80 hover:text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] p-1.5 rounded-full"
                 >
                   <Linkedin size={20} strokeWidth={1.5} />
