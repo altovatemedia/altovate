@@ -189,7 +189,7 @@ const CaseStudies = () => {
         </div>
 
         {/* Logo Slider */}
-        <div className="bg-white rounded-2xl py-8 overflow-hidden">
+        <div className="bg-gray-50 rounded-2xl py-8 overflow-hidden border border-gray-100">
           <div className="logo-marquee">
             <div className="logo-track">
               {[...logos, ...logos].map((logo, index) => (
@@ -200,7 +200,8 @@ const CaseStudies = () => {
                   <img 
                     src={logo.src} 
                     alt={logo.name}
-                    className="max-h-12 max-w-32 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    className="max-h-12 max-w-32 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 filter brightness-0 saturate-100"
+                    style={{filter: 'brightness(0.4) saturate(1)'}}
                   />
                 </div>
               ))}
