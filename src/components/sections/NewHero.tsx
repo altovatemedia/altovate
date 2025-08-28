@@ -79,7 +79,7 @@ const NewHero = () => {
                       <div className="relative w-16 h-16 md:w-20 md:h-20">
                         <Monitor 
                           size={64} 
-                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg animate-glow-pulse" 
+                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg" 
                         />
                         <TrendingUp 
                           size={24} 
@@ -98,7 +98,7 @@ const NewHero = () => {
                     <div className="relative mb-6 group-hover:scale-110 transition-all duration-500">
                       <Camera 
                         size={64} 
-                        className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg animate-glow-pulse md:w-20 md:h-20" 
+                        className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg md:w-20 md:h-20" 
                       />
                     </div>
                     <div className="text-[#09002C] font-bold text-lg mb-2">Content Engine</div>
@@ -113,7 +113,7 @@ const NewHero = () => {
                       <div className="relative w-16 h-16 md:w-20 md:h-20">
                         <Settings 
                           size={64} 
-                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg animate-glow-pulse" 
+                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg" 
                         />
                         <Zap 
                           size={20} 
