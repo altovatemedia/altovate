@@ -75,7 +75,7 @@ const CaseStudies = () => {
       id: 'ayler',
       title: "WeinHotel Ayler Kupp",
       logo: "Ayler Kupp",
-      logoSrc: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png", // Ayler Kupp logo
+      logoSrc: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png", // Updated Ayler Kupp logo
       text: "Für das Weinhotel Ayler Kupp betreuen wir Social Media und Events. Durch kontinuierlichen Content & Event-Marketing steigerten wir die Reichweite im Saarland & Luxemburg – und füllten die Veranstaltungen.",
       size: "small"
     },
@@ -93,7 +93,7 @@ const CaseStudies = () => {
     { name: "Philly's", src: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png" }, // Updated Philly's logo
     { name: "Circle Fitness", src: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png" }, // Updated Circle logo
     { name: "BAV Workflow", src: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png" }, // Updated BAV logo
-    { name: "Ayler Kupp", src: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png" },
+    { name: "Ayler Kupp", src: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png" }, // Updated Ayler Kupp logo
     { name: "Papa Lu", src: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png" },
     { name: "Taza", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
     { name: "Brotchi", src: "/lovable-uploads/6170c901-73fe-4289-8501-d44012e34622.png" },
