@@ -83,7 +83,7 @@ const CaseStudies = () => {
       id: 'brotchi',
       title: "Brotchi",
       logo: "Brotchi",
-      logoSrc: "/lovable-uploads/6170c901-73fe-4289-8501-d44012e34622.png", // Brotchi logo
+      logoSrc: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png", // Updated Brotchi logo
       text: "Mit einem neuen Gastro-Konzept, modernem Branding und authentischem Storytelling haben wir Brotchi von Grund auf aufgebaut. Ergebnis: klare Markenidentität, starke Wiedererkennung und ein erfolgreicher Launch im hart umkämpften Food-Markt.",
       size: "small"
     }
@@ -94,9 +94,8 @@ const CaseStudies = () => {
     { name: "Circle Fitness", src: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png" }, // Updated Circle logo
     { name: "BAV Workflow", src: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png" }, // Updated BAV logo
     { name: "Ayler Kupp", src: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png" }, // Updated Ayler Kupp logo
-    { name: "Papa Lu", src: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png" },
+    { name: "Brotchi", src: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png" }, // Updated Brotchi logo
     { name: "Taza", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
-    { name: "Brotchi", src: "/lovable-uploads/6170c901-73fe-4289-8501-d44012e34622.png" },
     { name: "SG Hochwald", src: "/lovable-uploads/3c245c78-a67c-4767-80b3-8787c63e8cca.png" },
     { name: "LumaVision", src: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png" },
     { name: "Zec+", src: "/lovable-uploads/6f42872a-3902-411d-8ec7-91f5166a2f41.png" }
