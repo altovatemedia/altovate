@@ -76,23 +76,25 @@ const PainPoints = () => {
                            : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 {/* Icon */}
                 <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-card">
                   <point.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="finom-h3 mb-4">
-                  {point.title}
-                </h3>
-                
-                <p className="finom-body text-muted-foreground mb-6">
-                  {point.description}
-                </p>
+                <div className="flex-grow">
+                  <h3 className="finom-h3 mb-4">
+                    {point.title}
+                  </h3>
+                  
+                  <p className="finom-body text-muted-foreground mb-6">
+                    {point.description}
+                  </p>
+                </div>
 
                 {/* Impact */}
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-auto">
                   <p className="text-red-600 font-semibold text-sm">
                     💸 {point.impact}
                   </p>
