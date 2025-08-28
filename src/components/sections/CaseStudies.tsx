@@ -128,7 +128,7 @@ const CaseStudies = () => {
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-white p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center">
+                <div className="inline-block bg-gray-50 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
@@ -176,7 +176,7 @@ const CaseStudies = () => {
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-white p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center">
+                <div className="inline-block bg-gray-50 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
