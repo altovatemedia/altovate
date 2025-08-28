@@ -217,11 +217,6 @@ const CaseStudies = () => {
                   />
                 </div>
 
-                <div className="w-full h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-4 
-                              flex items-center justify-center text-gray-400 text-xs">
-                  Case Study Image
-                </div>
-
                 <div className="space-y-3">
                   <h3 className="text-lg font-bold text-[#09002C]">{study.title}</h3>
                   
