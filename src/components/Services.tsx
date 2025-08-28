@@ -3,7 +3,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 const Packages = () => {
   const packages = [{
     icon: Star,
-    title: "Der Markenmagnet",
+    title: "Die visibility engine",
     price: "5.500 €",
     subline: "Dein komplettes Marken-Makeover – Website, Ads, Content, Funnel & Automatisierung. Damit Kunden & Bewerber dich sehen. Und wollen.",
     description: ["High-End Website inkl. Copy & CI", "Social Media Grundstruktur & 12 Posts", "Contentshooting (Foto & Video)", "Bewerber- oder Verkaufsfunnel", "Meta & Google Ads inkl. Creatives", "Automatisierter Chat- & Mailflow", "Mitarbeiterbenefits inkl. Integration", "Performance-Tracking + Erfolgsauswertung"],

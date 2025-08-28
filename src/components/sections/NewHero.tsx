@@ -27,7 +27,7 @@ const NewHero = () => {
 
           {/* Subheadline */}
           <p className="finom-lead mb-16 max-w-4xl mx-auto">
-            <span className="text-primary font-semibold">Der Markenmagnet:</span> Dein komplettes Marketing-System für 5.000 € –<br />
+            <span className="text-primary font-semibold">Die visibility engine:</span> Dein komplettes Marketing-System für 5.000 € –<br />
             Website, Content, Ads & Automatisierung.
           </p>
 

@@ -31,7 +31,7 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "Der Markenmagnet",
+      title: "Die visibility engine",
       price: "5.000 €",
       isHighlight: true,
       features: [

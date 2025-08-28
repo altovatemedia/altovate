@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 const SignatureOffer = () => {
   const mainOffer = {
-    title: "Der Markenmagnet",
+    title: "Die visibility engine",
     price: "5.000 €",
     subtitle: "Fixpreis – alles inklusive",
     features: [
@@ -110,7 +110,7 @@ const SignatureOffer = () => {
         {/* Modules Grid */}
         <div className="mb-12">
           <h3 className="finom-h3 text-center mb-4">
-            Einzelmodule – separat buchbar, im Markenmagnet-Paket inklusive
+            Einzelmodule – separat buchbar, im visibility engine-Paket inklusive
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -140,7 +140,7 @@ const SignatureOffer = () => {
                 
                 {/* Hover Badge */}
                 <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  Im Markenmagnet enthalten
+                  In visibility engine enthalten
                 </div>
                 
                 <div className="space-y-2 mt-4">
@@ -164,7 +164,7 @@ const SignatureOffer = () => {
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Kostenlos im Markenmagnet enthalten – jetzt starten
+            Kostenlos in visibility engine enthalten – jetzt starten
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <p className="text-sm text-muted-foreground">
