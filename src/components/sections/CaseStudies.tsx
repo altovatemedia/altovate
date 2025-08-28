@@ -48,6 +48,7 @@ const CaseStudies = () => {
       id: 'phillys',
       title: "Philly's Burger",
       logo: "Philly's",
+      logoSrc: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png",
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
       kpi: { value: 60, label: "K Reichweite in 4 Tagen" },
       size: "large"
@@ -56,6 +57,7 @@ const CaseStudies = () => {
       id: 'circle',
       title: "Circle Fitness",
       logo: "Circle Fitness",
+      logoSrc: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png",
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
       kpi: { value: 45, label: "+ Bewerbungen über Social Media" },
       size: "large"
@@ -64,6 +66,7 @@ const CaseStudies = () => {
       id: 'bav',
       title: "BAV Workflow",
       logo: "BAV Workflow",
+      logoSrc: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png",
       text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
       kpi: { value: 120, label: "+ Leads pro Monat" },
       size: "large"
@@ -72,13 +75,15 @@ const CaseStudies = () => {
       id: 'ayler',
       title: "Ayler Kupp",
       logo: "Ayler Kupp",
+      logoSrc: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png",
       text: "Für das Weinhotel Ayler Kupp betreuen wir Social Media und Events. Durch kontinuierlichen Content & Event-Marketing steigerten wir die Reichweite im Saarland & Luxemburg – und füllten die Veranstaltungen.",
       size: "small"
     },
     {
       id: 'papalu',
       title: "Papa Lu",
-      logo: "Papa Lu", 
+      logo: "Papa Lu",
+      logoSrc: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png",
       text: "Mit emotionalem Content, Reels und Storytelling haben wir Papa Lu als Place-to-be in Trier positioniert. Ergebnis: virale Posts, volle Tische und eine treue Stammkundschaft.",
       size: "small"
     }
@@ -123,8 +128,12 @@ const CaseStudies = () => {
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-50 px-4 py-2 rounded-full text-sm font-medium text-[#09002C] mb-6">
-                  {study.logo}
+                <div className="inline-block bg-white p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center">
+                  <img 
+                    src={study.logoSrc} 
+                    alt={study.logo}
+                    className="max-h-10 max-w-24 object-contain"
+                  />
                 </div>
 
                 {/* Mock Image Placeholder */}
@@ -167,8 +176,12 @@ const CaseStudies = () => {
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-50 px-3 py-1.5 rounded-full text-xs font-medium text-[#09002C] mb-4">
-                  {study.logo}
+                <div className="inline-block bg-white p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center">
+                  <img 
+                    src={study.logoSrc} 
+                    alt={study.logo}
+                    className="max-h-8 max-w-20 object-contain"
+                  />
                 </div>
 
                 <div className="w-full h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-4 
