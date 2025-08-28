@@ -99,7 +99,13 @@ const SignatureOffer = () => {
               <div className="text-4xl font-bold text-foreground mb-2">
                 {mainOffer.price}
               </div>
-              <Button className="btn-hero text-lg px-8 py-4">
+              <Button 
+                className="btn-hero text-lg px-8 py-4"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Jetzt starten
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

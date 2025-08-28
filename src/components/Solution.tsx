@@ -37,7 +37,13 @@ const Solution = () => {
           </div>
 
           {/* CTA */}
-          <Button className="btn-hero group text-xl">
+          <Button 
+            className="btn-hero group text-xl"
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              contactSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Jetzt Erstgespräch buchen
             <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
           </Button>
