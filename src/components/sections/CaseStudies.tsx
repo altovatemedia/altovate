@@ -59,7 +59,7 @@ const CaseStudies = () => {
       logo: "Circle Fitness",
       logoSrc: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png", // Updated Circle logo
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
-      kpi: { value: 200, label: "+ Leads pro Kampagne" },
+      kpi: { value: 200, label: "Leads pro Kampagne", prefix: "+" },
       size: "large"
     },
     {
@@ -155,18 +155,19 @@ const CaseStudies = () => {
                   {/* KPI Highlight */}
                   {study.kpi && (
                     <div className="pt-4 border-t border-gray-100">
-                      <div className="text-2xl font-bold text-[#EA3B5F]">
-                        {study.kpi.text ? (
-                          study.kpi.text
-                        ) : (
-                          <>
-                            <span data-count={study.kpi.value} data-key={study.id}>
-                              {counters[study.id] || 0}
-                            </span>
-                            {study.kpi.value >= 1000 ? 'K' : ''}
-                          </>
-                        )}
-                      </div>
+                       <div className="text-2xl font-bold text-[#EA3B5F]">
+                         {study.kpi.text ? (
+                           study.kpi.text
+                         ) : (
+                           <>
+                             {study.kpi.prefix && study.kpi.prefix}
+                             <span data-count={study.kpi.value} data-key={study.id}>
+                               {counters[study.id] || 0}
+                             </span>
+                             {study.kpi.value >= 1000 ? 'K' : ''}
+                           </>
+                         )}
+                       </div>
                       <div className="text-sm text-[#09002C]/50">{study.kpi.label}</div>
                     </div>
                   )}
