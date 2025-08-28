@@ -36,7 +36,7 @@ export default {
 				'section-mobile': '3rem',
 			},
 			colors: {
-				border: 'hsl(var(--border))',
+				border: 'hsl(var(--border-hsl))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
