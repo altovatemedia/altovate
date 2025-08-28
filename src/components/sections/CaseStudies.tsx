@@ -128,11 +128,14 @@ const CaseStudies = () => {
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-50 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center min-w-[100px]">
+                <div className="inline-block bg-gray-100 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
                     className="max-h-10 max-w-24 object-contain"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
+                    }}
                   />
                 </div>
 
@@ -176,11 +179,14 @@ const CaseStudies = () => {
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-50 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center min-w-[80px]">
+                <div className="inline-block bg-gray-100 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
                     className="max-h-8 max-w-20 object-contain"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
+                    }}
                   />
                 </div>
 
@@ -213,8 +219,10 @@ const CaseStudies = () => {
                   <img 
                     src={logo.src} 
                     alt={logo.name}
-                    className="max-h-12 max-w-32 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300 filter brightness-0 saturate-100"
-                    style={{filter: 'brightness(0.4) saturate(1)'}}
+                    className="max-h-12 max-w-32 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      filter: 'brightness(0) saturate(100%) invert(25%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
+                    }}
                   />
                 </div>
               ))}
