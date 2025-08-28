@@ -354,19 +354,19 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
               </div>
               
               {/* Visual Element */}
-              <div className="bg-bg-soft rounded-xl p-6 border border-border">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-2xl font-bold text-primary">92%</div>
-                    <div className="text-sm text-text-muted">Erfolgsrate</div>
+               <div className="bg-bg-soft rounded-xl p-6 border border-border">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium text-text">100 % transparente Kosten – keine versteckten Gebühren</span>
                   </div>
-                  <div>
-                    <div className="text-2xl font-bold text-text">30</div>
-                    <div className="text-sm text-text-muted">Tage bis Erfolg</div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium text-text">30 Tage bis zu sichtbaren Ergebnissen</span>
                   </div>
-                  <div>
-                    <div className="text-2xl font-bold text-text">5.000€</div>
-                    <div className="text-sm text-text-muted">Fixpreis</div>
+                  <div className="flex items-center space-x-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium text-text">Fixpreis-Garantie: 5.000 €</span>
                   </div>
                 </div>
               </div>

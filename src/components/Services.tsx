@@ -39,6 +39,11 @@ const Packages = () => {
     subline: "Mitarbeiter wollen mehr als Obstkorb & Floskeln. Wir zeigen dir, was wirklich wirkt – und helfen dir, es richtig zu kommunizieren.",
     description: ["Analyse: Welche Benefits lohnen sich wirklich – für dich und deine Mitarbeiter?", "Vorstellung bewährter Lösungen von Branchenexperten für Fitness & Vorsorge", "Vermittlung des direkten Kontakts für Umsetzung & Fördermöglichkeiten", "Erstellung deiner Benefit-Kommunikation (Website, Social Media, Stellenanzeigen)", "Aufbau einer Benefits-Seite für deine Mitarbeiter (klar, digital, ansprechend)", "Integration in deinen Recruiting-Auftritt – sichtbar, greifbar, spürbar"]
   }];
-  return;
+  
+  return (
+    <div>
+      {/* Add proper Services component JSX here when needed */}
+    </div>
+  );
 };
 export default Packages;
