@@ -42,22 +42,17 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 <li>
                   <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300 text-sm">
-                    Über uns
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300 text-sm">
-                    Case Studies
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300 text-sm">
                     Preise
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300 text-sm">
-                    Blog
+                    Karriere
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white hover:underline transition-all duration-300 text-sm">
+                    Partner
                   </a>
                 </li>
               </ul>
