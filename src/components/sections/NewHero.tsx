@@ -52,7 +52,7 @@ const NewHero = () => {
               }}
             >
               <Play className="mr-3 w-5 h-5" />
-              Kostenlosen Marken-Check starten
+              Kostenloser Sichtbarkeits-Check
             </Button>
           </div>
 
