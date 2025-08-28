@@ -10,45 +10,50 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Was kostet das wirklich?",
-      answer: "Die Preise siehst du oben. Keine versteckten Kosten, keine Überraschungen. Du zahlst für Ergebnisse, nicht für Experimente."
+      answer: "Wir arbeiten transparent mit Fixpreisen – keine versteckten Kosten, keine bösen Überraschungen. Unser Signature Offer startet bei 5.000 € und umfasst alle Bausteine, die du für sichtbares Wachstum brauchst."
     },
     {
       question: "Muss ich was liefern?",
-      answer: "Nur deine Zeit für ein Gespräch und Zugang zu deinen bestehenden Accounts. Den Rest machen wir."
+      answer: "Nein – wir übernehmen Content, Texte, Design und Umsetzung. Alles was wir brauchen, sind ein paar Basisinfos zu deinem Unternehmen. Den Rest erledigen wir – damit du dich auf dein Business konzentrieren kannst."
     },
     {
       question: "Was, wenn ich schon eine Website habe?",
-      answer: "Gut! Dann schauen wir, ob sie noch zu retten ist oder ob ein Neustart schneller geht. Manchmal ist weniger mehr."
+      answer: "Perfekt! Wir prüfen, ob ein kompletter Refresh sinnvoll ist oder ob wir deine bestehende Website gezielt optimieren. Ziel ist immer: maximale Performance und Sichtbarkeit – ohne unnötige Doppelarbeit."
     },
     {
       question: "Wie lange dauert es?",
-      answer: "30 Tage für das Sichtbarkeitspaket. Einzelne Services je nach Umfang 7-14 Tage. Wir arbeiten in Sprints, nicht in Jahren."
+      answer: "In der Regel siehst du erste Ergebnisse nach 30 Tagen. Je nach Projektumfang planen wir für den kompletten Setup etwa 4–6 Wochen ein. Danach läuft das System so, dass es dir kontinuierlich Anfragen bringt."
     },
     {
       question: "Was unterscheidet euch von klassischen Agenturen?",
-      answer: "Wir labern nicht rum. Keine 50-seitigen Konzepte. Keine Meetings über Meetings. Wir machen einfach und zeigen dir die Ergebnisse."
+      answer: "Wir arbeiten ganzheitlich, lean und KI-gestützt – kein Stundensatz-Geschacher, keine langen Abstimmungen. Stattdessen bekommst du ein fertiges System, das Leads, Bewerber und Sichtbarkeit liefert. Schnell, messbar und nachhaltig."
     }
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-[#F9F9FB]">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-black text-center mb-16">
-            Noch <span className="text-primary">Fragen?</span>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 text-[#09002C]">
+            Noch <span className="text-[#EA3B5F]">Fragen?</span>
           </h2>
 
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <Accordion type="single" collapsible className="w-full space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bold-card px-6"
+                className="bg-white rounded-2xl shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
+                         hover:shadow-[0_16px_40px_rgba(234,59,95,0.15)] transition-all duration-300 
+                         border-0 overflow-hidden"
               >
-                <AccordionTrigger className="text-left text-lg font-bold text-foreground hover:text-primary transition-colors">
+                <AccordionTrigger className="text-left text-lg font-bold text-[#09002C] 
+                                           hover:text-[#EA3B5F] transition-colors px-8 py-6 
+                                           hover:no-underline [&[data-state=open]]:text-[#EA3B5F]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pt-2 pb-4">
+                <AccordionContent className="text-[#09002C]/80 text-base leading-relaxed 
+                                          px-8 pb-6 pt-0">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
