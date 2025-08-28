@@ -20,7 +20,7 @@ const NewNavigation = () => {
   const navItems = [
     { name: 'Lösungen', href: '#signature-offer' },
     { name: 'Case Studies', href: '#proof' },
-    { name: 'Preise', href: '#pricing' },
+    { name: 'Preis', href: '#pricing' },
   ];
 
   const handleNavClick = (href: string) => {
