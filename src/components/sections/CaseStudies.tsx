@@ -48,7 +48,7 @@ const CaseStudies = () => {
       id: 'phillys',
       title: "Philly's Burger",
       logo: "Philly's",
-      logoSrc: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png",
+      logoSrc: "/lovable-uploads/1dfc1837-d891-4f00-8a99-b470a18f8c22.png", // Philly's logo
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
       kpi: { value: 60, label: "K Reichweite in 4 Tagen" },
       size: "large"
@@ -57,7 +57,7 @@ const CaseStudies = () => {
       id: 'circle',
       title: "Circle Fitness",
       logo: "Circle Fitness",
-      logoSrc: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png",
+      logoSrc: "/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png", // Circle logo
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
       kpi: { value: 45, label: "+ Bewerbungen über Social Media" },
       size: "large"
@@ -66,16 +66,16 @@ const CaseStudies = () => {
       id: 'bav',
       title: "BAV Workflow",
       logo: "BAV Workflow",
-      logoSrc: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png",
+      logoSrc: "/lovable-uploads/622edf06-f09d-4402-aad2-4c6cd71f5d38.png", // BAV logo
       text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
       kpi: { value: 120, label: "+ Leads pro Monat" },
       size: "large"
     },
     {
       id: 'ayler',
-      title: "Ayler Kupp",
+      title: "WeinHotel Ayler Kupp",
       logo: "Ayler Kupp",
-      logoSrc: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png",
+      logoSrc: "/lovable-uploads/cfb87799-77a5-491a-a644-2d96c9083d51.png", // Ayler Kupp logo
       text: "Für das Weinhotel Ayler Kupp betreuen wir Social Media und Events. Durch kontinuierlichen Content & Event-Marketing steigerten wir die Reichweite im Saarland & Luxemburg – und füllten die Veranstaltungen.",
       size: "small"
     },
@@ -83,7 +83,7 @@ const CaseStudies = () => {
       id: 'papalu',
       title: "Papa Lu",
       logo: "Papa Lu",
-      logoSrc: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png",
+      logoSrc: "/lovable-uploads/fa359646-130f-445d-be03-03a2d12222d5.png", // Papa Lu logo
       text: "Mit emotionalem Content, Reels und Storytelling haben wir Papa Lu als Place-to-be in Trier positioniert. Ergebnis: virale Posts, volle Tische und eine treue Stammkundschaft.",
       size: "small"
     }
