@@ -59,7 +59,7 @@ const CaseStudies = () => {
       logo: "Circle Fitness",
       logoSrc: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png", // Updated Circle logo
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
-      kpi: { value: 45, label: "+ Bewerbungen über Social Media" },
+      kpi: { value: 200, label: "+ Leads pro Kampagne" },
       size: "large"
     },
     {
@@ -68,7 +68,7 @@ const CaseStudies = () => {
       logo: "BAV Workflow",
       logoSrc: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png", // Updated BAV logo
       text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
-      kpi: { value: 200, label: "+ Leads pro Kampagne" },
+      kpi: { text: "Komplexe Themen", label: "einfach erklärt" },
       size: "large"
     },
     {
@@ -156,10 +156,16 @@ const CaseStudies = () => {
                   {study.kpi && (
                     <div className="pt-4 border-t border-gray-100">
                       <div className="text-2xl font-bold text-[#EA3B5F]">
-                        <span data-count={study.kpi.value} data-key={study.id}>
-                          {counters[study.id] || 0}
-                        </span>
-                        {study.kpi.value >= 1000 ? 'K' : study.kpi.label.includes('K') ? 'K' : ''}
+                        {study.kpi.text ? (
+                          study.kpi.text
+                        ) : (
+                          <>
+                            <span data-count={study.kpi.value} data-key={study.id}>
+                              {counters[study.id] || 0}
+                            </span>
+                            {study.kpi.value >= 1000 ? 'K' : ''}
+                          </>
+                        )}
                       </div>
                       <div className="text-sm text-[#09002C]/50">{study.kpi.label}</div>
                     </div>
