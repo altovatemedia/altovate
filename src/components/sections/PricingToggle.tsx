@@ -156,7 +156,7 @@ const PricingToggle = () => {
               >
                 {offer.isHighlight && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold">
+                    <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">
                       Beliebteste Wahl
                     </span>
                   </div>
