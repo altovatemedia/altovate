@@ -88,7 +88,7 @@ const Footer = () => {
               <a href="#" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
                 Impressum
               </a>
-              <a href="#" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
+              <a href="/datenschutz" className="text-white/70 hover:text-white hover:underline transition-all duration-300 text-xs">
                 Datenschutz
               </a>
             </div>
