@@ -18,31 +18,14 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
-			},
-			fontSize: {
-				'finom-h1': ['4.5rem', { lineHeight: '1.05', fontWeight: '800' }],
-				'finom-h2': ['3rem', { lineHeight: '1.1', fontWeight: '800' }],
-				'finom-h3': ['2rem', { lineHeight: '1.2', fontWeight: '700' }],
-				'finom-lead': ['1.375rem', { lineHeight: '1.5', fontWeight: '500' }],
-				'finom-body': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],
-			},
-			maxWidth: {
-				'content': '1160px',
-			},
-			spacing: {
-				'section': '6rem',
-				'section-mobile': '3rem',
-			},
 			colors: {
-				border: 'hsl(var(--border-hsl))',
+				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary-hsl))',
+					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -69,36 +52,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				
-				// Theme-aware semantic tokens
-				'theme-bg': 'hsl(var(--bg))',
-				'theme-surface': 'hsl(var(--surface))',
-				'theme-soft': 'hsl(var(--bg-soft))',
-				'theme-text': 'hsl(var(--text))',
-				'theme-muted': 'hsl(var(--text-muted))',
-				'theme-border': 'hsl(var(--border))',
-				'primary-ghost': 'hsl(var(--primary-ghost) / 0.08)',
-				'primary-ghost-dark': 'hsl(var(--primary-ghost) / 0.16)',
-				success: 'hsl(var(--success))',
-				
-				// Custom brand colors  
-				magenta: {
-					50: '#fef2f4',
-					100: '#fde6ea', 
-					200: '#fbd0d9',
-					300: '#f7aab8',
-					400: '#f17a92',
-					500: 'hsl(var(--primary-hsl))', // #EA3B5F
-					600: '#d31e47',
-					700: '#b11639',
-					800: '#951536',
-					900: '#801433',
-					DEFAULT: 'hsl(var(--primary-hsl))',
-					dark: 'hsl(var(--primary-hsl))',
-					light: 'hsl(var(--primary-hsl))'
-				},
-				
-				// Sidebar colors
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

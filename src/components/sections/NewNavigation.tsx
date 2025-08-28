@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from '@/components/ui/theme-toggle';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,16 +35,16 @@ const NewNavigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 bg-theme-surface border-b border-theme-border transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 transition-all duration-300 ${
       isScrolled 
-        ? 'backdrop-blur-xl shadow-[var(--elev-1)]' 
+        ? 'backdrop-blur-xl shadow-lg' 
         : ''
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-theme-text">
+            <span className="text-xl font-bold text-gray-900">
               Altovate
             </span>
           </div>
@@ -56,7 +55,7 @@ const NewNavigation = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="nav-link"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-300"
               >
                 {item.name}
               </button>
@@ -65,9 +64,8 @@ const NewNavigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
             <Button 
-              className="btn-hero px-6 py-3"
+              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full"
               onClick={handleBookCall}
             >
               Jetzt Gespräch buchen
@@ -75,10 +73,9 @@ const NewNavigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
+          <div className="md:hidden flex items-center">
             <button
-              className="p-2 text-theme-muted hover:text-theme-text transition-colors duration-300"
+              className="p-2 text-gray-500 hover:text-gray-900 transition-colors duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,20 +85,20 @@ const NewNavigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-theme-border bg-theme-surface">
+          <div className="md:hidden border-t border-gray-200 bg-white">
             <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-3 text-theme-text hover:text-primary font-medium transition-colors duration-300"
+                  className="block w-full text-left px-3 py-3 text-gray-700 hover:text-primary font-medium transition-colors duration-300"
                 >
                   {item.name}
                 </button>
               ))}
               <div className="pt-4">
                 <Button 
-                  className="btn-hero w-full px-6 py-3"
+                  className="bg-primary hover:bg-primary/90 text-white w-full px-6 py-3 rounded-full"
                   onClick={handleBookCall}
                 >
                   Jetzt Gespräch buchen

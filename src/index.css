@@ -2,57 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Altovate Design System - Complete Light/Dark Theme
- * Theme switching via data-theme="light|dark" on <html>
- */
+/* Altovate Design System - Light Theme Only */
 
 @layer base {
-  :root,
-  [data-theme="light"] {
-    /* Light Theme Design Tokens */
-    --bg: 255 255 255;                        /* #FFFFFF */
-    --bg-soft: 243 242 247;                   /* #F3F2F7 */
-    --surface: 255 255 255;                   /* #FFFFFF */
-    --text: 9 0 44;                           /* #09002C */
-    --text-muted: 75 71 101;                  /* #4B4765 */
-    --border: 230 228 238;                    /* #E6E4EE */
-    --primary: 234 59 95;                     /* #EA3B5F */
-    --primary-ghost: 234 59 95;               /* #EA3B5F with opacity */
-    --shadow: 0 8px 30px rgba(9, 0, 44, 0.06);
-
-    /* Shadcn compatibility */
-    --background: var(--bg);
-    --foreground: var(--text);
-    --card: var(--surface);
-    --card-foreground: var(--text);
-    --popover: var(--surface);
-    --popover-foreground: var(--text);
-    --primary-hsl: var(--primary);
-    --primary-foreground: 255 255 255;
-    --secondary: var(--bg-soft);
-    --secondary-foreground: var(--text);
-    --muted: var(--bg-soft);
-    --muted-foreground: var(--text-muted);
-    --accent: var(--bg-soft);
-    --accent-foreground: var(--text);
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 255 255 255;
-    --border-hsl: var(--border);
-    --input: var(--border);
-    --ring: var(--primary);
-
-    /* Success color (same in both themes) */
-    --success: 11 163 127;                    /* #0BA37F */
-
-    /* Global design tokens */
-    --radius: 16px;
-    --radius-pill: 9999px;
-    --elev-1: var(--shadow);
-    --dur: 220ms;
-    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  :root {
+    /* Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 349 75% 57%; /* #EA3B5F */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 349 75% 57%;
     
-    /* Chart colors */
+    /* Success color */
+    --success: 11 163 127;
+    
+    /* Global design tokens */
+    --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -60,64 +39,20 @@
     --chart-5: 27 87% 67%;
 
     /* Sidebar */
-    --sidebar-background: var(--surface);
-    --sidebar-foreground: var(--text);
-    --sidebar-primary: var(--primary);
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: var(--bg-soft);
-    --sidebar-accent-foreground: var(--text);
-    --sidebar-border: var(--border);
-    --sidebar-ring: var(--primary);
-  }
-
-  [data-theme="dark"] {
-    /* Dark Theme Design Tokens */
-    --bg: 11 10 18;                           /* #0B0A12 */
-    --bg-soft: 18 16 28;                      /* #12101C */
-    --surface: 19 18 34;                      /* #131222 */
-    --text: 243 242 247;                      /* #F3F2F7 */
-    --text-muted: 185 182 200;                /* #B9B6C8 */
-    --border: 43 41 64;                       /* #2B2940 */
-    --primary: 234 59 95;                     /* #EA3B5F */
-    --primary-ghost: 234 59 95;               /* #EA3B5F with opacity */
-    --shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-
-    /* Shadcn compatibility for dark */
-    --background: var(--bg);
-    --foreground: var(--text);
-    --card: var(--surface);
-    --card-foreground: var(--text);
-    --popover: var(--surface);
-    --popover-foreground: var(--text);
-    --primary-hsl: var(--primary);
-    --primary-foreground: 255 255 255;
-    --secondary: var(--bg-soft);
-    --secondary-foreground: var(--text);
-    --muted: var(--bg-soft);
-    --muted-foreground: var(--text-muted);
-    --accent: var(--bg-soft);
-    --accent-foreground: var(--text);
-    --destructive: 0 63% 31%;
-    --destructive-foreground: var(--text);
-    --border-hsl: var(--border);
-    --input: var(--border);
-    --ring: var(--primary);
-
-    /* Sidebar dark */
-    --sidebar-background: var(--surface);
-    --sidebar-foreground: var(--text);
-    --sidebar-primary: var(--primary);
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: var(--bg-soft);
-    --sidebar-accent-foreground: var(--text);
-    --sidebar-border: var(--border);
-    --sidebar-ring: var(--primary);
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 349 75% 57%;
+    --sidebar-primary-foreground: 355.7 100% 97.3%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border-hsl;
+    @apply border-border;
   }
   
   html {
@@ -126,187 +61,11 @@
   
   body {
     @apply bg-background text-foreground;
-    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
 }
 
 @layer components {
-  /* Theme-aware semantic utility classes */
-  .bg-theme-bg { background-color: hsl(var(--bg)); }
-  .bg-theme-surface { background-color: hsl(var(--surface)); }
-  .bg-theme-soft { background-color: hsl(var(--bg-soft)); }
-  .text-theme { color: hsl(var(--text)); }
-  .text-theme-muted { color: hsl(var(--text-muted)); }
-  .border-theme { border-color: hsl(var(--border)); }
-  .bg-primary-ghost { background-color: hsl(var(--primary-ghost) / 0.08); }
-  .bg-primary-ghost-dark { background-color: hsl(var(--primary-ghost) / 0.16); }
-
-  /* Typography Scale */
-  .finom-h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-theme;
-  }
-  
-  .finom-h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-theme;
-  }
-  
-  .finom-h3 {
-    @apply text-2xl md:text-3xl font-bold leading-tight tracking-tight text-theme;
-  }
-  
-  .finom-h4 {
-    @apply text-xl md:text-2xl font-semibold leading-tight tracking-tight text-theme;
-  }
-  
-  .finom-lead {
-    @apply text-lg md:text-xl leading-relaxed text-theme-muted;
-  }
-  
-  .finom-body {
-    @apply text-base leading-relaxed text-theme;
-  }
-
-  /* Layout Components */
-  .py-section {
-    @apply py-16 md:py-20 lg:py-24;
-  }
-  
   .container {
-    @apply mx-auto px-6 max-w-7xl;
-  }
-  
-  .max-w-content {
-    @apply max-w-6xl;
-  }
-
-  /* Card Components */
-  .finom-card {
-    @apply bg-theme-surface border border-theme rounded-[var(--radius)] p-6 shadow-[var(--elev-1)];
-    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-  }
-  
-  .highlight-card {
-    @apply bg-theme-surface border border-theme rounded-[var(--radius)] p-8 shadow-[var(--elev-1)];
-    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-  }
-  
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--elev-1);
-  }
-
-  /* Button Variants */
-  .btn-hero {
-    @apply bg-primary text-white border-0 rounded-[var(--radius-pill)] font-bold;
-    background: linear-gradient(90deg, hsl(var(--primary)) 0%, #C81F41 100%);
-    box-shadow: 0 8px 22px hsl(var(--primary) / 0.28);
-    transition: all var(--dur) var(--ease);
-  }
-  
-  .btn-hero:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 28px hsl(var(--primary) / 0.35);
-  }
-  
-  .btn-secondary {
-    @apply bg-transparent text-theme border-2 border-theme rounded-[var(--radius)] font-semibold;
-    transition: all var(--dur) var(--ease);
-  }
-  
-  .btn-secondary:hover {
-    @apply bg-primary-ghost text-theme;
-  }
-
-  /* Badge Components */
-  .glass-badge {
-    @apply px-4 py-2 rounded-[var(--radius-pill)] text-sm font-bold bg-primary-ghost backdrop-blur-lg border border-theme;
-    background: hsl(var(--primary-ghost) / 0.08);
-    backdrop-filter: blur(8px);
-    transition: all var(--dur) var(--ease);
-  }
-  
-  [data-theme="dark"] .glass-badge {
-    background: hsl(var(--primary-ghost) / 0.16);
-  }
-
-  /* Navigation Glow Effect */
-  .nav-link {
-    @apply relative text-theme font-medium;
-    transition: color var(--dur) var(--ease);
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.35) 50%, transparent 100%);
-    filter: blur(6px);
-    opacity: 0;
-    transition: opacity var(--dur) var(--ease);
-  }
-  
-  .nav-link:hover::after {
-    opacity: 1;
-    box-shadow: 0 6px 18px hsl(var(--primary) / 0.25);
-  }
-
-  /* Scroll Reveal Animation */
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
-  
-  .scroll-reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Reduce Motion Support */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-    
-    .scroll-reveal {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-
-  /* Theme Toggle */
-  .theme-toggle {
-    @apply w-10 h-10 rounded-full bg-theme-soft border border-theme flex items-center justify-center text-theme-muted hover:text-theme hover:bg-primary-ghost;
-    transition: all var(--dur) var(--ease);
-  }
-  
-  .theme-toggle[aria-pressed="true"] {
-    @apply bg-primary text-white;
-  }
-
-  /* Form Focus States */
-  .form-input:focus,
-  .form-textarea:focus,
-  .form-select:focus {
-    @apply outline-none;
-    border: 2px solid hsl(var(--primary));
-    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
-  }
-
-  /* Success Color (consistent across themes) */
-  .text-success {
-    color: hsl(var(--success));
-  }
-  
-  .bg-success {
-    background-color: hsl(var(--success));
+    @apply mx-auto w-full max-w-screen-xl px-2.5 md:px-20;
   }
 }
