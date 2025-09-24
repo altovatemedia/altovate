@@ -50,7 +50,7 @@ const CaseStudies = () => {
       logo: "Philly's",
       logoSrc: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png", // Updated Philly's logo
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
-      kpi: { value: 60, label: "Zielgerichtete Views in 4 Tagen" },
+      kpi: { value: 60000, label: "Zielgerichtete Views in 4 Tagen" },
       size: "large"
     },
     {
@@ -182,10 +182,12 @@ const CaseStudies = () => {
                          ) : (
                            <>
                              {study.kpi.prefix && study.kpi.prefix}
-                             <span data-count={study.kpi.value} data-key={study.id}>
-                               {counters[study.id] || 0}
-                             </span>
-                             {study.kpi.value >= 1000 ? 'K' : ''}
+                              <span data-count={study.kpi.value} data-key={study.id}>
+                                {study.kpi.value >= 1000 ? 
+                                  (counters[study.id] || 0).toLocaleString('de-DE') : 
+                                  (counters[study.id] || 0)
+                                }
+                              </span>
                            </>
                          )}
                        </div>
