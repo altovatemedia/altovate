@@ -25,8 +25,20 @@ const FAQ = () => {
       answer: "In der Regel siehst du erste Ergebnisse nach 30 Tagen. Je nach Projektumfang planen wir für den kompletten Setup etwa 4–6 Wochen ein. Danach läuft das System so, dass es dir kontinuierlich Anfragen bringt."
     },
     {
-      question: "Was unterscheidet euch von klassischen Agenturen?",
-      answer: "Wir arbeiten ganzheitlich, lean und KI-gestützt – kein Stundensatz-Geschacher, keine langen Abstimmungen. Stattdessen bekommst du ein fertiges System, das Leads, Bewerber und Sichtbarkeit liefert. Schnell, messbar und nachhaltig."
+      question: "Wie läuft die Zusammenarbeit ab?",
+      answer: "Wir starten immer mit einem kostenlosen Erstgespräch. Dort lernen wir uns kennen, sprechen über deine Ziele und Vorstellungen und prüfen, wo du aktuell stehst. Auf dieser Basis entwickeln wir ein maßgeschneidertes Konzept, das zu deinem Unternehmen, deiner Branche und deinem Budget passt. Danach entscheidest du in Ruhe, ob wir den Weg gemeinsam gehen."
+    },
+    {
+      question: "Was, wenn kein Paket passt?",
+      answer: "Unsere Pakete sind klare Orientierungspunkte – aber sie sind nicht in Stein gemeißelt. Marketing ist ein Prozess, und nicht jedes Unternehmen braucht direkt das volle Programm. Deshalb schauen wir gemeinsam, welche Maßnahmen in deiner Situation am meisten Sinn machen und bauen bei Bedarf Schritt für Schritt auf. So kannst du genau da einsteigen, wo du gerade stehst."
+    },
+    {
+      question: "Gibt es Ratenzahlungsmöglichkeiten?",
+      answer: "Grundsätzlich musst du den Projektbetrag nicht zu 100 % im Voraus leisten. Wir arbeiten mit fairen, transparenten Zahlungsplänen, die wir individuell vereinbaren können. Das kann zum Beispiel eine Aufteilung in mehrere Teilzahlungen sein – je nach Projektgröße. Wichtig: Wir bieten Ratenzahlung nicht an, um Preise künstlich kleinzurechnen, sondern um Unternehmen Planungssicherheit zu geben und Investitionen kalkulierbar zu machen."
+    },
+    {
+      question: "Was unterscheidet euch von anderen Agenturen?",
+      answer: "Viele Agenturen verkaufen möglichst große Pakete oder versuchen, Kunden langfristig zu binden – auch wenn der Nutzen nicht immer gegeben ist. Wir gehen einen anderen Weg: Wir wollen verstehen, was dein Produkt oder deine Dienstleistung wirklich ausmacht, und uns in deine Lage versetzen. Daraus entsteht ein Konzept, das dir in deiner Situation wirklich weiterhilft, ohne unnötige Ausgaben."
     }
   ];
 
