@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useGlassmorphism } from '@/hooks/useScrollAnimation';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useGlassmorphism();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,15 +26,37 @@ const NewNavigation = () => {
     { name: 'Preis', href: '#pricing' },
   ];
 
+  const handleLogoClick = () => {
+    navigate('/');
+    setIsMobileMenuOpen(false);
+  };
+
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      // Navigate to home first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsMobileMenuOpen(false);
   };
 
   const handleBookCall = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        contactSection?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const contactSection = document.getElementById('contact');
+      contactSection?.scrollIntoView({ behavior: 'smooth' });
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -43,13 +68,13 @@ const NewNavigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <button onClick={handleLogoClick} className="flex-shrink-0 cursor-pointer">
             <img 
               src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
               alt="Altovate"
               className="h-8 w-auto object-contain"
             />
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
