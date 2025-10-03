@@ -63,7 +63,7 @@ const NewHero = () => {
               }}
             >
               <Play className="mr-3 w-5 h-5" />
-              Kostenloser Sichtbarkeits-Check
+              0€ Sichtbarkeits-Check
             </Button>
           </div>
 
