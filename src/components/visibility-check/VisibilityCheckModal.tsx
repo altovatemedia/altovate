@@ -26,6 +26,8 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  console.log('Modal render - open:', open, 'step:', step);
+
   const totalSteps = questions.length + 2; // questions + email + result
   const progress = (step / totalSteps) * 100;
 

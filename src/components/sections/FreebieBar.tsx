@@ -5,6 +5,7 @@ const FreebieBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
+    console.log('Button clicked, opening modal');
     setModalOpen(true);
   };
 
