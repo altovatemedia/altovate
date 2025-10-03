@@ -100,14 +100,14 @@ const SignatureOffer = () => {
                 {mainOffer.price}
               </div>
               <Button 
-                className="btn-hero text-lg px-8 py-4"
+                className="btn-hero text-sm md:text-base lg:text-lg px-4 md:px-6 lg:px-8 py-3 lg:py-4"
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 Jetzt starten
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5" />
               </Button>
             </div>
           </div>
@@ -164,14 +164,14 @@ const SignatureOffer = () => {
         {/* CTA */}
         <div className="text-center">
           <Button 
-            className="btn-hero text-lg px-8 py-4 mb-3"
+            className="btn-hero text-sm md:text-base lg:text-lg px-4 md:px-6 lg:px-8 py-3 lg:py-4 mb-3"
             onClick={() => {
               const contactSection = document.getElementById('contact');
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Kostenlos in visibility engine enthalten – jetzt starten
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5" />
           </Button>
           <p className="text-sm text-muted-foreground">
             Oder separat buchen, falls du nicht das ganze Paket willst.
