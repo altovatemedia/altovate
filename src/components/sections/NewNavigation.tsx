@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Moon, Sun } from 'lucide-react';
-import { useGlassmorphism } from '@/hooks/useScrollAnimation';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from 'next-themes';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navRef = useGlassmorphism();
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -64,8 +62,7 @@ const NewNavigation = () => {
 
   return (
     <nav 
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-40 border-b border-white/20 dark:border-white/10 transition-all duration-300 bg-white/80 dark:bg-[#1a1a1a]/95 backdrop-blur-lg"
+      className="fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 bg-white border-gray-200 dark:bg-[#1a1a1a] dark:border-white/10 backdrop-blur-sm"
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
