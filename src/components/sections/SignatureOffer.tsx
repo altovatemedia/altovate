@@ -170,7 +170,7 @@ const SignatureOffer = () => {
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Kostenlos in visibility engine enthalten – jetzt starten
+            Jetzt starten
             <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5" />
           </Button>
           <p className="text-sm text-muted-foreground">
