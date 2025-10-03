@@ -49,9 +49,14 @@ const Solution = () => {
           </Button>
 
           {/* Limitation */}
-          <p className="text-sm text-muted-foreground mt-6 font-medium">
-            Nur 4 Plätze pro Monat verfügbar
-          </p>
+          <div className="mt-6">
+            <p className="text-lg font-bold text-foreground">
+              Premium-Service mit limitierter Anzahl
+            </p>
+            <p className="text-sm text-muted-foreground font-light mt-1">
+              Jedes Projekt wird persönlich begleitet
+            </p>
+          </div>
         </div>
       </div>
     </section>
