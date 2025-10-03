@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useGlassmorphism } from '@/hooks/useScrollAnimation';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTheme } from 'next-themes';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,6 +11,7 @@ const NewNavigation = () => {
   const navRef = useGlassmorphism();
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,8 +91,16 @@ const NewNavigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
+          {/* Dark Mode Toggle & Desktop CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="rounded-full"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
             <Button 
               className="btn-hero text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={handleBookCall}
@@ -99,13 +109,23 @@ const NewNavigation = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile menu button & Dark Mode Toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="rounded-full"
+            >
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+            <button
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
