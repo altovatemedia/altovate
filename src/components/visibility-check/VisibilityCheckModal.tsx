@@ -28,10 +28,10 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
 
   console.log('Modal render - open:', open, 'step:', step);
 
-  const totalSteps = questions.length + 2; // questions + email + result
+  const totalSteps = questions.length + 2; // questions + finish page + result
   const progress = (step / totalSteps) * 100;
 
-  const handleEmailSubmit = () => {
+  const handleEmailSubmit = async () => {
     if (!email || !email.includes('@')) {
       toast({
         title: 'Ungültige E-Mail',
@@ -40,46 +40,13 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       });
       return;
     }
-    setStep(1);
-  };
-
-  const handleAnswerSubmit = () => {
-    if (!currentAnswer) {
-      toast({
-        title: 'Bitte auswählen',
-        description: 'Bitte wählen Sie eine Antwort aus.',
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    const newAnswers = [
-      ...answers,
-      {
-        questionId: questions[step - 1].id,
-        value: parseInt(currentAnswer),
-      },
-    ];
-    setAnswers(newAnswers);
-    setCurrentAnswer('');
-
-    if (step < questions.length) {
-      setStep(step + 1);
-    } else {
-      submitResults(newAnswers);
-    }
-  };
-
-  const submitResults = async (finalAnswers: Answer[]) => {
+    
     setIsSubmitting(true);
-    const scoreResult = calculateScore(finalAnswers);
-    setResult(scoreResult);
-
     try {
       const { error } = await supabase.from('visibility_check_leads').insert([{
         email,
-        answers: finalAnswers as any,
-        score_pct: scoreResult.percentage,
+        answers: answers as any,
+        score_pct: result!.percentage,
         consent_status: 'confirmed',
       }]);
 
@@ -98,6 +65,36 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
     }
   };
 
+  const handleAnswerSubmit = () => {
+    if (!currentAnswer) {
+      toast({
+        title: 'Bitte auswählen',
+        description: 'Bitte wählen Sie eine Antwort aus.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    const newAnswers = [
+      ...answers,
+      {
+        questionId: questions[step].id,
+        value: parseInt(currentAnswer),
+      },
+    ];
+    setAnswers(newAnswers);
+    setCurrentAnswer('');
+
+    if (step < questions.length - 1) {
+      setStep(step + 1);
+    } else {
+      // Nach letzter Frage: Ergebnis berechnen und zur Finish Page
+      const scoreResult = calculateScore(newAnswers);
+      setResult(scoreResult);
+      setStep(step + 1);
+    }
+  };
+
   const handleClose = () => {
     setStep(0);
     setEmail('');
@@ -107,42 +104,43 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
     onOpenChange(false);
   };
 
-  const renderEmailStep = () => (
-    <div className="space-y-6">
+  const renderFinishStep = () => (
+    <div className="space-y-6 text-center">
+      <div className="flex justify-center">
+        <CheckCircle2 className="w-16 h-16 text-primary animate-bounce" />
+      </div>
       <div>
-        <h3 className="text-lg font-semibold mb-2">
-          Wie sichtbar sind Sie als Arbeitgeber?
-        </h3>
-        <p className="text-muted-foreground">
-          Finden Sie in nur 2 Minuten heraus, wie gut Ihr Unternehmen als Arbeitgeber wahrgenommen wird.
+        <h3 className="text-2xl font-bold mb-2">Dein Ergebnis ist fertig! 🎉</h3>
+        <p className="text-muted-foreground mb-6">
+          Gib jetzt deine E-Mail-Adresse ein, um dein persönliches Sichtbarkeits-Ergebnis zu sehen.
         </p>
       </div>
-      <div className="space-y-2">
-        <Label htmlFor="email">Ihre E-Mail-Adresse</Label>
+      <div className="space-y-2 text-left">
+        <Label htmlFor="email">Deine E-Mail-Adresse</Label>
         <Input
           id="email"
           type="email"
-          placeholder="ihre@email.de"
+          placeholder="deine@email.de"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && handleEmailSubmit()}
         />
       </div>
-      <Button onClick={handleEmailSubmit} className="w-full">
-        Check starten
+      <Button onClick={handleEmailSubmit} disabled={isSubmitting} className="w-full">
+        {isSubmitting ? 'Wird gespeichert...' : 'Ergebnis anzeigen'}
       </Button>
     </div>
   );
 
   const renderQuestionStep = () => {
-    const question = questions[step - 1];
+    const question = questions[step];
     if (!question) return null;
 
     return (
       <div className="space-y-6">
         <div>
           <p className="text-sm text-muted-foreground mb-2">
-            Frage {step} von {questions.length}
+            Frage {step + 1} von {questions.length}
           </p>
           <h3 className="text-lg font-semibold">{question.text}</h3>
         </div>
@@ -163,7 +161,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
           </div>
         </RadioGroup>
         <Button onClick={handleAnswerSubmit} disabled={isSubmitting} className="w-full">
-          {step < questions.length ? 'Weiter' : 'Auswertung anzeigen'}
+          {step < questions.length - 1 ? 'Weiter' : 'Fertig'}
         </Button>
       </div>
     );
@@ -198,7 +196,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         <div className="bg-accent p-6 rounded-lg">
           <h4 className="font-semibold mb-2">Was bedeutet das?</h4>
           <p className="text-sm text-muted-foreground">
-            Wir haben Ihr Ergebnis gespeichert und werden uns in Kürze bei Ihnen melden,
+            Wir haben dein Ergebnis gespeichert und werden uns in Kürze bei dir melden,
             um konkrete Verbesserungsvorschläge zu besprechen.
           </p>
         </div>
@@ -215,12 +213,12 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Arbeitgeber-Sichtbarkeits-Check</DialogTitle>
+          <DialogTitle>Unternehmens-Sichtbarkeits-Check</DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
           <Progress value={progress} className="w-full" />
-          {step === 0 && renderEmailStep()}
-          {step > 0 && step <= questions.length && renderQuestionStep()}
+          {step < questions.length && renderQuestionStep()}
+          {step === questions.length && renderFinishStep()}
           {step > questions.length && renderResultStep()}
         </div>
       </DialogContent>
