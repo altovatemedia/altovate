@@ -7,7 +7,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showFreebieBar, setShowFreebieBar] = useState(true);
   const navRef = useGlassmorphism();
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,7 +14,6 @@ const NewNavigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
-      setShowFreebieBar(window.scrollY < 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -65,9 +63,7 @@ const NewNavigation = () => {
   return (
     <nav 
       ref={navRef}
-      className={`glass-nav fixed left-0 right-0 z-40 border-b border-white/20 transition-all duration-300 ${
-        showFreebieBar ? 'top-[57px]' : 'top-0'
-      }`}
+      className="glass-nav fixed top-0 left-0 right-0 z-40 border-b border-white/20 transition-all duration-300"
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">

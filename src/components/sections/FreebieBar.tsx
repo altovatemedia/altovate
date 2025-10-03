@@ -17,26 +17,22 @@ const FreebieBar = () => {
   return (
     <>
       <div 
-        className={`bg-white fixed top-0 left-0 right-0 z-50 border-b border-border/50 transition-transform duration-300 ${
-          isVisible ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+          isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}
       >
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-center py-3">
-            <button 
-              onClick={() => setModalOpen(true)}
-              className="group flex items-center gap-3 text-sm font-medium bg-bg-soft hover:scale-[1.01] transition-all duration-200 px-6 py-3 rounded-full shadow-[0_2px_12px_rgba(9,0,44,0.06)]"
-            >
-              <span className="text-lg">🚀</span>
-              <span className="text-text">
-                Gratis-Check: Wie sichtbar bist du als Arbeitgeber?
-              </span>
-              <span className="text-primary font-semibold group-hover:text-primary/80 transition-colors">
-                Jetzt prüfen →
-              </span>
-            </button>
-          </div>
-        </div>
+        <button 
+          onClick={() => setModalOpen(true)}
+          className="group flex items-center gap-3 text-sm font-medium bg-white hover:scale-[1.01] transition-all duration-200 px-6 py-3 rounded-full shadow-[0_2px_12px_rgba(9,0,44,0.06)] border border-border/50"
+        >
+          <span className="text-lg">🚀</span>
+          <span className="text-text">
+            Gratis-Check: Wie sichtbar bist du als Arbeitgeber?
+          </span>
+          <span className="text-primary font-semibold group-hover:text-primary/80 transition-colors">
+            Jetzt prüfen →
+          </span>
+        </button>
       </div>
       
       <VisibilityCheckModal open={modalOpen} onOpenChange={setModalOpen} />
