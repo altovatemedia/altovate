@@ -3,10 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import signatureImage from '@/assets/signatur-alex.png';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
 import { useCountUp } from '@/hooks/useCountUp';
+import { useParallax } from '@/hooks/useScrollAnimation';
 
 const AboutFounder = () => {
   const [isVisible, setIsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+  const parallaxRef = useParallax();
   
   const yearsCount = useCountUp(10, 2000);
   const projectsCount = useCountUp(100, 2500);
@@ -95,11 +97,13 @@ const AboutFounder = () => {
               <div className="relative">
                 {/* Main image with subtle border */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img 
-                    src={alexanderPortrait}
-                    alt="Alexander - Gründer von Altovate" 
-                    className="w-full h-auto object-cover"
-                  />
+                  <div ref={parallaxRef} className="transform-gpu">
+                    <img 
+                      src={alexanderPortrait}
+                      alt="Alexander - Gründer von Altovate" 
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
                   {/* Subtle overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
                 </div>
