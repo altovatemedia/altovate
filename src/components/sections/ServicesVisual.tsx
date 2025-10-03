@@ -16,7 +16,7 @@ const ServicesVisual = () => {
       title: "Content & Produktion",
       subtitle: "Inhalte, die bewegen",
       description: "Professionelle Foto- und Videoproduktionen, Social Media Content und Storytelling, das deine Marke zum Leben erweckt.",
-      image: "/lovable-uploads/872d9752-d5dc-43be-8703-9c7466665d3f.png",
+      image: "/lovable-uploads/content-produktion-phone.png",
       features: ["Fotografie", "Video-Content", "Social Media"]
     },
     {
