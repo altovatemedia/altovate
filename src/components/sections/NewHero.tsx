@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Play, Monitor, TrendingUp, Camera, Settings, Zap } from 'lucide-react';
+import { ArrowRight, Play, Rocket, Target, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import VisibilityCheckModal from '@/components/visibility-check/VisibilityCheckModal';
@@ -74,64 +74,66 @@ const NewHero = () => {
             </Button>
           </div>
 
-          {/* Enhanced mockups preview with module animations */}
-          <div className="relative fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <div className="finom-card max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-6 items-center">
+          {/* Benefits Section */}
+          <div className="fade-in-up pt-12" style={{ animationDelay: '0.6s' }}>
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-12 md:gap-8">
                 
-                {/* Premium Website - Enhanced Module Box */}
-                <div className="module-box glass-cta rounded-xl p-8 hover-float">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-6 group-hover:scale-110 transition-all duration-500">
-                      <div className="relative w-16 h-16 md:w-20 md:h-20">
-                        <Monitor 
-                          size={64} 
-                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg" 
-                        />
-                        <TrendingUp 
-                          size={24} 
-                          className="absolute -top-2 -right-2 text-[#09002C] stroke-[2] animate-bounce" 
-                        />
-                      </div>
-                    </div>
-                    <div className="text-[#09002C] font-bold text-lg mb-2">Premium Website</div>
-                    <div className="text-[#09002C]/70 text-sm">Conversion-optimiert</div>
+                {/* Benefit 1: Schnell sichtbar */}
+                <div className="text-center md:text-left space-y-4">
+                  <div className="flex justify-center md:justify-start">
+                    <Rocket className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
                   </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Schnell sichtbar
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Online sichtbar in nur 30 Tagen – mit klarer Struktur und messbaren Ergebnissen.
+                  </p>
                 </div>
-                
-                {/* Content Engine - Enhanced Module Box */}
-                <div className="module-box glass-cta rounded-xl p-8 hover-float">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-6 group-hover:scale-110 transition-all duration-500">
-                      <Camera 
-                        size={64} 
-                        className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg md:w-20 md:h-20" 
-                      />
-                    </div>
-                    <div className="text-[#09002C] font-bold text-lg mb-2">Content Engine</div>
-                    <div className="text-[#09002C]/70 text-sm">Videos & Fotos</div>
+
+                {/* Benefit 2: Messbar wirksam */}
+                <div className="text-center md:text-left space-y-4">
+                  <div className="flex justify-center md:justify-start">
+                    <Target className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
                   </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Messbar wirksam
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Marketing, das auf Zahlen basiert. Keine Bauchentscheidungen, sondern echte Performance.
+                  </p>
                 </div>
-                
-                {/* Smart Automation - Enhanced Module Box */}
-                <div className="module-box glass-cta rounded-xl p-8 hover-float">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative mb-6 group-hover:scale-110 transition-all duration-500">
-                      <div className="relative w-16 h-16 md:w-20 md:h-20">
-                        <Settings 
-                          size={64} 
-                          className="text-[#EA3B5F] stroke-[1.5] drop-shadow-lg" 
-                        />
-                        <Zap 
-                          size={20} 
-                          className="absolute -top-1 -right-1 text-[#09002C] stroke-[2] fill-[#09002C] animate-pulse" 
-                        />
-                      </div>
-                    </div>
-                    <div className="text-[#09002C] font-bold text-lg mb-2">Smart Automation</div>
-                    <div className="text-[#09002C]/70 text-sm">KI-gestützt</div>
+
+                {/* Benefit 3: Ehrlich & direkt */}
+                <div className="text-center md:text-left space-y-4">
+                  <div className="flex justify-center md:justify-start">
+                    <Handshake className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
                   </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Ehrlich & direkt
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Wir beraten ohne Bullshit. Wenn eine Idee keinen Sinn macht, sagen wir es dir.
+                  </p>
                 </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="flex justify-center mt-12">
+                <Button 
+                  variant="ghost"
+                  className="text-primary hover:text-primary hover:bg-primary/5 group"
+                  onClick={() => {
+                    const servicesSection = Array.from(document.querySelectorAll('section')).find(
+                      section => section.textContent?.includes('Was wir für dich tun')
+                    );
+                    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Mehr erfahren
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
             </div>
           </div>
