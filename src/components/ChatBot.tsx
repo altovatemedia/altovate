@@ -141,7 +141,7 @@ const ChatBot = () => {
       {/* Chat Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 rounded-full shadow-lg transition-all hover:scale-110 group bg-primary text-primary-foreground ${
+        className={`fixed bottom-6 right-6 z-[9999] rounded-full shadow-lg transition-all hover:scale-110 group bg-primary text-primary-foreground ${
           isOpen ? 'hidden' : 'flex'
         } items-center gap-3 h-16 px-4`}
       >
@@ -157,7 +157,7 @@ const ChatBot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 flex h-[600px] w-[380px] flex-col rounded-2xl border bg-background shadow-2xl">
+        <div className="fixed bottom-6 right-6 z-[9999] flex h-[600px] w-[380px] flex-col rounded-2xl border bg-background shadow-2xl">
           {/* Header */}
           <div className="flex items-center gap-3 border-b p-4">
             <Avatar className="h-10 w-10">
