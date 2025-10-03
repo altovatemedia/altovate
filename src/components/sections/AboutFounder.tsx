@@ -1,8 +1,39 @@
 import { Quote } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import signatureImage from '@/assets/signatur-alex.png';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
+import { useCountUp } from '@/hooks/useCountUp';
 
 const AboutFounder = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
+  
+  const yearsCount = useCountUp(10, 2000);
+  const projectsCount = useCountUp(100, 2500);
+  const industriesCount = useCountUp(15, 2000);
+  const teamCount = useCountUp(5, 1800);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+          yearsCount.startCounting();
+          projectsCount.startCounting();
+          industriesCount.startCounting();
+          teamCount.startCounting();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible, yearsCount, projectsCount, industriesCount, teamCount]);
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -81,22 +112,22 @@ const AboutFounder = () => {
           </div>
 
           {/* Trust indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-border">
+          <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-border">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">8+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{yearsCount.count}+</div>
               <p className="text-sm text-muted-foreground">Jahre Erfahrung</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{projectsCount.count}+</div>
               <p className="text-sm text-muted-foreground">Erfolgreiche Projekte</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">98%</div>
-              <p className="text-sm text-muted-foreground">Kundenzufriedenheit</p>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{industriesCount.count}+</div>
+              <p className="text-sm text-muted-foreground">Branchen betreut</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">200%</div>
-              <p className="text-sm text-muted-foreground">Ø ROI-Steigerung</p>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{teamCount.count}</div>
+              <p className="text-sm text-muted-foreground">Experten im Team</p>
             </div>
           </div>
         </div>
