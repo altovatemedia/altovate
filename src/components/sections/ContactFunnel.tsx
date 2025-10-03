@@ -377,10 +377,6 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-sm font-medium text-text">30 Tage bis zu sichtbaren Ergebnissen</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium text-text">Fixpreis-Garantie: 5.000 €</span>
-                  </div>
                 </div>
               </div>
             </div>
