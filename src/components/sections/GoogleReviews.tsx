@@ -26,32 +26,67 @@ const GoogleReviews = () => {
 
   const reviews = [
     {
-      name: "Michael S.",
+      name: "s g",
       rating: 5,
-      date: "vor 2 Wochen",
-      text: "Professionelle Beratung und exzellente Umsetzung. Altovate hat unsere Erwartungen übertroffen. Die Zusammenarbeit war unkompliziert und das Ergebnis spricht für sich.",
-      avatar: "M"
-    },
-    {
-      name: "Sarah K.",
-      rating: 5,
-      date: "vor 1 Monat",
-      text: "Top Service! Alexander und sein Team haben unsere Website komplett neu aufgesetzt. Modern, schnell und genau nach unseren Vorstellungen. Absolut empfehlenswert!",
+      date: "vor 4 Monaten",
+      text: "Alex weiß, wie man Appetit macht – im wahrsten Sinne. Seitdem Alex bei uns mit an Bord ist, sehen unsere Bilder und Videos so gut aus, dass man fast denkt, man könnte das Essen direkt vom Bildschirm riechen und schmecken. Absolute Empfehlung für alle, die ihre Gastro-Marke lebendig machen wollen!",
       avatar: "S"
     },
     {
-      name: "Thomas B.",
+      name: "Thomas Greßnich",
       rating: 5,
-      date: "vor 3 Wochen",
-      text: "Endlich ein Partner, der digitales Marketing wirklich versteht. Die Performance-Kampagnen bringen messbare Ergebnisse. Klare Kommunikation, faire Preise.",
+      date: "vor 4 Monaten",
+      text: "Ich bin absolut begeistert von der Umsetzung meines Logos. Die Kommunikation war unkompliziert, meine Wünsche wurden bis ins kleinste Detail berücksichtigt und mit viel Kreativität sowie Sorgfalt umgesetzt. Das Ergebnis hat meine Erwartungen übertroffen. Vielen Dank für die tolle Zusammenarbeit – jederzeit wieder!",
       avatar: "T"
     },
     {
-      name: "Julia M.",
+      name: "Micho Fliesen & Trockenbau",
       rating: 5,
-      date: "vor 2 Monaten",
-      text: "Hervorragende Content-Produktion und kreative Ideen. Altovate hat uns geholfen, unsere Marke auf das nächste Level zu heben. Sehr zufrieden mit der Zusammenarbeit!",
+      date: "vor 3 Monaten",
+      text: "Absolut empfehlenswert! Wir arbeiten schon seit einiger Zeit mit ihm zusammen – die Bilder sind jedes Mal on point! Egal ob Food-Fotografie oder Stimmungsaufnahmen vom Laden: Er schafft es immer, unsere Produkte perfekt in Szene zu setzen. Super zuverlässig, kreativ und professionell!",
+      avatar: "M"
+    },
+    {
+      name: "joel adler",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "Ich habe schon mehrere Aufträge an Altovate Media vergeben, sehr zuverlässig und die Arbeit ist top 👍",
       avatar: "J"
+    },
+    {
+      name: "Jamal Mala",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "Ich bin begeistert von der Arbeit. Professionell, kreativ und mit einem tollen Blick für Details. Der ganze Ablauf war super angenehm. Ich habe mich während des Shootings wohlgefühlt. Klare Weiterempfehlung!",
+      avatar: "J"
+    },
+    {
+      name: "Felix",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "Schnelle Reaktionszeit, engagiert, gute Arbeit 5/5, würde ich weiterempfehlen",
+      avatar: "F"
+    },
+    {
+      name: "Happy Denny d.o.o",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "THE BEST! Beautiful pictures and ideas that help us very much!",
+      avatar: "H"
+    },
+    {
+      name: "Akkurat Official",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "Immer wieder ein Vergnügen. Mit dir arbeiten zu können lg",
+      avatar: "A"
+    },
+    {
+      name: "Wasim Ahmad",
+      rating: 5,
+      date: "vor 4 Monaten",
+      text: "Professionelle Zusammenarbeit und hervorragende Ergebnisse. Sehr empfehlenswert!",
+      avatar: "W"
     }
   ];
 
