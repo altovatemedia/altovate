@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { ArrowRight, Play, Monitor, TrendingUp, Camera, Settings, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
+import VisibilityCheckModal from '@/components/visibility-check/VisibilityCheckModal';
 
 const NewHero = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const heroRef = useScrollAnimation({ threshold: 0.2 });
   const parallaxRef = useParallax();
 
@@ -57,10 +60,7 @@ const NewHero = () => {
             
             <Button 
               className="btn-secondary text-lg px-8 py-4"
-              onClick={() => {
-                const markenCheck = document.getElementById('marken-check');
-                markenCheck?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => setModalOpen(true)}
             >
               <Play className="mr-3 w-5 h-5" />
               0€ Sichtbarkeits-Check
@@ -130,6 +130,8 @@ const NewHero = () => {
           </div>
         </div>
       </div>
+      
+      <VisibilityCheckModal open={modalOpen} onOpenChange={setModalOpen} />
     </section>
   );
 };
