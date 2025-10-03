@@ -91,7 +91,7 @@ const GoogleReviews = () => {
   ];
 
   const avgRating = 5.0;
-  const totalReviews = 47;
+  const totalReviews = 9;
 
   return (
     <section ref={sectionRef} className="py-section bg-white dark:bg-background">
@@ -122,13 +122,16 @@ const GoogleReviews = () => {
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review, index) => (
             <div
               key={index}
               className="review-card bg-[#F9F9FB] dark:bg-card rounded-2xl p-6 shadow-[0_4px_16px_rgba(9,0,44,0.06)]
                        hover:shadow-[0_8px_24px_rgba(9,0,44,0.1)] hover:-translate-y-1
-                       transition-all duration-300 opacity-0 translate-y-4"
+                       transition-all duration-300"
+              style={{
+                animation: `fade-in 0.6s ease-out ${index * 0.1}s both`
+              }}
             >
               {/* Avatar & Name */}
               <div className="flex items-center gap-3 mb-4">
