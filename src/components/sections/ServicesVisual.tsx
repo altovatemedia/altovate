@@ -2,7 +2,7 @@ import { Monitor, Camera, BarChart3, Users, Bot, Heart, ArrowRight } from 'lucid
 import { Button } from '@/components/ui/button';
 
 const ServicesVisual = () => {
-  const services = [
+  const servicesWithImages = [
     {
       icon: Monitor,
       title: "Website & Design",
@@ -26,13 +26,15 @@ const ServicesVisual = () => {
       description: "Datengetriebene Kampagnen auf Meta und Google. Wir sorgen dafür, dass jeder Euro messbare Ergebnisse bringt.",
       image: "/lovable-uploads/performance-marketing-phillys.png",
       features: ["Meta Ads", "Google Ads", "Tracking & Analytics"]
-    },
+    }
+  ];
+
+  const servicesIconOnly = [
     {
       icon: Users,
       title: "Employer Branding",
       subtitle: "Die besten wollen zu dir",
       description: "Wir machen dich zur Arbeitgebermarke, die Top-Talente anzieht. Von der Strategie bis zur Umsetzung im Recruiting.",
-      image: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png",
       features: ["Recruiting-Kampagnen", "Arbeitgeber-Content"]
     },
     {
@@ -40,7 +42,6 @@ const ServicesVisual = () => {
       title: "Marketing Automation",
       subtitle: "Effizienz durch Automatisierung",
       description: "Chatbots, E-Mail-Flows und smarte Systeme, die 24/7 für dich arbeiten – während du dich um dein Kerngeschäft kümmerst.",
-      image: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png",
       features: ["WhatsApp-Bots", "E-Mail-Automation", "Lead-Qualifizierung"]
     },
     {
@@ -48,7 +49,6 @@ const ServicesVisual = () => {
       title: "Mitarbeiter Benefits",
       subtitle: "Mehr als nur Obstkorb",
       description: "Wir vermitteln dich an spezialisierte Experten für Benefits, die wirklich wirken – und machen auf Wunsch direkt die Termine für dich aus.",
-      image: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png",
       features: ["Experten-Vermittlung", "Termin-Organisation", "Benefit-Beratung"]
     }
   ];
@@ -73,7 +73,7 @@ const ServicesVisual = () => {
 
         {/* Services Grid with alternating layout */}
         <div className="max-w-7xl mx-auto space-y-24">
-          {services.map((service, index) => {
+          {servicesWithImages.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
             
@@ -142,6 +142,67 @@ const ServicesVisual = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Icon-Only Services Grid */}
+        <div className="max-w-7xl mx-auto mt-24">
+          <div className="grid md:grid-cols-3 gap-8">
+            {servicesIconOnly.map((service) => {
+              const Icon = service.icon;
+              
+              return (
+                <div 
+                  key={service.title}
+                  className="bg-background rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl group"
+                >
+                  {/* Icon */}
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-8 h-8 text-primary group-hover:text-primary-foreground" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-base text-primary font-medium">
+                        {service.subtitle}
+                      </p>
+                    </div>
+
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-2">
+                      {service.features.map((feature) => (
+                        <span 
+                          key={feature}
+                          className="px-3 py-1 bg-secondary/50 rounded-full text-xs font-medium"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    <Button 
+                      variant="ghost" 
+                      className="group/btn text-primary hover:text-primary hover:bg-primary/5 pl-0 w-full justify-start"
+                      onClick={() => {
+                        const contactSection = document.getElementById('contact');
+                        contactSection?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Mehr erfahren
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA Section */}
