@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import VisibilityCheckModal from '../visibility-check/VisibilityCheckModal';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 const FreebieBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
-    console.log('Button clicked, opening modal');
+    console.log('Button clicked, opening modal, current state:', modalOpen);
     setModalOpen(true);
   };
+
+  console.log('FreebieBar render, modalOpen:', modalOpen);
 
   return (
     <>
@@ -29,7 +32,20 @@ const FreebieBar = () => {
           </div>
         </div>
       </div>
-      <VisibilityCheckModal open={modalOpen} onOpenChange={setModalOpen} />
+      
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Test Modal</DialogTitle>
+          </DialogHeader>
+          <div className="p-4">
+            <p>Wenn du das hier siehst, funktioniert das Modal!</p>
+            <Button onClick={() => setModalOpen(false)} className="mt-4">
+              Schließen
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
