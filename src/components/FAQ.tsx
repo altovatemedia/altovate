@@ -1,5 +1,6 @@
 import { Plus, Minus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import alexanderPortrait from '@/assets/alexander-portrait-circle.png';
 import {
   Accordion,
   AccordionContent,
@@ -114,9 +115,9 @@ const FAQ = () => {
                 <div className="flex -space-x-3">
                   <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
                     <img 
-                      src="/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png" 
-                      alt="Team member" 
-                      className="w-full h-full object-cover"
+                      src={alexanderPortrait}
+                      alt="Alexander - Gründer" 
+                      className="w-full h-full object-cover object-[center_20%]"
                     />
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
