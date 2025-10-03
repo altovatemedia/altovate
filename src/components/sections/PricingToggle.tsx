@@ -106,14 +106,14 @@ const PricingToggle = () => {
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header with Toggle */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="finom-h2">Pakete & Preise</h2>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+            <h2 className="finom-h2 whitespace-nowrap">Pakete & Preise</h2>
             
             {/* Toggle Switch */}
-            <div className="flex items-center gap-4 bg-white rounded-full p-2 shadow-card">
+            <div className="flex items-center gap-4 bg-white rounded-full p-2 shadow-card mx-auto md:mx-0">
               <button
                 onClick={() => setIsMonthly(false)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                   !isMonthly 
                     ? 'bg-primary text-white shadow-sm' 
                     : 'text-muted-foreground hover:text-foreground'
@@ -123,7 +123,7 @@ const PricingToggle = () => {
               </button>
               <button
                 onClick={() => setIsMonthly(true)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                   isMonthly 
                     ? 'bg-primary text-white shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
