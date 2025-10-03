@@ -1,12 +1,7 @@
 import { Monitor, Camera, BarChart3, Users, Bot, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useParallax } from '@/hooks/useScrollAnimation';
 
 const ServicesVisual = () => {
-  const parallaxRef1 = useParallax();
-  const parallaxRef2 = useParallax();
-  const parallaxRef3 = useParallax();
-  
   const servicesWithImages = [
     {
       icon: Monitor,
@@ -81,7 +76,6 @@ const ServicesVisual = () => {
           {servicesWithImages.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
-            const parallaxRef = index === 0 ? parallaxRef1 : index === 1 ? parallaxRef2 : parallaxRef3;
             
             return (
               <div 
@@ -91,13 +85,13 @@ const ServicesVisual = () => {
                 {/* Image */}
                 <div className={`${!isEven ? 'lg:col-start-2' : ''}`}>
                   <div className="relative group">
-                    <div ref={parallaxRef} className="relative rounded-2xl overflow-hidden shadow-xl transform-gpu">
+                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
                       <img 
                         src={service.image}
                         alt={service.title}
                         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
                     </div>
                     {/* Icon badge */}
                     <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
