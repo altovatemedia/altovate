@@ -27,7 +27,7 @@ const SignatureOffer = () => {
       ]
     },
     {
-      title: "Ad Impact Engine", 
+      title: "Performance Set", 
       price: "ab 1.500 €",
       features: [
         "Facebook & Google Ads Setup",
