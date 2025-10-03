@@ -391,20 +391,20 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
             <div className="max-w-[520px] mx-auto">
               {/* Progress Bar */}
               <div className="mb-8">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-4 max-w-full">
                   {Array.from({ length: totalSteps }, (_, i) => (
-                    <div key={i} className="flex items-center">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
+                    <div key={i} className="flex items-center flex-shrink-0">
+                      <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
                         i + 1 <= currentStep 
                           ? 'bg-primary text-white' 
                           : 'bg-white text-text-muted border border-border'
                       }`}>
                         {i + 1 <= currentStep ? (
-                          i + 1 < currentStep ? <CheckCircle2 className="w-5 h-5" /> : i + 1
+                          i + 1 < currentStep ? <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" /> : i + 1
                         ) : i + 1}
                       </div>
                       {i < totalSteps - 1 && (
-                        <div className={`w-8 md:w-12 h-1 mx-2 rounded-full transition-all duration-300 ${
+                        <div className={`w-4 md:w-8 lg:w-12 h-1 mx-1 md:mx-2 rounded-full transition-all duration-300 ${
                           i + 1 < currentStep ? 'bg-primary' : 'bg-border'
                         }`} />
                       )}
