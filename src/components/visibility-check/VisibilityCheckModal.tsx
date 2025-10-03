@@ -209,8 +209,10 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
     );
   };
 
+  if (!open) return null;
+
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Arbeitgeber-Sichtbarkeits-Check</DialogTitle>
