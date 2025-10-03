@@ -111,29 +111,13 @@ const FAQ = () => {
                   KONTAKT AUFNEHMEN
                 </Button>
 
-                {/* Profile Pictures */}
-                <div className="flex -space-x-3">
-                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
-                    <img 
-                      src={alexanderPortrait}
-                      alt="Alexander - Gründer" 
-                      className="w-full h-full object-cover object-[center_20%]"
-                    />
-                  </div>
-                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/6955d880-2be3-4c02-9a31-2158bd04c916.png" 
-                      alt="Team member" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png" 
-                      alt="Team member" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                {/* Profile Picture */}
+                <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
+                  <img 
+                    src={alexanderPortrait}
+                    alt="Alexander - Gründer" 
+                    className="w-full h-full object-cover object-[center_20%]"
+                  />
                 </div>
               </div>
             </div>
