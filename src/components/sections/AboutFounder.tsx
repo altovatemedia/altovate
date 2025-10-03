@@ -23,25 +23,24 @@ const AboutFounder = () => {
                 <Quote className="absolute -left-3 top-0 w-6 h-6 text-primary" />
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light italic">
                   „Ich habe Altovate gegründet, weil ich gesehen habe, wie viele großartige Unternehmen 
-                  im digitalen Rauschen untergehen. Nicht weil sie nicht gut sind – sondern weil sie nicht 
-                  sichtbar sind. Das wollte ich ändern."
+                  unter dem Radar fliegen. Nicht weil sie schlecht sind – sondern weil sie nicht 
+                  sichtbar sind. Und das wollte ich ändern."
                 </p>
               </div>
 
               <div className="space-y-4 pt-4">
                 <p className="text-base text-foreground leading-relaxed">
-                  Als Gründer von Altovate bringe ich über 8 Jahre Erfahrung in digitalem Marketing, 
-                  Webdesign und Unternehmensberatung mit. Mein Fokus: echte Ergebnisse statt schöner Versprechen.
+                  Schon bevor ich lesen konnte, habe ich Programme auf dem alten Familien-PC installiert 
+                  und ausprobiert, was passiert. Kreativität, Technik und Neugier haben mich seitdem nicht 
+                  mehr losgelassen. Aus dem Kinderzimmer-Geek wurde ein Familienvater, Fitness-Enthusiast 
+                  und Workaholic mit über 10 Jahren Erfahrung im digitalen Marketing.
                 </p>
                 
                 <p className="text-base text-foreground leading-relaxed">
-                  Wir arbeiten nicht mit Standard-Paketen. Jedes Projekt wird individuell auf dein 
-                  Unternehmen, deine Ziele und deine Zielgruppe zugeschnitten. Dabei setzen wir auf 
-                  modernste Technologien, kreative Konzepte und messbare Performance.
-                </p>
-
-                <p className="text-base text-foreground leading-relaxed">
-                  Das Ziel ist klar: Du sollst nicht nur gesehen werden – sondern die erste Wahl sein.
+                  Bei uns bekommst du keine Standard-Pakete und auch kein „Wir machen einfach, was du sagst". 
+                  Wir hören zu, denken mit – und sagen dir ehrlich, wenn eine Idee Quatsch ist. Stattdessen 
+                  bekommst du das, was wirklich zu dir passt: kreative Konzepte, ehrliche Beratung und 
+                  Marketing, das funktioniert.
                 </p>
               </div>
 
