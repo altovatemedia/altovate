@@ -1,26 +1,51 @@
 import { Answer, VisibilityCheckResult } from './types';
+import { questions } from './questions';
 
 export const calculateScore = (answers: Answer[]): VisibilityCheckResult => {
-  const totalScore = answers.reduce((sum, answer) => sum + answer.value, 0);
-  const maxScore = answers.length * 3; // Maximum 3 points per question
-  const percentage = Math.round((totalScore / maxScore) * 100);
+  let totalPoints = 0;
+  let maxPossiblePoints = 0;
+
+  answers.forEach(answer => {
+    const question = questions.find(q => q.id === answer.questionId);
+    if (!question) return;
+
+    // Main question points
+    const selectedOption = question.options.find(opt => opt.value === answer.value);
+    if (selectedOption) {
+      totalPoints += selectedOption.points;
+      maxPossiblePoints += Math.max(...question.options.map(o => o.points));
+    }
+
+    // Sub-questions points (if applicable)
+    if (answer.subAnswers && question.subQuestions) {
+      answer.subAnswers.forEach(subId => {
+        const subQ = question.subQuestions!.find(sq => sq.id === subId);
+        if (subQ) totalPoints += subQ.points;
+      });
+      // Add max possible from sub-questions
+      maxPossiblePoints += question.subQuestions.reduce((sum, sq) => sum + sq.points, 0);
+    }
+  });
+
+  const percentage = maxPossiblePoints > 0 
+    ? Math.round((totalPoints / maxPossiblePoints) * 100) 
+    : 0;
 
   let level: 'low' | 'medium' | 'high';
   let message: string;
 
-  if (percentage >= 75) {
-    level = 'high';
-    message = 'Hervorragend! Sie sind bereits sehr gut als Arbeitgeber sichtbar.';
-  } else if (percentage >= 50) {
-    level = 'medium';
-    message = 'Guter Start! Mit einigen Optimierungen können Sie Ihre Sichtbarkeit deutlich steigern.';
-  } else {
+  if (percentage <= 40) {
     level = 'low';
-    message = 'Viel Potenzial! Lassen Sie uns gemeinsam Ihre Arbeitgeber-Sichtbarkeit verbessern.';
+    message = 'Du bist aktuell kaum sichtbar. Kunden und Bewerber finden dich eher zufällig – hier liegt dein größtes Potenzial.';
+  } else if (percentage <= 70) {
+    level = 'medium';
+    message = 'Du bist auf dem Radar – aber noch nicht dominant sichtbar. Mit wenigen gezielten Schritten kannst du deutlich mehr Präsenz aufbauen.';
+  } else {
+    level = 'high';
+    message = 'Stark! Deine Basis ist solide. Die letzten 20–30 % machen den Unterschied zwischen „man kennt dich" und „man wählt dich".';
   }
 
   return {
-    score: totalScore,
     percentage,
     level,
     message,
