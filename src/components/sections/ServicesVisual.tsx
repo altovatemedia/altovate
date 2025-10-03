@@ -8,7 +8,7 @@ const ServicesVisual = () => {
       title: "Website & Design",
       subtitle: "Deine digitale Visitenkarte",
       description: "High-End Websites, die nicht nur gut aussehen, sondern auch konvertieren. Von der ersten Idee bis zum Launch – strategisch geplant und perfekt umgesetzt.",
-      image: "/lovable-uploads/6f42872a-3902-411d-8ec7-91f5166a2f41.png",
+      image: "/lovable-uploads/website-design-bav.png",
       features: ["Conversion-optimiert", "Mobile-first", "SEO-ready"]
     },
     {
