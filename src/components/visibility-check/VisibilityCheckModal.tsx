@@ -83,6 +83,16 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       return;
     }
 
+    // Validate sub-questions if they are shown
+    if (showSubQuestions && currentSubAnswers.length === 0) {
+      toast({
+        title: 'Bitte auswählen',
+        description: 'Bitte wähle mindestens eine der angezeigten Optionen aus.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     const newAnswer: Answer = {
       questionId: currentQuestion.id,
       value: currentQuestion.type === 'radio' ? currentAnswer : 'multiple',

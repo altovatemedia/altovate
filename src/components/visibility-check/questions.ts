@@ -16,6 +16,7 @@ export const questions: Question[] = [
       { id: 'gb_reviews', text: 'Mindestens 5 Bewertungen', points: 1 },
       { id: 'gb_review_responses', text: 'Bewertungen beantwortet', points: 1 },
       { id: 'gb_photos', text: 'Aktuelle Fotos hochgeladen', points: 1 },
+      { id: 'gb_none', text: 'Nichts davon trifft zu', points: 0 },
     ],
   },
   {
@@ -33,6 +34,7 @@ export const questions: Question[] = [
       { id: 'web_speed', text: 'Ladezeit unter 3 Sekunden', points: 1 },
       { id: 'web_cta', text: 'Klare Call-to-Actions (z. B. Termin, Anfrage)', points: 1 },
       { id: 'web_legal', text: 'Rechtliches vollständig (Impressum/DSGVO)', points: 1 },
+      { id: 'web_none', text: 'Nichts davon trifft zu', points: 0 },
     ],
   },
   {
@@ -49,6 +51,7 @@ export const questions: Question[] = [
       { id: 'sm_active', text: 'Aktiv in den letzten 30 Tagen', points: 1 },
       { id: 'sm_branding', text: 'Einheitliches Branding (Logo, Farben, Bildsprache)', points: 1 },
       { id: 'sm_highlights', text: 'Highlights / angepinnte Beiträge für Kerninfos', points: 1 },
+      { id: 'sm_none', text: 'Nichts davon trifft zu', points: 0 },
     ],
   },
   {
