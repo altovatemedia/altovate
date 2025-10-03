@@ -47,9 +47,9 @@ const ServicesVisual = () => {
       icon: Heart,
       title: "Mitarbeiter Benefits",
       subtitle: "Mehr als nur Obstkorb",
-      description: "Wir helfen dir, Benefits zu etablieren, die wirklich wirken – und zeigen, wie du sie richtig kommunizierst.",
+      description: "Wir vermitteln dich an spezialisierte Experten für Benefits, die wirklich wirken – und machen auf Wunsch direkt die Termine für dich aus.",
       image: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png",
-      features: ["Fitness & Vorsorge", "Benefit-Kommunikation", "Integration"]
+      features: ["Experten-Vermittlung", "Termin-Organisation", "Benefit-Beratung"]
     }
   ];
 
