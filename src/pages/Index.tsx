@@ -13,6 +13,7 @@ import NotFor from '@/components/NotFor';
 import FAQ from '@/components/FAQ';
 import ContactFunnel from '@/components/sections/ContactFunnel';
 import Footer from '@/components/Footer';
+import ChatBot from '@/components/ChatBot';
 
 const Index = () => {
   return (
@@ -35,6 +36,7 @@ const Index = () => {
       <FAQ />
       <ContactFunnel />
       <Footer />
+      <ChatBot />
     </div>
   );
 };
