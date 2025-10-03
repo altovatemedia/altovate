@@ -9,20 +9,8 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Was kostet das wirklich?",
-      answer: "Wir arbeiten transparent mit Fixpreisen – keine versteckten Kosten, keine bösen Überraschungen. Unser Signature Offer startet bei 5.000 € und umfasst alle Bausteine, die du für sichtbares Wachstum brauchst."
-    },
-    {
-      question: "Muss ich was liefern?",
-      answer: "Nein – wir übernehmen Content, Texte, Design und Umsetzung. Alles was wir brauchen, sind ein paar Basisinfos zu deinem Unternehmen. Den Rest erledigen wir – damit du dich auf dein Business konzentrieren kannst."
-    },
-    {
       question: "Was, wenn ich schon eine Website habe?",
       answer: "Perfekt! Wir prüfen, ob ein kompletter Refresh sinnvoll ist oder ob wir deine bestehende Website gezielt optimieren. Ziel ist immer: maximale Performance und Sichtbarkeit – ohne unnötige Doppelarbeit."
-    },
-    {
-      question: "Wie lange dauert es?",
-      answer: "In der Regel siehst du erste Ergebnisse nach 30 Tagen. Je nach Projektumfang planen wir für den kompletten Setup etwa 4–6 Wochen ein. Danach läuft das System so, dass es dir kontinuierlich Anfragen bringt."
     },
     {
       question: "Wie läuft die Zusammenarbeit ab?",
