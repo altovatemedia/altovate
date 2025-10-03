@@ -1,4 +1,5 @@
 import { Quote } from 'lucide-react';
+import signatureImage from '@/assets/signatur-alex.png';
 
 const AboutFounder = () => {
   return (
@@ -46,9 +47,11 @@ const AboutFounder = () => {
 
               {/* Signature */}
               <div className="pt-6">
-                <div className="text-2xl font-signature text-primary mb-2">
-                  Alexander
-                </div>
+                <img 
+                  src={signatureImage} 
+                  alt="Alexander Unterschrift" 
+                  className="h-16 w-auto mb-2"
+                />
                 <p className="text-sm text-muted-foreground">
                   Gründer & Geschäftsführer, Altovate
                 </p>
