@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 const SignatureOffer = () => {
   const mainOffer = {
-    title: "Die visibility engine",
+    title: "Das Sichtbarkeits-Paket",
     price: "5.000 €",
     subtitle: "Fixpreis – alles inklusive",
     features: [
