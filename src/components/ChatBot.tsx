@@ -141,7 +141,7 @@ const ChatBot = () => {
       {/* Chat Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 rounded-full shadow-lg transition-all hover:scale-110 group ${
+        className={`fixed bottom-6 right-6 rounded-full shadow-lg transition-all hover:scale-110 group bg-primary text-primary-foreground ${
           isOpen ? 'hidden' : 'flex'
         } items-center gap-3 h-16 px-4`}
       >
