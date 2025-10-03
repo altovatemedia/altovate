@@ -1,4 +1,5 @@
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
   Accordion,
   AccordionContent,
@@ -31,34 +32,111 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#F9F9FB]">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 text-[#09002C]">
-            Noch <span className="text-[#EA3B5F]">Fragen?</span>
-          </h2>
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Grid Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              FRAGEN UND
+            </h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
+              ANTWORTEN
+            </h2>
+          </div>
 
-          <Accordion type="single" collapsible className="w-full space-y-6">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-white rounded-2xl shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
-                         hover:shadow-[0_16px_40px_rgba(234,59,95,0.15)] transition-all duration-300 
-                         border-0 overflow-hidden"
-              >
-                <AccordionTrigger className="text-left text-lg font-bold text-[#09002C] 
-                                           hover:text-[#EA3B5F] transition-colors px-8 py-6 
-                                           hover:no-underline [&[data-state=open]]:text-[#EA3B5F]">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-[#09002C]/80 text-base leading-relaxed 
-                                          px-8 pb-6 pt-0">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left Column: FAQ Accordion */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="bg-white rounded-lg shadow-sm border-0 overflow-hidden mb-4 transition-shadow hover:shadow-md"
+                  >
+                    <AccordionTrigger 
+                      className="text-left text-base md:text-lg font-bold text-foreground hover:text-foreground
+                                 transition-colors px-6 py-5 hover:no-underline group [&>svg]:hidden"
+                    >
+                      <div className="flex items-center justify-between w-full pr-4">
+                        <span className="flex-1">{faq.question}</span>
+                        <Plus className="w-6 h-6 text-primary shrink-0 transition-transform group-data-[state=open]:rotate-45" />
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed px-6 pb-5 pt-0">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            {/* Right Column: Invitation & CTA */}
+            <div className="lg:sticky lg:top-24 space-y-6">
+              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+                  Bei offenen Fragen, sind wir gerne persönlich für dich da.
+                </h3>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Wir machen keine halben Sachen. Auch nicht beim ersten Gespräch. 
+                  Lass uns alle Fragen klären.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-semibold"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    contactSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  KONTAKT AUFNEHMEN
+                </Button>
+
+                {/* Profile Pictures */}
+                <div className="flex -space-x-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/2fefece0-cd86-4d07-b7b2-c0d7c2c38c4b.png" 
+                      alt="Team member" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/6955d880-2be3-4c02-9a31-2158bd04c916.png" 
+                      alt="Team member" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png" 
+                      alt="Team member" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
