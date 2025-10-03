@@ -91,15 +91,13 @@ const ServicesVisual = () => {
                 {/* Image */}
                 <div className={`${!isEven ? 'lg:col-start-2' : ''}`}>
                   <div className="relative group">
-                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                      <div ref={parallaxRef} className="transform-gpu">
-                        <img 
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
+                    <div ref={parallaxRef} className="relative rounded-2xl overflow-hidden shadow-xl transform-gpu">
+                      <img 
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
                     </div>
                     {/* Icon badge */}
                     <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
