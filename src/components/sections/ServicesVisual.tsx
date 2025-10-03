@@ -24,7 +24,7 @@ const ServicesVisual = () => {
       title: "Performance Marketing",
       subtitle: "Ads, die funktionieren",
       description: "Datengetriebene Kampagnen auf Meta und Google. Wir sorgen dafür, dass jeder Euro messbare Ergebnisse bringt.",
-      image: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png",
+      image: "/lovable-uploads/performance-marketing-phillys.png",
       features: ["Meta Ads", "Google Ads", "Tracking & Analytics"]
     },
     {
