@@ -126,7 +126,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                 <button
                   key={option.value}
                   onClick={() => handleOptionSelect('goal', option.label)}
-                  className="w-full p-6 text-left bg-white border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
+                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
@@ -160,7 +160,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                 <button
                   key={option.value}
                   onClick={() => handleOptionSelect('challenge', option.label)}
-                  className="w-full p-6 text-left bg-white border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
+                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
@@ -203,7 +203,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                 <button
                   key={option.value}
                   onClick={() => handleOptionSelect('budget', option.label)}
-                  className="w-full p-6 text-left bg-white border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
+                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
@@ -236,7 +236,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                 <button
                   key={option.value}
                   onClick={() => handleOptionSelect('timeline', option.label)}
-                  className="w-full p-6 text-left bg-white border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
+                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
@@ -341,7 +341,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
           
           {/* Left: Intro Block */}
           <div className="animate-fade-in-up lg:animate-slide-in-left">
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
+            <div className="bg-white dark:bg-card rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
               <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
                 Bereit für den nächsten Schritt?
               </h2>
@@ -393,7 +393,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                       <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
                         i + 1 <= currentStep 
                           ? 'bg-primary text-white' 
-                          : 'bg-white text-text-muted border border-border'
+                          : 'bg-white dark:bg-card text-text-muted border border-border'
                       }`}>
                         {i + 1 <= currentStep ? (
                           i + 1 < currentStep ? <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" /> : i + 1
@@ -413,7 +413,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
               </div>
 
               {/* Funnel Card */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
+              <div className="bg-white dark:bg-card rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
                 {renderStep()}
 
                 {/* Navigation Buttons */}

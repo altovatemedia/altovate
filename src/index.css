@@ -78,36 +78,36 @@
   }
 
   .dark {
-    /* Dark theme colors - high contrast for readability */
-    --background: 222 47% 11%;              /* Dark blue-gray background */
+    /* Dark anthracite theme - high contrast for readability */
+    --background: 0 0% 10%;                 /* Dark anthracite background #1a1a1a */
     --foreground: 0 0% 98%;                 /* Almost white text */
-    --card: 222 47% 14%;                    /* Slightly lighter card background */
+    --card: 0 0% 15%;                       /* Slightly lighter card background #262626 */
     --card-foreground: 0 0% 98%;
-    --popover: 222 47% 14%;
+    --popover: 0 0% 15%;
     --popover-foreground: 0 0% 98%;
     --primary: 347 82% 58%;                 /* Magenta primary color */
     --primary-foreground: 0 0% 100%;
-    --secondary: 222 47% 20%;               /* Lighter secondary */
+    --secondary: 0 0% 20%;                  /* Lighter secondary #333333 */
     --secondary-foreground: 0 0% 98%;
-    --muted: 222 47% 20%;
-    --muted-foreground: 215 20% 75%;        /* Brighter muted text for better readability */
-    --accent: 222 47% 20%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;           /* Bright muted text for readability */
+    --accent: 0 0% 20%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 222 47% 25%;                  /* Visible borders */
-    --input: 222 47% 25%;
+    --border: 0 0% 30%;                     /* Visible borders #4d4d4d */
+    --input: 0 0% 25%;
     --ring: 347 82% 58%;
     
     /* Dark mode shadows */
-    --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.4);
-    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
+    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
     
     /* Dark glassmorphism */
-    --glass-bg: rgba(28, 39, 60, 0.7);
+    --glass-bg: rgba(38, 38, 38, 0.8);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -155,15 +155,15 @@ body {
 
   /* Card Variants */
   .finom-card {
-    @apply bg-white border border-border rounded-2xl p-8 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
+    @apply bg-white dark:bg-card border border-border rounded-2xl p-8 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
   }
 
   .highlight-card {
-    @apply bg-muted border border-border rounded-2xl p-8 shadow-elegant;
+    @apply bg-muted dark:bg-card border border-border rounded-2xl p-8 shadow-elegant;
   }
 
   .glass-badge {
-    @apply bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-card;
+    @apply bg-white/80 dark:bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-card;
   }
 
   /* Typography Classes */
@@ -269,6 +269,14 @@ body {
     box-shadow: 
       0 8px 32px rgba(9, 0, 44, 0.1),
       inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  
+  .dark .glass-cta {
+    background: linear-gradient(135deg, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.7));
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1);
   }
 
   /* Advanced Scroll Animations */

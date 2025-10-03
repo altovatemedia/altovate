@@ -59,7 +59,7 @@ const SignatureOffer = () => {
   ];
 
   return (
-    <section id="signature-offer" className="py-section bg-white">
+    <section id="signature-offer" className="py-section bg-white dark:bg-background">
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header */}
         <div className="text-center mb-16">

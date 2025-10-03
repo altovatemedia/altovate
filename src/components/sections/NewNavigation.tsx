@@ -130,7 +130,7 @@ const NewNavigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-white">
+          <div className="md:hidden border-t border-border bg-white dark:bg-card">
             <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => (
                 <button

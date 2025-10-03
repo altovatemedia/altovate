@@ -47,7 +47,7 @@ const PainPoints = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-section bg-white relative">
+    <section ref={sectionRef} className="py-section bg-white dark:bg-background relative">
       <div className="container mx-auto px-6 relative max-w-content">
         {/* Section header */}
         <div className="text-center mb-20">
@@ -94,8 +94,8 @@ const PainPoints = () => {
                 </div>
 
                 {/* Impact */}
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-auto">
-                  <p className="text-red-600 font-semibold text-sm">
+                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-xl p-4 mt-auto">
+                  <p className="text-red-600 dark:text-red-400 font-semibold text-sm">
                     💸 {point.impact}
                   </p>
                 </div>

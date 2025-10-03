@@ -122,12 +122,12 @@ const CaseStudies = () => {
             {caseStudies.filter(study => study.size === 'large').map((study, index) => (
               <div
                 key={study.id}
-                className="case-study-card bg-white rounded-2xl p-8 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
+                className="case-study-card bg-white dark:bg-card rounded-2xl p-8 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-100 p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
+                <div className="inline-block bg-gray-100 dark:bg-muted p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
@@ -204,11 +204,11 @@ const CaseStudies = () => {
             {caseStudies.filter(study => study.size === 'small').map((study) => (
               <div
                 key={study.id}
-                className="case-study-card bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
+                className="case-study-card bg-white dark:bg-card rounded-2xl p-6 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
                          hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
                          hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-100 p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
+                <div className="inline-block bg-gray-100 dark:bg-muted p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
@@ -232,7 +232,7 @@ const CaseStudies = () => {
         </div>
 
         {/* Logo Slider */}
-        <div className="bg-gray-50 rounded-2xl py-8 overflow-hidden border border-gray-100">
+        <div className="bg-gray-50 dark:bg-muted/30 rounded-2xl py-8 overflow-hidden border border-gray-100 dark:border-border">
           <div className="logo-marquee">
             <div className="logo-track">
               {[...logos, ...logos].map((logo, index) => (
