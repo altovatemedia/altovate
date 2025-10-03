@@ -84,7 +84,7 @@ const NewNavigation = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-text hover:text-primary font-medium transition-colors duration-300"
+                className="text-foreground hover:text-primary font-medium transition-colors duration-300"
               >
                 {item.name}
               </button>
@@ -93,14 +93,24 @@ const NewNavigation = () => {
 
           {/* Dark Mode Toggle & Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
+            {/* Theme Switch Toggle */}
+            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="rounded-full"
+              className="relative flex items-center gap-2 bg-muted rounded-full p-1 transition-all duration-300 hover:bg-muted/80"
             >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+              <span className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
+                theme !== 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground'
+              }`}>
+                <Sun className="w-3.5 h-3.5" />
+                Light
+              </span>
+              <span className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
+                theme === 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground'
+              }`}>
+                <Moon className="w-3.5 h-3.5" />
+                Dark
+              </span>
+            </button>
             <Button 
               className="btn-hero text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={handleBookCall}
@@ -111,16 +121,24 @@ const NewNavigation = () => {
 
           {/* Mobile menu button & Dark Mode Toggle */}
           <div className="md:hidden flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="rounded-full"
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            {/* Mobile Theme Switch */}
             <button
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-300"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="relative flex items-center gap-1 bg-muted rounded-full p-0.5 transition-all duration-300"
+            >
+              <span className={`text-[10px] font-medium px-2 py-1 rounded-full transition-all duration-300 flex items-center gap-1 ${
+                theme !== 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground'
+              }`}>
+                <Sun className="w-3 h-3" />
+              </span>
+              <span className={`text-[10px] font-medium px-2 py-1 rounded-full transition-all duration-300 flex items-center gap-1 ${
+                theme === 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground'
+              }`}>
+                <Moon className="w-3 h-3" />
+              </span>
+            </button>
+            <button
+              className="p-2 text-foreground hover:text-primary transition-colors duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -136,7 +154,7 @@ const NewNavigation = () => {
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-3 text-text hover:text-primary font-medium transition-colors duration-300"
+                  className="block w-full text-left px-3 py-3 text-foreground hover:text-primary font-medium transition-colors duration-300"
                 >
                   {item.name}
                 </button>
