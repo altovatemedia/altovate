@@ -102,14 +102,14 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="proof" className="py-section bg-[#F9F9FB]">
+    <section ref={sectionRef} id="proof" className="py-section bg-[#F9F9FB] dark:bg-background">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#09002C] mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#09002C] dark:text-foreground mb-6">
             Ergebnisse, die für sich sprechen.
           </h2>
-          <p className="text-lg text-[#09002C]/70 max-w-[720px] mx-auto leading-relaxed">
+          <p className="text-lg text-[#09002C]/70 dark:text-muted-foreground max-w-[720px] mx-auto leading-relaxed">
             Von regionalen Heroes bis zu wachsenden Marken – wir helfen Unternehmen, sichtbar zu werden, 
             Leads zu generieren und ihre Marke klar zu positionieren.
           </p>
@@ -167,15 +167,15 @@ const CaseStudies = () => {
 
                 {/* Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-[#09002C]">{study.title}</h3>
+                  <h3 className="text-xl font-bold text-[#09002C] dark:text-foreground">{study.title}</h3>
                   
-                  <p className="text-[#09002C]/70 text-sm leading-relaxed">
+                  <p className="text-[#09002C]/70 dark:text-muted-foreground text-sm leading-relaxed">
                     {study.text}
                   </p>
 
                   {/* KPI Highlight */}
                   {study.kpi && (
-                    <div className="pt-4 border-t border-gray-100">
+                    <div className="pt-4 border-t border-gray-100 dark:border-border">
                        <div className="text-2xl font-bold text-[#EA3B5F]">
                          {study.kpi.text ? (
                            study.kpi.text
@@ -191,7 +191,7 @@ const CaseStudies = () => {
                            </>
                          )}
                        </div>
-                      <div className="text-sm text-[#09002C]/50">{study.kpi.label}</div>
+                      <div className="text-sm text-[#09002C]/50 dark:text-muted-foreground">{study.kpi.label}</div>
                     </div>
                   )}
                 </div>
@@ -220,9 +220,9 @@ const CaseStudies = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-[#09002C]">{study.title}</h3>
+                  <h3 className="text-lg font-bold text-[#09002C] dark:text-foreground">{study.title}</h3>
                   
-                  <p className="text-[#09002C]/70 text-xs leading-relaxed">
+                  <p className="text-[#09002C]/70 dark:text-muted-foreground text-xs leading-relaxed">
                     {study.text}
                   </p>
                 </div>

@@ -260,6 +260,12 @@ body {
     border-bottom: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
+  
+  .dark .glass-nav {
+    background: rgba(26, 26, 26, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
 
   /* Glassmorphism CTA Boxes */
   .glass-cta {
