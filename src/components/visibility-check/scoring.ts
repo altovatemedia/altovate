@@ -34,7 +34,10 @@ export const calculateScore = (answers: Answer[]): VisibilityCheckResult => {
   let level: 'low' | 'medium' | 'high';
   let message: string;
 
-  if (percentage <= 40) {
+  if (percentage === 100) {
+    level = 'high';
+    message = 'Wow – besser geht es kaum. Dein Unternehmen ist auf allen wichtigen Kanälen präsent und macht schon jetzt einen sehr professionellen Eindruck. 🎉 Aber: Sichtbarkeit ist nie ein Endpunkt, sondern ein Prozess. Trends ändern sich, Plattformen entwickeln sich weiter. Wenn du deinen Vorsprung sichern willst, unterstützen wir dich dabei, kontinuierlich auf dem neuesten Stand zu bleiben – damit deine 100 % nicht nur heute gelten, sondern auch in Zukunft.';
+  } else if (percentage <= 40) {
     level = 'low';
     message = 'Du bist aktuell kaum sichtbar. Kunden und Bewerber finden dich eher zufällig – hier liegt dein größtes Potenzial.';
   } else if (percentage <= 70) {
