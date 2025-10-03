@@ -33,7 +33,7 @@ const ServicesVisual = () => {
       subtitle: "Die besten wollen zu dir",
       description: "Wir machen dich zur Arbeitgebermarke, die Top-Talente anzieht. Von der Strategie bis zur Umsetzung im Recruiting.",
       image: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png",
-      features: ["Recruiting-Kampagnen", "Arbeitgeber-Content", "Benefits-Integration"]
+      features: ["Recruiting-Kampagnen", "Arbeitgeber-Content"]
     },
     {
       icon: Bot,
