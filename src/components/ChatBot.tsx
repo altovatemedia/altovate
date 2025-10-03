@@ -17,7 +17,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Hi! Ich bin Mina 👋 Wie kann ich dir heute helfen? Ich beantworte gerne Fragen zu unseren Services oder helfe dir bei der Auswahl des passenden Pakets.',
+      content: 'Hey, ich bin Mina. Ich beantworte alle Fragen in nur wenigen Sekunden für dich. Leg einfach los und schreib mir.',
     },
   ]);
   const [input, setInput] = useState('');
@@ -141,15 +141,18 @@ const ChatBot = () => {
       {/* Chat Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg transition-all hover:scale-110 ${
+        className={`fixed bottom-6 right-6 rounded-full shadow-lg transition-all hover:scale-110 group ${
           isOpen ? 'hidden' : 'flex'
-        }`}
-        size="icon"
+        } items-center gap-3 h-16 px-4`}
       >
-        <Avatar className="h-14 w-14">
+        <Avatar className="h-12 w-12 flex-shrink-0">
           <AvatarImage src={minaAvatar} alt="Mina" />
           <AvatarFallback>M</AvatarFallback>
         </Avatar>
+        <div className="flex items-center gap-2">
+          <span className="font-medium text-sm">Frag Mina</span>
+          <MessageCircle className="h-5 w-5" />
+        </div>
       </Button>
 
       {/* Chat Window */}
