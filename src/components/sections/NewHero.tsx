@@ -14,12 +14,12 @@ const NewHero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Fullwidth Background Image with Overlay */}
+      {/* Fullwidth Background Image with Overlay - Hidden in dark mode */}
       <div className="absolute inset-0">
         <img 
           src="/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png" 
           alt="Hero Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover dark:hidden"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/80"></div>
       </div>
