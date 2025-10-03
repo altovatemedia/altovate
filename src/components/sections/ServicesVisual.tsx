@@ -1,5 +1,6 @@
 import { Monitor, Camera, BarChart3, Users, Bot, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import altovateIcon from '@/assets/altovate-icon.png';
 
 const ServicesVisual = () => {
   const servicesWithImages = [
@@ -54,8 +55,20 @@ const ServicesVisual = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary/10">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-secondary/10 relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <img 
+        src={altovateIcon} 
+        alt="" 
+        className="absolute top-20 -right-20 w-64 h-64 opacity-[0.02] dark:opacity-[0.015] rotate-12 pointer-events-none"
+      />
+      <img 
+        src={altovateIcon} 
+        alt="" 
+        className="absolute bottom-20 -left-20 w-64 h-64 opacity-[0.02] dark:opacity-[0.015] -rotate-12 pointer-events-none"
+      />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-primary/5 rounded-full text-sm text-primary mb-6">

@@ -1,10 +1,21 @@
 import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
+import altovateIcon from '@/assets/altovate-icon.png';
 
 const Footer = () => {
   return (
     <footer className="bg-primary relative overflow-hidden">
-      {/* Subtle decorative element */}
+      {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
+      <img 
+        src={altovateIcon} 
+        alt="" 
+        className="absolute top-1/4 left-10 w-48 h-48 opacity-[0.03] rotate-12 pointer-events-none"
+      />
+      <img 
+        src={altovateIcon} 
+        alt="" 
+        className="absolute bottom-10 right-20 w-40 h-40 opacity-[0.04] -rotate-12 pointer-events-none"
+      />
       
       {/* Main Footer */}
       <div className="py-16 relative z-10">

@@ -3,6 +3,7 @@ import { ArrowRight, Play, Rocket, Target, Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import VisibilityCheckModal from '@/components/visibility-check/VisibilityCheckModal';
+import altovateIcon from '@/assets/altovate-icon.png';
 
 const NewHero = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,6 +33,18 @@ const NewHero = () => {
         <div className="absolute top-20 left-10 w-24 h-24 bg-primary/5 rounded-full blur-xl animate-float"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-primary/3 rounded-full blur-2xl animate-glow-breathe"></div>
         <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-primary/8 rounded-full blur-lg animate-float-slow"></div>
+        
+        {/* Subtle logo icon decorations */}
+        <img 
+          src={altovateIcon} 
+          alt="" 
+          className="absolute top-1/4 right-10 w-32 h-32 opacity-[0.03] dark:opacity-[0.02] animate-float-slow pointer-events-none"
+        />
+        <img 
+          src={altovateIcon} 
+          alt="" 
+          className="absolute bottom-1/4 left-10 w-40 h-40 opacity-[0.02] dark:opacity-[0.015] animate-float pointer-events-none rotate-12"
+        />
       </div>
 
       {/* Content with scroll animations */}
