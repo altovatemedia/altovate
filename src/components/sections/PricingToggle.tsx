@@ -31,7 +31,7 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "Die visibility engine",
+      title: "Das Sichtbarkeits-Paket",
       price: "5.000 €",
       isHighlight: true,
       features: [
