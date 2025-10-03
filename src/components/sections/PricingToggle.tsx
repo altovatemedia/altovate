@@ -19,7 +19,7 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "Ad Impact Engine", 
+      title: "Performance Set", 
       price: "1.500 €",
       features: [
         "Facebook & Google Ads Setup",
