@@ -1,5 +1,6 @@
 import { Quote } from 'lucide-react';
 import signatureImage from '@/assets/signatur-alex.png';
+import alexanderPortrait from '@/assets/alexander-portrait.png';
 
 const AboutFounder = () => {
   return (
@@ -64,7 +65,7 @@ const AboutFounder = () => {
                 {/* Main image with subtle border */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/lovable-uploads/7a54adf2-89a7-418f-97d9-092a8af2d01a.png"
+                    src={alexanderPortrait}
                     alt="Alexander - Gründer von Altovate" 
                     className="w-full h-auto object-cover"
                   />
