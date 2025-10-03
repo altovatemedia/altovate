@@ -63,7 +63,7 @@ const NewNavigation = () => {
   return (
     <nav 
       ref={navRef}
-      className="glass-nav fixed top-[52px] left-0 right-0 z-40 border-b border-white/20 transition-all duration-300"
+      className="glass-nav fixed top-[57px] left-0 right-0 z-40 border-b border-white/20 transition-all duration-300"
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
