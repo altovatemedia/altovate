@@ -20,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
+				signature: ['Dancing Script', 'cursive'],
 			},
 			fontSize: {
 				'finom-h1': ['4.5rem', { lineHeight: '1.05', fontWeight: '800' }],

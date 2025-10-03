@@ -6,7 +6,8 @@ import SignatureOffer from '@/components/sections/SignatureOffer';
 import CaseStudies from '@/components/sections/CaseStudies';
 import PricingToggle from '@/components/sections/PricingToggle';
 import Solution from '@/components/Solution';
-import Services from '@/components/Services';
+import ServicesVisual from '@/components/sections/ServicesVisual';
+import AboutFounder from '@/components/sections/AboutFounder';
 import Timeline from '@/components/Timeline';
 import NotFor from '@/components/NotFor';
 import FAQ from '@/components/FAQ';
@@ -24,9 +25,10 @@ const Index = () => {
       <NewHero />
       <PainPoints />
       <SignatureOffer />
+      <ServicesVisual />
+      <AboutFounder />
       <PricingToggle />
       <Solution />
-      <Services />
       <CaseStudies />
       <Timeline />
       <NotFor />
