@@ -4,6 +4,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { z } from 'zod';
+
+const funnelSchema = z.object({
+  goal: z.string().min(1, "Bitte wähle ein Hauptziel aus"),
+  challenge: z.string().min(1, "Bitte wähle eine Herausforderung aus"),
+  budget: z.string().min(1, "Bitte wähle ein Budget aus"),
+  timeline: z.string().min(1, "Bitte wähle einen Zeitpunkt aus"),
+  name: z.string().trim().min(1, "Name ist erforderlich").max(100, "Name darf maximal 100 Zeichen lang sein"),
+  email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255, "E-Mail darf maximal 255 Zeichen lang sein"),
+  phone: z.string().trim().max(30, "Telefonnummer darf maximal 30 Zeichen lang sein").optional(),
+  privacy: z.boolean().refine(val => val === true, "Datenschutzerklärung muss akzeptiert werden")
+});
 
 interface FunnelData {
   goal: string;
@@ -49,38 +61,36 @@ const ContactFunnel = () => {
   };
 
   const handleSubmit = () => {
-    if (!data.name || !data.email) {
+    // Validate form data with zod schema
+    const result = funnelSchema.safeParse(data);
+    
+    if (!result.success) {
+      const firstError = result.error.errors[0];
       toast({
-        title: "Pflichtfelder ausfüllen",
-        description: "Bitte Name und E-Mail eingeben.",
+        title: "Validierungsfehler",
+        description: firstError.message,
         variant: "destructive"
       });
       return;
     }
 
-    if (!data.privacy) {
-      toast({
-        title: "Datenschutz erforderlich",
-        description: "Bitte stimmen Sie der Datenschutzerklärung zu.",
-        variant: "destructive"
-      });
-      return;
-    }
+    // Use validated data
+    const validatedData = result.data;
 
-    // Create email content
-    const subject = `Kontaktanfrage von ${data.name}`;
+    // Create email content with validated and sanitized data
+    const subject = `Kontaktanfrage von ${validatedData.name}`;
     const body = `
 Neue Kontaktanfrage über den Funnel:
 
-Name: ${data.name}
-E-Mail: ${data.email}
-Telefon: ${data.phone || 'Nicht angegeben'}
+Name: ${validatedData.name}
+E-Mail: ${validatedData.email}
+Telefon: ${validatedData.phone || 'Nicht angegeben'}
 
 Antworten aus dem Funnel:
-- Hauptziel: ${data.goal}
-- Größte Herausforderung: ${data.challenge}
-- Marketing-Budget: ${data.budget}
-- Start-Zeitpunkt: ${data.timeline}
+- Hauptziel: ${validatedData.goal}
+- Größte Herausforderung: ${validatedData.challenge}
+- Marketing-Budget: ${validatedData.budget}
+- Start-Zeitpunkt: ${validatedData.timeline}
 
 ---
 Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
@@ -261,6 +271,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                   value={data.name}
                   onChange={handleInputChange}
                   placeholder="Dein Name" 
+                  maxLength={100}
                   required
                 />
               </div>
@@ -273,6 +284,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                   value={data.email}
                   onChange={handleInputChange}
                   placeholder="deine@email.de" 
+                  maxLength={255}
                   required
                 />
               </div>
@@ -285,6 +297,7 @@ Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
                   value={data.phone}
                   onChange={handleInputChange}
                   placeholder="+49 123 456 789" 
+                  maxLength={30}
                 />
               </div>
 

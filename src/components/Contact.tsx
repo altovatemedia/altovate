@@ -4,6 +4,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  firstName: z.string().trim().min(1, "Vorname ist erforderlich").max(100, "Vorname darf maximal 100 Zeichen lang sein"),
+  lastName: z.string().trim().min(1, "Nachname ist erforderlich").max(100, "Nachname darf maximal 100 Zeichen lang sein"),
+  email: z.string().trim().email("Ungültige E-Mail-Adresse").max(255, "E-Mail darf maximal 255 Zeichen lang sein"),
+  company: z.string().trim().max(200, "Unternehmensname darf maximal 200 Zeichen lang sein").optional(),
+  phone: z.string().trim().max(30, "Telefonnummer darf maximal 30 Zeichen lang sein").optional(),
+  message: z.string().trim().min(1, "Nachricht ist erforderlich").max(2000, "Nachricht darf maximal 2000 Zeichen lang sein"),
+  privacy: z.boolean().refine(val => val === true, "Datenschutzerklärung muss akzeptiert werden")
+});
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -27,42 +38,40 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.privacy) {
+    // Validate form data with zod schema
+    const result = contactSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const firstError = result.error.errors[0];
       toast({
-        title: "Datenschutz erforderlich",
-        description: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+        title: "Validierungsfehler",
+        description: firstError.message,
         variant: "destructive"
       });
       return;
     }
 
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
-      toast({
-        title: "Pflichtfelder ausfüllen",
-        description: "Bitte füllen Sie alle Pflichtfelder aus.",
-        variant: "destructive"
-      });
-      return;
-    }
+    // Use validated data
+    const validatedData = result.data;
 
-    // Create email content
-    const subject = `Kontaktanfrage von ${formData.firstName} ${formData.lastName}`;
+    // Create email content with validated and sanitized data
+    const subject = `Kontaktanfrage von ${validatedData.firstName} ${validatedData.lastName}`;
     const body = `
 Neue Kontaktanfrage über die Website:
 
-Name: ${formData.firstName} ${formData.lastName}
-E-Mail: ${formData.email}
-Unternehmen: ${formData.company || 'Nicht angegeben'}
-Telefon: ${formData.phone || 'Nicht angegeben'}
+Name: ${validatedData.firstName} ${validatedData.lastName}
+E-Mail: ${validatedData.email}
+Unternehmen: ${validatedData.company || 'Nicht angegeben'}
+Telefon: ${validatedData.phone || 'Nicht angegeben'}
 
 Nachricht:
-${formData.message}
+${validatedData.message}
 
 ---
 Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
     `;
 
-    // Create mailto link
+    // Create mailto link with properly encoded data
     const mailtoLink = `mailto:info@altovate.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open email client
@@ -174,6 +183,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                     value={formData.firstName}
                     onChange={handleInputChange}
                     placeholder="Dein Vorname" 
+                    maxLength={100}
                     required
                   />
                 </div>
@@ -184,6 +194,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                     value={formData.lastName}
                     onChange={handleInputChange}
                     placeholder="Dein Nachname" 
+                    maxLength={100}
                     required
                   />
                 </div>
@@ -197,6 +208,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="deine@email.de" 
+                  maxLength={255}
                   required
                 />
               </div>
@@ -208,6 +220,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                   value={formData.company}
                   onChange={handleInputChange}
                   placeholder="Dein Unternehmen" 
+                  maxLength={200}
                 />
               </div>
 
@@ -219,6 +232,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="+49 123 456 789" 
+                  maxLength={30}
                 />
               </div>
 
@@ -230,6 +244,7 @@ Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
                   onChange={handleInputChange}
                   placeholder="Erzähl uns von deinem Projekt oder deinen Herausforderungen..." 
                   rows={5} 
+                  maxLength={2000}
                   required
                 />
               </div>
