@@ -1,12 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import VisibilityCheckModal from '@/components/visibility-check/VisibilityCheckModal';
 
 const FreebieBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY < 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <div className="bg-white fixed top-0 left-0 right-0 z-50 border-b border-border/50">
+      <div 
+        className={`bg-white fixed top-0 left-0 right-0 z-50 border-b border-border/50 transition-transform duration-300 ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-center py-3">
             <button 
