@@ -8,7 +8,6 @@ const PricingToggle = () => {
   const oneTimeOffers = [
     {
       title: "Website Refresh",
-      description: "Deine Website neu gedacht: modern, mobil-optimiert und schnell.",
       price: "3.000 €",
       features: [
         "Komplette Website-Überarbeitung",
@@ -20,8 +19,7 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "Online-Werbung Starterpaket", 
-      description: "Starte mit Google- und Meta-Ads und gewinne sofort mehr Reichweite.",
+      title: "Ad Impact Engine", 
       price: "1.500 €",
       features: [
         "Facebook & Google Ads Setup",
@@ -33,21 +31,7 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "Content Kickstart Day",
-      description: "Ein Produktionstag – Fotos, Videos und Social Media Content für Wochen.",
-      price: "1.800 €", 
-      features: [
-        "Professioneller Drehtag vor Ort",
-        "20+ Social Media Assets",
-        "3 kurze Werbevideos",
-        "Foto-Retusche inklusive",
-        "Nutzungsrechte ohne Limit",
-        "Content-Strategie-Beratung"
-      ]
-    },
-    {
-      title: "Sichtbarkeits-Paket",
-      description: "Alles in einem: Website, Content, Ads & Automatisierung für maximale Präsenz.",
+      title: "Die visibility engine",
       price: "5.000 €",
       isHighlight: true,
       features: [
@@ -60,16 +44,15 @@ const PricingToggle = () => {
       ]
     },
     {
-      title: "SmartFlow System",
-      description: "Automatisierte Prozesse für Anfragen, Bewerbungen und Terminbuchungen.",
-      price: "2.500 €",
+      title: "Content Kickstart Day",
+      price: "1.800 €", 
       features: [
-        "WhatsApp & E-Mail Automatisierung",
-        "Chatbot für Website Integration",
-        "Terminbuchungs-System",
-        "CRM-Integration (optional)",
-        "Bewerbermanagement-Workflows",
-        "Setup & Schulung inklusive"
+        "Professioneller Drehtag vor Ort",
+        "20+ Social Media Assets",
+        "3 kurze Werbevideos",
+        "Foto-Retusche inklusive",
+        "Nutzungsrechte ohne Limit",
+        "Content-Strategie-Beratung"
       ]
     }
   ];
@@ -161,13 +144,13 @@ const PricingToggle = () => {
 
         {/* Pricing Cards */}
         {!isMonthly ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {oneTimeOffers.map((offer, index) => (
               <div
                 key={index}
                 className={`relative ${
                   offer.isHighlight
-                    ? 'finom-card border-2 border-primary shadow-elegant'
+                    ? 'finom-card border-2 border-primary shadow-elegant transform scale-105'
                     : 'finom-card hover-lift'
                 }`}
               >
@@ -180,8 +163,7 @@ const PricingToggle = () => {
                 )}
                 
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold mb-2">{offer.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 min-h-[40px]">{offer.description}</p>
+                  <h3 className="finom-h3 mb-2">{offer.title}</h3>
                   <div className="text-3xl font-bold text-primary mb-1">{offer.price}</div>
                   <div className="text-sm text-muted-foreground">Einmalzahlung</div>
                 </div>
