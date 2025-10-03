@@ -14,7 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      visibility_check_leads: {
+        Row: {
+          answers: Json
+          consent_status: string
+          consent_timestamp: string | null
+          created_at: string
+          doi_token: string | null
+          email: string
+          id: string
+          ip_address: string | null
+          score_pct: number
+          updated_at: string
+        }
+        Insert: {
+          answers: Json
+          consent_status?: string
+          consent_timestamp?: string | null
+          created_at?: string
+          doi_token?: string | null
+          email: string
+          id?: string
+          ip_address?: string | null
+          score_pct: number
+          updated_at?: string
+        }
+        Update: {
+          answers?: Json
+          consent_status?: string
+          consent_timestamp?: string | null
+          created_at?: string
+          doi_token?: string | null
+          email?: string
+          id?: string
+          ip_address?: string | null
+          score_pct?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
