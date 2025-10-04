@@ -220,22 +220,19 @@ export const CookieBanner = () => {
     </div>
   );
 
-  // Overlay backdrop
-  const overlay = isOpen && (
-    <div
-      className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] animate-fade-in"
-      style={{ animationDuration: '200ms' }}
-    />
-  );
-
   if (isMobile) {
     return (
       <>
-        {overlay}
+        {isOpen && (
+          <div
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] animate-fade-in"
+            style={{ animationDuration: '200ms' }}
+          />
+        )}
         <Sheet open={isOpen} onOpenChange={handleClose}>
           <SheetContent
             side="bottom"
-            className="h-[90vh] rounded-t-[20px] p-6 border-0 pointer-events-auto"
+            className="h-[90vh] rounded-t-[20px] p-6 border-0 z-[101] bg-white"
           >
             {content}
           </SheetContent>
@@ -246,10 +243,15 @@ export const CookieBanner = () => {
 
   return (
     <>
-      {overlay}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] animate-fade-in"
+          style={{ animationDuration: '200ms' }}
+        />
+      )}
       <Dialog open={isOpen} onOpenChange={handleClose}>
         <DialogContent
-          className="max-w-[600px] p-8 rounded-[20px] shadow-2xl border-0 pointer-events-auto animate-fade-in"
+          className="max-w-[600px] p-8 rounded-[20px] shadow-2xl border-0 z-[101] bg-white animate-fade-in"
           style={{ animationDuration: '200ms' }}
         >
           {content}
