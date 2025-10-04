@@ -118,6 +118,15 @@ const Footer = () => {
               <a href="/datenschutz" className="text-white/60 hover:text-white transition-all duration-300 text-xs font-light">
                 Datenschutz
               </a>
+              <button
+                onClick={() => {
+                  const event = new CustomEvent('open-cookie-settings');
+                  window.dispatchEvent(event);
+                }}
+                className="text-white/60 hover:text-white transition-all duration-300 text-xs font-light"
+              >
+                Cookie-Einstellungen
+              </button>
             </div>
             <p className="text-white/50 text-xs font-light">
               © 2025 Altovate. Alle Rechte vorbehalten.

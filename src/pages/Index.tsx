@@ -17,6 +17,7 @@ import FAQ from '@/components/FAQ';
 import ContactFunnel from '@/components/sections/ContactFunnel';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
+import { CookieBannerWrapper } from '@/components/CookieBanner';
 
 const Index = () => {
   // Scroll Progress Bar
@@ -63,6 +64,7 @@ const Index = () => {
         <ContactFunnel />
         <Footer />
         <ChatBot />
+        <CookieBannerWrapper />
       </motion.div>
     </AnimatePresence>
   );
