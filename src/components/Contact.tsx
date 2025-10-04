@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(1, "Vorname ist erforderlich").max(100, "Vorname darf maximal 100 Zeichen lang sein"),
@@ -35,7 +36,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate form data with zod schema
@@ -54,44 +55,44 @@ const Contact = () => {
     // Use validated data
     const validatedData = result.data;
 
-    // Create email content with validated and sanitized data
-    const subject = `Kontaktanfrage von ${validatedData.firstName} ${validatedData.lastName}`;
-    const body = `
-Neue Kontaktanfrage über die Website:
+    try {
+      // Send email via edge function
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          firstName: validatedData.firstName,
+          lastName: validatedData.lastName,
+          email: validatedData.email,
+          company: validatedData.company,
+          phone: validatedData.phone,
+          message: validatedData.message
+        }
+      });
 
-Name: ${validatedData.firstName} ${validatedData.lastName}
-E-Mail: ${validatedData.email}
-Unternehmen: ${validatedData.company || 'Nicht angegeben'}
-Telefon: ${validatedData.phone || 'Nicht angegeben'}
+      if (error) throw error;
 
-Nachricht:
-${validatedData.message}
+      toast({
+        title: "Nachricht gesendet! ✓",
+        description: "Wir melden uns innerhalb von 24h bei dir.",
+      });
 
----
-Diese Nachricht wurde über das Kontaktformular auf altovate.de gesendet.
-    `;
-
-    // Create mailto link with properly encoded data
-    const mailtoLink = `mailto:info@altovate.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "E-Mail wird geöffnet",
-      description: "Ihre E-Mail-Anwendung sollte sich jetzt öffnen.",
-    });
-
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      company: '',
-      phone: '',
-      message: '',
-      privacy: false
-    });
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: '',
+        privacy: false
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Fehler",
+        description: "Die Nachricht konnte nicht gesendet werden. Bitte versuche es erneut.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (

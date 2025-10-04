@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
+import { supabase } from '@/integrations/supabase/client';
 
 const funnelSchema = z.object({
   goal: z.string().min(1, "Bitte wähle ein Hauptziel aus"),
@@ -60,7 +61,7 @@ const ContactFunnel = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Validate form data with zod schema
     const result = funnelSchema.safeParse(data);
     
@@ -77,32 +78,38 @@ const ContactFunnel = () => {
     // Use validated data
     const validatedData = result.data;
 
-    // Create email content with validated and sanitized data
-    const subject = `Kontaktanfrage von ${validatedData.name}`;
-    const body = `
-Neue Kontaktanfrage über den Funnel:
-
-Name: ${validatedData.name}
-E-Mail: ${validatedData.email}
-Telefon: ${validatedData.phone || 'Nicht angegeben'}
-
+    try {
+      // Send email via edge function
+      const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          firstName: validatedData.name.split(' ')[0] || validatedData.name,
+          lastName: validatedData.name.split(' ').slice(1).join(' ') || '',
+          email: validatedData.email,
+          phone: validatedData.phone,
+          message: `
 Antworten aus dem Funnel:
 - Hauptziel: ${validatedData.goal}
 - Größte Herausforderung: ${validatedData.challenge}
 - Marketing-Budget: ${validatedData.budget}
 - Start-Zeitpunkt: ${validatedData.timeline}
+          `
+        }
+      });
 
----
-Diese Nachricht wurde über den Kontakt-Funnel auf altovate.de gesendet.
-    `;
+      if (error) throw error;
 
-    const mailtoLink = `mailto:info@altovate.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Perfekt! 🚀",
-      description: "Wir melden uns innerhalb von 24h bei dir.",
-    });
+      toast({
+        title: "Perfekt! 🚀",
+        description: "Wir melden uns innerhalb von 24h bei dir.",
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Fehler",
+        description: "Die Nachricht konnte nicht gesendet werden. Bitte versuche es erneut.",
+        variant: "destructive"
+      });
+    }
   };
 
   const renderStep = () => {
