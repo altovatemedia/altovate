@@ -30,10 +30,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending contact email from:", email);
 
-    // Email an info@altovate.de mit den Kontaktdaten
+    // Email an alex@altovate.de mit den Kontaktdaten
     const emailResponse = await resend.emails.send({
       from: "Altovate Kontaktformular <onboarding@resend.dev>",
-      to: ["info@altovate.de"],
+      to: ["alex@altovate.de"],
       replyTo: email,
       subject: `Neue Kontaktanfrage von ${firstName} ${lastName}`,
       html: `
