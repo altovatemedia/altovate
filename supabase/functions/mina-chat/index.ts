@@ -5,6 +5,25 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+
+async function callCalendlyIntegration(action: string, data: any) {
+  const response = await fetch(`${SUPABASE_URL}/functions/v1/calendly-integration`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ action, data }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Calendly integration error: ${errorText}`);
+  }
+
+  return await response.json();
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
@@ -137,18 +156,27 @@ Das kenne ich - genau da setzen wir an! Lass uns das im Detail besprechen. Wann 
 Bei Zögern:
 Verstehe ich total! Aber glaub mir, nach dem Gespräch siehst du viel klarer. Wir quatschen 20-30 Minuten, unverbindlich. Wie siehts bei dir Mittwoch oder Donnerstag aus?
 
-TERMINBUCHUNG - DEIN WICHTIGSTES TOOL:
+TERMINBUCHUNG - DEINE SUPERKRAFT:
 
-Calendly-Link: https://calendly.com/alex-altovate
+Du hast Zugriff auf das Calendly-System von Alex und kannst AKTIV Termine koordinieren und buchen!
 
-SO NUTZT DU IHN:
-- Teile den Link PROAKTIV, sobald jemand Interesse zeigt oder nach einem Termin fragt
-- Formulierung: "Perfekt! Dann buch dir hier direkt einen passenden Slot bei Alex: calendly.com/alex-altovate 📅"
-- Alternativ: "Am besten schauen wir uns das im Detail an - schnapp dir hier einen Termin mit Alex: calendly.com/alex-altovate"
-- Nach dem Teilen: Frage nach dem Hauptthema/Anliegen für das Gespräch, damit Alex sich vorbereiten kann
-- Sei dabei locker: "Und worum gehts genau? Reichweite, Kampagnen oder eher Content?"
+SO GEHST DU VOR:
+1. Wenn jemand Interesse zeigt → Frage nach bevorzugten Zeiten (Wochentag, Tageszeit)
+2. Nutze check_availability um freie Slots zu finden
+3. Präsentiere 2-3 konkrete Optionen mit Datum und Uhrzeit
+4. Sammle Name und E-Mail-Adresse
+5. Buche den Termin mit book_appointment
+6. Bestätige: "Perfekt! Ich hab dir den Termin am [Datum] um [Zeit] eingetragen. Du bekommst gleich eine Bestätigung per E-Mail von Calendly 📅"
 
-WANN DU DEN LINK TEILST:
+WICHTIG:
+- Sei PROAKTIV beim Terminieren - nicht passiv
+- Frage immer nach konkreten Präferenzen (Wochentag, Vormittag/Nachmittag)
+- Zeige verfügbare Zeiten und lass wählen
+- Buche direkt, nachdem du Name + E-Mail hast
+- Die Zeitzone ist immer Europe/Berlin
+- Formatiere Zeiten IMMER in diesem Format für die Buchung: 2025-01-15T10:00:00+01:00
+
+WANN DU TERMINE KOORDINIERST:
 - Sofort, wenn jemand nach einem Termin fragt
 - Nach 2-3 Nachrichten, wenn Pain Points erkennbar sind
 - Wenn jemand konkrete Fragen zu Services oder Preisen hat
@@ -156,6 +184,51 @@ WANN DU DEN LINK TEILST:
 
 Wichtig: Wenn jemand fragt, was du bist, antworte einfach, dass du Mina bist und für altovate arbeitest. Erwähne NICHT, dass du ein System, KI oder trainiert bist.`;
 
+    // Define tools for Calendly integration
+    const tools = [
+      {
+        type: "function",
+        function: {
+          name: "check_availability",
+          description: "Prüft verfügbare Termine im Calendly von Alex für die nächsten 7 Tage. Gibt eine Liste von verfügbaren Zeitslots zurück.",
+          parameters: {
+            type: "object",
+            properties: {},
+          },
+        },
+      },
+      {
+        type: "function",
+        function: {
+          name: "book_appointment",
+          description: "Bucht einen Termin im Calendly von Alex. Benötigt E-Mail, Name und Start-Zeit im ISO Format.",
+          parameters: {
+            type: "object",
+            properties: {
+              email: {
+                type: "string",
+                description: "E-Mail-Adresse des Interessenten",
+              },
+              name: {
+                type: "string",
+                description: "Vor- und Nachname des Interessenten",
+              },
+              startTime: {
+                type: "string",
+                description: "Start-Zeit des Termins im ISO 8601 Format mit Timezone (z.B. 2025-01-15T10:00:00+01:00)",
+              },
+              eventTypeUri: {
+                type: "string",
+                description: "Die URI des Event-Types von Calendly (wird von check_availability zurückgegeben)",
+              },
+            },
+            required: ["email", "name", "startTime", "eventTypeUri"],
+          },
+        },
+      },
+    ];
+
+    // First AI call
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -168,7 +241,8 @@ Wichtig: Wenn jemand fragt, was du bist, antworte einfach, dass du Mina bist und
           { role: "system", content: systemPrompt },
           ...messages,
         ],
-        stream: true,
+        tools: tools,
+        stream: false, // We need to check for tool calls first
       }),
     });
 
@@ -193,7 +267,98 @@ Wichtig: Wenn jemand fragt, was du bist, antworte einfach, dass du Mina bist und
       });
     }
 
-    return new Response(response.body, {
+    const aiResponse = await response.json();
+    const choice = aiResponse.choices[0];
+    
+    console.log("AI Response:", JSON.stringify(choice, null, 2));
+
+    // Check if AI wants to call a tool
+    if (choice.message?.tool_calls && choice.message.tool_calls.length > 0) {
+      const toolCall = choice.message.tool_calls[0];
+      const functionName = toolCall.function.name;
+      const functionArgs = JSON.parse(toolCall.function.arguments);
+
+      console.log(`Calling function: ${functionName}`, functionArgs);
+
+      let functionResult;
+      try {
+        if (functionName === "check_availability") {
+          functionResult = await callCalendlyIntegration("get_availability", {});
+        } else if (functionName === "book_appointment") {
+          functionResult = await callCalendlyIntegration("book_appointment", functionArgs);
+        } else {
+          throw new Error(`Unknown function: ${functionName}`);
+        }
+
+        console.log("Function result:", functionResult);
+      } catch (error) {
+        console.error("Function call error:", error);
+        functionResult = { error: error instanceof Error ? error.message : "Function call failed" };
+      }
+
+      // Add tool call result to messages and call AI again
+      const updatedMessages = [
+        ...messages,
+        choice.message,
+        {
+          role: "tool",
+          tool_call_id: toolCall.id,
+          name: functionName,
+          content: JSON.stringify(functionResult),
+        },
+      ];
+
+      // Second AI call with tool result - now with streaming
+      const secondResponse = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "google/gemini-2.5-flash",
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...updatedMessages,
+          ],
+          tools: tools,
+          stream: true,
+        }),
+      });
+
+      if (!secondResponse.ok) {
+        const t = await secondResponse.text();
+        console.error("Second AI call error:", secondResponse.status, t);
+        return new Response(JSON.stringify({ error: "AI gateway error" }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+
+      return new Response(secondResponse.body, {
+        headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
+      });
+    }
+
+    // No tool call - stream the response
+    const streamResponse = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "google/gemini-2.5-flash",
+        messages: [
+          { role: "system", content: systemPrompt },
+          ...messages,
+        ],
+        tools: tools,
+        stream: true,
+      }),
+    });
+
+    return new Response(streamResponse.body, {
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {
