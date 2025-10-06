@@ -66,12 +66,28 @@ serve(async (req) => {
       }
 
       // Use the first active event type
-      const eventType = eventTypesData.collection[0];
+      const activeEventType = eventTypesData.collection.find((et: any) => et.active === true);
+      if (!activeEventType) {
+        return new Response(
+          JSON.stringify({ 
+            error: "Kein aktiver Event-Type gefunden. Bitte aktiviere einen Event-Type in Calendly." 
+          }),
+          {
+            status: 400,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          }
+        );
+      }
+      
+      const eventType = activeEventType;
       const eventTypeUri = eventType.uri;
 
-      // Get availability for the next 7 days
+      // Get availability for the next 7 days, starting from now + 1 hour to ensure it's in the future
       const startDate = new Date();
-      const endDate = new Date();
+      startDate.setHours(startDate.getHours() + 1);
+      startDate.setMinutes(0, 0, 0); // Round to full hour
+      
+      const endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
 
       const availabilityResponse = await fetch(
