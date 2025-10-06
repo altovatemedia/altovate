@@ -158,23 +158,21 @@ Verstehe ich total! Aber glaub mir, nach dem Gespräch siehst du viel klarer. Wi
 
 TERMINBUCHUNG - DEINE SUPERKRAFT:
 
-Du hast Zugriff auf das Calendly-System von Alex und kannst AKTIV Termine koordinieren und buchen!
+Du hast Zugriff auf das Calendly-System von Alex und kannst verfügbare Termine zeigen und Buchungs-Links generieren!
 
 SO GEHST DU VOR:
 1. Wenn jemand Interesse zeigt → Frage nach bevorzugten Zeiten (Wochentag, Tageszeit)
 2. Nutze check_availability um freie Slots zu finden
-3. Präsentiere 2-3 konkrete Optionen mit Datum und Uhrzeit
-4. Sammle Name und E-Mail-Adresse
-5. Buche den Termin mit book_appointment
-6. Bestätige: "Perfekt! Ich hab dir den Termin am [Datum] um [Zeit] eingetragen. Du bekommst gleich eine Bestätigung per E-Mail von Calendly 📅"
+3. Präsentiere 2-3 konkrete Optionen mit Datum und Uhrzeit (in deutscher Zeitzone formatiert, z.B. "Montag, 7. Oktober um 13:00 Uhr")
+4. Wenn der User einen Termin wählt → Nutze generate_booking_link mit der exakten start_time (im UTC Format wie aus check_availability, z.B. "2025-10-07T11:00:00Z")
+5. Sende dem User den Link mit einer freundlichen Nachricht wie: "Super! Hier ist dein Buchungs-Link für [Tag, Datum] um [Uhrzeit]: [LINK]. Klick einfach drauf und gib deine Daten ein - dauert nur eine Minute! 📅"
 
-WICHTIG:
-- Sei PROAKTIV beim Terminieren - nicht passiv
-- Frage immer nach konkreten Präferenzen (Wochentag, Vormittag/Nachmittag)
-- Zeige verfügbare Zeiten und lass wählen
-- Buche direkt, nachdem du Name + E-Mail hast
-- Die Zeitzone ist immer Europe/Berlin
-- Formatiere Zeiten IMMER in diesem Format für die Buchung: 2025-01-15T10:00:00+01:00
+WICHTIG BEI ZEITEN:
+- Die API gibt Zeiten in UTC zurück (z.B. "2025-10-07T11:00:00Z")
+- Deutsche Zeit ist UTC+1 (Winter) oder UTC+2 (Sommer)
+- Rechne IMMER um für die Anzeige: 11:00 UTC = 13:00 deutsche Zeit (Sommer)
+- Für generate_booking_link nutze IMMER die originale UTC Zeit aus der API
+- Beispiel: API sagt "2025-10-07T11:00:00Z" → Du sagst "Mittwoch, 7. Oktober um 13:00 Uhr" → Du nutzt "2025-10-07T11:00:00Z" für den Link
 
 WANN DU TERMINE KOORDINIERST:
 - Sofort, wenn jemand nach einem Termin fragt
@@ -200,29 +198,17 @@ Wichtig: Wenn jemand fragt, was du bist, antworte einfach, dass du Mina bist und
       {
         type: "function",
         function: {
-          name: "book_appointment",
-          description: "Bucht einen Termin im Calendly von Alex. Benötigt E-Mail, Name und Start-Zeit im ISO Format.",
+          name: "generate_booking_link",
+          description: "Generiert einen Calendly Buchungs-Link für einen bestimmten Termin. Der User muss dann nur noch auf den Link klicken und seine Daten eingeben.",
           parameters: {
             type: "object",
             properties: {
-              email: {
-                type: "string",
-                description: "E-Mail-Adresse des Interessenten",
-              },
-              name: {
-                type: "string",
-                description: "Vor- und Nachname des Interessenten",
-              },
               startTime: {
                 type: "string",
-                description: "Start-Zeit des Termins im ISO 8601 Format mit Timezone (z.B. 2025-01-15T10:00:00+01:00)",
-              },
-              eventTypeUri: {
-                type: "string",
-                description: "Die URI des Event-Types von Calendly (wird von check_availability zurückgegeben)",
+                description: "Die Start-Zeit des gewünschten Termins (z.B. '2025-10-07T11:00:00Z')",
               },
             },
-            required: ["email", "name", "startTime", "eventTypeUri"],
+            required: ["startTime"],
           },
         },
       },
@@ -284,8 +270,24 @@ Wichtig: Wenn jemand fragt, was du bist, antworte einfach, dass du Mina bist und
       try {
         if (functionName === "check_availability") {
           functionResult = await callCalendlyIntegration("get_availability", {});
-        } else if (functionName === "book_appointment") {
-          functionResult = await callCalendlyIntegration("book_appointment", functionArgs);
+        } else if (functionName === "generate_booking_link") {
+          // Find the scheduling URL for the requested time
+          const availabilityData = await callCalendlyIntegration("get_availability", {});
+          const requestedTime = functionArgs.startTime;
+          const matchingSlot = availabilityData.availableTimes?.find(
+            (slot: any) => slot.start_time === requestedTime
+          );
+          
+          if (matchingSlot) {
+            functionResult = { 
+              booking_link: matchingSlot.scheduling_url,
+              start_time: matchingSlot.start_time 
+            };
+          } else {
+            functionResult = { 
+              error: "Dieser Termin ist leider nicht mehr verfügbar. Bitte wähle einen anderen Zeitslot." 
+            };
+          }
         } else {
           throw new Error(`Unknown function: ${functionName}`);
         }
