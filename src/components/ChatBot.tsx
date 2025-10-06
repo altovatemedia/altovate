@@ -136,6 +136,29 @@ const ChatBot = () => {
     await streamChat(userMessage);
   };
 
+  // Function to render text with clickable links
+  const renderMessageContent = (content: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = content.split(urlRegex);
+
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 underline hover:no-underline font-medium"
+          >
+            Termin buchen →
+          </a>
+        );
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
+
   return (
     <>
       {/* Chat Button */}
@@ -194,7 +217,7 @@ const ChatBot = () => {
                         : 'bg-muted'
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    <p className="text-sm whitespace-pre-wrap">{renderMessageContent(message.content)}</p>
                   </div>
                 </div>
               ))}
