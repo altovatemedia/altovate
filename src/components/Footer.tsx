@@ -29,13 +29,11 @@ const Footer = () => {
                   src={altovateIcon} 
                   alt="Altovate Icon" 
                   className="h-8 w-8 object-contain" 
-                  style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(95%) saturate(4527%) hue-rotate(314deg) brightness(98%) contrast(101%)' }}
                 />
                 <img 
                   src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
                   alt="Altovate Logo" 
                   className="h-7 w-auto object-contain" 
-                  style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(95%) saturate(4527%) hue-rotate(314deg) brightness(98%) contrast(101%)' }}
                 />
               </div>
               <p className="text-white/70 mb-8 text-sm font-light leading-relaxed">
