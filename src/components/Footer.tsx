@@ -3,7 +3,7 @@ import altovateIcon from '@/assets/altovate-icon.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary relative overflow-hidden">
+    <footer className="bg-[#1a1a1a] relative overflow-hidden">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
       <img 
@@ -24,15 +24,22 @@ const Footer = () => {
             
             {/* Spalte 1 - Logo & Claim */}
             <div>
-              <div className="mb-6">
+              <div className="mb-6 flex items-center gap-3">
+                <img 
+                  src={altovateIcon} 
+                  alt="Altovate Icon" 
+                  className="h-8 w-8 object-contain" 
+                  style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(95%) saturate(4527%) hue-rotate(314deg) brightness(98%) contrast(101%)' }}
+                />
                 <img 
                   src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
                   alt="Altovate Logo" 
-                  className="h-8 w-auto object-contain brightness-0 invert" 
+                  className="h-7 w-auto object-contain" 
+                  style={{ filter: 'brightness(0) saturate(100%) invert(45%) sepia(95%) saturate(4527%) hue-rotate(314deg) brightness(98%) contrast(101%)' }}
                 />
               </div>
-              <p className="text-white/90 mb-8 text-sm font-light leading-relaxed">
-                Marketing, das sichtbar macht.
+              <p className="text-white/70 mb-8 text-sm font-light leading-relaxed">
+                Ganzheitliches, sichtbarkeitsorientiertes Marketing für mittelständische Unternehmen. Weniger bla bla. Mehr Wirkung.
               </p>
               <div className="flex space-x-4">
                 <a 
@@ -54,28 +61,33 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Spalte 2 - Navigation */}
+            {/* Spalte 2 - Leistungen */}
             <div>
-              <h3 className="font-semibold mb-6 text-sm text-white uppercase tracking-wider">Navigation</h3>
+              <h3 className="font-semibold mb-6 text-sm text-white uppercase tracking-wider">Leistungen</h3>
               <ul className="space-y-3">
                 <li>
                   <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Leistungen
+                    Website & Design
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Über uns
+                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Content & Produktion
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Preise
+                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Performance Marketing
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Kontakt
+                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Employer Branding
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Marketing Automation
                   </a>
                 </li>
               </ul>
