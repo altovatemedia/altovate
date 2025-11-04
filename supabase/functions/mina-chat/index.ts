@@ -60,6 +60,19 @@ EINZELMODULE (separat buchbar, im Sichtbarkeits-Paket inklusive):
 - Content Kickstart (ab 1.800 €)
 - SmartFlow System (ab 1.200 €)
 
+SOCIAL MEDIA PAKETE (spezielle Angebote):
+
+EINMALIGE SOCIAL MEDIA PAKETE:
+1. SEO & Social Check (290 €) - Analyse von Website & Instagram, Konkrete Checkliste zur Optimierung, Tool-Tipps für bessere Ergebnisse, Zugang zu KI-Tool für Texte & Themen, Ideal als Einstieg ohne Risiko
+2. Content Kickstart Day (1.290 €) - Zielgruppen- & Themenanalyse, Planung passender Beiträge, 2h Videodreh & Fotoshooting vor Ort, Schnitt, Formatierung, Musik & Untertitel, Ausgabe in passenden Formaten, Optional: Einpflege & Text durch Altovate
+3. Social Media Starter (1.800 €) - Zielgruppenanalyse, Instagram-Profil Einrichtung/Refresh, Name, Profilbild, Bio, Kontakt & Verlinkung, Story-Highlights (Leistungen, Team, Rezensionen), 5 Design-Vorlagen für Canva, 6-8 Fotos & 3-4 Reels vor Ort, Zugang zu KI-Tool (Themenideen, Texte), Contentplaner für Selbstverwaltung
+4. Digitales Sichtbarkeitspaket (5.000 €) - BELIEBT: Moderne Onepager-Website, SEO-Basics & Mobiloptimierung, Instagram-Kanal Optimierung/Aufbau, Content Kickstart (3 Videos + 20 Fotos), Automatisierte Prozesse (Chatbot, Funnel), Zugang zu allen Altovate-KI-Tools, Go-Live in 30 Tagen garantiert
+
+MONATLICHE SOCIAL MEDIA PAKETE (Preise für 12 Monate Laufzeit, kürzere Laufzeiten möglich gegen Aufpreis):
+1. Content Basic (390 €/Monat) - 2 Beiträge/Monat (Reel oder Karussell), Texterstellung inkl. Untertitel & Hashtags, Themenvorgabe durch Altovate oder gemeinsam, Upload oder Übergabe, Zugang zu 1 KI-Tool
+2. Content Plus (690 €/Monat) - 4 Beiträge/Monat (Reels & Karussell), 1 Drehtag pro Quartal vor Ort, Monatliche Themenplanung, Zugang zu 2 KI-Tools (Texte, Zielgruppen, Hook-Ideen), Mehrproduktion auf Vorrat möglich
+3. Performance Scale (1.250 €/Monat) - BELIEBT: Monatlicher Drehtag vor Ort, Mindestens 10 Videos + 4 Karussell-Posts, Kompletter Schnitt, Titel, Untertitel, Musik, Upload auf Instagram inkl. Terminierung, Zugang zu allen Altovate-KI-Tools, Persönlicher Ansprechpartner
+
 ÜBER UNSERE ZUSAMMENARBEIT:
 
 Ablauf:
