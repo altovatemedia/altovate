@@ -10,6 +10,7 @@ import ContactFunnel from '@/components/sections/ContactFunnel';
 import AiDemoTool from '@/components/social-media/AiDemoTool';
 import PackageFinder from '@/components/social-media/PackageFinder';
 import VisibilityAnalysis from '@/components/social-media/VisibilityAnalysis';
+import SocialMediaPreferences from '@/components/social-media/SocialMediaPreferences';
 
 const SocialMedia = () => {
   const [duration, setDuration] = useState(12);
@@ -364,6 +365,8 @@ const SocialMedia = () => {
           </div>
         </div>
       </section>
+
+      <SocialMediaPreferences />
 
       <ContactFunnel />
       <Footer />
