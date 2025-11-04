@@ -69,8 +69,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Content & Produktion
+                  <a href="/socialmedia" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Social Media Marketing
                   </a>
                 </li>
                 <li>
