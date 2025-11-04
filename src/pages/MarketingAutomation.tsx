@@ -188,7 +188,7 @@ const MarketingAutomation = () => {
             </motion.div>
 
             {/* Process Flow */}
-            <div className="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto items-stretch">
               {processSteps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -196,17 +196,17 @@ const MarketingAutomation = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
+                  className="relative flex"
                 >
-                  <div className="bg-background border-2 border-border rounded-2xl p-6 text-center hover:border-[#ff1c5c] transition-all hover:shadow-lg">
-                    <div className="bg-[#ff1c5c]/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-background border-2 border-border rounded-2xl p-6 text-center hover:border-[#ff1c5c] transition-all hover:shadow-lg flex flex-col items-center justify-start w-full min-h-[240px]">
+                    <div className="bg-[#ff1c5c]/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0">
                       <step.icon className="h-8 w-8 text-[#ff1c5c]" />
                     </div>
-                    <h3 className="font-semibold mb-2 text-sm">{step.title}</h3>
+                    <h3 className="font-semibold mb-2 text-sm leading-tight">{step.title}</h3>
                     <p className="text-xs text-muted-foreground">{step.description}</p>
                   </div>
                   {index < processSteps.length - 1 && (
-                    <ChevronRight className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-[#ff1c5c] h-6 w-6" />
+                    <ChevronRight className="hidden md:block absolute top-1/2 -right-5 transform -translate-y-1/2 text-[#ff1c5c] h-8 w-8 z-10" />
                   )}
                 </motion.div>
               ))}
