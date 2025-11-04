@@ -25,8 +25,8 @@ const SocialMedia = () => {
   // Preisstaffelung berechnen mit Rundung auf glatte 10er
   const calculatePrice = (basePrice: number) => {
     let multiplier = 1;
-    if (duration === 3) multiplier = 1.2;
-    if (duration === 6) multiplier = 1.1;
+    if (duration === 3) multiplier = 1.29; // +29% für 890 aus 690
+    if (duration === 6) multiplier = 1.145; // +14.5% für 790 aus 690
     
     const calculated = basePrice * multiplier;
     // Aufrunden auf glatte 10er
@@ -35,52 +35,18 @@ const SocialMedia = () => {
 
   const oneTimePackages = [
     {
-      title: "Content Kickstart Day",
-      price: "1.800 €",
-      features: [
-        "Professioneller Drehtag vor Ort",
-        "20+ Social Media Assets",
-        "3 kurze Werbevideos",
-        "Foto-Retusche inklusive",
-        "Nutzungsrechte ohne Limit",
-        "Content-Strategie-Beratung"
-      ]
-    },
-    {
       title: "Social Media Starter",
-      price: "2.400 €",
-      features: [
-        "Profil-Optimierung (Bio, Highlights)",
-        "Content-Strategie & Themenplan",
-        "10 fertige Post-Templates",
-        "Hashtag-Recherche",
-        "Story-Vorlagen",
-        "1 Monat Coaching"
-      ]
-    },
-    {
-      title: "Kampagnen Quick-Setup",
-      price: "1.500 €",
+      price: "1.800 €",
       isPopular: true,
       features: [
-        "Meta & Google Ads Setup",
-        "Zielgruppenanalyse",
-        "3 Kampagnen mit Creatives",
-        "Tracking & Conversion Setup",
-        "Performance-Report",
-        "1 Monat Betreuung inklusive"
-      ]
-    },
-    {
-      title: "All-in-One Social Boost",
-      price: "4.200 €",
-      features: [
-        "Content Kickstart Day",
-        "Profil-Komplettoptimierung",
-        "Kampagnen-Setup",
-        "20+ Social Assets",
-        "Automation-Einrichtung",
-        "2 Monate Betreuung"
+        "Professioneller Dreh vor Ort",
+        "20+ Social Media Assets",
+        "3 Werbevideos",
+        "Foto-Retusche inklusive",
+        "Nutzung ohne Limit",
+        "Content-Strategieberatung",
+        "Einrichtung oder Re-Optimierung deiner Kanäle",
+        "Bio, Highlights, gepinnte Beiträge, Kanalcheck"
       ]
     }
   ];
@@ -90,9 +56,9 @@ const SocialMedia = () => {
       title: "Content Lite",
       basePrice: 690,
       features: [
-        "4 Social Assets / Monat (Reels & Posts)",
+        "4 Social Assets (Reels & Posts)",
         "Themenplanung & Vorlagen",
-        "Upload & Beitragstext inkl. Hashtags",
+        "Upload & Caption inkl. Hashtags",
         "Monatliche Strategieberatung",
         "Performance-Tracking"
       ]
@@ -101,8 +67,8 @@ const SocialMedia = () => {
       title: "Ads & Automation",
       basePrice: 890,
       features: [
-        "Kampagnen-Management (2–3 Anzeigengruppen)",
-        "Landingpage A/B-Tests (light)",
+        "Kampagnen-Management (2–3 Gruppen)",
+        "Landingpage A/B Testing (light)",
         "SmartFlow Pflege & Optimierung",
         "Zielgruppen-Optimierung",
         "Creative-Refresh bei Bedarf",
@@ -115,9 +81,9 @@ const SocialMedia = () => {
       isPopular: true,
       features: [
         "Website-Refresh in Monat 1",
-        "Kampagnen-Setup + Optimierung",
+        "Kampagnen-Setup + laufende Optimierung",
         "1 Content-Drehtag pro Quartal",
-        "SmartFlow laufend (z. B. Chatbot)",
+        "SmartFlow dauerhaft (z. B. Chatbot)",
         "Monatliches Strategie-Meeting",
         "Priorisierter Support & Betreuung"
       ]
@@ -131,9 +97,9 @@ const SocialMedia = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="finom-h1 mb-6">Social Media Marketing Pakete</h1>
+          <h1 className="finom-h1 mb-6">Social Media, das funktioniert.</h1>
           <p className="finom-lead text-muted-foreground">
-            Wähle zwischen unseren einmaligen Starter-Bausteinen oder einer langfristigen Partnerschaft mit monatlicher Betreuung.
+            Von der Contentplanung bis zur Performance-Analyse: Wir kümmern uns um deinen Auftritt – du konzentrierst dich aufs Geschäft.
           </p>
         </div>
       </section>
@@ -144,7 +110,7 @@ const SocialMedia = () => {
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 h-12">
               <TabsTrigger value="monthly" className="text-base">Monatliche Betreuung</TabsTrigger>
-              <TabsTrigger value="onetime" className="text-base">Einmalige Sets</TabsTrigger>
+              <TabsTrigger value="onetime" className="text-base">Einmalige Startpakete</TabsTrigger>
             </TabsList>
 
             {/* Monatliche Pakete mit verschachteltem Laufzeit-Toggle */}
@@ -163,9 +129,7 @@ const SocialMedia = () => {
                       }`}
                     >
                       {months} Monate
-                      {months === 3 && <span className="ml-1.5 text-xs opacity-75">+20%</span>}
-                      {months === 6 && <span className="ml-1.5 text-xs opacity-75">+10%</span>}
-                      {months === 12 && <span className="ml-1.5 text-xs opacity-75">✓</span>}
+                      {months === 12 && <span className="ml-1.5 text-xs opacity-75">✓ Standardpreis</span>}
                     </button>
                   ))}
                 </div>
@@ -253,9 +217,9 @@ const SocialMedia = () => {
               </div>
             </TabsContent>
 
-            {/* Einmalige Sets */}
+            {/* Einmalige Startpakete */}
             <TabsContent value="onetime" className="mt-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div className="max-w-3xl mx-auto">
                 {oneTimePackages.map((pkg, idx) => (
                   <div
                     key={idx}
@@ -267,18 +231,18 @@ const SocialMedia = () => {
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                         <span className="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
                           <Star className="w-3 h-3" />
-                          Top-Set
+                          Empfohlen
                         </span>
                       </div>
                     )}
                     
                     <div className="text-center mb-6">
                       <h3 className="finom-h3 mb-3">{pkg.title}</h3>
-                      <div className="text-3xl font-bold text-primary mb-1">{pkg.price}</div>
+                      <div className="text-4xl font-bold text-primary mb-1">{pkg.price}</div>
                       <div className="text-xs text-muted-foreground">Einmalzahlung</div>
                     </div>
 
-                    <div className="space-y-3 mb-8">
+                    <div className="grid md:grid-cols-2 gap-3 mb-8">
                       {pkg.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-2">
                           <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
@@ -288,7 +252,7 @@ const SocialMedia = () => {
                     </div>
 
                     <Button 
-                      className={pkg.isPopular ? 'btn-hero w-full' : 'btn-secondary w-full'}
+                      className="btn-hero w-full text-lg"
                       onClick={() => {
                         const contact = document.getElementById('contact');
                         contact?.scrollIntoView({ behavior: 'smooth' });
@@ -299,46 +263,70 @@ const SocialMedia = () => {
                     </Button>
                   </div>
                 ))}
+
+                <div className="mt-12 text-center p-8 bg-muted/30 rounded-2xl">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Perfekt für:</strong> Unternehmen, die einen professionellen Start wollen und direkt verwertbaren Content brauchen. Alle Rechte, keine versteckten Kosten.
+                  </p>
+                </div>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
 
-      {/* Paketfinder Sektion */}
+      {/* Interaktive Tools Sektion */}
       <section className="py-20 px-6 bg-gradient-to-br from-muted/30 to-transparent">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="finom-h2 mb-4">Finde dein passendes Paket</h2>
+            <h2 className="finom-h2 mb-4">Interaktive Tools</h2>
             <p className="finom-lead text-muted-foreground">
-              Beantworte ein paar kurze Fragen und erhalte eine individuelle Empfehlung
+              Teste unsere kostenlosen Tools und finde das perfekte Paket für dich
             </p>
           </div>
 
-          <div className="finom-card max-w-2xl mx-auto">
-            <PackageFinder />
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Tool 1: KI-Demo */}
+            <div className="finom-card hover-lift">
+              <div className="text-center mb-6">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="finom-h3 mb-2">🧠 Content-Ideen Finder</h3>
+                <p className="text-sm text-muted-foreground">
+                  Erhalte 3 maßgeschneiderte Content-Ideen
+                </p>
+              </div>
+              <AiDemoTool />
+            </div>
 
-      {/* Social Media Analyse Sektion */}
-      <section id="analysis" className="py-20 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="finom-h2 mb-4">Wie gut ist dein Auftritt wirklich?</h2>
-            <p className="finom-lead text-muted-foreground">
-              Prüfe dein Optimierungspotenzial und erhalte konkrete Verbesserungsvorschläge
-            </p>
-          </div>
+            {/* Tool 2: Paketfinder */}
+            <div className="finom-card hover-lift">
+              <div className="text-center mb-6">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="finom-h3 mb-2">🔍 Welches Paket passt?</h3>
+                <p className="text-sm text-muted-foreground">
+                  Finde dein perfektes Paket in 2 Minuten
+                </p>
+              </div>
+              <PackageFinder />
+            </div>
 
-          <div className="finom-card max-w-2xl mx-auto">
-            <VisibilityAnalysis />
-          </div>
-
-          <div className="text-center mt-12 p-6 bg-primary/5 rounded-2xl border border-primary/20 max-w-2xl mx-auto">
-            <p className="text-sm text-muted-foreground">
-              <strong>Unser Versprechen:</strong> Unser Team meldet sich mit konkreten Verbesserungsvorschlägen innerhalb von 48 Stunden bei dir.
-            </p>
+            {/* Tool 3: Social Media Check */}
+            <div className="finom-card hover-lift">
+              <div className="text-center mb-6">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="finom-h3 mb-2">📊 Social Media Check</h3>
+                <p className="text-sm text-muted-foreground">
+                  Sofortanalyse deines Auftritts
+                </p>
+              </div>
+              <VisibilityAnalysis />
+            </div>
           </div>
         </div>
       </section>

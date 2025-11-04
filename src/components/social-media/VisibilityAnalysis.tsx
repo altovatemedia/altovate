@@ -177,15 +177,15 @@ const VisibilityAnalysis = () => {
         
         <div className="space-y-2">
           {[
-            { id: 'hasBio', label: 'Bio optimiert' },
-            { id: 'hasHighlights', label: 'Highlights vorhanden' },
-            { id: 'hasUniformLook', label: 'Einheitlicher Look' },
-            { id: 'hasServices', label: 'Leistungen kommuniziert' },
-            { id: 'hasTeam', label: 'Team vorgestellt' },
-            { id: 'hasActivePosts', label: 'Aktive Posts' },
-            { id: 'hasLocation', label: 'Standort integriert' },
-            { id: 'hasLinktree', label: 'Linktree vorhanden' },
-            { id: 'hasSeoName', label: 'SEO-Name gewählt' }
+            { id: 'hasBio', label: 'Bio vorhanden?' },
+            { id: 'hasHighlights', label: 'Highlights gepflegt?' },
+            { id: 'hasUniformLook', label: 'Einheitliches Design?' },
+            { id: 'hasServices', label: 'Leistungen/Team erkennbar?' },
+            { id: 'hasTeam', label: 'Team vorgestellt?' },
+            { id: 'hasActivePosts', label: 'Aktive Posts vorhanden?' },
+            { id: 'hasLocation', label: 'Standort/Kontakt integriert?' },
+            { id: 'hasLinktree', label: 'Feedback/Rezensionen sichtbar?' },
+            { id: 'hasSeoName', label: 'Kanal-Name SEO-optimiert?' }
           ].map((item) => (
             <div key={item.id} className="flex items-center space-x-2">
               <Checkbox
@@ -212,11 +212,10 @@ const VisibilityAnalysis = () => {
           }
         />
         <Label htmlFor="privacy" className="text-xs font-normal cursor-pointer leading-tight">
-          Ich akzeptiere die{' '}
+          Ich möchte Verbesserungsvorschläge erhalten und akzeptiere die{' '}
           <a href="/datenschutz" className="text-primary hover:underline">
             Datenschutzbestimmungen
           </a>
-          {' '}und stimme der Kontaktaufnahme zu.
         </Label>
       </div>
 
