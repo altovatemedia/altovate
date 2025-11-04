@@ -81,19 +81,19 @@ const PackageFinder = () => {
 
     // Komplexere Logik basierend auf allen Antworten
     if (answers.selfPost === 'delegate' && answers.postFrequency === 'high') {
-      result = '🎯 **Scale Plan (1.250 €/Monat)**\n\nPerfekt für dich! Du erhältst eine komplette Rundum-Betreuung mit Kampagnen-Setup, Content-Produktion und laufender Optimierung.';
+      result = '🎯 Scale Plan (1.250 €/Monat)\n\nPerfekt für dich! Du erhältst eine komplette Rundum-Betreuung mit Kampagnen-Setup, Content-Produktion und laufender Optimierung.';
     } else if (answers.hasContent === 'no' && answers.videoImportant === 'yes') {
-      result = '🎬 **Content Kickstart Day (1.800 € einmalig)**\n\nDu bist am Anfang und brauchst professionellen Content. Ein Drehtag liefert dir 20+ Assets und 3 Werbevideos.';
-      additionalInfo = '\n\n💡 **Tipp:** Kombiniere mit Content Lite (690 €/Monat) für laufende Betreuung!';
+      result = '🎬 Content Kickstart Day (1.800 € einmalig)\n\nDu bist am Anfang und brauchst professionellen Content. Ein Drehtag liefert dir 20+ Assets und 3 Werbevideos.';
+      additionalInfo = '\n\n💡 Tipp: Kombiniere mit Content Lite (690 €/Monat) für laufende Betreuung!';
     } else if (answers.selfPost === 'delegate' || answers.postFrequency === 'medium') {
-      result = '📱 **Ads & Automation (890 €/Monat)**\n\nDie richtige Wahl! Konzentriere dich auf dein Geschäft, während wir deine Kampagnen managen.';
+      result = '📱 Ads & Automation (890 €/Monat)\n\nDie richtige Wahl! Konzentriere dich auf dein Geschäft, während wir deine Kampagnen managen.';
     } else if (answers.hasSocialMedia === 'no' || answers.selfPost === 'self') {
-      result = '✨ **Content Lite (690 €/Monat)**\n\nDer perfekte Einstieg! Erhalte monatlich 4 Social-Assets mit Themenplanung und Upload.';
+      result = '✨ Content Lite (690 €/Monat)\n\nDer perfekte Einstieg! Erhalte monatlich 4 Social-Assets mit Themenplanung und Upload.';
       if (answers.hasContent === 'no') {
-        additionalInfo = '\n\n💡 **Optional:** Content Kickstart Day für sofort verwertbare Assets!';
+        additionalInfo = '\n\n💡 Optional: Content Kickstart Day für sofort verwertbare Assets!';
       }
     } else {
-      result = '📱 **Social Media Starter (2.400 € einmalig)**\n\nProfil-Optimierung, Content-Strategie und 10 fertige Templates für deinen perfekten Start!';
+      result = '📱 Social Media Starter (2.400 € einmalig)\n\nProfil-Optimierung, Content-Strategie und 10 fertige Templates für deinen perfekten Start!';
     }
 
     setRecommendation(result + additionalInfo);
