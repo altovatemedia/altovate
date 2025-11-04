@@ -140,7 +140,7 @@ const MarketingAutomation = () => {
               transition={{ duration: 0.6 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-[#ff1c5c] to-primary bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-[#ff1c5c] to-primary bg-clip-text text-transparent leading-tight pb-2">
                 Automatisch Kunden gewinnen – aber bitte mit System.
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
