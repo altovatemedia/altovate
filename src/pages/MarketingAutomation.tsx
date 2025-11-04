@@ -451,7 +451,7 @@ const MarketingAutomation = () => {
                 Lass uns dein Funnel-System entwickeln: ehrlich, messbar und individuell für dein Business.
               </p>
               <Button 
-                onClick={() => window.open('https://calendly.com/alexanderbuchmann/30min', '_blank')}
+                onClick={scrollToContact}
                 size="lg" 
                 className="bg-[#ff1c5c] hover:bg-[#ff3d75] text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
               >
