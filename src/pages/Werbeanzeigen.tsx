@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Target, TrendingUp, Search, Users, BarChart3, CheckCircle2, ArrowRight, Megaphone, MousePointerClick } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Navigation from "@/components/Navigation";
+import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
 
 const Werbeanzeigen = () => {
@@ -143,11 +143,11 @@ const Werbeanzeigen = () => {
         <link rel="canonical" href="https://altovate.de/werbeanzeigen-saarburg" />
       </Helmet>
 
-      <Navigation />
+      <NewNavigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#0e0e0e]">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0e0e0e] via-[#0e0e0e]/95 to-[#0e0e0e]" />
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-background pt-16">
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background" />
         
         {/* Decorative elements */}
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -160,7 +160,7 @@ const Werbeanzeigen = () => {
               <span className="text-sm text-primary font-medium">Performance-Marketing aus der Region</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
               Werbeanzeigen, die wirken – statt Kosten, die verschwinden.
             </h1>
             
@@ -171,7 +171,7 @@ const Werbeanzeigen = () => {
             <Button 
               size="lg" 
               onClick={scrollToContact}
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg group"
+              className="btn-hero px-8 py-6 text-lg group"
             >
               Jetzt Kampagne starten
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
