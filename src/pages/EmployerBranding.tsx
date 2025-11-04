@@ -134,7 +134,7 @@ const EmployerBranding = () => {
       <NewNavigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0e0e0e]">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
         <motion.div 
           className="absolute inset-0 opacity-20"
           style={{ y: backgroundY }}
@@ -145,7 +145,7 @@ const EmployerBranding = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 text-white"
+              className="text-5xl md:text-7xl font-bold mb-6 text-foreground"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -154,7 +154,7 @@ const EmployerBranding = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl mb-8 text-gray-300"
+              className="text-xl md:text-2xl mb-8 text-muted-foreground"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -195,11 +195,11 @@ const EmployerBranding = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 bg-[#0e0e0e] border-t border-gray-800">
+      <section className="py-20 bg-background border-t border-border">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold mb-12 text-white text-center"
+              className="text-4xl md:text-5xl font-bold mb-12 text-foreground text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -209,7 +209,7 @@ const EmployerBranding = () => {
             </motion.h2>
 
             <motion.div 
-              className="space-y-6 text-lg md:text-xl text-gray-300"
+              className="space-y-6 text-lg md:text-xl text-muted-foreground"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -234,10 +234,10 @@ const EmployerBranding = () => {
       </section>
 
       {/* How it works Section */}
-      <section className="py-20 bg-gradient-to-b from-[#0e0e0e] to-[#1a1a1a]">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-16 text-white text-center"
+            className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -254,11 +254,11 @@ const EmployerBranding = () => {
               transition={{ duration: 0.6 }}
               whileHover={{ y: -10 }}
             >
-              <Card className="bg-gray-900 border-gray-800 h-full hover:border-[#ff1c5c]/50 transition-all">
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <X className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-white">Keine 0815-Stellenanzeigen mehr</h3>
-                  <p className="text-gray-400">
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Keine 0815-Stellenanzeigen mehr</h3>
+                  <p className="text-muted-foreground">
                     „Flache Hierarchie, Obstkorb & faire Bezahlung" interessieren niemanden mehr.
                   </p>
                 </CardContent>
@@ -272,11 +272,11 @@ const EmployerBranding = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ y: -10 }}
             >
-              <Card className="bg-gray-900 border-gray-800 h-full hover:border-[#ff1c5c]/50 transition-all">
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <Target className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-white">Authentische Arbeitgebermarke</h3>
-                  <p className="text-gray-400">
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Authentische Arbeitgebermarke</h3>
+                  <p className="text-muted-foreground">
                     Zeig, wer du bist, wie es bei dir aussieht, was dein Team besonders macht.
                   </p>
                 </CardContent>
@@ -290,11 +290,11 @@ const EmployerBranding = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ y: -10 }}
             >
-              <Card className="bg-gray-900 border-gray-800 h-full hover:border-[#ff1c5c]/50 transition-all">
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <Smartphone className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-white">Sichtbarkeit dort, wo deine Mitarbeiter sind</h3>
-                  <p className="text-gray-400">
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Sichtbarkeit dort, wo deine Mitarbeiter sind</h3>
+                  <p className="text-muted-foreground">
                     Instagram, Facebook, LinkedIn – nicht im Kreisblatt.
                   </p>
                 </CardContent>
@@ -303,17 +303,17 @@ const EmployerBranding = () => {
           </div>
 
           <motion.div 
-            className="max-w-3xl mx-auto mt-12 p-8 bg-gray-900 rounded-lg border border-gray-800"
+            className="max-w-3xl mx-auto mt-12 p-8 bg-card rounded-lg border border-border"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <p className="text-xl text-gray-300 italic">
+            <p className="text-xl text-muted-foreground italic">
               Einen Azubi findest du nicht im Kreisblatt – höchstens, wenn die Oma deine Anzeige liest.
               Aber auf Empfehlung der Oma bewirbt sich niemand mehr.
               <br /><br />
-              <span className="text-white font-semibold">
+              <span className="text-foreground font-semibold">
                 Zeig dich dort, wo deine zukünftigen Mitarbeiter wirklich unterwegs sind.
               </span>
             </p>
@@ -322,10 +322,10 @@ const EmployerBranding = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-[#1a1a1a]">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-8 text-white text-center"
+            className="text-4xl md:text-5xl font-bold mb-8 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -345,7 +345,7 @@ const EmployerBranding = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="bg-gray-900 border-gray-800 h-full hover:border-[#ff1c5c]/50 transition-all group">
+                  <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all group">
                     <CardContent className="p-8 flex gap-6">
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
@@ -354,8 +354,8 @@ const EmployerBranding = () => {
                         <Icon className="w-12 h-12 text-[#ff1c5c] flex-shrink-0" />
                       </motion.div>
                       <div>
-                        <h3 className="text-xl font-bold mb-2 text-white">{benefit.title}</h3>
-                        <p className="text-gray-400">{benefit.desc}</p>
+                        <h3 className="text-xl font-bold mb-2 text-foreground">{benefit.title}</h3>
+                        <p className="text-muted-foreground">{benefit.desc}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -365,13 +365,13 @@ const EmployerBranding = () => {
           </div>
 
           <motion.p 
-            className="text-center text-xl text-gray-300 mt-12 max-w-4xl mx-auto"
+            className="text-center text-xl text-muted-foreground mt-12 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <span className="text-white font-semibold">
+            <span className="text-foreground font-semibold">
               Wer heute nicht investiert, verliert morgen seine Leute.
             </span>
             <br />
@@ -381,10 +381,10 @@ const EmployerBranding = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gradient-to-b from-[#1a1a1a] to-[#0e0e0e]">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-16 text-white text-center"
+            className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -450,10 +450,10 @@ const EmployerBranding = () => {
                           delay: index * 0.15 + 0.3 
                         }}
                       >
-                        <Card className="bg-gray-900 border-gray-800 hover:border-[#ff1c5c]/40 transition-all hover:shadow-lg hover:shadow-[#ff1c5c]/10 hover:-translate-y-1">
+                        <Card className="bg-card border-border hover:border-[#ff1c5c]/40 transition-all hover:shadow-lg hover:shadow-[#ff1c5c]/10 hover:-translate-y-1">
                           <CardContent className="p-6">
-                            <h3 className="text-2xl font-bold mb-2 text-white">{step.title}</h3>
-                            <p className="text-gray-400 text-lg">{step.desc}</p>
+                            <h3 className="text-2xl font-bold mb-2 text-foreground">{step.title}</h3>
+                            <p className="text-muted-foreground text-lg">{step.desc}</p>
                           </CardContent>
                         </Card>
                       </motion.div>
@@ -467,10 +467,10 @@ const EmployerBranding = () => {
       </section>
 
       {/* Packages Section */}
-      <section className="py-20 bg-[#0e0e0e]">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-16 text-white text-center"
+            className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -489,9 +489,9 @@ const EmployerBranding = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
-                <Card className={`h-full ${pkg.highlighted ? 'bg-[#ff1c5c] border-[#ff1c5c]' : 'bg-gray-900 border-gray-800'} hover:shadow-xl hover:shadow-[#ff1c5c]/20 transition-all`}>
+                <Card className={`h-full ${pkg.highlighted ? 'bg-[#ff1c5c] border-[#ff1c5c]' : 'bg-card border-border'} hover:shadow-xl hover:shadow-[#ff1c5c]/20 transition-all`}>
                   <CardContent className="p-8">
-                    <h3 className={`text-2xl font-bold mb-4 ${pkg.highlighted ? 'text-white' : 'text-white'}`}>
+                    <h3 className={`text-2xl font-bold mb-4 ${pkg.highlighted ? 'text-white' : 'text-foreground'}`}>
                       {pkg.name}
                     </h3>
                     <p className={`text-3xl font-bold mb-6 ${pkg.highlighted ? 'text-white' : 'text-[#ff1c5c]'}`}>
@@ -501,7 +501,7 @@ const EmployerBranding = () => {
                       {pkg.features.map((feature, i) => (
                         <li key={i} className="flex gap-3">
                           <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${pkg.highlighted ? 'text-white' : 'text-[#ff1c5c]'}`} />
-                          <span className={pkg.highlighted ? 'text-white' : 'text-gray-300'}>{feature}</span>
+                          <span className={pkg.highlighted ? 'text-white' : 'text-muted-foreground'}>{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -512,7 +512,7 @@ const EmployerBranding = () => {
           </div>
 
           <motion.p 
-            className="text-center text-sm text-gray-500 mt-8"
+            className="text-center text-sm text-muted-foreground/60 mt-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -524,10 +524,10 @@ const EmployerBranding = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-[#0e0e0e] to-[#1a1a1a]">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-12 text-white text-center"
+            className="text-4xl md:text-5xl font-bold mb-12 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -552,11 +552,11 @@ const EmployerBranding = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <AccordionItem value={`item-${index}`} className="bg-gray-900 border-gray-800 rounded-lg px-6 hover:border-[#ff1c5c]/50 transition-colors">
-                    <AccordionTrigger className="text-white hover:text-[#ff1c5c] text-left text-lg">
+                  <AccordionItem value={`item-${index}`} className="bg-card border-border rounded-lg px-6 hover:border-[#ff1c5c]/50 transition-colors">
+                    <AccordionTrigger className="text-foreground hover:text-[#ff1c5c] text-left text-lg">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-400">
+                    <AccordionContent className="text-muted-foreground">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -568,7 +568,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section id="contact" className="py-20 bg-[#1a1a1a] relative overflow-hidden">
+      <section id="contact" className="py-20 bg-background relative overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-[#ff1c5c]/10 via-transparent to-[#ff1c5c]/5"
           animate={{ 
@@ -585,11 +585,11 @@ const EmployerBranding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               Zeig, warum du ein geiler Arbeitgeber bist – nicht nur, dass du einer bist.
             </h2>
             
-            <p className="text-xl md:text-2xl mb-10 text-gray-300">
+            <p className="text-xl md:text-2xl mb-10 text-muted-foreground">
               Lass uns deine Arbeitgebermarke aufbauen – ehrlich, modern und mit System.
             </p>
 
@@ -629,7 +629,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* Sticky CTA Mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-[#0e0e0e] border-t border-gray-800 z-50">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-background border-t border-border z-50">
         <Button 
           onClick={handleCTAClick}
           className="w-full bg-[#ff1c5c] hover:bg-[#ff3d75] text-white rounded-full shadow-lg"
