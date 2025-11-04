@@ -240,7 +240,7 @@ const Werbeanzeigen = () => {
               <CardContent className="p-8">
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
-                    Du gibst 50 € pro Woche für eine Anzeige im Kreisblatt aus.
+                    Du gibst 400€ pro Woche für eine Anzeige im Kreisblatt aus.
                   </p>
                   <p className="text-lg">
                     Du weißt nicht, wer sie sieht, wie viele das interessiert oder ob überhaupt jemand reagiert.
