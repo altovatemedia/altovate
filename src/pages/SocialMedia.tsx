@@ -26,19 +26,15 @@ const SocialMedia = () => {
 
   const oneTimePackages = [
     {
-      title: "Social Media Starter",
-      price: "1.800 €",
-      subtitle: "Professioneller erster Eindruck",
+      title: "SEO & Social Check",
+      price: "290 €",
+      subtitle: "Analyse & Handlungsempfehlung",
       features: [
-        "Zielgruppenanalyse",
-        "Instagram-Profil Einrichtung/Refresh",
-        "Name, Profilbild, Bio",
-        "Kontakt & Verlinkung",
-        "Story-Highlights (Leistungen, Team, Rezensionen)",
-        "5 Design-Vorlagen für Canva",
-        "6–8 Fotos & 3–4 Reels vor Ort",
-        "Zugang zu KI-Tool (Themenideen, Texte)",
-        "Contentplaner für Selbstverwaltung"
+        "Analyse von Website & Instagram",
+        "Konkrete Checkliste zur Optimierung",
+        "Tool-Tipps für bessere Ergebnisse",
+        "Zugang zu KI-Tool für Texte & Themen",
+        "Ideal als Einstieg ohne Risiko"
       ]
     },
     {
@@ -55,6 +51,22 @@ const SocialMedia = () => {
       ]
     },
     {
+      title: "Social Media Starter",
+      price: "1.800 €",
+      subtitle: "Professioneller erster Eindruck",
+      features: [
+        "Zielgruppenanalyse",
+        "Instagram-Profil Einrichtung/Refresh",
+        "Name, Profilbild, Bio",
+        "Kontakt & Verlinkung",
+        "Story-Highlights (Leistungen, Team, Rezensionen)",
+        "5 Design-Vorlagen für Canva",
+        "6–8 Fotos & 3–4 Reels vor Ort",
+        "Zugang zu KI-Tool (Themenideen, Texte)",
+        "Contentplaner für Selbstverwaltung"
+      ]
+    },
+    {
       title: "Sichtbarkeitspaket",
       price: "5.000 €",
       subtitle: "All-in-One für deinen digitalen Auftritt",
@@ -67,18 +79,6 @@ const SocialMedia = () => {
         "Automatisierte Prozesse (Chatbot, Funnel)",
         "Zugang zu allen Altovate-KI-Tools",
         "Go-Live in 30 Tagen garantiert"
-      ]
-    },
-    {
-      title: "SEO & Social Check",
-      price: "290 €",
-      subtitle: "Analyse & Handlungsempfehlung",
-      features: [
-        "Analyse von Website & Instagram",
-        "Konkrete Checkliste zur Optimierung",
-        "Tool-Tipps für bessere Ergebnisse",
-        "Zugang zu KI-Tool für Texte & Themen",
-        "Ideal als Einstieg ohne Risiko"
       ]
     }
   ];
@@ -152,7 +152,7 @@ const SocialMedia = () => {
               {oneTimePackages.map((pkg, idx) => (
                 <div
                   key={idx}
-                  className={`relative finom-card hover-lift ${
+                  className={`relative finom-card hover-lift flex flex-col ${
                     pkg.isPopular ? 'border-2 border-primary shadow-elegant' : ''
                   }`}
                 >
@@ -173,7 +173,7 @@ const SocialMedia = () => {
                     )}
                   </div>
 
-                  <div className="space-y-2.5 mb-8">
+                  <div className="space-y-2.5 mb-8 flex-grow">
                     {pkg.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
@@ -183,7 +183,7 @@ const SocialMedia = () => {
                   </div>
 
                   <Button 
-                    className={pkg.isPopular ? 'btn-hero w-full' : 'btn-secondary w-full'}
+                    className={pkg.isPopular ? 'btn-hero w-full mt-auto' : 'btn-secondary w-full mt-auto'}
                     onClick={() => {
                       const contact = document.getElementById('contact');
                       contact?.scrollIntoView({ behavior: 'smooth' });
