@@ -1,0 +1,456 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Target, TrendingUp, Search, Users, BarChart3, CheckCircle2, ArrowRight, Megaphone, MousePointerClick } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+
+const Werbeanzeigen = () => {
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const advantages = [
+    {
+      icon: Target,
+      title: "Zielgerichtet",
+      description: "Du bestimmst, wer deine Anzeige sieht."
+    },
+    {
+      icon: BarChart3,
+      title: "Messbar",
+      description: "Jeder Klick, jede Anfrage wird erfasst."
+    },
+    {
+      icon: TrendingUp,
+      title: "Effizient",
+      description: "Kein Streuverlust – mehr Wirkung fürs Budget."
+    }
+  ];
+
+  const channels = [
+    {
+      title: "Meta-Ads (Facebook & Instagram)",
+      icon: Users,
+      description: "Deine Kunden scrollen täglich durch Social Media. Wir platzieren deine Botschaft dort, wo sie wirklich gesehen wird – im Feed, in Stories oder Reels."
+    },
+    {
+      title: "Google-Ads (Suchanzeigen)",
+      icon: Search,
+      description: "Wenn jemand aktiv nach deiner Leistung sucht, bist du vorne mit dabei. Wir sorgen dafür, dass du bei relevanten Suchanfragen im Umkreis auftauchst."
+    }
+  ];
+
+  const steps = [
+    {
+      number: "01",
+      title: "Zielgruppen-Briefing",
+      description: "Wir definieren, wer dein Kunde wirklich ist (Region, Alter, Interessen, Budget)."
+    },
+    {
+      number: "02",
+      title: "Kampagnen-Setup",
+      description: "Erstellung deiner Anzeigen (Texte, Bilder/Videos, Zielgruppe)."
+    },
+    {
+      number: "03",
+      title: "Freigabe & Start",
+      description: "Wir schalten die Kampagne live – du siehst erste Ergebnisse schon nach wenigen Tagen."
+    },
+    {
+      number: "04",
+      title: "Auswertung & Optimierung",
+      description: "Wir prüfen, was funktioniert, und verbessern laufend."
+    },
+    {
+      number: "05",
+      title: "Reporting",
+      description: "Du bekommst regelmäßig Einblicke in Reichweite, Klicks und Leads."
+    }
+  ];
+
+  const packages = [
+    {
+      name: "Basic Setup",
+      price: "ab 300 €",
+      features: [
+        "Einrichtung einer Meta- oder Google-Kampagne",
+        "Zielgruppenanalyse & Tracking-Setup",
+        "1 Anzeige (Text + Visual)"
+      ],
+      note: "(empfohlen für kleine regionale Tests)",
+      isPopular: false
+    },
+    {
+      name: "Pro Setup",
+      price: "ab 600 €",
+      features: [
+        "Kombination Meta + Google",
+        "3 Anzeigenvarianten mit A/B-Tests",
+        "Reporting & Optimierung über 4 Wochen"
+      ],
+      note: "(für lokale Dienstleister & KMU)",
+      isPopular: true
+    },
+    {
+      name: "Laufende Betreuung",
+      price: "ab 450 €/Monat",
+      features: [
+        "Monatliche Optimierung & Reporting",
+        "Neue Anzeigen monatlich inklusive",
+        "Persönlicher Ansprechpartner"
+      ],
+      note: "(empfohlen ab 4 Wochen Laufzeit)",
+      isPopular: false
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Brauche ich viel Budget?",
+      answer: "Nein – schon kleine Kampagnen mit 5–10 € pro Tag liefern erste Ergebnisse."
+    },
+    {
+      question: "Wie schnell sehe ich Ergebnisse?",
+      answer: "Erste Klicks oft in 1–3 Tagen, echte Daten nach ca. 4 Wochen."
+    },
+    {
+      question: "Wie regional kann ich werben?",
+      answer: "Von 5 km Umkreis bis ganz Deutschland – frei wählbar."
+    },
+    {
+      question: "Kann ich auch nur kurz testen?",
+      answer: "Ja, ab 4 Wochen Laufzeit möglich."
+    }
+  ];
+
+  return (
+    <>
+      <Helmet>
+        <title>Performance-Marketing & Werbeanzeigen | Altovate Saarburg / Region Saar–Mosel</title>
+        <meta 
+          name="description" 
+          content="Online-Werbung, die wirkt: Wir schalten Meta- und Google-Ads für Unternehmen aus Saarburg, Trier & Umgebung – messbar, regional & effizient. Jetzt Kampagne starten mit Altovate." 
+        />
+        <meta name="keywords" content="Werbeanzeigen Saarburg, Performance Marketing Agentur Saarland, Meta Ads Saar, Facebook Werbung Trier, Google Ads Betreuung Region Saarburg, Online Werbung für Unternehmen" />
+        <link rel="canonical" href="https://altovate.de/werbeanzeigen-saarburg" />
+      </Helmet>
+
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#0e0e0e]">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0e0e0e] via-[#0e0e0e]/95 to-[#0e0e0e]" />
+        
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+              <Megaphone className="w-4 h-4 text-primary" />
+              <span className="text-sm text-primary font-medium">Performance-Marketing aus der Region</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              Werbeanzeigen, die wirken – statt Kosten, die verschwinden.
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+              Performance-Marketing für Saarburg, Trier & Region Saar/Mosel. Wir bringen dein Unternehmen sichtbar nach vorne – messbar, transparent und gezielt.
+            </p>
+
+            <Button 
+              size="lg" 
+              onClick={scrollToContact}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg group"
+            >
+              Jetzt Kampagne starten
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* What is Performance Marketing */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+              Was ist Performance-Marketing eigentlich?
+            </h2>
+            
+            <div className="prose prose-lg max-w-none mb-12 text-muted-foreground">
+              <p className="text-lg leading-relaxed">
+                Viele Unternehmer:innen kennen Werbung nur aus dem Kreisblatt oder vom Plakat an der Straße. 
+                Online-Werbung funktioniert anders: Du entscheidest, wer deine Anzeige sieht, wo sie angezeigt wird und wann.
+              </p>
+              <p className="text-lg leading-relaxed">
+                Performance-Marketing bedeutet: Wir messen, was passiert. Jeder Klick, jede Anfrage, jeder Kontakt ist 
+                nachvollziehbar. So weißt du, ob dein Geld wirklich arbeitet.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <MousePointerClick className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Push-Marketing</h3>
+                  <p className="text-muted-foreground">
+                    z. B. Facebook & Instagram – wir zeigen dein Angebot aktiven Nutzer:innen mit passenden Interessen.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <Search className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Pull-Marketing</h3>
+                  <p className="text-muted-foreground">
+                    z. B. Google – wir erscheinen, wenn jemand gezielt nach deiner Dienstleistung sucht.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why it makes sense */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+              Warum das Sinn macht
+            </h2>
+
+            <Card className="border-primary/20 bg-card mb-12">
+              <CardContent className="p-8">
+                <div className="space-y-4 text-muted-foreground">
+                  <p className="text-lg">
+                    Du gibst 50 € pro Woche für eine Anzeige im Kreisblatt aus.
+                  </p>
+                  <p className="text-lg">
+                    Du weißt nicht, wer sie sieht, wie viele das interessiert oder ob überhaupt jemand reagiert.
+                  </p>
+                  <div className="border-l-4 border-primary pl-6 my-6">
+                    <p className="text-lg font-semibold text-foreground">
+                      Mit Online-Werbung drehst du das Prinzip um:
+                    </p>
+                    <p className="text-lg mt-2">
+                      Wir zeigen deine Anzeige nur den Menschen, die in deinem Umkreis leben (z. B. 25 km um Saarburg), 
+                      in deiner Zielgruppe liegen und echtes Interesse haben.
+                    </p>
+                  </div>
+                  <p className="text-lg font-semibold text-primary">
+                    Du erreichst also nicht alle – sondern die Richtigen.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {advantages.map((advantage, index) => (
+                <Card key={index} className="border-primary/20 hover:border-primary/40 transition-colors text-center">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <advantage.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{advantage.title}</h3>
+                    <p className="text-muted-foreground">{advantage.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Channel Options */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+              Welche Optionen gibt es?
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {channels.map((channel, index) => (
+                <Card key={index} className="border-primary/20 hover:border-primary/40 transition-colors">
+                  <CardContent className="p-8">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <channel.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{channel.title}</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {channel.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center p-6 bg-primary/5 rounded-lg border border-primary/20">
+              <p className="text-lg font-medium">
+                💡 Beide Kanäle lassen sich auch kombinieren – für maximale Sichtbarkeit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Timeline */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
+              So läuft unsere Zusammenarbeit ab
+            </h2>
+
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
+
+              <div className="space-y-12">
+                {steps.map((step, index) => (
+                  <div key={index} className="relative flex items-start gap-6">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl z-10">
+                      {step.number}
+                    </div>
+                    <Card className="flex-1 border-primary/20">
+                      <CardContent className="p-6">
+                        <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                        <p className="text-muted-foreground text-lg">{step.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Packages */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+              Preise & Pakete
+            </h2>
+            <p className="text-xl text-muted-foreground mb-16 text-center">
+              Kampagnen müssen kein Vermögen kosten – wichtig ist, dass sie sauber aufgesetzt sind.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              {packages.map((pkg, index) => (
+                <Card 
+                  key={index} 
+                  className={`relative border-2 transition-all ${
+                    pkg.isPopular 
+                      ? 'border-primary shadow-xl shadow-primary/20 scale-105' 
+                      : 'border-primary/20 hover:border-primary/40'
+                  }`}
+                >
+                  {pkg.isPopular && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-sm font-bold rounded-full">
+                      BELIEBT
+                    </div>
+                  )}
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
+                    <div className="text-3xl font-bold text-primary mb-4">{pkg.price}</div>
+                    
+                    <ul className="space-y-3 mb-6">
+                      {pkg.features.map((feature, fIndex) => (
+                        <li key={fIndex} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="text-sm text-muted-foreground italic">{pkg.note}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center text-sm text-muted-foreground bg-muted/50 p-4 rounded-lg">
+              Zzgl. Werbebudget – individuell wählbar (empfohlen mind. 300–500 €/Monat).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+              Häufige Fragen
+            </h2>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="border border-primary/20 rounded-lg px-6 bg-card"
+                >
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section id="contact" className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              Bereit, dein Werbebudget endlich sinnvoll einzusetzen?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-10">
+              Lass uns deine Kampagne planen – kostenloses Erstgespräch in Saarburg oder online.
+            </p>
+            <Button 
+              size="lg" 
+              onClick={() => {
+                navigate('/#contact');
+                setTimeout(scrollToContact, 100);
+              }}
+              className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg group"
+            >
+              Jetzt starten
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+};
+
+export default Werbeanzeigen;
