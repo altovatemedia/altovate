@@ -67,9 +67,9 @@ const SocialMedia = () => {
       ]
     },
     {
-      title: "Sichtbarkeitspaket",
+      title: "Digitales Sichtbarkeitspaket",
       price: "5.000 €",
-      subtitle: "All-in-One für deinen digitalen Auftritt",
+      subtitle: "All-in-One-Paket für deinen Auftritt",
       isPopular: true,
       features: [
         "Moderne Onepager-Website",
