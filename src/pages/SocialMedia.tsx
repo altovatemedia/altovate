@@ -6,6 +6,7 @@ import { Slider } from '@/components/ui/slider';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
+import ContactFunnel from '@/components/sections/ContactFunnel';
 import AiDemoTool from '@/components/social-media/AiDemoTool';
 import PackageFinder from '@/components/social-media/PackageFinder';
 import VisibilityAnalysis from '@/components/social-media/VisibilityAnalysis';
@@ -364,6 +365,7 @@ const SocialMedia = () => {
         </div>
       </section>
 
+      <ContactFunnel />
       <Footer />
       <ChatBot />
     </div>
