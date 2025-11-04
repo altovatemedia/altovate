@@ -6,9 +6,29 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Werbeanzeigen = () => {
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
@@ -146,37 +166,80 @@ const Werbeanzeigen = () => {
       <NewNavigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-background pt-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background" />
+      <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-background pt-16">
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-background"
+          style={{ y, opacity }}
+        />
         
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        {/* Decorative elements with parallax and mouse movement */}
+        <motion.div 
+          className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x * 0.02,
+            y: mousePosition.y * 0.02,
+          }}
+          transition={{ type: "spring", stiffness: 50, damping: 20 }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x * -0.01,
+            y: mousePosition.y * -0.01,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
               <Megaphone className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">Performance-Marketing aus der Region</span>
-            </div>
+            </motion.div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              Werbeanzeigen, die wirken – statt Kosten, die verschwinden.
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
-              Performance-Marketing für Saarburg, Trier & Region Saar/Mosel. Wir bringen dein Unternehmen sichtbar nach vorne – messbar, transparent und gezielt.
-            </p>
-
-            <Button 
-              size="lg" 
-              onClick={scrollToContact}
-              className="btn-hero px-8 py-6 text-lg group"
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Jetzt Kampagne starten
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
+              Werbeanzeigen, die wirken – statt Kosten, die verschwinden.
+            </motion.h1>
+            
+            <motion.p 
+              className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              Performance-Marketing für Saarburg, Trier & Region Saar/Mosel. Wir bringen dein Unternehmen sichtbar nach vorne – messbar, transparent und gezielt.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              <Button 
+                size="lg" 
+                onClick={scrollToContact}
+                className="btn-hero px-8 py-6 text-lg group hover-scale"
+              >
+                Jetzt Kampagne starten
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -200,29 +263,51 @@ const Werbeanzeigen = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
-                <CardContent className="p-8">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <MousePointerClick className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Push-Marketing</h3>
-                  <p className="text-muted-foreground">
-                    z. B. Facebook & Instagram – wir zeigen dein Angebot aktiven Nutzer:innen mit passenden Interessen.
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="border-primary/20 hover:border-primary/40 transition-all hover-scale group cursor-pointer">
+                  <CardContent className="p-8">
+                    <motion.div 
+                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <MousePointerClick className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold mb-3">Push-Marketing</h3>
+                    <p className="text-muted-foreground">
+                      z. B. Facebook & Instagram – wir zeigen dein Angebot aktiven Nutzer:innen mit passenden Interessen.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
 
-              <Card className="border-primary/20 hover:border-primary/40 transition-colors">
-                <CardContent className="p-8">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <Search className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Pull-Marketing</h3>
-                  <p className="text-muted-foreground">
-                    z. B. Google – wir erscheinen, wenn jemand gezielt nach deiner Dienstleistung sucht.
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="border-primary/20 hover:border-primary/40 transition-all hover-scale group cursor-pointer">
+                  <CardContent className="p-8">
+                    <motion.div 
+                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Search className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold mb-3">Pull-Marketing</h3>
+                    <p className="text-muted-foreground">
+                      z. B. Google – wir erscheinen, wenn jemand gezielt nach deiner Dienstleistung sucht.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -263,15 +348,27 @@ const Werbeanzeigen = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               {advantages.map((advantage, index) => (
-                <Card key={index} className="border-primary/20 hover:border-primary/40 transition-colors text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <advantage.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{advantage.title}</h3>
-                    <p className="text-muted-foreground">{advantage.description}</p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="border-primary/20 hover:border-primary/40 transition-all text-center hover-scale group cursor-pointer h-full">
+                    <CardContent className="p-8">
+                      <motion.div 
+                        className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
+                        whileHover={{ scale: 1.2, rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <advantage.icon className="w-8 h-8 text-primary" />
+                      </motion.div>
+                      <h3 className="text-xl font-bold mb-2">{advantage.title}</h3>
+                      <p className="text-muted-foreground">{advantage.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -288,17 +385,30 @@ const Werbeanzeigen = () => {
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               {channels.map((channel, index) => (
-                <Card key={index} className="border-primary/20 hover:border-primary/40 transition-colors">
-                  <CardContent className="p-8">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <channel.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">{channel.title}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      {channel.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 h-full">
+                    <CardContent className="p-8">
+                      <motion.div 
+                        className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <channel.icon className="w-6 h-6 text-primary" />
+                      </motion.div>
+                      <h3 className="text-2xl font-bold mb-4">{channel.title}</h3>
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        {channel.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
@@ -325,17 +435,28 @@ const Werbeanzeigen = () => {
 
               <div className="space-y-12">
                 {steps.map((step, index) => (
-                  <div key={index} className="relative flex items-start gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl z-10">
+                  <motion.div 
+                    key={index} 
+                    className="relative flex items-start gap-6"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <motion.div 
+                      className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl z-10"
+                      whileHover={{ scale: 1.15, rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
                       {step.number}
-                    </div>
-                    <Card className="flex-1 border-primary/20">
+                    </motion.div>
+                    <Card className="flex-1 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10">
                       <CardContent className="p-6">
                         <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
                         <p className="text-muted-foreground text-lg">{step.description}</p>
                       </CardContent>
                     </Card>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -356,35 +477,54 @@ const Werbeanzeigen = () => {
 
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {packages.map((pkg, index) => (
-                <Card 
-                  key={index} 
-                  className={`relative border-2 transition-all ${
-                    pkg.isPopular 
-                      ? 'border-primary shadow-xl shadow-primary/20 scale-105' 
-                      : 'border-primary/20 hover:border-primary/40'
-                  }`}
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
                 >
-                  {pkg.isPopular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-sm font-bold rounded-full">
-                      BELIEBT
-                    </div>
-                  )}
-                  <CardContent className="p-8">
-                    <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
-                    <div className="text-3xl font-bold text-primary mb-4">{pkg.price}</div>
-                    
-                    <ul className="space-y-3 mb-6">
-                      {pkg.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <Card 
+                    className={`relative border-2 transition-all h-full ${
+                      pkg.isPopular 
+                        ? 'border-primary shadow-xl shadow-primary/20 md:scale-105' 
+                        : 'border-primary/20 hover:border-primary/40 hover:shadow-lg'
+                    }`}
+                  >
+                    {pkg.isPopular && (
+                      <motion.div 
+                        className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-sm font-bold rounded-full"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        BELIEBT
+                      </motion.div>
+                    )}
+                    <CardContent className="p-8">
+                      <h3 className="text-2xl font-bold mb-2">{pkg.name}</h3>
+                      <div className="text-3xl font-bold text-primary mb-4">{pkg.price}</div>
+                      
+                      <ul className="space-y-3 mb-6">
+                        {pkg.features.map((feature, fIndex) => (
+                          <motion.li 
+                            key={fIndex} 
+                            className="flex items-start gap-2"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: fIndex * 0.1 }}
+                          >
+                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{feature}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
 
-                    <p className="text-sm text-muted-foreground italic">{pkg.note}</p>
-                  </CardContent>
-                </Card>
+                      <p className="text-sm text-muted-foreground italic">{pkg.note}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
@@ -405,18 +545,25 @@ const Werbeanzeigen = () => {
 
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="border border-primary/20 rounded-lg px-6 bg-card"
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+                  <AccordionItem 
+                    value={`item-${index}`}
+                    className="border border-primary/20 rounded-lg px-6 bg-card hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10"
+                  >
+                    <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-base">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
               ))}
             </Accordion>
           </div>
@@ -424,27 +571,71 @@ const Werbeanzeigen = () => {
       </section>
 
       {/* Final CTA */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              Bereit, dein Werbebudget endlich sinnvoll einzusetzen?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-10">
-              Lass uns deine Kampagne planen – kostenloses Erstgespräch in Saarburg oder online.
-            </p>
-            <Button 
-              size="lg" 
-              onClick={() => {
-                navigate('/#contact');
-                setTimeout(scrollToContact, 100);
-              }}
-              className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg group"
+      <section id="contact" className="py-20 bg-background relative overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute top-10 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-10 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 5, repeat: Infinity }}
+        />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              Jetzt starten
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
+              Bereit, dein Werbebudget endlich sinnvoll einzusetzen?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-muted-foreground mb-10"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Lass uns deine Kampagne planen – kostenloses Erstgespräch in Saarburg oder online.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Button 
+                size="lg" 
+                onClick={() => {
+                  navigate('/#contact');
+                  setTimeout(scrollToContact, 100);
+                }}
+                className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-lg group"
+              >
+                Jetzt starten
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
