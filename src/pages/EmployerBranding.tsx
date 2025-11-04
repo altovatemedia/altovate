@@ -331,51 +331,193 @@ const EmployerBranding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Das sind die Themen, die 2025 entscheidend sind – nicht dein Obstkorb.
+            Was macht dich heute zu einem attraktiven Arbeitgeber?
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-16">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all group">
-                    <CardContent className="p-8 flex gap-6">
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        <Icon className="w-12 h-12 text-[#ff1c5c] flex-shrink-0" />
-                      </motion.div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2 text-foreground">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.desc}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
+          <motion.div 
+            className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p>
+              Mitarbeitergewinnung funktioniert 2025 nicht mehr über Versprechen, sondern über Taten.
+            </p>
+            <p>
+              Es geht darum, was du deinen Leuten wirklich bieten kannst – und wie glaubwürdig du es zeigst.
+            </p>
+            <p>
+              In einer Welt, in der Luxemburg oft besser bezahlt, musst du mit anderen Werten punkten:
+              mit Benefits, Weiterentwicklung, Gesundheit und echtem Teamspirit.
+            </p>
+            <p className="font-semibold text-foreground">
+              Denk nicht an „Extras" – denk an Erwartungen.
+            </p>
+            <p>
+              Denn genau das sind heute Dinge, die Bewerber voraussetzen:
+            </p>
+            <ul className="list-none space-y-2 ml-6">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                faire und transparente Gehälter
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                flexible Arbeitsmodelle & Homeoffice
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                Weiterbildungs- und Entwicklungsmöglichkeiten
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                Gesundheits- und Fitnessangebote
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                betriebliche Vorsorge & Absicherung
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#ff1c5c] flex-shrink-0 mt-0.5" />
+                kleine Gesten, die Wertschätzung zeigen
+              </li>
+            </ul>
+            <p className="font-semibold text-foreground pt-4">
+              Employer Branding bedeutet, diese Dinge sichtbar zu machen – auf deiner Website, in Social Media und im echten Arbeitsalltag.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mb-8 text-foreground text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Starke Partner für starke Arbeitgeber
+          </motion.h2>
+
+          <motion.p 
+            className="text-center text-lg text-muted-foreground max-w-4xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Wir arbeiten eng mit ausgewählten Expert:innen zusammen, die wir wärmstens empfehlen können –
+            für Themen, die dein Employer Branding nicht nur schöner, sondern nachhaltiger machen:
+          </motion.p>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -10 }}
+            >
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
+                <CardContent className="p-8">
+                  <Bike className="w-12 h-12 text-[#ff1c5c] mb-4" />
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Firmenfitness & Gesundheit</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Circle Fitness
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    → Gesunde, fitte Mitarbeiter, weniger Ausfälle, mehr Energie im Team.
+                  </p>
+                  <a 
+                    href="https://www.circlefitnessclub.de/firmenfitness-betriebliches-gesundheitsmanagement" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#ff1c5c] hover:text-[#ff3d75] font-semibold text-sm inline-flex items-center group"
+                  >
+                    Mehr erfahren 
+                    <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              whileHover={{ y: -10 }}
+            >
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
+                <CardContent className="p-8">
+                  <Shield className="w-12 h-12 text-[#ff1c5c] mb-4" />
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Betriebliche Vorsorge</h3>
+                  <p className="text-muted-foreground mb-4">
+                    BAV Workflow
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    → Steueroptimierte Vorsorgelösungen für Arbeitgeber & Arbeitnehmer. Betriebliche Vorsorge (BBU, BAV, BKV)
+                  </p>
+                  <a 
+                    href="https://www.bav-workflow.de" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#ff1c5c] hover:text-[#ff3d75] font-semibold text-sm inline-flex items-center group"
+                  >
+                    Mehr erfahren 
+                    <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -10 }}
+            >
+              <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
+                <CardContent className="p-8">
+                  <GraduationCap className="w-12 h-12 text-[#ff1c5c] mb-4" />
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Weiterbildung & Förderung</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Partner KMU
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    → Staatlich förderbare Schulungen & Qualifizierung im Bereich Digitalisierung & Gesundheitsmanagement.
+                  </p>
+                  <a 
+                    href="https://partner-kmu.de/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#ff1c5c] hover:text-[#ff3d75] font-semibold text-sm inline-flex items-center group"
+                  >
+                    Mehr erfahren 
+                    <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           <motion.p 
-            className="text-center text-xl text-muted-foreground mt-12 max-w-4xl mx-auto"
+            className="text-center text-lg text-muted-foreground max-w-4xl mx-auto mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <span className="text-foreground font-semibold">
-              Wer heute nicht investiert, verliert morgen seine Leute.
-            </span>
+            Diese Partner unterstützen Unternehmen in der gesamten Großregion – von Saarburg über Trier bis Luxemburg.
             <br />
-            Employer Branding ist kein Marketing-Gag, sondern ein Muss.
+            <span className="text-foreground font-semibold">
+              Wir stellen auf Wunsch den direkten Kontakt her und zeigen dir, welche Förderungen und Modelle für dich sinnvoll sind.
+            </span>
           </motion.p>
         </div>
       </section>
