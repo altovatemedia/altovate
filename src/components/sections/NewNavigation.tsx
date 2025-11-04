@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from 'next-themes';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -21,9 +22,17 @@ const NewNavigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Lösungen', href: '#signature-offer' },
-    { name: 'Case Studies', href: '#proof' },
-    { name: 'Preis', href: '#pricing' },
+    { name: 'Lösungen', href: '#signature-offer', hasDropdown: true },
+    { name: 'Case Studies', href: '#proof', hasDropdown: false },
+    { name: 'Preis', href: '#pricing', hasDropdown: false },
+  ];
+
+  const dropdownItems = [
+    { name: 'Social Media Marketing', href: '/socialmedia' },
+    { name: 'Werbeanzeigen & Performance', href: '/werbeanzeigen-saarburg' },
+    { name: 'Employer Branding 2025', href: '/employer-branding-saarburg' },
+    { name: 'Marketing-Automation & Funnels', href: '/marketing-automation-saarburg' },
+    { name: 'Software & KI-Lösungen', href: '/software-ki-loesungen-saarburg' },
   ];
 
   const handleLogoClick = () => {
@@ -32,7 +41,9 @@ const NewNavigation = () => {
   };
 
   const handleNavClick = (href: string) => {
-    if (location.pathname !== '/') {
+    if (href.startsWith('/')) {
+      navigate(href);
+    } else if (location.pathname !== '/') {
       // Navigate to home first, then scroll
       navigate('/');
       setTimeout(() => {
@@ -44,6 +55,7 @@ const NewNavigation = () => {
       element?.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
   };
 
   const handleBookCall = () => {
@@ -78,13 +90,35 @@ const NewNavigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.href)}
-                className="text-[#09002C] dark:text-white hover:text-primary dark:hover:text-primary font-medium transition-colors duration-300"
+              <div 
+                key={item.name} 
+                className="relative"
+                onMouseEnter={() => item.hasDropdown && setIsDropdownOpen(true)}
+                onMouseLeave={() => item.hasDropdown && setIsDropdownOpen(false)}
               >
-                {item.name}
-              </button>
+                <button
+                  onClick={() => handleNavClick(item.href)}
+                  className="text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] font-medium transition-colors duration-300 flex items-center gap-1"
+                >
+                  {item.name}
+                  {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                </button>
+                
+                {/* Dropdown Menu */}
+                {item.hasDropdown && isDropdownOpen && (
+                  <div className="absolute left-0 top-full mt-2 w-72 bg-white dark:bg-[#2a2a2a] rounded-lg shadow-lg border border-gray-200 dark:border-white/10 py-2 z-50">
+                    {dropdownItems.map((dropItem) => (
+                      <button
+                        key={dropItem.name}
+                        onClick={() => handleNavClick(dropItem.href)}
+                        className="block w-full text-left px-4 py-3 text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] hover:bg-gray-50 dark:hover:bg-[#333333] transition-colors duration-200 text-sm font-medium"
+                      >
+                        {dropItem.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -148,13 +182,36 @@ const NewNavigation = () => {
           <div className="md:hidden border-t border-border bg-white dark:bg-[#1a1a1a]">
             <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-3 text-[#09002C] dark:text-white hover:text-primary dark:hover:text-primary font-medium transition-colors duration-300"
-                >
-                  {item.name}
-                </button>
+                <div key={item.name}>
+                  <button
+                    onClick={() => {
+                      if (item.hasDropdown) {
+                        setIsDropdownOpen(!isDropdownOpen);
+                      } else {
+                        handleNavClick(item.href);
+                      }
+                    }}
+                    className="flex items-center justify-between w-full text-left px-3 py-3 text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] font-medium transition-colors duration-300"
+                  >
+                    {item.name}
+                    {item.hasDropdown && <ChevronDown className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />}
+                  </button>
+                  
+                  {/* Mobile Dropdown */}
+                  {item.hasDropdown && isDropdownOpen && (
+                    <div className="pl-4 space-y-1">
+                      {dropdownItems.map((dropItem) => (
+                        <button
+                          key={dropItem.name}
+                          onClick={() => handleNavClick(dropItem.href)}
+                          className="block w-full text-left px-3 py-2 text-sm text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] transition-colors duration-300"
+                        >
+                          {dropItem.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="pt-4">
                 <Button 

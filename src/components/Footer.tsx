@@ -75,17 +75,17 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="/werbeanzeigen-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Werbeanzeigen
+                    Werbeanzeigen & Performance
                   </a>
                 </li>
                 <li>
                   <a href="/employer-branding-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Employer Branding
+                    Employer Branding 2025
                   </a>
                 </li>
                 <li>
                   <a href="/marketing-automation-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Marketing Automation
+                    Marketing-Automation & Funnels
                   </a>
                 </li>
                 <li>
