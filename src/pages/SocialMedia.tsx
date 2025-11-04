@@ -11,16 +11,7 @@ import VisibilityAnalysis from '@/components/social-media/VisibilityAnalysis';
 
 const SocialMedia = () => {
   const [duration, setDuration] = useState(12);
-  const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState('monthly');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 200);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Preisstaffelung berechnen mit Rundung auf glatte 10er
   const calculatePrice = (basePrice: number) => {
@@ -104,14 +95,13 @@ const SocialMedia = () => {
         </div>
       </section>
 
-      {/* Tabs Section - Sticky */}
-      <div className={`transition-all duration-300 ${isSticky ? 'sticky top-0 z-40 bg-background/95 backdrop-blur-lg border-b border-border shadow-card' : ''}`}>
-        <div className="container mx-auto px-6 py-4">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 h-12">
-              <TabsTrigger value="monthly" className="text-base">Monatliche Betreuung</TabsTrigger>
-              <TabsTrigger value="onetime" className="text-base">Einmalige Startpakete</TabsTrigger>
-            </TabsList>
+      {/* Tabs Section */}
+      <div className="container mx-auto px-6 py-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 h-12 mb-12">
+            <TabsTrigger value="monthly" className="text-base">Monatliche Betreuung</TabsTrigger>
+            <TabsTrigger value="onetime" className="text-base">Einmalige Startpakete</TabsTrigger>
+          </TabsList>
 
             {/* Monatliche Pakete mit verschachteltem Laufzeit-Toggle */}
             <TabsContent value="monthly" className="mt-12">
@@ -271,7 +261,6 @@ const SocialMedia = () => {
             </TabsContent>
           </Tabs>
         </div>
-      </div>
 
       {/* Interaktive Tools Sektion */}
       <section className="py-20 px-6 bg-gradient-to-br from-muted/30 to-transparent">
