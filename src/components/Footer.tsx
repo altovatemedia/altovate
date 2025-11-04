@@ -74,8 +74,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Performance Marketing
+                  <a href="/werbeanzeigen-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Werbeanzeigen
                   </a>
                 </li>
                 <li>
