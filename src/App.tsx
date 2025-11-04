@@ -10,6 +10,7 @@ import Datenschutz from "./pages/Datenschutz";
 import Impressum from "./pages/Impressum";
 import SocialMedia from "./pages/SocialMedia";
 import Werbeanzeigen from "./pages/Werbeanzeigen";
+import EmployerBranding from "./pages/EmployerBranding";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/socialmedia" element={<SocialMedia />} />
             <Route path="/werbeanzeigen-saarburg" element={<Werbeanzeigen />} />
+            <Route path="/employer-branding-saarburg" element={<EmployerBranding />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
