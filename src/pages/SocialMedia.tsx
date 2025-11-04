@@ -134,63 +134,61 @@ const SocialMedia = () => {
                   ))}
                 </div>
               </div>
-              {/* Sticky Package Cards Container */}
-              <div className="relative max-w-6xl mx-auto">
-                <div className="sticky top-24 z-30">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12">
-                    {monthlyPackages.map((pkg, idx) => {
-                      const finalPrice = calculatePrice(pkg.basePrice);
-                      
-                      return (
-                        <div
-                          key={idx}
-                          className={`relative finom-card transition-all duration-300 ${
-                            pkg.isPopular ? 'border-2 border-primary shadow-elegant scale-105' : ''
-                          }`}
-                        >
-                          {pkg.isPopular && (
-                            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                              <span className="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                                <Star className="w-3 h-3" />
-                                Beliebteste Wahl
-                              </span>
-                            </div>
-                          )}
-                          
-                          <div className="text-center mb-6">
-                            <h3 className="finom-h3 mb-3">{pkg.title}</h3>
-                            <div className="text-4xl font-bold text-primary mb-1">{finalPrice} €</div>
-                            <div className="text-xs text-muted-foreground">pro Monat</div>
-                            <div className="text-xs text-muted-foreground mt-1">{duration} Monate Laufzeit</div>
+              {/* Package Cards Container */}
+              <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                  {monthlyPackages.map((pkg, idx) => {
+                    const finalPrice = calculatePrice(pkg.basePrice);
+                    
+                    return (
+                      <div
+                        key={idx}
+                        className={`relative finom-card transition-all duration-300 ${
+                          pkg.isPopular ? 'border-2 border-primary shadow-elegant scale-105' : ''
+                        }`}
+                      >
+                        {pkg.isPopular && (
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                            <span className="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                              <Star className="w-3 h-3" />
+                              Beliebteste Wahl
+                            </span>
                           </div>
-
-                          <div className="space-y-3 mb-8">
-                            {pkg.features.map((feature, i) => (
-                              <div key={i} className="flex items-start gap-2">
-                                <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                                <span className="text-sm leading-tight">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-
-                          <Button 
-                            className={pkg.isPopular ? 'btn-hero w-full' : 'btn-secondary w-full'}
-                            onClick={() => {
-                              const contact = document.getElementById('contact');
-                              contact?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                          >
-                            Jetzt buchen
-                            <ArrowRight className="ml-2 w-4 h-4" />
-                          </Button>
+                        )}
+                        
+                        <div className="text-center mb-6">
+                          <h3 className="finom-h3 mb-3">{pkg.title}</h3>
+                          <div className="text-4xl font-bold text-primary mb-1">{finalPrice} €</div>
+                          <div className="text-xs text-muted-foreground">pro Monat</div>
+                          <div className="text-xs text-muted-foreground mt-1">{duration} Monate Laufzeit</div>
                         </div>
-                      );
-                    })}
-                  </div>
+
+                        <div className="space-y-3 mb-8">
+                          {pkg.features.map((feature, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm leading-tight">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <Button 
+                          className={pkg.isPopular ? 'btn-hero w-full' : 'btn-secondary w-full'}
+                          onClick={() => {
+                            const contact = document.getElementById('contact');
+                            contact?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                        >
+                          Jetzt buchen
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
+                      </div>
+                    );
+                  })}
                 </div>
 
-                {/* Scrollable Background Content */}
-                <div className="space-y-16 pt-96">
+                {/* Additional Info Section */}
+                <div className="space-y-12">
                   <div className="bg-gradient-to-br from-primary/5 to-transparent rounded-3xl p-12 text-center">
                     <h3 className="finom-h2 mb-4">Warum monatliche Betreuung?</h3>
                     <p className="finom-lead text-muted-foreground max-w-2xl mx-auto">
