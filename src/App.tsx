@@ -12,6 +12,7 @@ import SocialMedia from "./pages/SocialMedia";
 import Werbeanzeigen from "./pages/Werbeanzeigen";
 import EmployerBranding from "./pages/EmployerBranding";
 import MarketingAutomation from "./pages/MarketingAutomation";
+import SoftwareKI from "./pages/SoftwareKI";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/werbeanzeigen-saarburg" element={<Werbeanzeigen />} />
             <Route path="/employer-branding-saarburg" element={<EmployerBranding />} />
             <Route path="/marketing-automation-saarburg" element={<MarketingAutomation />} />
+            <Route path="/software-ki-loesungen-saarburg" element={<SoftwareKI />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

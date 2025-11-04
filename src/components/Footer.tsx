@@ -88,6 +88,11 @@ const Footer = () => {
                     Marketing Automation
                   </a>
                 </li>
+                <li>
+                  <a href="/software-ki-loesungen-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Software & KI-Lösungen
+                  </a>
+                </li>
               </ul>
             </div>
 
