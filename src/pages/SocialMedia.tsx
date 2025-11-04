@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
+import ChatBot from '@/components/ChatBot';
 import AiDemoTool from '@/components/social-media/AiDemoTool';
 import PackageFinder from '@/components/social-media/PackageFinder';
 import VisibilityAnalysis from '@/components/social-media/VisibilityAnalysis';
@@ -12,6 +13,21 @@ import VisibilityAnalysis from '@/components/social-media/VisibilityAnalysis';
 const SocialMedia = () => {
   const [duration, setDuration] = useState(12);
   const [activeTab, setActiveTab] = useState('onetime');
+
+  // Scroll Progress Bar
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = (window.scrollY / scrollTotal) * 100;
+      const progressBar = document.querySelector('.scroll-progress') as HTMLElement;
+      if (progressBar) {
+        progressBar.style.width = `${scrollProgress}%`;
+      }
+    };
+
+    window.addEventListener('scroll', updateScrollProgress);
+    return () => window.removeEventListener('scroll', updateScrollProgress);
+  }, []);
 
   // Preisstaffelung berechnen mit Rundung auf glatte 10er
   const calculatePrice = (basePrice: number) => {
@@ -126,6 +142,9 @@ const SocialMedia = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Scroll Progress Indicator */}
+      <div className="scroll-progress" style={{ width: '0%' }}></div>
+      
       <NewNavigation />
       
       {/* Hero Section */}
@@ -346,6 +365,7 @@ const SocialMedia = () => {
       </section>
 
       <Footer />
+      <ChatBot />
     </div>
   );
 };
