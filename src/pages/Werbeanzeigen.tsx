@@ -425,13 +425,26 @@ const Werbeanzeigen = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold mb-16 text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               So läuft unsere Zusammenarbeit ab
-            </h2>
+            </motion.h2>
 
             <div className="relative">
-              {/* Connecting line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
+              {/* Animated connecting line that grows with scroll */}
+              <motion.div 
+                className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-primary via-primary to-primary/20 hidden md:block origin-top"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                style={{ height: "100%" }}
+              />
 
               <div className="space-y-12">
                 {steps.map((step, index) => (
@@ -440,22 +453,49 @@ const Werbeanzeigen = () => {
                     className="relative flex items-start gap-6"
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: index * 0.15,
+                      ease: "easeOut"
+                    }}
                   >
                     <motion.div 
-                      className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl z-10"
-                      whileHover={{ scale: 1.15, rotate: 360 }}
-                      transition={{ duration: 0.5 }}
+                      className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl z-10 shadow-lg shadow-primary/30"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: index * 0.15 + 0.2,
+                        type: "spring",
+                        stiffness: 200
+                      }}
+                      whileHover={{ 
+                        scale: 1.15, 
+                        rotate: 360,
+                        boxShadow: "0 10px 40px rgba(var(--primary), 0.4)"
+                      }}
                     >
                       {step.number}
                     </motion.div>
-                    <Card className="flex-1 border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10">
-                      <CardContent className="p-6">
-                        <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                        <p className="text-muted-foreground text-lg">{step.description}</p>
-                      </CardContent>
-                    </Card>
+                    <motion.div
+                      className="flex-1"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: index * 0.15 + 0.3 
+                      }}
+                    >
+                      <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+                        <CardContent className="p-6">
+                          <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                          <p className="text-muted-foreground text-lg">{step.description}</p>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
