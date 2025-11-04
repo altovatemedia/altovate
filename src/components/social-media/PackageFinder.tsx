@@ -8,47 +8,57 @@ const PackageFinder = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState({
     hasSocialMedia: '',
+    postFrequency: '',
     selfPost: '',
-    videoImportant: '',
-    budget: ''
+    hasContent: '',
+    videoImportant: ''
   });
   const [recommendation, setRecommendation] = useState('');
 
   const questions = [
     {
       id: 'hasSocialMedia',
-      question: 'Bist du bereits auf Social Media aktiv?',
+      question: 'Hast du bereits einen Social-Media-Kanal?',
       options: [
-        { value: 'yes', label: 'Ja, regelmäßig' },
-        { value: 'sometimes', label: 'Ja, aber unregelmäßig' },
-        { value: 'no', label: 'Nein, noch nicht' }
+        { value: 'yes', label: 'Ja, aber noch nicht optimiert' },
+        { value: 'sometimes', label: 'Ja, aber unregelmäßig aktiv' },
+        { value: 'no', label: 'Nein, möchte starten' }
+      ]
+    },
+    {
+      id: 'postFrequency',
+      question: 'Wie viel möchtest du posten?',
+      options: [
+        { value: 'low', label: '1-2x pro Woche reicht mir' },
+        { value: 'medium', label: '3-5x pro Woche wäre ideal' },
+        { value: 'high', label: 'Täglich oder mehrmals täglich' }
       ]
     },
     {
       id: 'selfPost',
-      question: 'Möchtest du selbst posten oder abgeben?',
+      question: 'Möchtest du selbst posten oder alles abgeben?',
       options: [
-        { value: 'self', label: 'Selbst posten' },
+        { value: 'self', label: 'Selbst posten mit Vorlagen' },
         { value: 'delegate', label: 'Komplett abgeben' },
-        { value: 'mix', label: 'Gemischt' }
+        { value: 'mix', label: 'Teils selbst, teils abgeben' }
+      ]
+    },
+    {
+      id: 'hasContent',
+      question: 'Hast du bereits bestehende Inhalte?',
+      options: [
+        { value: 'yes', label: 'Ja, Fotos/Videos vorhanden' },
+        { value: 'some', label: 'Teilweise, brauche mehr' },
+        { value: 'no', label: 'Nein, brauche neue Drehs' }
       ]
     },
     {
       id: 'videoImportant',
-      question: 'Ist Video-Content wichtig für dich?',
+      question: 'Wie wichtig ist Video-Content für dich?',
       options: [
-        { value: 'yes', label: 'Ja, sehr wichtig' },
-        { value: 'maybe', label: 'Vielleicht, bin unsicher' },
-        { value: 'no', label: 'Nein, Bilder reichen' }
-      ]
-    },
-    {
-      id: 'budget',
-      question: 'Was ist dein monatliches Budget?',
-      options: [
-        { value: 'low', label: 'Unter 1.000 €' },
-        { value: 'medium', label: '1.000 - 2.000 €' },
-        { value: 'high', label: 'Über 2.000 €' }
+        { value: 'yes', label: 'Sehr wichtig, will Reels nutzen' },
+        { value: 'maybe', label: 'Bin offen dafür' },
+        { value: 'no', label: 'Erstmal nur Bilder & Text' }
       ]
     }
   ];
@@ -66,29 +76,37 @@ const PackageFinder = () => {
   };
 
   const calculateRecommendation = () => {
-    // Einfache Logik für Empfehlung
     let result = '';
+    let additionalInfo = '';
 
-    if (answers.budget === 'high' && answers.videoImportant === 'yes') {
-      result = '🎯 **Scale Plan (1.250 €/Monat)**\n\nPerfekt für dich! Du erhältst eine komplette Rundum-Betreuung mit Website-Refresh, Kampagnen-Setup, Content-Produktion und laufender Optimierung. Ideal für nachhaltiges Wachstum.';
-    } else if (answers.selfPost === 'delegate' || answers.budget === 'medium') {
-      result = '📱 **Ads & Automation (890 €/Monat)**\n\nDie richtige Wahl! Konzentriere dich auf dein Geschäft, während wir deine Kampagnen managen und optimieren. Inkl. Performance-Tracking und Creative-Refresh.';
-    } else if (answers.videoImportant === 'yes') {
-      result = '🎬 **Content Kickstart Day (1.800 € einmalig)**\n\nStarte mit professionellem Video-Content! Ein Drehtag vor Ort liefert dir 20+ Assets und 3 Werbevideos. Perfekt für einen starken Content-Start.';
+    // Komplexere Logik basierend auf allen Antworten
+    if (answers.selfPost === 'delegate' && answers.postFrequency === 'high') {
+      result = '🎯 **Scale Plan (1.250 €/Monat)**\n\nPerfekt für dich! Du erhältst eine komplette Rundum-Betreuung mit Kampagnen-Setup, Content-Produktion und laufender Optimierung.';
+    } else if (answers.hasContent === 'no' && answers.videoImportant === 'yes') {
+      result = '🎬 **Content Kickstart Day (1.800 € einmalig)**\n\nDu bist am Anfang und brauchst professionellen Content. Ein Drehtag liefert dir 20+ Assets und 3 Werbevideos.';
+      additionalInfo = '\n\n💡 **Tipp:** Kombiniere mit Content Lite (690 €/Monat) für laufende Betreuung!';
+    } else if (answers.selfPost === 'delegate' || answers.postFrequency === 'medium') {
+      result = '📱 **Ads & Automation (890 €/Monat)**\n\nDie richtige Wahl! Konzentriere dich auf dein Geschäft, während wir deine Kampagnen managen.';
+    } else if (answers.hasSocialMedia === 'no' || answers.selfPost === 'self') {
+      result = '✨ **Content Lite (690 €/Monat)**\n\nDer perfekte Einstieg! Erhalte monatlich 4 Social-Assets mit Themenplanung und Upload.';
+      if (answers.hasContent === 'no') {
+        additionalInfo = '\n\n💡 **Optional:** Content Kickstart Day für sofort verwertbare Assets!';
+      }
     } else {
-      result = '✨ **Content Lite (690 €/Monat)**\n\nDer perfekte Einstieg! Erhalte monatlich 4 Social-Assets mit Themenplanung, Upload und Performance-Tracking. Ideal für den Start in die Social-Media-Welt.';
+      result = '📱 **Social Media Starter (2.400 € einmalig)**\n\nProfil-Optimierung, Content-Strategie und 10 fertige Templates für deinen perfekten Start!';
     }
 
-    setRecommendation(result);
+    setRecommendation(result + additionalInfo);
   };
 
   const reset = () => {
     setStep(0);
     setAnswers({
       hasSocialMedia: '',
+      postFrequency: '',
       selfPost: '',
-      videoImportant: '',
-      budget: ''
+      hasContent: '',
+      videoImportant: ''
     });
     setRecommendation('');
   };

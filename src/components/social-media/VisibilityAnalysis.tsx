@@ -11,12 +11,16 @@ const VisibilityAnalysis = () => {
     name: '',
     email: '',
     company: '',
+    socialLink: '',
     hasBio: false,
     hasHighlights: false,
-    hasTeam: false,
+    hasUniformLook: false,
     hasServices: false,
+    hasTeam: false,
+    hasActivePosts: false,
     hasLocation: false,
-    hasLink: false,
+    hasLinktree: false,
+    hasSeoName: false,
     acceptPrivacy: false
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -46,15 +50,18 @@ const VisibilityAnalysis = () => {
 
     setIsLoading(true);
 
-    // Berechne Score basierend auf Checkboxen
+    // Berechne Score basierend auf allen Checkboxen
     setTimeout(() => {
       const checkboxes = [
         formData.hasBio,
         formData.hasHighlights,
-        formData.hasTeam,
+        formData.hasUniformLook,
         formData.hasServices,
+        formData.hasTeam,
+        formData.hasActivePosts,
         formData.hasLocation,
-        formData.hasLink
+        formData.hasLinktree,
+        formData.hasSeoName
       ];
       
       const score = (checkboxes.filter(Boolean).length / checkboxes.length) * 100;
@@ -152,19 +159,33 @@ const VisibilityAnalysis = () => {
             className="mt-1"
           />
         </div>
+
+        <div>
+          <Label htmlFor="socialLink" className="text-sm">Social Media Link</Label>
+          <Input
+            id="socialLink"
+            value={formData.socialLink}
+            onChange={(e) => setFormData(prev => ({ ...prev, socialLink: e.target.value }))}
+            placeholder="instagram.com/deinprofil"
+            className="mt-1"
+          />
+        </div>
       </div>
 
       <div className="border-t border-border pt-4 space-y-3">
-        <p className="text-sm font-medium">Was hast du bereits?</p>
+        <p className="text-sm font-medium">Was hast du bereits? (Mehrfachauswahl möglich)</p>
         
         <div className="space-y-2">
           {[
-            { id: 'hasBio', label: 'Aussagekräftige Bio' },
-            { id: 'hasHighlights', label: 'Story-Highlights' },
+            { id: 'hasBio', label: 'Bio optimiert' },
+            { id: 'hasHighlights', label: 'Highlights vorhanden' },
+            { id: 'hasUniformLook', label: 'Einheitlicher Look' },
+            { id: 'hasServices', label: 'Leistungen kommuniziert' },
             { id: 'hasTeam', label: 'Team vorgestellt' },
-            { id: 'hasServices', label: 'Leistungen erklärt' },
-            { id: 'hasLocation', label: 'Standort angegeben' },
-            { id: 'hasLink', label: 'Website-Link gesetzt' }
+            { id: 'hasActivePosts', label: 'Aktive Posts' },
+            { id: 'hasLocation', label: 'Standort integriert' },
+            { id: 'hasLinktree', label: 'Linktree vorhanden' },
+            { id: 'hasSeoName', label: 'SEO-Name gewählt' }
           ].map((item) => (
             <div key={item.id} className="flex items-center space-x-2">
               <Checkbox
