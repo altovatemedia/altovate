@@ -6,7 +6,7 @@ import { ArrowRight, Settings, TrendingUp, Zap, Calculator, Clock, Smartphone, B
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
-import ContactFunnel from "@/components/sections/ContactFunnel";
+import SoftwareContactForm from "@/components/sections/SoftwareContactForm";
 
 const SoftwareKI = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -462,11 +462,11 @@ const SoftwareKI = () => {
       </div>
 
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Projekt anfragen</DialogTitle>
+            <DialogTitle>Software-Projekt anfragen</DialogTitle>
           </DialogHeader>
-          <ContactFunnel />
+          <SoftwareContactForm />
         </DialogContent>
       </Dialog>
 
