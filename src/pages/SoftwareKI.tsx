@@ -1,21 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, Settings, TrendingUp, Zap, Calculator, Clock, Smartphone, Brain, Lightbulb, Code, Lock, MessageSquare, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
+import ContactFunnel from "@/components/sections/ContactFunnel";
 
 const SoftwareKI = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact-cta");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    setIsContactOpen(true);
   };
 
   const benefits = [
@@ -459,6 +460,15 @@ const SoftwareKI = () => {
           </Button>
         </div>
       </div>
+
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Projekt anfragen</DialogTitle>
+          </DialogHeader>
+          <ContactFunnel />
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </>
