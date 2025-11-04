@@ -3,34 +3,48 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Loader2, TrendingUp } from 'lucide-react';
+import { ChevronRight, TrendingUp, Check, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+const questions = [
+  { id: 'hasBio', question: 'Ist deine Bio aussagekräftig und optimiert?' },
+  { id: 'hasHighlights', question: 'Sind deine Story-Highlights gepflegt?' },
+  { id: 'hasUniformLook', question: 'Hast du ein einheitliches Design?' },
+  { id: 'hasServices', question: 'Sind deine Leistungen/Team klar erkennbar?' },
+  { id: 'hasTeam', question: 'Hast du dein Team vorgestellt?' },
+  { id: 'hasActivePosts', question: 'Postest du regelmäßig aktive Beiträge?' },
+  { id: 'hasLocation', question: 'Ist dein Standort/Kontakt integriert?' },
+  { id: 'hasLinktree', question: 'Sind Feedback/Rezensionen sichtbar?' },
+  { id: 'hasSeoName', question: 'Ist dein Kanal-Name SEO-optimiert?' }
+];
+
 const VisibilityAnalysis = () => {
-  const [formData, setFormData] = useState({
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, boolean>>({});
+  const [contactData, setContactData] = useState({
     name: '',
     email: '',
     company: '',
-    socialLink: '',
-    hasBio: false,
-    hasHighlights: false,
-    hasUniformLook: false,
-    hasServices: false,
-    hasTeam: false,
-    hasActivePosts: false,
-    hasLocation: false,
-    hasLinktree: false,
-    hasSeoName: false,
-    acceptPrivacy: false
+    socialLink: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<number | null>(null);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleAnswer = (answer: boolean) => {
+    const currentQuestion = questions[step];
+    setAnswers(prev => ({ ...prev, [currentQuestion.id]: answer }));
+    
+    if (step < questions.length - 1) {
+      setStep(step + 1);
+    } else {
+      setStep(questions.length); // Move to contact form
+    }
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.company) {
+    if (!contactData.name || !contactData.email || !contactData.company) {
       toast({
         title: "Bitte fülle alle Felder aus",
         description: "Name, E-Mail und Firma sind erforderlich.",
@@ -39,40 +53,15 @@ const VisibilityAnalysis = () => {
       return;
     }
 
-    if (!formData.acceptPrivacy) {
-      toast({
-        title: "Datenschutz akzeptieren",
-        description: "Bitte akzeptiere die Datenschutzbestimmungen.",
-        variant: "destructive"
-      });
-      return;
-    }
+    // Calculate score
+    const yesCount = Object.values(answers).filter(Boolean).length;
+    const score = Math.round((yesCount / questions.length) * 100);
+    setResult(score);
 
-    setIsLoading(true);
-
-    // Berechne Score basierend auf allen Checkboxen
-    setTimeout(() => {
-      const checkboxes = [
-        formData.hasBio,
-        formData.hasHighlights,
-        formData.hasUniformLook,
-        formData.hasServices,
-        formData.hasTeam,
-        formData.hasActivePosts,
-        formData.hasLocation,
-        formData.hasLinktree,
-        formData.hasSeoName
-      ];
-      
-      const score = (checkboxes.filter(Boolean).length / checkboxes.length) * 100;
-      setResult(Math.round(score));
-      setIsLoading(false);
-      
-      toast({
-        title: "Analyse abgeschlossen!",
-        description: `Dein Sichtbarkeits-Score: ${Math.round(score)}%`,
-      });
-    }, 2000);
+    toast({
+      title: "Analyse abgeschlossen!",
+      description: `Dein Sichtbarkeits-Score: ${score}%`,
+    });
   };
 
   if (result !== null) {
@@ -123,118 +112,127 @@ const VisibilityAnalysis = () => {
     );
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="space-y-3">
-        <div>
-          <Label htmlFor="name" className="text-sm">Name*</Label>
-          <Input
-            id="name"
-            value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-            placeholder="Dein Name"
-            className="mt-1"
-          />
-        </div>
+  // Show questions one by one
+  if (step < questions.length) {
+    const currentQuestion = questions[step];
+    const progress = ((step) / questions.length) * 100;
 
-        <div>
-          <Label htmlFor="email" className="text-sm">E-Mail*</Label>
-          <Input
-            id="email"
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-            placeholder="deine@email.de"
-            className="mt-1"
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="company" className="text-sm">Firma*</Label>
-          <Input
-            id="company"
-            value={formData.company}
-            onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-            placeholder="Deine Firma"
-            className="mt-1"
-          />
-        </div>
-
-        <div>
-          <Label htmlFor="socialLink" className="text-sm">Social Media Link</Label>
-          <Input
-            id="socialLink"
-            value={formData.socialLink}
-            onChange={(e) => setFormData(prev => ({ ...prev, socialLink: e.target.value }))}
-            placeholder="instagram.com/deinprofil"
-            className="mt-1"
-          />
-        </div>
-      </div>
-
-      <div className="border-t border-border pt-4 space-y-3">
-        <p className="text-sm font-medium">Was hast du bereits? (Mehrfachauswahl möglich)</p>
-        
+    return (
+      <div className="space-y-6">
+        {/* Progress Bar */}
         <div className="space-y-2">
-          {[
-            { id: 'hasBio', label: 'Bio vorhanden?' },
-            { id: 'hasHighlights', label: 'Highlights gepflegt?' },
-            { id: 'hasUniformLook', label: 'Einheitliches Design?' },
-            { id: 'hasServices', label: 'Leistungen/Team erkennbar?' },
-            { id: 'hasTeam', label: 'Team vorgestellt?' },
-            { id: 'hasActivePosts', label: 'Aktive Posts vorhanden?' },
-            { id: 'hasLocation', label: 'Standort/Kontakt integriert?' },
-            { id: 'hasLinktree', label: 'Feedback/Rezensionen sichtbar?' },
-            { id: 'hasSeoName', label: 'Kanal-Name SEO-optimiert?' }
-          ].map((item) => (
-            <div key={item.id} className="flex items-center space-x-2">
-              <Checkbox
-                id={item.id}
-                checked={formData[item.id as keyof typeof formData] as boolean}
-                onCheckedChange={(checked) => 
-                  setFormData(prev => ({ ...prev, [item.id]: checked }))
-                }
-              />
-              <Label htmlFor={item.id} className="text-sm font-normal cursor-pointer">
-                {item.label}
-              </Label>
-            </div>
-          ))}
+          <div className="flex justify-between text-xs text-muted-foreground">
+            <span>Frage {step + 1} von {questions.length}</span>
+            <span>{Math.round(progress)}%</span>
+          </div>
+          <div className="w-full bg-muted rounded-full h-1.5">
+            <div 
+              className="bg-primary h-1.5 rounded-full transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Question */}
+        <div className="space-y-4">
+          <h4 className="font-bold text-base">{currentQuestion.question}</h4>
+          
+          <div className="grid grid-cols-2 gap-3">
+            <Button
+              onClick={() => handleAnswer(true)}
+              variant="outline"
+              className="h-auto py-4 flex flex-col items-center gap-2 hover:bg-success/10 hover:border-success"
+            >
+              <Check className="w-6 h-6 text-success" />
+              <span>Ja</span>
+            </Button>
+            <Button
+              onClick={() => handleAnswer(false)}
+              variant="outline"
+              className="h-auto py-4 flex flex-col items-center gap-2 hover:bg-destructive/10 hover:border-destructive"
+            >
+              <X className="w-6 h-6 text-destructive" />
+              <span>Nein</span>
+            </Button>
+          </div>
         </div>
       </div>
+    );
+  }
 
-      <div className="flex items-start space-x-2">
-        <Checkbox
-          id="privacy"
-          checked={formData.acceptPrivacy}
-          onCheckedChange={(checked) => 
-            setFormData(prev => ({ ...prev, acceptPrivacy: checked as boolean }))
-          }
-        />
-        <Label htmlFor="privacy" className="text-xs font-normal cursor-pointer leading-tight">
-          Ich möchte Verbesserungsvorschläge erhalten und akzeptiere die{' '}
-          <a href="/datenschutz" className="text-primary hover:underline">
-            Datenschutzbestimmungen
-          </a>
-        </Label>
-      </div>
+  // Show contact form
+  if (step === questions.length && result === null) {
+    return (
+      <form onSubmit={handleContactSubmit} className="space-y-4">
+        <div className="space-y-2 mb-4">
+          <h4 className="font-bold text-base">Fast geschafft! Jetzt Kontaktdaten eingeben</h4>
+          <p className="text-sm text-muted-foreground">
+            Um dein Ergebnis zu erhalten, fülle bitte die folgenden Felder aus.
+          </p>
+        </div>
 
-      <Button 
-        type="submit"
-        disabled={isLoading}
-        className="w-full btn-hero"
-      >
-        {isLoading ? (
-          <>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-            Analysiere...
-          </>
-        ) : (
-          'Jetzt Potenzial prüfen'
-        )}
-      </Button>
-    </form>
-  );
+        <div className="space-y-3">
+          <div>
+            <Label htmlFor="name" className="text-sm">Name*</Label>
+            <Input
+              id="name"
+              value={contactData.name}
+              onChange={(e) => setContactData(prev => ({ ...prev, name: e.target.value }))}
+              placeholder="Dein Name"
+              className="mt-1"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="email" className="text-sm">E-Mail*</Label>
+            <Input
+              id="email"
+              type="email"
+              value={contactData.email}
+              onChange={(e) => setContactData(prev => ({ ...prev, email: e.target.value }))}
+              placeholder="deine@email.de"
+              className="mt-1"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="company" className="text-sm">Firma*</Label>
+            <Input
+              id="company"
+              value={contactData.company}
+              onChange={(e) => setContactData(prev => ({ ...prev, company: e.target.value }))}
+              placeholder="Deine Firma"
+              className="mt-1"
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="socialLink" className="text-sm">Social Media Link</Label>
+            <Input
+              id="socialLink"
+              value={contactData.socialLink}
+              onChange={(e) => setContactData(prev => ({ ...prev, socialLink: e.target.value }))}
+              placeholder="instagram.com/deinprofil"
+              className="mt-1"
+            />
+          </div>
+        </div>
+
+        <Button 
+          type="submit"
+          className="w-full btn-hero"
+        >
+          Ergebnis anzeigen
+          <ChevronRight className="w-4 h-4 ml-2" />
+        </Button>
+      </form>
+    );
+  }
+
+  return null;
 };
 
 export default VisibilityAnalysis;
