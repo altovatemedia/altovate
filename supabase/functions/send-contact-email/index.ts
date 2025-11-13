@@ -11,12 +11,18 @@ const corsHeaders = {
 };
 
 interface ContactEmailRequest {
+  type?: string;
   firstName: string;
   lastName: string;
   email: string;
   company?: string;
   phone?: string;
-  message: string;
+  message?: string;
+  projectType?: string;
+  instagram?: string;
+  website?: string;
+  problem?: string;
+  description?: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -26,25 +32,65 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { firstName, lastName, email, company, phone, message }: ContactEmailRequest = await req.json();
+    const requestData: ContactEmailRequest = await req.json();
+    const { 
+      type, 
+      firstName, 
+      lastName, 
+      email, 
+      company, 
+      phone, 
+      message,
+      projectType,
+      instagram,
+      website,
+      problem,
+      description
+    } = requestData;
 
-    console.log("Sending contact email from:", email);
+    console.log("Sending contact email from:", email, "Type:", type);
+
+    let subject = `Neue Kontaktanfrage von ${firstName} ${lastName}`;
+    let htmlContent = `
+      <h2>Neue Kontaktanfrage</h2>
+      <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+      <p><strong>E-Mail:</strong> ${email}</p>
+      ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ''}
+      ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
+    `;
+
+    // Customize email based on type
+    if (type === 'software') {
+      subject = `Neue Software/KI-Anfrage von ${firstName} ${lastName}`;
+      htmlContent += `
+        ${projectType ? `<p><strong>Projekt-Typ:</strong> ${projectType}</p>` : ''}
+        <p><strong>Nachricht:</strong></p>
+        <p>${message?.replace(/\n/g, '<br>') || 'Keine Nachricht'}</p>
+      `;
+    } else if (type === 'erstkontakt') {
+      subject = `Erstgesprächs-Anfrage von ${firstName} ${lastName}`;
+      htmlContent += `
+        ${instagram ? `<p><strong>Instagram:</strong> ${instagram}</p>` : ''}
+        ${website ? `<p><strong>Website:</strong> ${website}</p>` : ''}
+        ${problem ? `<p><strong>Größtes Problem:</strong> ${problem}</p>` : ''}
+        <p><strong>Beschreibung der Situation:</strong></p>
+        <p>${description?.replace(/\n/g, '<br>') || 'Keine Beschreibung'}</p>
+      `;
+    } else {
+      // Default contact form
+      htmlContent += `
+        <p><strong>Nachricht:</strong></p>
+        <p>${message?.replace(/\n/g, '<br>') || 'Keine Nachricht'}</p>
+      `;
+    }
 
     // Email an alex@altovate.de mit den Kontaktdaten
     const emailResponse = await resend.emails.send({
       from: "Altovate Kontaktformular <onboarding@resend.dev>",
       to: ["alex@altovate.de"],
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${firstName} ${lastName}`,
-      html: `
-        <h2>Neue Kontaktanfrage</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>E-Mail:</strong> ${email}</p>
-        ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ''}
-        ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
-        <p><strong>Nachricht:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
+      subject: subject,
+      html: htmlContent,
     });
 
     console.log("Email sent successfully:", emailResponse);
