@@ -260,12 +260,6 @@ END:VCARD`;
                         size={200}
                         level="H"
                         includeMargin={true}
-                        imageSettings={{
-                          src: "/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png",
-                          height: 40,
-                          width: 40,
-                          excavate: true,
-                        }}
                       />
                     </div>
                   </div>
