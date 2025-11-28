@@ -1,0 +1,136 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import NewNavigation from "@/components/sections/NewNavigation";
+import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
+import { CookieBanner } from "@/components/CookieBanner";
+import { Phone, Mail, Globe, MapPin, Download, User } from "lucide-react";
+
+const Kontakt = () => {
+  const handleDownloadVCard = () => {
+    const link = document.createElement('a');
+    link.href = '/Kontakt.vcf';
+    link.download = 'Alex-Buchmann-Kontakt.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <NewNavigation />
+      <CookieBanner />
+      <ChatBot />
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+            Kontakt
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Lass uns über dein Projekt sprechen. Ich freue mich auf deine Nachricht.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Card */}
+      <section className="pb-20 px-4">
+        <div className="container mx-auto max-w-2xl">
+          <Card className="border-border/50 bg-card/50 backdrop-blur">
+            <CardContent className="p-8 md:p-12">
+              <div className="space-y-8">
+                {/* Name & Company */}
+                <div className="text-center pb-6 border-b border-border/50">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-4">
+                    <User className="w-10 h-10 text-primary" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-foreground mb-2">
+                    Alex Buchmann
+                  </h2>
+                  <p className="text-lg text-muted-foreground">
+                    altovate
+                  </p>
+                </div>
+
+                {/* Contact Details */}
+                <div className="space-y-6">
+                  <a 
+                    href="tel:+4915208922097"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Telefon</p>
+                      <p className="text-lg font-medium text-foreground">+49 1520 8922097</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="mailto:alex@altovate.de"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Mail className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">E-Mail</p>
+                      <p className="text-lg font-medium text-foreground">alex@altovate.de</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://www.altovate.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Globe className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Website</p>
+                      <p className="text-lg font-medium text-foreground">www.altovate.de</p>
+                    </div>
+                  </a>
+
+                  <div className="flex items-center gap-4 p-4 rounded-lg">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                      <MapPin className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Adresse</p>
+                      <p className="text-lg font-medium text-foreground">Max-Planck-Straße 6</p>
+                      <p className="text-lg font-medium text-foreground">54439 Saarburg, Germany</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Download vCard Button */}
+                <div className="pt-6 border-t border-border/50">
+                  <Button 
+                    onClick={handleDownloadVCard}
+                    className="w-full"
+                    size="lg"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Kontakt als vCard speichern
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center mt-3">
+                    Speichere den Kontakt direkt in deinem Adressbuch
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Kontakt;

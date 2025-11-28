@@ -14,6 +14,7 @@ import EmployerBranding from "./pages/EmployerBranding";
 import MarketingAutomation from "./pages/MarketingAutomation";
 import SoftwareKI from "./pages/SoftwareKI";
 import Erstkontakt from "./pages/Erstkontakt";
+import Kontakt from "./pages/Kontakt";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/marketing-automation-saarburg" element={<MarketingAutomation />} />
             <Route path="/software-ki-loesungen-saarburg" element={<SoftwareKI />} />
             <Route path="/erstkontakt" element={<Erstkontakt />} />
+            <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
