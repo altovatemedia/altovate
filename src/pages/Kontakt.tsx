@@ -100,7 +100,7 @@ END:VCARD`;
           <Card className="border-border/50 bg-card/50 backdrop-blur overflow-hidden">
             <CardContent className="p-0">
               <InlineWidget 
-                url="https://calendly.com/alex-altovate/erstgespraech"
+                url="https://calendly.com/alex-altovate/content-strategie-let-s-plan-ahead"
                 styles={{ height: '700px' }}
               />
             </CardContent>
