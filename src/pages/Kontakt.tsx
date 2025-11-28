@@ -4,7 +4,7 @@ import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
-import { Phone, Mail, Globe, MapPin, Download, Instagram } from "lucide-react";
+import { Phone, Mail, Globe, MapPin, Download, Instagram, Linkedin } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 import { QRCodeSVG } from "qrcode.react";
 
@@ -17,6 +17,7 @@ ORG:altovate GmbH
 TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
+URL;type=linkedin:https://www.linkedin.com/in/alexander-buchmann
 URL;type=instagram:https://www.instagram.com/altovate.de
 URL;type=instagram:https://www.instagram.com/iamalexbuchmann
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
@@ -41,6 +42,7 @@ ORG:altovate GmbH
 TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
+URL;type=linkedin:https://www.linkedin.com/in/alexander-buchmann
 URL;type=instagram:https://www.instagram.com/altovate.de
 URL;type=instagram:https://www.instagram.com/iamalexbuchmann
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
@@ -145,6 +147,21 @@ END:VCARD`;
                     <div>
                       <p className="text-sm text-muted-foreground">Website</p>
                       <p className="text-lg font-medium text-foreground">www.altovate.de</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://www.linkedin.com/in/alexander-buchmann"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Linkedin className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">LinkedIn</p>
+                      <p className="text-lg font-medium text-foreground">Alexander Buchmann</p>
                     </div>
                   </a>
 
