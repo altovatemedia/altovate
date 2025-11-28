@@ -8,12 +8,26 @@ import { Phone, Mail, Globe, MapPin, Download, User } from "lucide-react";
 
 const Kontakt = () => {
   const handleDownloadVCard = () => {
+    const vCardContent = `BEGIN:VCARD
+VERSION:3.0
+N:Buchmann;Alex;;;
+FN:Alex Buchmann
+ORG:altovate
+TEL;CELL:+49 1520 8922097
+EMAIL:alex@altovate.de
+URL:https://www.altovate.de
+ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
+END:VCARD`;
+
+    const blob = new Blob([vCardContent], { type: 'text/vcard;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = '/Kontakt.vcf';
+    link.href = url;
     link.download = 'Alex-Buchmann-Kontakt.vcf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
 
   return (
