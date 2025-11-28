@@ -6,8 +6,22 @@ import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Phone, Mail, Globe, MapPin, Download, Instagram } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
+import { QRCodeSVG } from "qrcode.react";
 
 const Kontakt = () => {
+  const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Buchmann;Alex;;;
+FN:Alex Buchmann
+ORG:altovate GmbH
+TEL;CELL:+49 1520 8922097
+EMAIL:alex@altovate.de
+URL:https://www.altovate.de
+URL;type=instagram:https://www.instagram.com/altovate.de
+URL;type=instagram:https://www.instagram.com/iamalexbuchmann
+ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
+END:VCARD`;
+
   const handleDownloadVCard = async () => {
     try {
       // Lade das Bild und konvertiere es zu Base64
@@ -176,8 +190,26 @@ END:VCARD`;
                   </div>
                 </div>
 
-                {/* Download vCard Button */}
+                {/* QR Code Section */}
                 <div className="pt-6 border-t border-border/50">
+                  <div className="text-center mb-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      QR-Code scannen
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Scanne den QR-Code mit deinem Smartphone
+                    </p>
+                    <div className="inline-flex items-center justify-center p-4 bg-white rounded-lg">
+                      <QRCodeSVG 
+                        value={vCardData}
+                        size={200}
+                        level="H"
+                        includeMargin={true}
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Download vCard Button */}
                   <Button 
                     onClick={handleDownloadVCard}
                     className="w-full"
@@ -187,7 +219,7 @@ END:VCARD`;
                     Kontakt als vCard speichern
                   </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    Speichere den Kontakt direkt in deinem Adressbuch
+                    Oder speichere den Kontakt direkt in deinem Adressbuch
                   </p>
                 </div>
               </div>
