@@ -7,8 +7,11 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { Phone, Mail, Globe, MapPin, Download, Instagram, Linkedin } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 import { QRCodeSVG } from "qrcode.react";
+import { useRef } from "react";
 
 const Kontakt = () => {
+  const qrCodeRef = useRef<HTMLDivElement>(null);
+  
   const vCardData = `BEGIN:VCARD
 VERSION:3.0
 N:Buchmann;Alex;;;
@@ -22,6 +25,41 @@ URL;type=instagram:https://www.instagram.com/altovate.de/
 URL;type=instagram:https://www.instagram.com/iamalexbuchmann/
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
 END:VCARD`;
+
+  const handleDownloadQRCode = () => {
+    try {
+      const qrCodeElement = qrCodeRef.current?.querySelector('svg');
+      if (!qrCodeElement) return;
+
+      const svgData = new XMLSerializer().serializeToString(qrCodeElement);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx?.drawImage(img, 0, 0);
+        
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'altovate-kontakt-qrcode.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+          }
+        });
+      };
+
+      img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+    } catch (error) {
+      console.error('Fehler beim Download des QR-Codes:', error);
+    }
+  };
 
   const handleDownloadVCard = async () => {
     try {
@@ -216,27 +254,44 @@ END:VCARD`;
                     <p className="text-sm text-muted-foreground mb-4">
                       Scanne den QR-Code mit deinem Smartphone
                     </p>
-                    <div className="inline-flex items-center justify-center p-4 bg-white rounded-lg">
+                    <div ref={qrCodeRef} className="inline-flex items-center justify-center p-4 bg-white rounded-lg">
                       <QRCodeSVG 
                         value={vCardData}
                         size={200}
                         level="H"
                         includeMargin={true}
+                        imageSettings={{
+                          src: "/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png",
+                          height: 40,
+                          width: 40,
+                          excavate: true,
+                        }}
                       />
                     </div>
                   </div>
                   
-                  {/* Download vCard Button */}
-                  <Button 
-                    onClick={handleDownloadVCard}
-                    className="w-full"
-                    size="lg"
-                  >
-                    <Download className="w-5 h-5 mr-2" />
-                    Kontakt als vCard speichern
-                  </Button>
+                  {/* Download Buttons */}
+                  <div className="space-y-3">
+                    <Button 
+                      onClick={handleDownloadQRCode}
+                      className="w-full"
+                      size="lg"
+                      variant="outline"
+                    >
+                      <Download className="w-5 h-5 mr-2" />
+                      QR-Code als PNG speichern
+                    </Button>
+                    <Button 
+                      onClick={handleDownloadVCard}
+                      className="w-full"
+                      size="lg"
+                    >
+                      <Download className="w-5 h-5 mr-2" />
+                      Kontakt als vCard speichern
+                    </Button>
+                  </div>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    Oder speichere den Kontakt direkt in deinem Adressbuch
+                    Speichere den QR-Code oder den Kontakt direkt in deinem Adressbuch
                   </p>
                 </div>
               </div>
