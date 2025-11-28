@@ -32,30 +32,15 @@ END:VCARD`;
       if (!qrCodeElement) return;
 
       const svgData = new XMLSerializer().serializeToString(qrCodeElement);
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const img = new Image();
-
-      img.onload = () => {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx?.drawImage(img, 0, 0);
-        
-        canvas.toBlob((blob) => {
-          if (blob) {
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'altovate-kontakt-qrcode.png';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-          }
-        });
-      };
-
-      img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+      const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'altovate-kontakt-qrcode.svg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Fehler beim Download des QR-Codes:', error);
     }
@@ -273,7 +258,7 @@ END:VCARD`;
                       variant="outline"
                     >
                       <Download className="w-5 h-5 mr-2" />
-                      QR-Code als PNG speichern
+                      QR-Code als SVG speichern
                     </Button>
                     <Button 
                       onClick={handleDownloadVCard}
