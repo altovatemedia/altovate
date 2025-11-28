@@ -18,8 +18,8 @@ TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
 URL;type=linkedin:https://www.linkedin.com/in/alexander-buchmann
-URL;type=instagram:https://www.instagram.com/altovate.de
-URL;type=instagram:https://www.instagram.com/iamalexbuchmann
+URL;type=instagram:https://www.instagram.com/altovate.de/
+URL;type=instagram:https://www.instagram.com/iamalexbuchmann/
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
 END:VCARD`;
 
@@ -43,8 +43,8 @@ TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
 URL;type=linkedin:https://www.linkedin.com/in/alexander-buchmann
-URL;type=instagram:https://www.instagram.com/altovate.de
-URL;type=instagram:https://www.instagram.com/iamalexbuchmann
+URL;type=instagram:https://www.instagram.com/altovate.de/
+URL;type=instagram:https://www.instagram.com/iamalexbuchmann/
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
 PHOTO;ENCODING=b;TYPE=PNG:${base64Image}
 END:VCARD`;
@@ -166,7 +166,7 @@ END:VCARD`;
                   </a>
 
                   <a 
-                    href="https://www.instagram.com/altovate.de"
+                    href="https://www.instagram.com/altovate.de/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
@@ -181,7 +181,7 @@ END:VCARD`;
                   </a>
 
                   <a 
-                    href="https://www.instagram.com/iamalexbuchmann"
+                    href="https://www.instagram.com/iamalexbuchmann/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
