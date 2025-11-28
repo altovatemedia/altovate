@@ -4,9 +4,10 @@ import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
-import { Phone, Mail, Globe, MapPin, Download, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, Globe, MapPin, Download, Instagram, Linkedin, Calendar } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 import { QRCodeSVG } from "qrcode.react";
+import { InlineWidget } from "react-calendly";
 
 const Kontakt = () => {
   const vCardData = `BEGIN:VCARD
@@ -81,6 +82,29 @@ END:VCARD`;
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Lass uns über dein Projekt sprechen. Ich freue mich auf deine Nachricht.
           </p>
+        </div>
+      </section>
+
+      {/* Calendly Widget Section */}
+      <section className="pb-12 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-8">
+            <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-foreground mb-3">
+              Termin direkt buchen
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Wähle einen passenden Termin für unser Erstgespräch
+            </p>
+          </div>
+          <Card className="border-border/50 bg-card/50 backdrop-blur overflow-hidden">
+            <CardContent className="p-0">
+              <InlineWidget 
+                url="https://calendly.com/alex-altovate/erstgespraech"
+                styles={{ height: '700px' }}
+              />
+            </CardContent>
+          </Card>
         </div>
       </section>
 
