@@ -5,10 +5,21 @@ import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Phone, Mail, Globe, MapPin, Download, User } from "lucide-react";
+import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 
 const Kontakt = () => {
-  const handleDownloadVCard = () => {
-    const vCardContent = `BEGIN:VCARD
+  const handleDownloadVCard = async () => {
+    try {
+      // Lade das Bild und konvertiere es zu Base64
+      const response = await fetch(alexanderPortrait);
+      const blob = await response.blob();
+      const reader = new FileReader();
+      
+      reader.onloadend = () => {
+        const base64data = reader.result as string;
+        const base64Image = base64data.split(',')[1]; // Entferne Data-URL-Prefix
+        
+        const vCardContent = `BEGIN:VCARD
 VERSION:3.0
 N:Buchmann;Alex;;;
 FN:Alex Buchmann
@@ -17,17 +28,24 @@ TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
+PHOTO;ENCODING=b;TYPE=PNG:${base64Image}
 END:VCARD`;
 
-    const blob = new Blob([vCardContent], { type: 'text/vcard;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Alex-Buchmann-Kontakt.vcf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    window.URL.revokeObjectURL(url);
+        const vCardBlob = new Blob([vCardContent], { type: 'text/vcard;charset=utf-8' });
+        const url = window.URL.createObjectURL(vCardBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Alex-Buchmann-Kontakt.vcf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      };
+      
+      reader.readAsDataURL(blob);
+    } catch (error) {
+      console.error('Fehler beim Erstellen der vCard:', error);
+    }
   };
 
   return (
