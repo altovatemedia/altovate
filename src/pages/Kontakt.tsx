@@ -4,7 +4,7 @@ import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
-import { Phone, Mail, Globe, MapPin, Download, User } from "lucide-react";
+import { Phone, Mail, Globe, MapPin, Download, Instagram } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 
 const Kontakt = () => {
@@ -23,10 +23,12 @@ const Kontakt = () => {
 VERSION:3.0
 N:Buchmann;Alex;;;
 FN:Alex Buchmann
-ORG:altovate
+ORG:altovate GmbH
 TEL;CELL:+49 1520 8922097
 EMAIL:alex@altovate.de
 URL:https://www.altovate.de
+URL;type=instagram:https://www.instagram.com/altovate.de
+URL;type=instagram:https://www.instagram.com/iamalexbuchmann
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
 PHOTO;ENCODING=b;TYPE=PNG:${base64Image}
 END:VCARD`;
@@ -74,14 +76,18 @@ END:VCARD`;
               <div className="space-y-8">
                 {/* Name & Company */}
                 <div className="text-center pb-6 border-b border-border/50">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-4">
-                    <User className="w-10 h-10 text-primary" />
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-4 overflow-hidden">
+                    <img 
+                      src={alexanderPortrait} 
+                      alt="Alex Buchmann" 
+                      className="w-full h-full object-cover object-center"
+                    />
                   </div>
                   <h2 className="text-3xl font-bold text-foreground mb-2">
                     Alex Buchmann
                   </h2>
                   <p className="text-lg text-muted-foreground">
-                    altovate
+                    altovate GmbH
                   </p>
                 </div>
 
@@ -125,6 +131,36 @@ END:VCARD`;
                     <div>
                       <p className="text-sm text-muted-foreground">Website</p>
                       <p className="text-lg font-medium text-foreground">www.altovate.de</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://www.instagram.com/altovate.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Instagram className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Instagram (Unternehmen)</p>
+                      <p className="text-lg font-medium text-foreground">@altovate.de</p>
+                    </div>
+                  </a>
+
+                  <a 
+                    href="https://www.instagram.com/iamalexbuchmann"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/50 transition-colors group"
+                  >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Instagram className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Instagram (Persönlich)</p>
+                      <p className="text-lg font-medium text-foreground">@iamalexbuchmann</p>
                     </div>
                   </a>
 
