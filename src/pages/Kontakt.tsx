@@ -7,11 +7,8 @@ import { CookieBanner } from "@/components/CookieBanner";
 import { Phone, Mail, Globe, MapPin, Download, Instagram, Linkedin } from "lucide-react";
 import alexanderPortrait from "@/assets/alexander-portrait-circle.png";
 import { QRCodeSVG } from "qrcode.react";
-import { useRef } from "react";
 
 const Kontakt = () => {
-  const qrCodeRef = useRef<HTMLDivElement>(null);
-  
   const vCardData = `BEGIN:VCARD
 VERSION:3.0
 N:Buchmann;Alex;;;
@@ -25,26 +22,6 @@ URL;type=instagram:https://www.instagram.com/altovate.de/
 URL;type=instagram:https://www.instagram.com/iamalexbuchmann/
 ADR;WORK:;;Max-Planck-Straße 6;Saarburg;;54439;Germany
 END:VCARD`;
-
-  const handleDownloadQRCode = () => {
-    try {
-      const qrCodeElement = qrCodeRef.current?.querySelector('svg');
-      if (!qrCodeElement) return;
-
-      const svgData = new XMLSerializer().serializeToString(qrCodeElement);
-      const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'altovate-kontakt-qrcode.svg';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Fehler beim Download des QR-Codes:', error);
-    }
-  };
 
   const handleDownloadVCard = async () => {
     try {
@@ -239,7 +216,7 @@ END:VCARD`;
                     <p className="text-sm text-muted-foreground mb-4">
                       Scanne den QR-Code mit deinem Smartphone
                     </p>
-                    <div ref={qrCodeRef} className="inline-flex items-center justify-center p-4 bg-white rounded-lg">
+                    <div className="inline-flex items-center justify-center p-4 bg-white rounded-lg">
                       <QRCodeSVG 
                         value={vCardData}
                         size={200}
@@ -249,28 +226,17 @@ END:VCARD`;
                     </div>
                   </div>
                   
-                  {/* Download Buttons */}
-                  <div className="space-y-3">
-                    <Button 
-                      onClick={handleDownloadQRCode}
-                      className="w-full"
-                      size="lg"
-                      variant="outline"
-                    >
-                      <Download className="w-5 h-5 mr-2" />
-                      QR-Code als SVG speichern
-                    </Button>
-                    <Button 
-                      onClick={handleDownloadVCard}
-                      className="w-full"
-                      size="lg"
-                    >
-                      <Download className="w-5 h-5 mr-2" />
-                      Kontakt als vCard speichern
-                    </Button>
-                  </div>
+                  {/* Download vCard Button */}
+                  <Button 
+                    onClick={handleDownloadVCard}
+                    className="w-full"
+                    size="lg"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Kontakt als vCard speichern
+                  </Button>
                   <p className="text-xs text-muted-foreground text-center mt-3">
-                    Speichere den QR-Code oder den Kontakt direkt in deinem Adressbuch
+                    Speichere den Kontakt direkt in deinem Adressbuch
                   </p>
                 </div>
               </div>
