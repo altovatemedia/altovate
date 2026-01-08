@@ -1,4 +1,4 @@
-import { UserX, TrendingDown, Clock, AlertTriangle, ArrowRight } from 'lucide-react';
+import { FileQuestion, Users, Building2, Workflow, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useEffect, useRef, useState } from 'react';
 
@@ -8,22 +8,24 @@ const PainPoints = () => {
 
   const painPoints = [
     {
-      icon: UserX,
-      title: "Keine Bewerber",
-      description: "Deine Stellenanzeigen verschwinden im Nichts. Qualifizierte Kandidaten gehen zur Konkurrenz.",
-      impact: "Verlust: 50.000€+ pro unbesetzter Stelle"
+      icon: FileQuestion,
+      title: "Zu viel Content, keine Strategie",
+      description: "Du postest regelmäßig, aber es passiert... nichts. Keine Anfragen, kein Wachstum.",
     },
     {
-      icon: TrendingDown,
-      title: "Kaum Kundenanfragen",
-      description: "Deine Website ist eine digitale Geisterstadt. Potenzielle Kunden finden dich nicht.",
-      impact: "Verlust: 10-20 Neukunden pro Monat"
+      icon: Users,
+      title: "Sichtbarkeit ohne Anfragen",
+      description: "Follower wachsen, aber Leads bleiben aus. Reichweite allein bringt keine Kunden.",
     },
     {
-      icon: Clock,
-      title: "Keine Zeit",
-      description: "Du arbeitest IM Unternehmen statt AM Unternehmen. Marketing bleibt liegen.",
-      impact: "Opportunitätskosten: Unbezahlbar"
+      icon: Building2,
+      title: "Agenturen liefern Posts, aber keine Ergebnisse",
+      description: "Du zahlst für Content, nicht für Wachstum. Das Ergebnis? Frustration und verbranntes Budget.",
+    },
+    {
+      icon: Workflow,
+      title: "Keine Struktur für Leads",
+      description: "Kein Freebie, kein Funnel, keine Automatisierung. Potenzielle Kunden verschwinden einfach.",
     }
   ];
 
@@ -51,21 +53,13 @@ const PainPoints = () => {
       <div className="container mx-auto px-6 relative max-w-content">
         {/* Section header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 mb-8">
-            <AlertTriangle className="w-8 h-8 text-red-500" />
-            <h2 className="finom-h2">
-              Das tut <span className="text-red-500">weh</span>
-            </h2>
-          </div>
-          
-          <p className="finom-lead max-w-3xl mx-auto">
-            Du verlierst täglich Umsatz, Bewerber und Chancen – 
-            <span className="text-primary font-semibold"> ohne es zu merken.</span>
-          </p>
+          <h2 className="finom-h2 mb-6">
+            Warum Social Media für viele Unternehmen <span className="text-primary">nicht funktioniert</span>
+          </h2>
         </div>
 
         {/* Pain point cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {painPoints.map((point, index) => (
             <div
               key={index}
@@ -74,29 +68,22 @@ const PainPoints = () => {
                          ${visibleItems.includes(index) 
                            ? 'opacity-100 translate-y-0' 
                            : 'opacity-0 translate-y-12'}`}
-              style={{ transitionDelay: `${index * 200}ms` }}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="relative z-10 flex flex-col h-full">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-card">
-                  <point.icon className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 bg-gradient-to-r from-primary to-primary/80 rounded-xl flex items-center justify-center mb-5 shadow-card">
+                  <point.icon className="w-7 h-7 text-white" />
                 </div>
 
                 {/* Content */}
                 <div className="flex-grow">
-                  <h3 className="finom-h3 mb-4">
+                  <h3 className="text-lg font-bold text-foreground mb-3">
                     {point.title}
                   </h3>
                   
-                  <p className="finom-body text-muted-foreground mb-6">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {point.description}
-                  </p>
-                </div>
-
-                {/* Impact */}
-                <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-xl p-4 mt-auto">
-                  <p className="text-red-600 dark:text-red-400 font-semibold text-sm">
-                    💸 {point.impact}
                   </p>
                 </div>
               </div>
@@ -104,17 +91,24 @@ const PainPoints = () => {
           ))}
         </div>
 
+        {/* Conclusion text */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg md:text-xl text-foreground font-medium">
+            Social Media ist kein Selbstzweck. Es ist ein Werkzeug zur Kundengewinnung – <span className="text-primary">wenn es richtig aufgebaut ist.</span>
+          </p>
+        </div>
+
         {/* CTA */}
         <div className="text-center">
           <Button 
-            className="btn-hero text-xl px-12 py-4"
+            className="btn-hero text-lg px-10 py-4"
             onClick={() => {
-              const offerSection = document.getElementById('signature-offer');
+              const offerSection = document.getElementById('my-role');
               offerSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Zeit, das zu ändern
-            <ArrowRight className="ml-3 w-6 h-6" />
+            So funktioniert es richtig
+            <ArrowRight className="ml-3 w-5 h-5" />
           </Button>
         </div>
       </div>
