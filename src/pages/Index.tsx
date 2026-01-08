@@ -4,11 +4,12 @@ import FreebieBar from '@/components/sections/FreebieBar';
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
 import PainPoints from '@/components/sections/PainPoints';
-import MyRole from '@/components/sections/MyRole';
-import NewOffers from '@/components/sections/NewOffers';
-import Solution from '@/components/Solution';
+import SignatureOffer from '@/components/sections/SignatureOffer';
 import CaseStudies from '@/components/sections/CaseStudies';
 import GoogleReviews from '@/components/sections/GoogleReviews';
+import PricingToggle from '@/components/sections/PricingToggle';
+import Solution from '@/components/Solution';
+import ServicesVisual from '@/components/sections/ServicesVisual';
 import AboutFounder from '@/components/sections/AboutFounder';
 import Timeline from '@/components/Timeline';
 import NotFor from '@/components/NotFor';
@@ -50,9 +51,10 @@ const Index = () => {
         <NewNavigation />
         <NewHero />
         <PainPoints />
-        <MyRole />
-        <NewOffers />
+        <SignatureOffer />
+        <ServicesVisual />
         <AboutFounder />
+        <PricingToggle />
         <Solution />
         <CaseStudies />
         <GoogleReviews />
