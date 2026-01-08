@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Play, Rocket, Target, Handshake } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import VisibilityCheckModal from '@/components/visibility-check/VisibilityCheckModal';
@@ -51,15 +51,14 @@ const NewHero = () => {
       <div className="container mx-auto px-6 text-center z-10 relative max-w-6xl py-32">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Headline with clear hierarchy */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight fade-in-up tracking-tight">
-            Mehr Sichtbarkeit.<br />
-            <span className="text-primary">Mehr Kunden.</span><br />
-            Mehr Erfolg.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight fade-in-up tracking-tight">
+            Online-Marketing, das planbar<br />
+            <span className="text-primary">Leads generiert.</span>
           </h1>
 
           {/* Subheadline - clear and explanatory */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Wir entwickeln Marketingstrategien, die funktionieren – visuell stark und technisch durchdacht.
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
+            Strategie, Systeme & Sparring statt Content-Chaos. Ich helfe Unternehmen dabei, Social Media als funktionierendes Marketing-System aufzubauen – mit klarer Struktur, Freebies, Automationen und Content, der verkauft.
           </p>
 
           {/* CTA Buttons - differentiated sizing */}
@@ -72,7 +71,7 @@ const NewHero = () => {
                 contactSection?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Beratungstermin vereinbaren
+              Jetzt Klarheit gewinnen
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
@@ -85,70 +84,6 @@ const NewHero = () => {
               <Play className="mr-2 w-5 h-5" />
               Kostenloser Sichtbarkeits-Check
             </Button>
-          </div>
-
-          {/* Benefits Section */}
-          <div className="fade-in-up pt-12" style={{ animationDelay: '0.6s' }}>
-            <div className="max-w-5xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-12 md:gap-8">
-                
-                {/* Benefit 1: Schnell sichtbar */}
-                <div className="text-center md:text-left space-y-4">
-                  <div className="flex justify-center md:justify-start">
-                    <Rocket className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">
-                    Schnell sichtbar
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Online sichtbar in nur 30 Tagen – mit klarer Struktur und messbaren Ergebnissen.
-                  </p>
-                </div>
-
-                {/* Benefit 2: Messbar wirksam */}
-                <div className="text-center md:text-left space-y-4">
-                  <div className="flex justify-center md:justify-start">
-                    <Target className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">
-                    Messbar wirksam
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Marketing, das auf Zahlen basiert. Keine Bauchentscheidungen, sondern echte Performance.
-                  </p>
-                </div>
-
-                {/* Benefit 3: Ehrlich & direkt */}
-                <div className="text-center md:text-left space-y-4">
-                  <div className="flex justify-center md:justify-start">
-                    <Handshake className="w-12 h-12 text-[#ff1c5c]" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">
-                    Ehrlich & direkt
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Wir beraten ohne Bullshit. Wenn eine Idee keinen Sinn macht, sagen wir es dir.
-                  </p>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <div className="flex justify-center mt-12">
-                <Button 
-                  variant="ghost"
-                  className="text-primary hover:text-primary hover:bg-primary/5 group"
-                  onClick={() => {
-                    const servicesSection = Array.from(document.querySelectorAll('section')).find(
-                      section => section.textContent?.includes('Was wir für dich tun')
-                    );
-                    servicesSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Mehr erfahren
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
