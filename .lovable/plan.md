@@ -1,91 +1,67 @@
 
 
-# Förderhinweis prominenter platzieren
+# BNI-Mitgliedschaft im Footer einbauen
 
-## Das Problem
+## Ziel
 
-Die Förderung von bis zu 80% ist ein starkes Verkaufsargument, wird aber nur im Footer und auf der Förderseite erwähnt. Viele potenzielle Kunden sehen das gar nicht.
+BNI-Mitgliedschafts-Badge im Footer unter den Kontaktdaten einfügen, um die Netzwerk-Zugehörigkeit sichtbar zu machen.
 
-## Lösungsansätze
+## Umsetzung
 
-### Option A: Badge bei den Angebots-Preisen
+### 1. BNI-Logo ins Projekt kopieren
 
-Bei den Strategie-Sessions und der 1:1 Zusammenarbeit einen kleinen Badge hinzufügen, der auf die Fördermöglichkeit hinweist.
+Das hochgeladene Logo wird in den `src/assets` Ordner kopiert, da es als React-Import verwendet wird.
 
-Beispiel bei Preisanzeige:
+**Datei:** `src/assets/bni-badge.png`
+
+### 2. Footer erweitern
+
+**Datei:** `src/components/sections/Footer.tsx`
+
+Nach den Kontaktdaten (Mail, Telefon, Standort) wird ein neuer Bereich eingefügt:
+
 ```
-390 € inkl. MwSt.
-[Bis zu 80% förderfähig]
+Kontakt
+├── info@altovate.de
+├── +49 (0) 1520 892 2097
+├── Saarburg, Deutschland
+│
+└── [Trennlinie]
+    └── [BNI Badge mit Link]
 ```
 
-**Vorteile:**
-- Direkt dort, wo die Kaufentscheidung fällt
-- Macht den Preis psychologisch attraktiver
-- Nicht aufdringlich
+**Technische Details:**
+- Trennlinie wie bei der Förderung in Spalte 2 (`border-t border-white/10`)
+- BNI-Logo als klickbarer Link (optional zur BNI-Website)
+- Dezente Größe (ca. 100px Breite)
+- Hover-Effekt für Interaktion
 
-### Option B: Hinweis-Banner nach den Pain Points
+### Vorschau der Änderung
 
-Eine dezente Sektion zwischen bestehenden Bereichen, die auf die Förderung hinweist.
-
-**Vorteile:**
-- Eigenständiger Aufmerksamkeitsfänger
-- Mehr Platz für Erklärung
-
-### Option C: FreebieBar (Top-Banner) erweitern
-
-Den oberen Banner alternierend oder zusätzlich mit Förderhinweis versehen.
-
-**Vorteile:**
-- Sehr hohe Sichtbarkeit
-- Sofort beim Seitenaufruf präsent
-
----
-
-## Empfehlung: Kombination A + B
-
-### 1. Förder-Badges bei Preisen hinzufügen
-
-**Dateien:** `Offers.tsx`, `OneOnOneSection.tsx`
-
-Bei den Strategie-Sessions und 1:1-Paketen unter dem Preis:
-- Kleiner Badge mit Text "Bis zu 80% förderfähig"
-- Link zur Förderseite
-- Dezentes Design (primary/10 Hintergrund)
-
-### 2. Neue Förder-Hinweis-Sektion erstellen
-
-**Neue Datei:** `FoerderungHint.tsx`
-
-Positionierung auf der Startseite nach den Angeboten (nach `Offers`):
-- Kurze, prägnante Botschaft
-- Dezentes Design, nicht zu werblich
-- Link zur vollständigen Förderseite
-- Badge-Style mit Icon
-
-Inhalt:
-```
-"Wusstest du, dass strategische Beratung staatlich gefördert wird?"
-Bis zu 80% Zuschuss möglich – je nach Ausgangslage.
-→ Mehr erfahren
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│  Spalte 3 - Kontakt                                             │
+├─────────────────────────────────────────────────────────────────┤
+│  ✉️  info@altovate.de                                           │
+│  📞 +49 (0) 1520 892 2097                                       │
+│  📍 Saarburg, Deutschland                                       │
+│  ─────────────────────────                                      │
+│  [BNI Badge - "Unternehmen bei BNI"]                            │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Technische Umsetzung
+## Technische Änderungen
 
-| Datei | Änderung |
-|-------|----------|
-| `src/components/sections/Offers.tsx` | Förder-Badge unter den Preisen der Strategie-Sessions |
-| `src/components/sections/OneOnOneSection.tsx` | Förder-Badge bei den 1:1-Paketen |
-| `src/components/sections/FoerderungHint.tsx` | Neue kompakte Hinweis-Sektion (neu erstellen) |
-| `src/pages/Index.tsx` | FoerderungHint nach Offers-Sektion einbinden |
+| Aktion | Datei |
+|--------|-------|
+| Kopieren | `user-uploads://bni-unternehmen-button-rgb-rot.png` nach `src/assets/bni-badge.png` |
+| Bearbeiten | `src/components/Footer.tsx` - BNI-Badge nach Kontaktdaten einfügen |
 
 ---
 
-## Erwartetes Ergebnis
+## Optional: Link zur BNI-Website
 
-- Förderung wird an 3 strategischen Stellen sichtbar (statt nur Footer)
-- Keine Überladung der Seite
-- Natürliche Integration ins bestehende Design
-- Klare Call-to-Actions zur Förderseite
+Das Badge kann optional zur BNI-Website oder deinem BNI-Profil verlinken. Falls du einen spezifischen Link hast (z.B. dein Chapter oder Profil), kann ich den gerne einbauen.
 
