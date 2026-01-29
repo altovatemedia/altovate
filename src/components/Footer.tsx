@@ -37,7 +37,7 @@ const Footer = () => {
                 />
               </div>
               <p className="text-white/70 mb-8 text-sm font-light leading-relaxed">
-                Ganzheitliches, sichtbarkeitsorientiertes Marketing für mittelständische Unternehmen. Weniger bla bla. Mehr Wirkung.
+                Lead- & Content-Systeme für Unternehmer, die keine Zeit für Marketing haben. Weniger Blabla. Mehr Ergebnisse.
               </p>
               <div className="flex space-x-4">
                 <a 
@@ -59,38 +59,23 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Spalte 2 - Leistungen */}
+            {/* Spalte 2 - Angebote */}
             <div>
-              <h3 className="font-semibold mb-6 text-sm text-white uppercase tracking-wider">Leistungen</h3>
+              <h3 className="font-semibold mb-6 text-sm text-white uppercase tracking-wider">Angebote</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#services" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Website & Design
+                  <a href="https://calendly.com/altovate/60min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Strategie-Session 60 Min
                   </a>
                 </li>
                 <li>
-                  <a href="/socialmedia" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Social Media Marketing
+                  <a href="https://calendly.com/altovate/90min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Strategie-Session 90 Min
                   </a>
                 </li>
                 <li>
-                  <a href="/werbeanzeigen-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Werbeanzeigen & Performance
-                  </a>
-                </li>
-                <li>
-                  <a href="/employer-branding-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Employer Branding 2025
-                  </a>
-                </li>
-                <li>
-                  <a href="/marketing-automation-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Marketing-Automation & Funnels
-                  </a>
-                </li>
-                <li>
-                  <a href="/software-ki-loesungen-saarburg" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Software & KI-Lösungen
+                  <a href="#angebote" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    System-Aufbau
                   </a>
                 </li>
               </ul>

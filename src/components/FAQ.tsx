@@ -1,4 +1,4 @@
-import { Plus, Minus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import alexanderPortrait from '@/assets/alexander-portrait-circle.png';
 import {
@@ -11,26 +11,26 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Was, wenn ich schon eine Website habe?",
-      answer: "Perfekt! Wir prüfen, ob ein kompletter Refresh sinnvoll ist oder ob wir deine bestehende Website gezielt optimieren. Ziel ist immer: maximale Performance und Sichtbarkeit – ohne unnötige Doppelarbeit."
+      question: "Muss ich selbst Content machen?",
+      answer: "Nein. Aber du musst verstanden werden. Ich helfe dir, Inhalte zu entwickeln, die deine Zielgruppe erreichen – unabhängig davon, ob du sie selbst erstellst oder wir das gemeinsam lösen."
     },
     {
-      question: "Wie läuft die Zusammenarbeit ab?",
-      answer: "Wir starten immer mit einem kostenlosen Erstgespräch. Dort lernen wir uns kennen, sprechen über deine Ziele und Vorstellungen und prüfen, wo du aktuell stehst. Auf dieser Basis entwickeln wir ein maßgeschneidertes Konzept, das zu deinem Unternehmen, deiner Branche und deinem Budget passt. Danach entscheidest du in Ruhe, ob wir den Weg gemeinsam gehen."
+      question: "Arbeitest du mit Ads?",
+      answer: "Ja, wenn sie Sinn machen. Werbeanzeigen sind ein Werkzeug, kein Selbstzweck. Wir setzen sie ein, wenn sie dein Ziel schneller erreichen als organische Maßnahmen."
     },
     {
-      question: "Was, wenn kein Paket passt?",
-      answer: "Unsere Pakete sind klare Orientierungspunkte – aber sie sind nicht in Stein gemeißelt. Marketing ist ein Prozess, und nicht jedes Unternehmen braucht direkt das volle Programm. Deshalb schauen wir gemeinsam, welche Maßnahmen in deiner Situation am meisten Sinn machen und bauen bei Bedarf Schritt für Schritt auf. So kannst du genau da einsteigen, wo du gerade stehst."
+      question: "Langfristige Verträge?",
+      answer: "Nein. Projekte und klare Vereinbarungen. Du buchst konkrete Leistungen mit definierten Ergebnissen. Keine Knebelverträge, keine versteckten Laufzeiten."
     },
     {
-      question: "Gibt es Ratenzahlungsmöglichkeiten?",
-      answer: "Grundsätzlich musst du den Projektbetrag nicht zu 100 % im Voraus leisten. Wir arbeiten mit fairen, transparenten Zahlungsplänen, die wir individuell vereinbaren können. Das kann zum Beispiel eine Aufteilung in mehrere Teilzahlungen sein – je nach Projektgröße. Wichtig: Wir bieten Ratenzahlung nicht an, um Preise künstlich kleinzurechnen, sondern um Unternehmen Planungssicherheit zu geben und Investitionen kalkulierbar zu machen."
-    },
-    {
-      question: "Was unterscheidet euch von anderen Agenturen?",
-      answer: "Viele Agenturen verkaufen möglichst große Pakete oder versuchen, Kunden langfristig zu binden – auch wenn der Nutzen nicht immer gegeben ist. Wir gehen einen anderen Weg: Wir wollen verstehen, was dein Produkt oder deine Dienstleistung wirklich ausmacht, und uns in deine Lage versetzen. Daraus entsteht ein Konzept, das dir in deiner Situation wirklich weiterhilft, ohne unnötige Ausgaben."
+      question: "Für wen ist das nichts?",
+      answer: "Für alle, die schnelle Likes wollen. Wenn es dir um Reichweite ohne Substanz geht, bin ich der falsche Ansprechpartner. Ich arbeite mit Unternehmern, die echte Ergebnisse suchen."
     }
   ];
+
+  const handleBooking = () => {
+    window.open('https://calendly.com/altovate/60min', '_blank');
+  };
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">
@@ -91,11 +91,10 @@ const FAQ = () => {
             <div className="lg:sticky lg:top-24 space-y-6">
               <div className="space-y-4">
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-                  Bei offenen Fragen, sind wir gerne persönlich für dich da.
+                  Noch Fragen? Lass uns reden.
                 </h3>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  Wir machen keine halben Sachen. Auch nicht beim ersten Gespräch. 
-                  Lass uns alle Fragen klären.
+                  In einer Strategie-Session klären wir alle offenen Punkte – konkret und auf dein Unternehmen bezogen.
                 </p>
               </div>
 
@@ -103,12 +102,9 @@ const FAQ = () => {
                 <Button 
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-semibold"
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact');
-                    contactSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={handleBooking}
                 >
-                  KONTAKT AUFNEHMEN
+                  STRATEGIE-SESSION BUCHEN
                 </Button>
 
                 {/* Profile Picture */}
