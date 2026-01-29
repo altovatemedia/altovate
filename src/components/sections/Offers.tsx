@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { ArrowRight, Clock, Zap, Building } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Clock, Zap, Building, BadgePercent } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BookingModal from '@/components/BookingModal';
-
 const Offers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedOffer, setSelectedOffer] = useState('');
@@ -96,10 +96,19 @@ const Offers = () => {
                 </div>
 
                 {/* Price */}
-                <div className="mb-6">
+                <div className="mb-4">
                   <span className="text-4xl font-bold text-foreground">{offer.price} €</span>
                   <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
                 </div>
+                
+                {/* Funding Badge */}
+                <Link 
+                  to="/foerderung"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-6 bg-primary/10 hover:bg-primary/15 text-primary text-xs font-medium rounded-full transition-colors"
+                >
+                  <BadgePercent className="w-3.5 h-3.5" />
+                  Bis zu 80% förderfähig
+                </Link>
 
                 {/* For Who */}
                 <div className="mb-6 flex-grow">

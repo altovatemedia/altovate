@@ -7,6 +7,7 @@ import PainPoints from '@/components/sections/PainPoints';
 import Positioning from '@/components/sections/Positioning';
 import SystemProcess from '@/components/sections/SystemProcess';
 import Offers from '@/components/sections/Offers';
+import FoerderungHint from '@/components/sections/FoerderungHint';
 import OneOnOneSection from '@/components/sections/OneOnOneSection';
 import WhyNotFree from '@/components/sections/WhyNotFree';
 import AboutAlex from '@/components/sections/AboutAlex';
@@ -54,6 +55,7 @@ const Index = () => {
         <Positioning />
         <SystemProcess />
         <Offers />
+        <FoerderungHint />
         <OneOnOneSection />
         <WhyNotFree />
         <AboutAlex />
