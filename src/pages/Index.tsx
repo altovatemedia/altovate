@@ -4,17 +4,15 @@ import FreebieBar from '@/components/sections/FreebieBar';
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
 import PainPoints from '@/components/sections/PainPoints';
-import SignatureOffer from '@/components/sections/SignatureOffer';
+import Positioning from '@/components/sections/Positioning';
+import SystemProcess from '@/components/sections/SystemProcess';
+import Offers from '@/components/sections/Offers';
+import WhyNotFree from '@/components/sections/WhyNotFree';
+import AboutAlex from '@/components/sections/AboutAlex';
 import CaseStudies from '@/components/sections/CaseStudies';
 import GoogleReviews from '@/components/sections/GoogleReviews';
-import PricingToggle from '@/components/sections/PricingToggle';
-import Solution from '@/components/Solution';
-import ServicesVisual from '@/components/sections/ServicesVisual';
-import AboutFounder from '@/components/sections/AboutFounder';
-import Timeline from '@/components/Timeline';
-import NotFor from '@/components/NotFor';
 import FAQ from '@/components/FAQ';
-import ContactFunnel from '@/components/sections/ContactFunnel';
+import FinalCTA from '@/components/sections/FinalCTA';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import { CookieBannerWrapper } from '@/components/CookieBanner';
@@ -51,17 +49,15 @@ const Index = () => {
         <NewNavigation />
         <NewHero />
         <PainPoints />
-        <SignatureOffer />
-        <ServicesVisual />
-        <AboutFounder />
-        <PricingToggle />
-        <Solution />
+        <Positioning />
+        <SystemProcess />
+        <Offers />
+        <WhyNotFree />
+        <AboutAlex />
         <CaseStudies />
         <GoogleReviews />
-        <Timeline />
-        <NotFor />
         <FAQ />
-        <ContactFunnel />
+        <FinalCTA />
         <Footer />
         <ChatBot />
         <CookieBannerWrapper />

@@ -1,0 +1,60 @@
+import alexanderPortrait from '@/assets/alexander-portrait.png';
+
+const AboutAlex = () => {
+  return (
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Text Content */}
+            <div className="space-y-6 order-2 lg:order-1">
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                Ich bin <span className="text-primary">Alex.</span>
+              </h2>
+              
+              <div className="space-y-4">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Ich arbeite seit Jahren an der Schnittstelle aus Marketing, Content, 
+                  Automatisierung und Unternehmertum.
+                </p>
+                
+                <p className="text-lg text-foreground leading-relaxed font-medium">
+                  Ich baue keine Hype-Accounts.<br />
+                  Ich baue Strukturen, die funktionieren – 
+                  auch wenn du kein Marketing-Profi bist.
+                </p>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Altovate ist bewusst kein großes Agenturkonstrukt.<br />
+                  Du arbeitest direkt mit mir.
+                </p>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                {/* Main image */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={alexanderPortrait}
+                    alt="Alexander - Gründer von Altovate" 
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/5 rounded-full blur-2xl -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AboutAlex;
