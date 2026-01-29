@@ -1,328 +1,265 @@
 
-# Website-Relaunch: Inhaltliche Neuausrichtung
+# Website-Erweiterung: Neue Angebotsstruktur & Förderungsseite
 
-## Ziel der Uberarbeitung
-Transformation der bisherigen Agentur-Website zu einer performance-orientierten Personal-Brand-Seite mit klarem Fokus auf:
-- Lead-Generierung durch bezahlte Strategie-Sessions
-- Klare Positionierung als System-Bauer (nicht Content-Ersteller)
-- Direkte Kommunikation ohne Marketing-Floskeln
-- Kein kostenloses Erstgesprach - alle Sessions sind bezahlt
+## Ubersicht der Anderungen
 
----
-
-## Strukturelle Anderungen
-
-### Sektionen die ENTFERNT werden:
-1. **PricingToggle** - Wird ersetzt durch neue Angebots-Sektion
-2. **ServicesVisual** - Wird ersetzt durch System-Darstellung
-3. **SignatureOffer** - Wird ersetzt durch neue Angebots-Sektion
-4. **Timeline** - Wird zur neuen Leistungslogik-Sektion
-5. **NotFor** - Entfallt (kein direktes Pendant im neuen Konzept)
-
-### Sektionen die BEIBEHALTEN werden:
-1. **FreebieBar** - Bleibt (Text anpassen)
-2. **NewNavigation** - Bleibt (Links anpassen)
-3. **GoogleReviews** - Bleibt unverandert
-4. **CaseStudies** - Bleibt unverandert
-5. **FAQ** - Bleibt (Inhalte anpassen)
-6. **ChatBot** - Bleibt
-7. **Footer** - Bleibt (Links anpassen)
-8. **CookieBanner** - Bleibt
-
-### Neue Sektionen:
-1. **NewHero** - Komplett neuer Inhalt
-2. **PainPoints** - Neuer Inhalt (Problem-Sektion)
-3. **Positioning** - NEU: Warum Altovate
-4. **SystemProcess** - NEU: Leistungslogik (4 Schritte)
-5. **Offers** - NEU: 3 Angebote (60min, 90min, System-Aufbau)
-6. **WhyNotFree** - NEU: Warum kein kostenloses Erstgesprach
-7. **AboutAlex** - Uberarbeitete About-Sektion
-8. **FAQ** - Angepasste Inhalte
-9. **ContactFunnel/FinalCTA** - Neuer finaler CTA mit 2 Buttons
+Diese Anpassung erweitert die bestehende Website um:
+1. Uberarbeitete Positioning-Sektion (neue Headline)
+2. Neue Premium-Angebote (1:1 Zusammenarbeit, Done for You)
+3. Angepasste Angebotsstruktur mit "inkl. MwSt." Preisen
+4. Forderungs-Hinweis im Footer
+5. Neue Unterseite "/foerderung"
 
 ---
 
-## Detaillierte Anderungen pro Komponente
+## Detaillierte Anderungen
 
-### 1. NewHero.tsx
-**Aktuelle Headline:** "Mehr Sichtbarkeit. Mehr Kunden. Mehr Erfolg."
+### 1. Positioning-Sektion anpassen
+
+**Datei:** `src/components/sections/Positioning.tsx`
+
+**Aktuelle Headline:**
+"Ich verkaufe keine Posts. Ich baue Systeme."
 
 **Neue Inhalte:**
 ```text
-Headline: Online-Marketing fur Unternehmer, die keine Zeit fur Marketing haben.
+Headline: Marketing, das als System funktioniert.
 
-Subline: Ich baue klare Lead- & Content-Systeme,
-die Anfragen bringen - ohne dass du Influencer werden musst.
+Subline: Altovate arbeitet mit Unternehmern, die planbare Anfragen, 
+klare Prozesse und messbare Ergebnisse wollen - ohne Influencer-Zirkus.
 
-Bullet Points (3 Stuck):
-- Kein Dauer-Posten
-- Kein Agentur-Blabla
-- Kein Abhangigkeitsmodell
-
-CTA Primary: Strategie-Session buchen
-CTA Secondary: Direkt Klarheit statt Erstgesprach
-```
-
-**Technische Anderungen:**
-- Benefit-Grid (3 Karten) entfernen
-- 3 Bullet Points als einfache Liste
-- Zweiten CTA-Button anpassen
-- VisibilityCheck-Modal entfernen (kein Freebie-Funnel mehr)
-
----
-
-### 2. PainPoints.tsx
-**Aktuelle Headline:** "Das tut weh"
-
-**Neue Inhalte:**
-```text
-Headline: Du weisst, dass du Marketing brauchst -
-aber nicht, wie es sinnvoll in deinen Alltag passt.
-
-Pain Points (4 Stuck statt 3):
-1. Social Media frisst Zeit, bringt aber keine Anfragen
-2. Agenturen reden uber Reichweite statt Umsatz
-3. Dein Marketing hangt an Einzelpersonen
-4. Nichts ist dokumentiert, skalierbar oder messbar
-
-Footer-Text: Das ist kein Content-Problem.
-Das ist ein fehlendes System.
-```
-
-**Technische Anderungen:**
-- Pain-Point-Karten vereinfachen (keine "Verlust"-Angaben)
-- 4 statt 3 Punkte
-- CTA-Button entfernen
-- Schluss-Statement hinzufugen
-
----
-
-### 3. NEUE Komponente: Positioning.tsx
-**Inhalt:**
-```text
-Headline: Ich verkaufe keine Posts.
-Ich baue Systeme.
-
-Text: Altovate ist keine klassische Agentur.
-Ich arbeite direkt mit Unternehmern, die Ergebnisse wollen.
-
-Fokus-Punkte (3 Stuck):
+Fokus-Punkte (bleiben):
 - Struktur vor Content
 - System vor Aktionismus
 - Abschluss vor Reichweite
 ```
 
-**Design:**
-- Ahnlich wie aktuelle AboutFounder-Sektion
-- Portrait-Bild optional behalten
-- Minimalistisch, klare Aussagen
+---
+
+### 2. Offers-Sektion komplett uberarbeiten
+
+**Datei:** `src/components/sections/Offers.tsx`
+
+**Struktur neu:**
+
+**Strategie-Sessions (2 Karten nebeneinander):**
+
+| 60 Minuten Strategie-Session | 90 Minuten Strategie-Session |
+|------------------------------|------------------------------|
+| 390 Euro inkl. MwSt. | 590 Euro inkl. MwSt. |
+| Fur: Klarheit, sortieren, Entscheidungsgrundlage | Fur: konkretes Vorhaben, belastbares Konzept |
+| CTA: Direkt Termin buchen | CTA: Direkt Termin buchen |
+
+**System-Aufbau (eigene Karte):**
+- ab 1.800 Euro inkl. MwSt.
+- Projektbasierter Aufbau eines klar definierten Marketing- oder Lead-Systems
+- Hinweis: Kein Paket von der Stange. Umsetzung ausschliesslich nach Strategie-Session.
+- CTA: Termin anfragen
 
 ---
 
-### 4. NEUE Komponente: SystemProcess.tsx
+### 3. NEUE Sektion: Strategische 1:1 Zusammenarbeit
+
+**Neue Datei:** `src/components/sections/OneOnOneSection.tsx`
+
+**Position:** Direkt nach Offers-Sektion
+
 **Inhalt:**
 ```text
-Headline: So entsteht planbarer Vertrieb uber Content
+Uberschrift: Strategische 1:1 Zusammenarbeit
 
-4 Schritte horizontal:
-1. Klarer Fokus - Zielgruppe, Angebot, Botschaft
-2. Content mit Funktion - Nicht fur Likes, sondern fur Entscheidungen
-3. Lead-System - DM, Landingpage oder Terminbuchung
-4. Ubergabe an Abschluss - Kein Chaos, kein Nachfassen ins Leere
+Subline: Fur Unternehmer, die Marketing nicht mehr nebenbei entscheiden wollen.
+
+Text:
+Keine Agenturbetreuung. Kein klassisches Coaching.
+Sondern enge strategische Begleitung bei Positionierung, Angebotsstruktur
+und Systementscheidungen.
+
+Ich begleite dich bei den Entscheidungen, die Umsatz, Zeit und Wachstum bestimmen
+- und koordiniere bei Bedarf Tools, Umsetzung und externe Beteiligte.
+
+Preise:
+- 12 Wochen 1:1 Zusammenarbeit: 3.900 Euro inkl. MwSt.
+- 24 Wochen 1:1 Zusammenarbeit: 7.200 Euro inkl. MwSt.
+
+Hinweis: Zusammenarbeit nur nach vorheriger Strategie-Session. Begrenzte Kapazitat.
+
+CTA: Zusammenarbeit besprechen (offnet Calendly)
 ```
 
 **Design:**
-- Horizontale Darstellung mit Icons (ahnlich aktuellem Timeline)
-- Verbindungslinien zwischen Steps
-- Minimalistische Icons
+- Eigene Sektion mit anderem Hintergrund (bg-muted/30)
+- Zwei Preis-Karten nebeneinander (12 Wochen / 24 Wochen)
+- Ruhig, hochwertig, klar abgegrenzt
 
 ---
 
-### 5. NEUE Komponente: Offers.tsx
+### 4. NEUE Sektion: Done for You (Premium)
+
+**Neue Datei:** `src/components/sections/DoneForYouSection.tsx`
+
+**Position:** Nach AboutAlex, vor CaseStudies
+
 **Inhalt:**
 ```text
-Headline: So kannst du mit mir arbeiten
+Uberschrift: Done for You
+Subtitle: Marketing als vollstandiges System
 
-Angebot 1: Strategie-Session 60 Minuten
-Preis: 390 Euro
-Fur: Klarheit, Marketing sortieren, Entscheidungsgrundlage
-Ergebnis: Klare Einschatzung, nachste Schritte, Entscheidung
-CTA: Direkt Termin buchen
+Subline: Die komplette Verantwortung liegt bei uns.
 
-Angebot 2: Strategie-Session 90 Minuten  
-Preis: 590 Euro
-Fur: Konkretes Vorhaben, Leads/Content/Ads aufsetzen, belastbares Konzept
-Ergebnis: System-Empfehlung, priorisierte Massnahmen, Umsetzungslogik
-CTA: Direkt Termin buchen
+Text:
+Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern
+oder auf mehrere Schultern verteilen wollen.
 
-Angebot 3: System-Aufbau (Projektbasiert)
-Preis: ab 1.800 Euro
-Fur: Marketing nicht selbst tragen, funktionierendes Setup, unabhangig von Einzelpersonen
-Hinweis: Kein Paket von der Stange. Umsetzung nur nach Strategie-Session.
-CTA: Termin anfragen
+Wir ubernehmen den gesamten Prozess:
+von der strategischen Idee uber die Umsetzung bis zur laufenden Auswertung.
+
+Leistungsumfang:
+- Strategische Gesamtarchitektur (Lead, Sales, Delivery)
+- Angebots- & Funnel-Logik
+- Content- & Kampagnenkonzeption
+- Koordination von Design, Video, Copy & Ads
+- Technischer Aufbau (Tracking, Automationen, Tools)
+- Ausspielung & laufende Optimierung
+- Analyse, Reporting & Entscheidungsgrundlagen
+
+Status:
+Dieses Modell ist bewusst limitiert.
+Aktuell ausgebucht.
+
+Neue Projekte ausschliesslich:
+- nach bestehender Zusammenarbeit
+- oder auf personliche Empfehlung
 ```
 
 **Design:**
-- 3-spaltige Kartenansicht
-- Mittlere Karte NICHT hervorgehoben (alle gleichwertig)
-- Klare Preise, keine durchgestrichenen Preise
+- Eigene, ruhige Sektion
+- Dunkler/kontrastierter Hintergrund (bg-[#1a1a1a] mit heller Schrift)
+- KEIN Preis
+- KEIN CTA-Button
+- Exklusivitat betonen durch dezente, edle Gestaltung
+- Checkmarks oder minimalistische Icons fur Leistungen
 
 ---
 
-### 6. NEUE Komponente: WhyNotFree.tsx
-**Inhalt:**
+### 5. Footer anpassen
+
+**Datei:** `src/components/Footer.tsx`
+
+**Neue Spalte oder Link hinzufugen:**
 ```text
-Headline: Ich verschenke keine Beratung.
-
-Text: In meinen Gesprachen entsteht echter strategischer Wert.
-Deshalb sind alle Sessions bezahlt.
-
-Das sorgt fur:
-- Klaren Fokus
-- Ernsthafte Gesprache
-- Saubere Entscheidungen auf beiden Seiten
+Forderungsmoglichkeiten fur Marketing & Beratung
+Je nach Ausgangslage sind Zuschusse bis zu 50 % oder 80 % moglich.
+CTA: Forderung prufen (Link zu /foerderung)
 ```
+
+---
+
+### 6. NEUE Seite: Forderung
+
+**Neue Datei:** `src/pages/Foerderung.tsx`
+
+**Route:** `/foerderung`
+
+**Inhalt strukturiert:**
+
+**Abschnitt 1 - Beratung (BAFA):**
+- bis zu 80 % Forderung
+- reine Beratung, keine Umsetzung
+- Strategie-Sessions & 1:1 Zusammenarbeit geeignet
+- Altovate unterstutzt bei Ablauf & Unterlagen
+
+**Abschnitt 2 - Marketing-Massnahmen:**
+- je nach Programm bis zu 50 %
+- projektabhangig
+- nur sinnvoll bei klarer Struktur
+
+**Hinweis:**
+Nicht jedes Unternehmen ist forderfaehig.
+Das klaren wir vorab - ehrlich und ohne Verkaufsdruck.
+
+**CTA:** Strategie-Session buchen
 
 **Design:**
-- Kompakte Sektion
-- Evtl. mit Icon oder Zitat-Stil
-- Setzt klare Erwartung
+- Gleiches Layout wie andere Unterseiten
+- Navigation + Footer
+- Saubere, informative Darstellung
+- Zwei klar getrennte Abschnitte
 
 ---
 
-### 7. AboutFounder.tsx → AboutAlex.tsx
-**Aktuelle Headline:** "Warum Altovate?"
+### 7. Index.tsx - Neue Sektionsreihenfolge
 
-**Neue Inhalte:**
-```text
-Headline: Ich bin Alex.
+**Datei:** `src/pages/Index.tsx`
 
-Text: Ich arbeite seit Jahren an der Schnittstelle aus
-Marketing, Content, Automatisierung und Unternehmertum.
-
-Ich baue keine Hype-Accounts.
-Ich baue Strukturen, die funktionieren -
-auch wenn du kein Marketing-Profi bist.
-
-Altovate ist bewusst kein grosses Agenturkonstrukt.
-Du arbeitest direkt mit mir.
-```
-
-**Technische Anderungen:**
-- Statistik-Zahlen entfernen (zu agenturmassig)
-- Zitat entfernen
-- Kurzer, direkter Text
-- Portrait-Bild behalten
-
----
-
-### 8. FAQ.tsx
-**Neue Fragen:**
-```text
-1. Muss ich selbst Content machen?
-   → Nein. Aber du musst verstanden werden.
-
-2. Arbeitest du mit Ads?
-   → Ja, wenn sie Sinn machen.
-
-3. Langfristige Vertrage?
-   → Nein. Projekte und klare Vereinbarungen.
-
-4. Fur wen ist das nichts?
-   → Fur alle, die schnelle Likes wollen.
-```
-
-**Design:** Bestehendes Accordion-Design beibehalten
-
----
-
-### 9. ContactFunnel.tsx → FinalCTA.tsx
-**Komplett vereinfacht:**
-
-```text
-Headline: Wenn du Marketing willst, das zu deinem Unternehmen passt.
-
-2 CTA-Buttons:
-- 60 Minuten Strategie-Session buchen
-- 90 Minuten Strategie-Session buchen
-```
-
-**Technische Anderungen:**
-- Mehrstufigen Funnel entfernen
-- Einfache CTA-Sektion mit Calendly-Links
-- Keine Formularfelder mehr
-
----
-
-### 10. FreebieBar.tsx
-**Neuer Text:**
-```text
-Strategie-Session buchen: Klarheit statt Erstgesprach → Termin wahlen
-```
-
----
-
-### 11. Index.tsx - Neue Seitenstruktur
 ```tsx
 <FreebieBar />
 <NewNavigation />
 <NewHero />
 <PainPoints />
-<Positioning />
+<Positioning />          // Uberarbeitete Headline
 <SystemProcess />
-<Offers />
+<Offers />               // Strategie-Sessions + System-Aufbau
+<OneOnOneSection />      // NEU: 1:1 Zusammenarbeit
 <WhyNotFree />
 <AboutAlex />
+<DoneForYouSection />    // NEU: Done for You
 <CaseStudies />
 <GoogleReviews />
 <FAQ />
 <FinalCTA />
-<Footer />
+<Footer />               // Mit Forderungs-Link
 <ChatBot />
 <CookieBanner />
 ```
 
 ---
 
-## Zusammenfassung der Dateianderungen
+### 8. App.tsx - Neue Route
+
+**Datei:** `src/App.tsx`
+
+Neue Route hinzufugen:
+```tsx
+<Route path="/foerderung" element={<Foerderung />} />
+```
+
+---
+
+## Zusammenfassung der Datei-Anderungen
 
 ### Zu erstellende Dateien:
-1. `src/components/sections/Positioning.tsx`
-2. `src/components/sections/SystemProcess.tsx`
-3. `src/components/sections/Offers.tsx`
-4. `src/components/sections/WhyNotFree.tsx`
-5. `src/components/sections/FinalCTA.tsx`
-6. `src/components/sections/AboutAlex.tsx`
+1. `src/components/sections/OneOnOneSection.tsx` - 1:1 Zusammenarbeit
+2. `src/components/sections/DoneForYouSection.tsx` - Done for You Premium
+3. `src/pages/Foerderung.tsx` - Forderungs-Unterseite
 
 ### Zu bearbeitende Dateien:
-1. `src/pages/Index.tsx` - Neue Sektionsreihenfolge
-2. `src/components/sections/NewHero.tsx` - Neuer Inhalt
-3. `src/components/sections/PainPoints.tsx` - Neuer Inhalt
-4. `src/components/FAQ.tsx` - Neue Fragen
-5. `src/components/sections/FreebieBar.tsx` - Neuer Text
-6. `src/components/Footer.tsx` - Links anpassen
-
-### Zu entfernende/nicht mehr verwendete Dateien:
-- `src/components/sections/SignatureOffer.tsx` (nicht loschen, nur nicht einbinden)
-- `src/components/sections/ServicesVisual.tsx` (nicht loschen, nur nicht einbinden)
-- `src/components/sections/PricingToggle.tsx` (nicht loschen, nur nicht einbinden)
-- `src/components/sections/ContactFunnel.tsx` (ersetzt durch FinalCTA)
-- `src/components/Timeline.tsx` (ersetzt durch SystemProcess)
-- `src/components/NotFor.tsx` (entfallt)
+1. `src/components/sections/Positioning.tsx` - Neue Headline
+2. `src/components/sections/Offers.tsx` - Angepasste Struktur mit MwSt.
+3. `src/components/Footer.tsx` - Forderungs-Hinweis
+4. `src/pages/Index.tsx` - Neue Sektionsreihenfolge
+5. `src/App.tsx` - Route fur /foerderung
 
 ---
 
 ## Technische Details
 
 ### Beibehaltene Elemente:
-- Alle Animationen (`fade-in-up`, `slide-in-right`, etc.)
+- Alle Animationen und Hover-Effekte
 - Farbschema (Primary: #EA3B5F)
-- Light/Dark Mode
+- Light/Dark Mode Unterstutzung
 - Responsive Design
-- Tailwind-Klassen und CSS-Variablen
-- Button-Styles (`btn-hero`, `btn-secondary`)
-- Karten-Styles (`finom-card`, `bold-card`)
+- Tailwind-Klassen
+- Button-Styles
 
-### CTA-Aktionen:
-- Alle "Termin buchen" Buttons scrollen zu Calendly oder offnen Calendly-Popup
-- Alternativ: Direktlinks zu Calendly-Buchungsseiten fur 60min/90min Sessions
+### CTA-Verlinkungen:
+- Strategie-Session 60 Min: `https://calendly.com/altovate/60min`
+- Strategie-Session 90 Min: `https://calendly.com/altovate/90min`
+- System-Aufbau / 1:1 Zusammenarbeit: `https://calendly.com/altovate/60min` (Anfrage)
+
+### Tonalitat:
+- Unternehmer zu Unternehmer
+- Keine Emojis
+- Keine Coach-Floskeln
+- Klar, ruhig, selbstbewusst
+- Alex als Person sichtbar, Altovate als operative Einheit
