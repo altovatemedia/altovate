@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
 import altovateIcon from '@/assets/altovate-icon.png';
+import bniBadge from '@/assets/bni-badge.png';
 
 const Footer = () => {
   return (
@@ -117,6 +118,22 @@ const Footer = () => {
                   <MapPin size={18} className="flex-shrink-0 mt-0.5" strokeWidth={1.5} />
                   <span className="font-light">Saarburg, Deutschland</span>
                 </div>
+              </div>
+              
+              {/* BNI Mitgliedschaft */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <a 
+                  href="https://bni.de" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block opacity-80 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <img 
+                    src={bniBadge} 
+                    alt="BNI Mitglied" 
+                    className="w-24 h-auto"
+                  />
+                </a>
               </div>
             </div>
           </div>
