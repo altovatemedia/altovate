@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Check, Crown, ArrowRight, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -153,8 +154,11 @@ const DoneForYouSection = () => {
                     htmlFor="consent" 
                     className="text-xs text-muted-foreground text-left cursor-pointer"
                   >
-                    Ich bin damit einverstanden, per E-Mail kontaktiert zu werden, 
-                    wenn ein Platz frei wird.
+                    Ich bin damit einverstanden, per E-Mail kontaktiert zu werden. 
+                    Mehr dazu in der{' '}
+                    <Link to="/datenschutz" className="text-primary hover:underline">
+                      Datenschutzerklärung
+                    </Link>.
                   </label>
                 </div>
               </form>
