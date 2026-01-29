@@ -16,6 +16,7 @@ import SoftwareKI from "./pages/SoftwareKI";
 import Erstkontakt from "./pages/Erstkontakt";
 import Kontakt from "./pages/Kontakt";
 import InstagramProfilCheck from "./pages/InstagramProfilCheck";
+import Foerderung from "./pages/Foerderung";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/erstkontakt" element={<Erstkontakt />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/instagram-profil-check" element={<InstagramProfilCheck />} />
+            <Route path="/foerderung" element={<Foerderung />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

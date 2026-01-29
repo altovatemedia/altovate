@@ -79,6 +79,22 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
+              
+              {/* Förderung */}
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-white/70 text-sm font-light mb-2">
+                  Fördermöglichkeiten für Marketing & Beratung
+                </p>
+                <p className="text-white/50 text-xs mb-3">
+                  Je nach Ausgangslage bis zu 50 % oder 80 % Zuschuss möglich.
+                </p>
+                <a 
+                  href="/foerderung" 
+                  className="text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                >
+                  Förderung prüfen →
+                </a>
+              </div>
             </div>
 
             {/* Spalte 3 - Kontakt */}
