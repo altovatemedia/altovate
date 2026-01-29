@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowRight, Users, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Users, Calendar, BadgePercent } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BookingModal from '@/components/BookingModal';
 
@@ -64,10 +65,20 @@ const OneOnOneSection = () => {
                   <Calendar className="w-5 h-5 text-primary" />
                   <span className="text-lg font-semibold text-foreground">{pkg.duration}</span>
                 </div>
-                <div className="mb-4">
+                <div className="mb-3">
                   <span className="text-4xl font-bold text-foreground">{pkg.price} €</span>
                   <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
                 </div>
+                
+                {/* Funding Badge */}
+                <Link 
+                  to="/foerderung"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-4 bg-primary/10 hover:bg-primary/15 text-primary text-xs font-medium rounded-full transition-colors"
+                >
+                  <BadgePercent className="w-3.5 h-3.5" />
+                  Bis zu 80% förderfähig
+                </Link>
+                
                 <p className="text-muted-foreground">{pkg.description}</p>
               </div>
             ))}
