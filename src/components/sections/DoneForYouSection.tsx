@@ -65,14 +65,10 @@ const DoneForYouSection = () => {
           {/* Status */}
           <div className="text-center">
             <div className="inline-block bg-primary/10 rounded-full px-6 py-3 mb-6">
-              <span className="text-foreground font-medium">Aktuell ausgebucht</span>
+              <span className="text-foreground font-medium">Limitiert auf wenige Spots</span>
             </div>
-            <p className="text-muted-foreground text-sm mb-4">
-              Dieses Modell ist bewusst limitiert.
-            </p>
             <p className="text-muted-foreground text-sm">
-              Neue Projekte ausschließlich nach bestehender Zusammenarbeit
-              oder auf persönliche Empfehlung.
+              Trag dich ein und erfahre vorab, wenn wieder ein Platz frei wird.
             </p>
           </div>
         </div>
