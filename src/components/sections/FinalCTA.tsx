@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookingModal from '@/components/BookingModal';
 
 const FinalCTA = () => {
-  const handleBooking = (url: string) => {
-    window.open(url, '_blank');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState('');
+
+  const handleBooking = (offerType: string) => {
+    setSelectedOffer(offerType);
+    setIsModalOpen(true);
   };
 
   return (
@@ -21,7 +27,7 @@ const FinalCTA = () => {
             <Button 
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-7 text-lg font-semibold min-w-[280px]"
-              onClick={() => handleBooking('https://calendly.com/altovate/60min')}
+              onClick={() => handleBooking('Strategie-Session 60 Minuten')}
             >
               60 Min Strategie-Session
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -31,7 +37,7 @@ const FinalCTA = () => {
               size="lg"
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary/5 px-8 py-7 text-lg font-semibold min-w-[280px]"
-              onClick={() => handleBooking('https://calendly.com/altovate/90min')}
+              onClick={() => handleBooking('Strategie-Session 90 Minuten')}
             >
               90 Min Strategie-Session
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -44,6 +50,12 @@ const FinalCTA = () => {
           </p>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType={selectedOffer}
+      />
     </section>
   );
 };

@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { ArrowRight, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import altovateIcon from '@/assets/altovate-icon.png';
+import BookingModal from '@/components/BookingModal';
 
 const NewHero = () => {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
   const parallaxRef = useParallax();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const bulletPoints = [
     "Kein Dauer-Posten",
@@ -14,7 +17,7 @@ const NewHero = () => {
   ];
 
   const handleBooking = () => {
-    window.open('https://calendly.com/altovate/60min', '_blank');
+    setIsModalOpen(true);
   };
 
   const scrollToOffers = () => {
@@ -106,6 +109,12 @@ const NewHero = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType="Strategie-Session"
+      />
     </section>
   );
 };
