@@ -85,6 +85,13 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Details:</strong></p>
         <p>${message?.replace(/\n/g, '<br>') || 'Keine weiteren Details'}</p>
       `;
+    } else if (type === 'waitlist') {
+      subject = `Neue Wartelisten-Eintragung: Done for You`;
+      htmlContent = `
+        <h2>Warteliste: Done for You</h2>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        <p>Diese Person möchte informiert werden, wenn ein Platz im Done for You Modell frei wird.</p>
+      `;
     } else {
       // Default contact form
       htmlContent += `
