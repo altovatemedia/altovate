@@ -13,13 +13,12 @@ const Positioning = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Statement */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            Ich verkaufe keine Posts.<br />
-            <span className="text-primary">Ich baue Systeme.</span>
+            Marketing, das als <span className="text-primary">System</span> funktioniert.
           </h2>
 
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
-            Altovate ist keine klassische Agentur.<br />
-            Ich arbeite direkt mit Unternehmern, die Ergebnisse wollen.
+            Altovate arbeitet mit Unternehmern, die planbare Anfragen,
+            klare Prozesse und messbare Ergebnisse wollen – ohne Influencer-Zirkus.
           </p>
 
           {/* Focus Points */}

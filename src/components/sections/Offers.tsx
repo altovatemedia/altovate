@@ -92,6 +92,7 @@ const Offers = () => {
                 {/* Price */}
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-foreground">{offer.price} €</span>
+                  <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
                 </div>
 
                 {/* For Who */}

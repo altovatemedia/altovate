@@ -7,8 +7,10 @@ import PainPoints from '@/components/sections/PainPoints';
 import Positioning from '@/components/sections/Positioning';
 import SystemProcess from '@/components/sections/SystemProcess';
 import Offers from '@/components/sections/Offers';
+import OneOnOneSection from '@/components/sections/OneOnOneSection';
 import WhyNotFree from '@/components/sections/WhyNotFree';
 import AboutAlex from '@/components/sections/AboutAlex';
+import DoneForYouSection from '@/components/sections/DoneForYouSection';
 import CaseStudies from '@/components/sections/CaseStudies';
 import GoogleReviews from '@/components/sections/GoogleReviews';
 import FAQ from '@/components/FAQ';
@@ -52,8 +54,10 @@ const Index = () => {
         <Positioning />
         <SystemProcess />
         <Offers />
+        <OneOnOneSection />
         <WhyNotFree />
         <AboutAlex />
+        <DoneForYouSection />
         <CaseStudies />
         <GoogleReviews />
         <FAQ />
