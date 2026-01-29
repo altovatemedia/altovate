@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { ArrowRight, Clock, Zap, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookingModal from '@/components/BookingModal';
 
 const Offers = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState('');
+
   const offers = [
     {
       icon: Clock,
@@ -19,7 +24,7 @@ const Offers = () => {
         "Entscheidung: selber umsetzen oder skalieren"
       ],
       cta: "Direkt Termin buchen",
-      calendlyUrl: "https://calendly.com/altovate/60min"
+      offerType: "Strategie-Session 60 Minuten"
     },
     {
       icon: Zap,
@@ -37,7 +42,7 @@ const Offers = () => {
         "Konkrete Umsetzungslogik"
       ],
       cta: "Direkt Termin buchen",
-      calendlyUrl: "https://calendly.com/altovate/90min"
+      offerType: "Strategie-Session 90 Minuten"
     },
     {
       icon: Building,
@@ -52,12 +57,13 @@ const Offers = () => {
       results: [],
       note: "Kein Paket von der Stange. Umsetzung nur nach Strategie-Session.",
       cta: "Termin anfragen",
-      calendlyUrl: "https://calendly.com/altovate/60min"
+      offerType: "System-Aufbau"
     }
   ];
 
-  const handleBooking = (url: string) => {
-    window.open(url, '_blank');
+  const handleBooking = (offerType: string) => {
+    setSelectedOffer(offerType);
+    setIsModalOpen(true);
   };
 
   return (
@@ -131,7 +137,7 @@ const Offers = () => {
                 {/* CTA */}
                 <Button 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-base font-semibold"
-                  onClick={() => handleBooking(offer.calendlyUrl)}
+                  onClick={() => handleBooking(offer.offerType)}
                 >
                   {offer.cta}
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -141,6 +147,12 @@ const Offers = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType={selectedOffer}
+      />
     </section>
   );
 };

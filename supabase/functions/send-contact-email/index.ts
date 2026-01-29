@@ -76,6 +76,15 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Beschreibung der Situation:</strong></p>
         <p>${description?.replace(/\n/g, '<br>') || 'Keine Beschreibung'}</p>
       `;
+    } else if (type === 'booking') {
+      subject = `Neue Terminanfrage von ${firstName} ${lastName}`;
+      htmlContent += `
+        ${instagram ? `<p><strong>Instagram:</strong> ${instagram}</p>` : ''}
+        ${website ? `<p><strong>Website:</strong> ${website}</p>` : ''}
+        ${problem ? `<p><strong>Größte Herausforderung:</strong> ${problem}</p>` : ''}
+        <p><strong>Details:</strong></p>
+        <p>${message?.replace(/\n/g, '<br>') || 'Keine weiteren Details'}</p>
+      `;
     } else {
       // Default contact form
       htmlContent += `

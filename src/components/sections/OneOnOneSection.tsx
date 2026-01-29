@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { ArrowRight, Users, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookingModal from '@/components/BookingModal';
 
 const OneOnOneSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const packages = [
     {
       duration: "12 Wochen",
@@ -16,7 +20,7 @@ const OneOnOneSection = () => {
   ];
 
   const handleBooking = () => {
-    window.open('https://calendly.com/altovate/60min', '_blank');
+    setIsModalOpen(true);
   };
 
   return (
@@ -85,6 +89,12 @@ const OneOnOneSection = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType="1:1 Zusammenarbeit"
+      />
     </section>
   );
 };
