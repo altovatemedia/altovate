@@ -1,91 +1,91 @@
 
-# Überarbeitung: Förderseite & Done for You Sektion
 
-## Änderungen im Überblick
+# Förderhinweis prominenter platzieren
 
-### 1. Förderseite erweitern und verbessern
+## Das Problem
 
-**Datei:** `src/pages/Foerderung.tsx`
+Die Förderung von bis zu 80% ist ein starkes Verkaufsargument, wird aber nur im Footer und auf der Förderseite erwähnt. Viele potenzielle Kunden sehen das gar nicht.
 
-**Probleme:**
-- Zu wenig Inhalt in den Boxen (nur 3 Punkte pro Karte)
-- "Beratung (BAFA)" klingt zu bürokratisch/technisch
-- Seite wirkt insgesamt zu leer
+## Lösungsansätze
 
-**Änderungen:**
+### Option A: Badge bei den Angebots-Preisen
 
-**Box 1 - Titel umbenennen:**
-- Alt: "Beratung (BAFA)"
-- Neu: "Strategieberatung" (BAFA-Hinweis kann klein darunter)
+Bei den Strategie-Sessions und der 1:1 Zusammenarbeit einen kleinen Badge hinzufügen, der auf die Fördermöglichkeit hinweist.
 
-**Mehr Inhaltspunkte Box 1 (Strategieberatung):**
-- Bis zu 80 % Förderung möglich
-- Gilt für reine Beratung, keine Umsetzung
-- Strategie-Sessions förderfähig
-- 1:1 Zusammenarbeit förderfähig
-- Auch für Gründer & junge Unternehmen
-- Altovate übernimmt Dokumentation
-- Schnelle Antragsprüfung möglich
-- Keine Vorleistung nötig
+Beispiel bei Preisanzeige:
+```
+390 € inkl. MwSt.
+[Bis zu 80% förderfähig]
+```
 
-**Mehr Inhaltspunkte Box 2 (Marketing-Maßnahmen):**
-- Bis zu 50 % Förderung möglich
-- Je nach Bundesland unterschiedlich
-- Für Website, Content, Ads, Automationen
-- Projektbasierte Abrechnung
-- Kombinierbar mit anderen Programmen
-- Voraussetzung: klare Projektstruktur
-- Altovate prüft Optionen vorab
+**Vorteile:**
+- Direkt dort, wo die Kaufentscheidung fällt
+- Macht den Preis psychologisch attraktiver
+- Nicht aufdringlich
 
-**Zusätzliche Sektion: "So läuft es ab"**
-- Kurze 3-Schritte-Darstellung des Förderprozesses
-- Gibt der Seite mehr Substanz
+### Option B: Hinweis-Banner nach den Pain Points
 
-**Hero-Bereich erweitern:**
-- Kurzer einleitender Text unter der Subline
+Eine dezente Sektion zwischen bestehenden Bereichen, die auf die Förderung hinweist.
+
+**Vorteile:**
+- Eigenständiger Aufmerksamkeitsfänger
+- Mehr Platz für Erklärung
+
+### Option C: FreebieBar (Top-Banner) erweitern
+
+Den oberen Banner alternierend oder zusätzlich mit Förderhinweis versehen.
+
+**Vorteile:**
+- Sehr hohe Sichtbarkeit
+- Sofort beim Seitenaufruf präsent
 
 ---
 
-### 2. Done for You Sektion - Hintergrund anpassen
+## Empfehlung: Kombination A + B
 
-**Datei:** `src/components/sections/DoneForYouSection.tsx`
+### 1. Förder-Badges bei Preisen hinzufügen
 
-**Problem:**
-- Dunkler Hintergrund (`bg-[#1a1a1a]`) wirkt wie Fehler im Light-Mode
-- Inkonsistent mit dem restlichen Design
+**Dateien:** `Offers.tsx`, `OneOnOneSection.tsx`
 
-**Lösung:**
-- Hellen Hintergrund verwenden: `bg-muted/30` (wie andere Premium-Sektionen)
-- Alle Textfarben anpassen: `text-white` zu `text-foreground`
-- Border-Styles anpassen: `border-white/10` zu `border-border`
-- Premium-Charakter durch subtile Design-Elemente behalten (Crown-Icon, hochwertige Typografie)
+Bei den Strategie-Sessions und 1:1-Paketen unter dem Preis:
+- Kleiner Badge mit Text "Bis zu 80% förderfähig"
+- Link zur Förderseite
+- Dezentes Design (primary/10 Hintergrund)
+
+### 2. Neue Förder-Hinweis-Sektion erstellen
+
+**Neue Datei:** `FoerderungHint.tsx`
+
+Positionierung auf der Startseite nach den Angeboten (nach `Offers`):
+- Kurze, prägnante Botschaft
+- Dezentes Design, nicht zu werblich
+- Link zur vollständigen Förderseite
+- Badge-Style mit Icon
+
+Inhalt:
+```
+"Wusstest du, dass strategische Beratung staatlich gefördert wird?"
+Bis zu 80% Zuschuss möglich – je nach Ausgangslage.
+→ Mehr erfahren
+```
 
 ---
 
 ## Technische Umsetzung
 
-### Datei 1: `src/pages/Foerderung.tsx`
-- Titel "Beratung (BAFA)" zu "Strategieberatung" ändern
-- BAFA als kleine Annotation darunter
-- 8 Punkte pro Box statt 3
-- Neue Sektion "So läuft es ab" mit 3 Schritten
-- Hero-Text erweitern
-- BookingModal Integration (statt direkter Calendly-Link)
-
-### Datei 2: `src/components/sections/DoneForYouSection.tsx`
-- `bg-[#1a1a1a]` zu `bg-muted/30` ändern
-- `text-white` zu `text-foreground` ändern
-- `text-white/70`, `text-white/80` zu `text-muted-foreground`
-- `bg-white/5` zu `bg-background`
-- `border-white/10` zu `border-border`
-- `bg-white/10` zu `bg-primary/10`
-- Dekorative Elemente anpassen
+| Datei | Änderung |
+|-------|----------|
+| `src/components/sections/Offers.tsx` | Förder-Badge unter den Preisen der Strategie-Sessions |
+| `src/components/sections/OneOnOneSection.tsx` | Förder-Badge bei den 1:1-Paketen |
+| `src/components/sections/FoerderungHint.tsx` | Neue kompakte Hinweis-Sektion (neu erstellen) |
+| `src/pages/Index.tsx` | FoerderungHint nach Offers-Sektion einbinden |
 
 ---
 
-## Zusammenfassung
+## Erwartetes Ergebnis
 
-| Datei | Änderung |
-|-------|----------|
-| `src/pages/Foerderung.tsx` | Mehr Inhalt, neue Titel, zusätzliche Sektion |
-| `src/components/sections/DoneForYouSection.tsx` | Heller Hintergrund, konsistente Farben |
+- Förderung wird an 3 strategischen Stellen sichtbar (statt nur Footer)
+- Keine Überladung der Seite
+- Natürliche Integration ins bestehende Design
+- Klare Call-to-Actions zur Förderseite
+
