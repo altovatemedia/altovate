@@ -70,12 +70,15 @@ const Offers = () => {
     <section id="angebote" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              So kannst du mit mir <span className="text-primary">arbeiten</span>
+         {/* Header */}
+          <div className="text-center mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              So kannst du mit Altovate <span className="text-primary">arbeiten</span>
             </h2>
           </div>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-16 leading-relaxed">
+            Altovate bietet drei Angebotsformate: eine 60-Minuten-Strategie-Session für erste Klarheit, eine 90-Minuten-Session für konkrete Konzepte und einen projektbasierten System-Aufbau für die vollständige Umsetzung. Alle Formate sind einzeln buchbar – ohne Abo oder Mindestlaufzeit.
+          </p>
 
           {/* Offer Cards */}
           <div className="grid md:grid-cols-3 gap-8">

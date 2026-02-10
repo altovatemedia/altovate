@@ -16,9 +16,12 @@ const Positioning = () => {
             Marketing, das als <span className="text-primary">System</span> funktioniert.
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
-            Altovate arbeitet mit Unternehmern, die planbare Anfragen,
-            klare Prozesse und messbare Ergebnisse wollen – ohne Influencer-Zirkus.
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
+            Altovate ist eine Marketing-Agentur aus Saarburg, die Lead- und Content-Systeme für mittelständische Unternehmen entwickelt. Der Fokus liegt auf planbaren Anfragen und messbaren Ergebnissen – nicht auf Reichweite ohne Substanz.
+          </p>
+
+          <p className="text-lg text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
+            Ein Marketing-System ist eine dokumentierte, wiederholbare Struktur aus Content, Lead-Erfassung und Vertriebsprozess. Es funktioniert unabhängig von einzelnen Personen und liefert kontinuierlich qualifizierte Anfragen.
           </p>
 
           {/* Focus Points */}

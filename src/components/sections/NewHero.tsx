@@ -73,8 +73,7 @@ const NewHero = () => {
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Ich baue klare Lead- & Content-Systeme,<br />
-            die Anfragen bringen – ohne dass du Influencer werden musst.
+            Altovate entwickelt Lead- & Content-Systeme, die planbare Anfragen generieren – ohne dass du selbst zum Influencer werden musst. Für mittelständische Unternehmen in Saarburg, Trier und der Region Saar-Mosel.
           </p>
 
           {/* Bullet Points */}

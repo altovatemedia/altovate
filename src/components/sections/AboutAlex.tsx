@@ -8,26 +8,22 @@ const AboutAlex = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* Text Content */}
-            <div className="space-y-6 order-2 lg:order-1">
+           <div className="space-y-6 order-2 lg:order-1">
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Ich bin <span className="text-primary">Alex.</span>
+                Über <span className="text-primary">Alexander Buchmann</span>
               </h2>
               
               <div className="space-y-4">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Ich arbeite seit Jahren an der Schnittstelle aus Marketing, Content, 
-                  Automatisierung und Unternehmertum.
-                </p>
-                
-                <p className="text-lg text-foreground leading-relaxed font-medium">
-                  Ich baue keine Hype-Accounts.<br />
-                  Ich baue Strukturen, die funktionieren – 
-                  auch wenn du kein Marketing-Profi bist.
+                  Alexander Buchmann ist Gründer und Geschäftsführer der altovate GmbH mit Sitz in Saarburg. Er entwickelt Marketing-Systeme für mittelständische Unternehmen in der Region Saar-Mosel, Trier und Luxemburg.
                 </p>
                 
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Altovate ist bewusst kein großes Agenturkonstrukt.<br />
-                  Du arbeitest direkt mit mir.
+                  Sein Schwerpunkt liegt an der Schnittstelle von Content-Strategie, Marketing-Automatisierung und Vertriebssystem-Aufbau. Der Ansatz ist klar: dokumentierte Prozesse, messbare Ergebnisse und Unabhängigkeit von einzelnen Dienstleistern.
+                </p>
+                
+                <p className="text-lg text-foreground leading-relaxed font-medium">
+                  Altovate ist bewusst keine große Agentur. Unternehmer arbeiten direkt mit Alexander Buchmann – ohne Umwege über Projektmanager oder Junior-Teams.
                 </p>
               </div>
             </div>
