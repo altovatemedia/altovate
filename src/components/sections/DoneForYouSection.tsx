@@ -110,7 +110,7 @@ const DoneForYouSection = () => {
           {/* Status & Waitlist */}
           <div className="text-center">
             <div className="inline-block bg-primary/10 rounded-full px-6 py-3 mb-6">
-              <span className="text-foreground font-medium">Limitiert auf wenige Spots</span>
+              <span className="text-foreground font-medium">Aktuell nur 2 freie Plätze</span>
             </div>
             <p className="text-muted-foreground text-sm mb-8">
               Trag dich ein und erfahre vorab, wenn wieder ein Platz frei wird.

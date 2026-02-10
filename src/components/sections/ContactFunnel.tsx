@@ -320,7 +320,7 @@ Antworten aus dem Funnel:
                 />
                 <label htmlFor="privacy" className="text-sm text-text-muted">
                   Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
-                  <a href="#" className="text-primary hover:underline">Datenschutzerklärung</a> zu. *
+                  <a href="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</a> zu. *
                 </label>
               </div>
 
@@ -329,7 +329,7 @@ Antworten aus dem Funnel:
                 className="w-full bg-primary hover:bg-primary/90 text-white rounded-full py-4 text-lg font-bold transition-all duration-200 hover:scale-[1.02] group"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Kostenloses Erstgespräch buchen
+                Anfrage senden
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -354,7 +354,7 @@ Antworten aus dem Funnel:
               </h2>
               
               <p className="text-lg text-text-muted mb-8 leading-relaxed">
-                Beantworte 4 kurze Fragen und erhalte sofort dein individuelles Ergebnis + Einladung zum kostenlosen Erstgespräch.
+                Beantworte 4 kurze Fragen und erhalte eine persönliche Einschätzung für dein Marketing.
               </p>
               
               {/* Benefits */}

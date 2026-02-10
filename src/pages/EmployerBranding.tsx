@@ -42,36 +42,13 @@ const EmployerBranding = () => {
     { icon: Users, title: "Partnernetzwerk einbinden", desc: "Wir vernetzen dich mit Circle Fitness (Firmenfitness), BAV Workflow (Vorsorge) und Partner KMU (Weiterbildung) – für echte Mehrwerte im Recruiting." },
   ];
 
-  const packages = [
-    {
-      name: "Employer Check",
-      price: "ab 350 €",
-      features: [
-        "Analyse von Social Media & Webseite",
-        "Empfehlungen zur Optimierung deines Arbeitgeberauftritts",
-        "1-stündiges Beratungsgespräch (online oder vor Ort)"
-      ]
-    },
-    {
-      name: "Employer Kickstart",
-      price: "ab 950 €",
-      features: [
-        "Story & Contentplanung für 3 Monate",
-        "Foto/Video-Shooting vor Ort inkl. Team-Content",
-        "Aufbereitung deiner Social-Media-Profile & Highlights"
-      ],
-      highlighted: true
-    },
-    {
-      name: "Employer Growth",
-      price: "ab 1.500 €/Monat",
-      features: [
-        "Laufende Contentproduktion (10 Videos / Monat)",
-        "Anzeigenkampagnen für Mitarbeitergewinnung",
-        "Performance-Reporting & Optimierung",
-        "(Optional mit Partnernetzwerk für Benefits und Vorsorge)"
-      ]
-    }
+  const services = [
+    { icon: Search, title: "Arbeitgeber-Analyse", desc: "Prüfung deines aktuellen Auftritts auf Web, Social Media und in Stellenanzeigen." },
+    { icon: Lightbulb, title: "Story & Content-Konzept", desc: "Entwicklung deiner authentischen Arbeitgeberstory – Team, Alltag, Werte." },
+    { icon: Megaphone, title: "Social Media & Kampagnen", desc: "Umsetzung und Ausspielung auf Instagram, Facebook, LinkedIn & Google." },
+    { icon: Users, title: "Partnernetzwerk", desc: "Anbindung an Circle Fitness, BAV Workflow und Partner KMU für echte Mitarbeiter-Benefits." },
+    { icon: Target, title: "Stellenanzeigen-Optimierung", desc: "Moderne, zielgruppengerechte Stellenanzeigen statt 08/15-Vorlagen." },
+    { icon: Smartphone, title: "Employer-Content-Produktion", desc: "Foto- und Video-Content direkt vor Ort – authentisch und professionell." },
   ];
 
   const faqs = [
@@ -610,60 +587,67 @@ const EmployerBranding = () => {
         </div>
       </section>
 
-      {/* Packages Section */}
+      {/* Leistungsübersicht Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center"
+            className="text-4xl md:text-5xl font-bold mb-6 text-foreground text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Unsere Pakete
+            Was wir für dich übernehmen
           </motion.h2>
+          <motion.p
+            className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Jedes Employer-Branding-Projekt wird individuell auf dein Unternehmen zugeschnitten. Starte mit einer Strategie-Session für eine klare Einschätzung.
+          </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {packages.map((pkg, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <Card className={`h-full ${pkg.highlighted ? 'bg-[#ff1c5c] border-[#ff1c5c]' : 'bg-card border-border'} hover:shadow-xl hover:shadow-[#ff1c5c]/20 transition-all`}>
-                  <CardContent className="p-8">
-                    <h3 className={`text-2xl font-bold mb-4 ${pkg.highlighted ? 'text-white' : 'text-foreground'}`}>
-                      {pkg.name}
-                    </h3>
-                    <p className={`text-3xl font-bold mb-6 ${pkg.highlighted ? 'text-white' : 'text-[#ff1c5c]'}`}>
-                      {pkg.price}
-                    </p>
-                    <ul className="space-y-4">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex gap-3">
-                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${pkg.highlighted ? 'text-white' : 'text-[#ff1c5c]'}`} />
-                          <span className={pkg.highlighted ? 'text-white' : 'text-muted-foreground'}>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/40 transition-all hover:shadow-md">
+                    <CardContent className="p-6">
+                      <Icon className="w-10 h-10 text-[#ff1c5c] mb-4" />
+                      <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
+                      <p className="text-sm text-muted-foreground">{service.desc}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
 
-          <motion.p 
-            className="text-center text-sm text-muted-foreground/60 mt-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Alle Pakete exkl. Media-Budget für Werbeanzeigen (z. B. Meta / Google).
-          </motion.p>
+            <Button 
+              size="lg" 
+              onClick={handleCTAClick}
+              className="bg-[#ff1c5c] hover:bg-[#ff3d75] text-white text-lg px-8 py-6 rounded-full shadow-lg shadow-[#ff1c5c]/30"
+            >
+              Strategie-Session anfragen
+              <ArrowRight className="ml-2" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 

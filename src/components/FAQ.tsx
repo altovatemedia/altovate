@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import alexanderPortrait from '@/assets/alexander-portrait-circle.png';
+import BookingModal from '@/components/BookingModal';
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 
 const FAQ = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const faqs = [
     {
       question: "Muss ich als Unternehmer selbst Content erstellen?",
@@ -29,7 +32,7 @@ const FAQ = () => {
   ];
 
   const handleBooking = () => {
-    window.open('https://calendly.com/altovate/60min', '_blank');
+    setIsModalOpen(true);
   };
 
   return (
@@ -120,6 +123,12 @@ const FAQ = () => {
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType="Strategie-Session"
+      />
     </section>
   );
 };

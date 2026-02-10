@@ -28,7 +28,8 @@ const Erstkontakt = () => {
     instagram: '',
     website: '',
     problem: '',
-    description: ''
+    description: '',
+    privacy: false
   });
 
   useEffect(() => {
@@ -52,14 +53,14 @@ const Erstkontakt = () => {
     }
   };
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.firstName || !formData.lastName || !formData.company || !formData.email || !formData.problem || !formData.description) {
+    if (!formData.firstName || !formData.lastName || !formData.company || !formData.email || !formData.problem || !formData.description || !formData.privacy) {
       toast({
         title: "Fehlende Angaben",
         description: "Bitte fülle alle Pflichtfelder aus.",
@@ -103,7 +104,8 @@ const Erstkontakt = () => {
         instagram: '',
         website: '',
         problem: '',
-        description: ''
+        description: '',
+        privacy: false
       });
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -381,6 +383,22 @@ const Erstkontakt = () => {
                     </p>
                   </div>
 
+                  {/* Datenschutz-Checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      className="mt-1"
+                      id="privacy"
+                      checked={formData.privacy}
+                      onChange={(e) => handleChange('privacy', e.target.checked)}
+                      required
+                    />
+                    <label htmlFor="privacy" className="text-sm text-muted-foreground">
+                      Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
+                      <a href="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</a> zu. *
+                    </label>
+                  </div>
+
                   <Button 
                     type="submit" 
                     size="lg" 
@@ -389,6 +407,16 @@ const Erstkontakt = () => {
                   >
                     {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
                   </Button>
+
+                  {/* Trust Element */}
+                  <div className="flex items-center justify-center gap-4 pt-4 border-t border-border">
+                    <div className="flex items-center gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                      ))}
+                    </div>
+                    <span className="text-sm text-muted-foreground">5.0 bei Google · 9 Bewertungen</span>
+                  </div>
                 </form>
               )}
             </motion.div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useScrollAnimation, useParallax } from '@/hooks/useScrollAnimation';
 import altovateIcon from '@/assets/altovate-icon.png';
 import BookingModal from '@/components/BookingModal';
+import TrustBar from '@/components/sections/TrustBar';
 
 const NewHero = () => {
   const heroRef = useScrollAnimation({ threshold: 0.2 });
@@ -106,6 +107,9 @@ const NewHero = () => {
               Direkt Klarheit statt Erstgespräch
             </Button>
           </div>
+
+          {/* Trust Bar */}
+          <TrustBar />
         </div>
       </div>
 
