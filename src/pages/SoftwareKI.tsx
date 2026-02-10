@@ -156,6 +156,21 @@ const SoftwareKI = () => {
           content="Prozesse digitalisieren, Aufgaben vereinfachen, Daten clever nutzen – mit individuellen Software- und KI-Lösungen von Altovate. Wir entwickeln Tools, die wirklich arbeiten." 
         />
         <meta name="keywords" content="Software Entwicklung Saarburg, KI Tools Trier, digitale Prozesse Automatisierung Saarland, App Entwicklung Luxemburg, Web-Tools für Unternehmen, individueller Rechner Programmierung" />
+        <link rel="canonical" href="https://altovate.de/software-ki-loesungen-saarburg" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://altovate.de/software-ki-loesungen-saarburg" />
+        <meta property="og:title" content="Individuelle Software & KI-Lösungen | Altovate Saarburg" />
+        <meta property="og:description" content="Prozesse digitalisieren, Aufgaben vereinfachen, Daten clever nutzen – mit individuellen Software- und KI-Lösungen von Altovate." />
+        <meta property="og:image" content="https://altovate.de/altovate-logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://altovate.de/software-ki-loesungen-saarburg" />
+        <meta name="twitter:title" content="Individuelle Software & KI-Lösungen | Altovate Saarburg" />
+        <meta name="twitter:description" content="Prozesse digitalisieren, Aufgaben vereinfachen, Daten clever nutzen – mit individuellen Software- und KI-Lösungen von Altovate." />
+        <meta name="twitter:image" content="https://altovate.de/altovate-logo.png" />
       </Helmet>
       <SEOSchema
         page="service"

@@ -164,6 +164,20 @@ const Werbeanzeigen = () => {
         />
         <meta name="keywords" content="Werbeanzeigen Saarburg, Performance Marketing Agentur Saarland, Meta Ads Saar, Facebook Werbung Trier, Google Ads Betreuung Region Saarburg, Online Werbung für Unternehmen" />
         <link rel="canonical" href="https://altovate.de/werbeanzeigen-saarburg" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://altovate.de/werbeanzeigen-saarburg" />
+        <meta property="og:title" content="Performance-Marketing & Werbeanzeigen | Altovate Saarburg" />
+        <meta property="og:description" content="Online-Werbung, die wirkt: Meta- und Google-Ads für Unternehmen aus Saarburg, Trier & Umgebung – messbar, regional & effizient." />
+        <meta property="og:image" content="https://altovate.de/altovate-logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://altovate.de/werbeanzeigen-saarburg" />
+        <meta name="twitter:title" content="Performance-Marketing & Werbeanzeigen | Altovate Saarburg" />
+        <meta name="twitter:description" content="Online-Werbung, die wirkt: Meta- und Google-Ads für Unternehmen aus Saarburg, Trier & Umgebung – messbar, regional & effizient." />
+        <meta name="twitter:image" content="https://altovate.de/altovate-logo.png" />
       </Helmet>
       <SEOSchema
         page="service"

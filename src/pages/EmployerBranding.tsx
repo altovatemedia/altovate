@@ -105,13 +105,15 @@ const EmployerBranding = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://altovate.de/employer-branding-saarburg" />
         <meta property="og:title" content="Employer Branding 2025 | Mitarbeitergewinnung in Saarburg & Region Saar–Mosel | Altovate" />
-        <meta property="og:description" content="Keine Bewerbungen mehr? Dann liegt's nicht an den Menschen – sondern an deinem Auftritt. Employer Branding & Mitarbeitergewinnung 2025 von Altovate: authentisch, modern und sichtbar." />
+        <meta property="og:description" content="Keine Bewerbungen mehr? Dann liegt's nicht an den Menschen – sondern an deinem Auftritt. Employer Branding & Mitarbeitergewinnung 2025 von Altovate." />
+        <meta property="og:image" content="https://altovate.de/altovate-logo.png" />
         
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://altovate.de/employer-branding-saarburg" />
         <meta property="twitter:title" content="Employer Branding 2025 | Mitarbeitergewinnung in Saarburg & Region Saar–Mosel | Altovate" />
-        <meta property="twitter:description" content="Keine Bewerbungen mehr? Dann liegt's nicht an den Menschen – sondern an deinem Auftritt. Employer Branding & Mitarbeitergewinnung 2025 von Altovate: authentisch, modern und sichtbar." />
+        <meta property="twitter:description" content="Keine Bewerbungen mehr? Dann liegt's nicht an den Menschen – sondern an deinem Auftritt. Employer Branding & Mitarbeitergewinnung 2025 von Altovate." />
+        <meta property="twitter:image" content="https://altovate.de/altovate-logo.png" />
 
         {/* Schema.org structured data */}
         <script type="application/ld+json">

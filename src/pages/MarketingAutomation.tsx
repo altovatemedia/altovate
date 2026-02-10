@@ -129,6 +129,21 @@ const MarketingAutomation = () => {
           content="Kein Autopilot, sondern ein System, das für dich arbeitet. Wir zeigen dir, wie Marketing-Automation Leads generiert, Vertrauen aufbaut und Anfragen bringt – Schritt für Schritt." 
         />
         <meta name="keywords" content="Marketing Automation Saarburg, Funnel Aufbau Trier, Leadgenerierung Saarland, E-Mail Marketing Luxemburg, Manychat Automatisierung, Sales Funnel Agentur Saar-Mosel" />
+        <link rel="canonical" href="https://altovate.de/marketing-automation-saarburg" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://altovate.de/marketing-automation-saarburg" />
+        <meta property="og:title" content="Marketing Automation & Funnel Systeme | Altovate Saarburg" />
+        <meta property="og:description" content="Marketing-Automation, die Leads generiert, Vertrauen aufbaut und Anfragen bringt – Schritt für Schritt." />
+        <meta property="og:image" content="https://altovate.de/altovate-logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://altovate.de/marketing-automation-saarburg" />
+        <meta name="twitter:title" content="Marketing Automation & Funnel Systeme | Altovate Saarburg" />
+        <meta name="twitter:description" content="Marketing-Automation, die Leads generiert, Vertrauen aufbaut und Anfragen bringt – Schritt für Schritt." />
+        <meta name="twitter:image" content="https://altovate.de/altovate-logo.png" />
       </Helmet>
       <SEOSchema
         page="service"
