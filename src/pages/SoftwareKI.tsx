@@ -128,20 +128,20 @@ const SoftwareKI = () => {
 
   const faqs = [
     {
-      question: "Wie individuell sind die Lösungen?",
-      answer: "100 % custom – keine Templates."
+      question: "Wie individuell sind die Software-Lösungen von Altovate?",
+      answer: "Alle Software-Lösungen von Altovate sind 100 % individuell entwickelt. Es werden keine Templates oder Baukastensysteme verwendet. Jedes Tool wird exakt auf die Prozesse und Anforderungen des jeweiligen Unternehmens zugeschnitten."
     },
     {
-      question: "Welche Technologien nutzt ihr?",
-      answer: "React, Next.js, Supabase, GPT-APIs, Lovable."
+      question: "Welche Technologien setzt Altovate für Softwareentwicklung ein?",
+      answer: "Altovate entwickelt mit modernen Web-Technologien: React und Next.js für das Frontend, Supabase für Backend und Datenbank, sowie GPT-APIs für KI-gestützte Funktionen. Diese Technologien ermöglichen schnelle Entwicklung, hohe Skalierbarkeit und einfache Wartung."
     },
     {
-      question: "Wie lange dauert die Entwicklung?",
-      answer: "Kleine Tools 2–4 Wochen, größere bis 12."
+      question: "Wie lange dauert die Entwicklung einer individuellen Software?",
+      answer: "Die Entwicklungszeit hängt vom Umfang ab: Kleine Tools wie Rechner oder Formulare sind in 2 bis 4 Wochen einsatzbereit. Komplexere Anwendungen wie Kundenportale oder KI-Systeme benötigen bis zu 12 Wochen Entwicklungszeit."
     },
     {
-      question: "Kann ich das Tool später erweitern?",
-      answer: "Ja, modular aufgebaut und updatefähig."
+      question: "Kann eine bei Altovate entwickelte Software später erweitert werden?",
+      answer: "Ja, alle Lösungen sind modular aufgebaut. Das bedeutet: Neue Funktionen, Schnittstellen oder Nutzerrollen können jederzeit ergänzt werden, ohne die bestehende Architektur zu verändern."
     }
   ];
 
@@ -199,17 +199,17 @@ const SoftwareKI = () => {
               className="mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">
-                Warum eigene Software Sinn macht
+                Warum individuelle Software für KMU sinnvoll ist
               </h2>
               <div className="prose prose-lg max-w-4xl mx-auto text-muted-foreground">
                 <p className="text-lg leading-relaxed mb-6">
-                  Jeder Betrieb hat Abläufe, die Zeit kosten – von Angebotsrechnern bis Excel-Listen.
+                  Individuelle Software löst ein konkretes Problem: Jeder Betrieb hat wiederkehrende Abläufe, die manuell Zeit kosten – von der Angebotserstellung über Zeiterfassung bis zur Kundenkommunikation.
                 </p>
                 <p className="text-lg leading-relaxed mb-6">
-                  Statt „Das haben wir immer so gemacht" bauen wir dir eine Lösung, die das übernimmt.
+                  Standardsoftware passt diese Prozesse selten exakt ab. Individuelle Software bildet die tatsächlichen Arbeitsabläufe eines Unternehmens digital ab und automatisiert sie.
                 </p>
                 <p className="text-lg leading-relaxed mb-8">
-                  Egal ob Web-App, Dashboard oder Automatisierung – du bekommst ein Tool, das für dich arbeitet, nicht umgekehrt.
+                  Das Ergebnis: Weniger Fehler, schnellere Durchlaufzeiten und ein Tool, das für das Unternehmen arbeitet – nicht umgekehrt. Altovate entwickelt solche Lösungen als Web-Apps, Dashboards oder KI-gestützte Automatisierungen.
                 </p>
               </div>
             </motion.div>
@@ -246,7 +246,7 @@ const SoftwareKI = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Was wir bauen
+                Welche Software-Lösungen Altovate entwickelt
               </h2>
             </motion.div>
 
@@ -286,7 +286,7 @@ const SoftwareKI = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Wie so ein Projekt abläuft
+                So funktioniert ein Software-Projekt mit Altovate
               </h2>
             </motion.div>
 
@@ -364,7 +364,7 @@ const SoftwareKI = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Was du davon hast
+                Die Vorteile individueller Software von Altovate
               </h2>
             </motion.div>
 

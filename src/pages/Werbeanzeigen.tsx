@@ -42,17 +42,17 @@ const Werbeanzeigen = () => {
     {
       icon: Target,
       title: "Zielgerichtet",
-      description: "Du bestimmst, wer deine Anzeige sieht."
+      description: "Performance-Marketing ist zielgerichtet, weil Anzeigen nur an definierte Zielgruppen nach Region, Alter und Interessen ausgespielt werden."
     },
     {
       icon: BarChart3,
       title: "Messbar",
-      description: "Jeder Klick, jede Anfrage wird erfasst."
+      description: "Jeder Klick, jede Anfrage und jeder Kontakt wird in Echtzeit erfasst. So ist der Return on Investment (ROI) jederzeit nachvollziehbar."
     },
     {
       icon: TrendingUp,
       title: "Effizient",
-      description: "Kein Streuverlust – mehr Wirkung fürs Budget."
+      description: "Durch präzises Targeting entfällt der Streuverlust klassischer Werbung. Das Ergebnis ist eine höhere Wirkung bei geringerem Budget."
     }
   ];
 
@@ -60,12 +60,12 @@ const Werbeanzeigen = () => {
     {
       title: "Meta-Ads (Facebook & Instagram)",
       icon: Users,
-      description: "Deine Kunden scrollen täglich durch Social Media. Wir platzieren deine Botschaft dort, wo sie wirklich gesehen wird – im Feed, in Stories oder Reels."
+      description: "Meta-Ads ist ein Push-Marketing-Kanal. Das bedeutet: Anzeigen werden Nutzer:innen auf Basis ihrer Interessen und ihres Standorts angezeigt – im Feed, in Stories oder Reels. So erreicht man auch Menschen, die noch nicht aktiv nach einer Lösung suchen."
     },
     {
       title: "Google-Ads (Suchanzeigen)",
       icon: Search,
-      description: "Wenn jemand aktiv nach deiner Leistung sucht, bist du vorne mit dabei. Wir sorgen dafür, dass du bei relevanten Suchanfragen im Umkreis auftauchst."
+      description: "Google-Ads ist ein Pull-Marketing-Kanal. Das bedeutet: Anzeigen erscheinen genau dann, wenn jemand aktiv nach einer Leistung sucht. So erreicht man Nutzer:innen mit konkretem Bedarf in einem definierten Umkreis – z. B. 25 km um Saarburg."
     }
   ];
 
@@ -135,20 +135,20 @@ const Werbeanzeigen = () => {
 
   const faqs = [
     {
-      question: "Brauche ich viel Budget?",
-      answer: "Nein – schon kleine Kampagnen mit 5–10 € pro Tag liefern erste Ergebnisse."
+      question: "Brauche ich viel Budget für Performance-Marketing?",
+      answer: "Performance-Marketing ist bereits ab 5–10 € pro Tag möglich. Altovate empfiehlt ein Mindestbudget von 300–500 € pro Monat für messbare Ergebnisse in der Region Saarburg, Trier und Luxemburg."
     },
     {
-      question: "Wie schnell sehe ich Ergebnisse?",
-      answer: "Erste Klicks oft in 1–3 Tagen, echte Daten nach ca. 4 Wochen."
+      question: "Wie schnell liefert Performance-Marketing Ergebnisse?",
+      answer: "Erste Klicks und Impressionen sind in der Regel innerhalb von 1–3 Tagen sichtbar. Belastbare Daten für die Optimierung einer Kampagne liegen nach circa 4 Wochen vor."
     },
     {
-      question: "Wie regional kann ich werben?",
-      answer: "Von 5 km Umkreis bis ganz Deutschland – frei wählbar."
+      question: "Wie regional kann Performance-Marketing eingesetzt werden?",
+      answer: "Performance-Marketing lässt sich auf einen Umkreis von 5 km bis ganz Deutschland eingrenzen. Altovate setzt regionale Kampagnen typischerweise im Raum Saarburg, Trier, Konz, Luxemburg und Hunsrück um."
     },
     {
-      question: "Kann ich auch nur kurz testen?",
-      answer: "Ja, ab 4 Wochen Laufzeit möglich."
+      question: "Kann ich Performance-Marketing auch kurzfristig testen?",
+      answer: "Ja, Altovate bietet Performance-Marketing-Kampagnen ab einer Laufzeit von 4 Wochen an. So lässt sich die Wirksamkeit einer Kampagne mit überschaubarem Investment prüfen."
     }
   ];
 
@@ -250,17 +250,15 @@ const Werbeanzeigen = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-              Was ist Performance-Marketing eigentlich?
+              Was ist Performance-Marketing?
             </h2>
             
             <div className="prose prose-lg max-w-none mb-12 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                Viele Unternehmer:innen kennen Werbung nur aus dem Kreisblatt oder vom Plakat an der Straße. 
-                Online-Werbung funktioniert anders: Du entscheidest, wer deine Anzeige sieht, wo sie angezeigt wird und wann.
+                Performance-Marketing ist eine Form des Online-Marketings, bei der Werbemaßnahmen anhand messbarer Kennzahlen wie Klicks, Anfragen und Conversions gesteuert und optimiert werden. Im Gegensatz zu klassischer Werbung (z. B. Kreisblatt oder Plakatwerbung) bestimmt der Werbetreibende exakt, wer die Anzeige sieht, wann sie ausgespielt wird und in welcher Region.
               </p>
               <p className="text-lg leading-relaxed">
-                Performance-Marketing bedeutet: Wir messen, was passiert. Jeder Klick, jede Anfrage, jeder Kontakt ist 
-                nachvollziehbar. So weißt du, ob dein Geld wirklich arbeitet.
+                Der Vorteil von Performance-Marketing ist die vollständige Messbarkeit: Jeder Klick, jede Anfrage und jeder Kontakt wird in Echtzeit erfasst. So lässt sich der Return on Investment (ROI) einer Kampagne jederzeit nachvollziehen und das Budget gezielt einsetzen.
               </p>
             </div>
 
@@ -280,9 +278,9 @@ const Werbeanzeigen = () => {
                     >
                       <MousePointerClick className="w-6 h-6 text-primary" />
                     </motion.div>
-                    <h3 className="text-xl font-bold mb-3">Push-Marketing</h3>
+                    <h3 className="text-xl font-bold mb-3">Push-Marketing (Social Ads)</h3>
                     <p className="text-muted-foreground">
-                      z. B. Facebook & Instagram – wir zeigen dein Angebot aktiven Nutzer:innen mit passenden Interessen.
+                      Push-Marketing zeigt Angebote proaktiv an Nutzer:innen mit passenden Interessen – z. B. über Facebook und Instagram. So erreicht man potenzielle Kunden, bevor sie aktiv suchen.
                     </p>
                   </CardContent>
                 </Card>
@@ -303,9 +301,9 @@ const Werbeanzeigen = () => {
                     >
                       <Search className="w-6 h-6 text-primary" />
                     </motion.div>
-                    <h3 className="text-xl font-bold mb-3">Pull-Marketing</h3>
+                    <h3 className="text-xl font-bold mb-3">Pull-Marketing (Suchanzeigen)</h3>
                     <p className="text-muted-foreground">
-                      z. B. Google – wir erscheinen, wenn jemand gezielt nach deiner Dienstleistung sucht.
+                      Pull-Marketing setzt an, wenn Nutzer:innen aktiv nach einer Lösung suchen – z. B. über Google. Die Anzeige erscheint genau dann, wenn konkreter Bedarf besteht.
                     </p>
                   </CardContent>
                 </Card>
@@ -320,29 +318,25 @@ const Werbeanzeigen = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-              Warum das Sinn macht
+              Performance-Marketing vs. klassische Werbung: Ein Vergleich
             </h2>
 
             <Card className="border-primary/20 bg-card mb-12">
               <CardContent className="p-8">
                 <div className="space-y-4 text-muted-foreground">
                   <p className="text-lg">
-                    Du gibst 400€ pro Woche für eine Anzeige im Kreisblatt aus.
-                  </p>
-                  <p className="text-lg">
-                    Du weißt nicht, wer sie sieht, wie viele das interessiert oder ob überhaupt jemand reagiert.
+                    Ein Beispiel: Eine Anzeige im Kreisblatt kostet ca. 400 € pro Woche. Dabei ist nicht messbar, wer die Anzeige sieht, wie viele Personen sich dafür interessieren oder ob eine einzige Anfrage daraus entsteht.
                   </p>
                   <div className="border-l-4 border-primary pl-6 my-6">
                     <p className="text-lg font-semibold text-foreground">
-                      Mit Online-Werbung drehst du das Prinzip um:
+                      So funktioniert Performance-Marketing im Vergleich:
                     </p>
                     <p className="text-lg mt-2">
-                      Wir zeigen deine Anzeige nur den Menschen, die in deinem Umkreis leben (z. B. 25 km um Saarburg), 
-                      in deiner Zielgruppe liegen und echtes Interesse haben.
+                      Mit Performance-Marketing wird die Anzeige ausschließlich an Personen ausgespielt, die in einem definierten Umkreis leben (z. B. 25 km um Saarburg), zur Zielgruppe gehören und ein nachweisbares Interesse an der beworbenen Leistung haben. Jede Interaktion wird erfasst und ausgewertet.
                     </p>
                   </div>
                   <p className="text-lg font-semibold text-primary">
-                    Du erreichst also nicht alle – sondern die Richtigen.
+                    Der Unterschied: Performance-Marketing erreicht nicht alle, sondern die Richtigen – messbar und nachvollziehbar.
                   </p>
                 </div>
               </CardContent>
@@ -382,7 +376,7 @@ const Werbeanzeigen = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-              Welche Optionen gibt es?
+              Welche Performance-Marketing-Kanäle setzt Altovate ein?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -427,14 +421,14 @@ const Werbeanzeigen = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
-            <motion.h2 
+             <motion.h2 
               className="text-4xl md:text-5xl font-bold mb-16 text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              So läuft unsere Zusammenarbeit ab
+              So funktioniert die Zusammenarbeit mit Altovate
             </motion.h2>
 
             <div className="relative">

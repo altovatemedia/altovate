@@ -75,20 +75,20 @@ const EmployerBranding = () => {
 
   const faqs = [
     {
-      question: "Was bringt Employer Branding mir konkret?",
-      answer: "Eine stärkere Arbeitgebermarke, mehr Bewerbungen und geringere Fluktuation."
+      question: "Was ist Employer Branding und was bringt es konkret?",
+      answer: "Employer Branding ist der strategische Aufbau einer Arbeitgebermarke. Das Ziel ist es, ein Unternehmen als attraktiven Arbeitgeber sichtbar zu machen – nach außen für Bewerber:innen und nach innen für bestehende Mitarbeiter:innen. Die konkreten Ergebnisse sind mehr qualifizierte Bewerbungen, kürzere Besetzungszeiten und geringere Fluktuation."
     },
     {
-      question: "Wie lange dauert so ein Prozess?",
-      answer: "Erste Ergebnisse siehst du nach wenigen Wochen – nachhaltige Wirkung innerhalb von 3–6 Monaten."
+      question: "Wie lange dauert ein Employer-Branding-Prozess?",
+      answer: "Erste sichtbare Ergebnisse – z. B. ein optimierter Social-Media-Auftritt und neuer Team-Content – sind bei Altovate nach wenigen Wochen verfügbar. Eine nachhaltige Wirkung auf Bewerberqualität und -quantität zeigt sich erfahrungsgemäß innerhalb von 3 bis 6 Monaten."
     },
     {
-      question: "Brauche ich dafür Social Media?",
-      answer: "Ja – denn Mitarbeiter sind Menschen, die Social Media nutzen. Dort entscheidet sich, wer dich kennt und sympathisch findet."
+      question: "Ist Social Media für Employer Branding notwendig?",
+      answer: "Social Media ist für modernes Employer Branding unverzichtbar. Der Grund: Potenzielle Bewerber:innen informieren sich über Instagram, LinkedIn und Facebook über ihren zukünftigen Arbeitgeber, bevor sie sich bewerben. Ein professioneller Social-Media-Auftritt ist damit ein zentraler Faktor für die Entscheidung einer Bewerbung."
     },
     {
-      question: "Wie läuft das mit den Partnern?",
-      answer: "Wir stellen den Kontakt her und binden Benefits automatisch in deine Strategie ein."
+      question: "Wie funktioniert das Partnernetzwerk von Altovate?",
+      answer: "Altovate arbeitet mit spezialisierten Partnern zusammen: Circle Fitness für Firmenfitness, BAV Workflow für betriebliche Vorsorge und Partner KMU für staatlich förderbare Weiterbildungen. Altovate stellt den Kontakt her und integriert die Benefits nahtlos in die Employer-Branding-Strategie."
     }
   ];
 
@@ -207,7 +207,7 @@ const EmployerBranding = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Das Problem
+              Das Problem: Unsichtbare Arbeitgeber
             </motion.h2>
 
             <motion.div 
@@ -217,19 +217,17 @@ const EmployerBranding = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p>Viele Unternehmen beschweren sich: „Wir finden keine Mitarbeiter."</p>
+              <p>Der häufigste Grund für ausbleibende Bewerbungen ist nicht der Fachkräftemangel, sondern ein unsichtbarer Arbeitgeberauftritt. Viele Unternehmen haben keine aktiven Social-Media-Profile, veraltete Webseiten und keine Einblicke in den Arbeitsalltag.</p>
               
-              <p>Doch wenn man dann auf deren Profile schaut – kein Social Media, alte Webseite, null Einblicke ins Team.</p>
-              
-              <p>Und selbst wenn etwas da ist, dann meist ein Bauhof-Foto oder ein Auto im Feed.</p>
+              <p>Das Ergebnis: Potenzielle Bewerber:innen finden keine Informationen über das Unternehmen als Arbeitgeber und bewerben sich bei sichtbareren Wettbewerbern.</p>
               
               <p className="text-[#ff1c5c] font-bold text-2xl">
                 2025 musst du als Arbeitgeber die Hose runterlassen.
               </p>
               
-              <p>Menschen wollen sehen, wo sie arbeiten, mit wem und warum.</p>
+              <p>Bewerber:innen erwarten heute Transparenz: Wie sieht der Arbeitsplatz aus? Wer sind die Kolleg:innen? Welche Werte lebt das Unternehmen tatsächlich?</p>
               
-              <p className="font-semibold">Wir leben im Arbeitnehmermarkt – nicht mehr umgekehrt.</p>
+              <p className="font-semibold">Die Arbeitsmarkt-Realität in der Region Saar-Mosel: Es herrscht ein Arbeitnehmermarkt. Unternehmen müssen sich bei Bewerber:innen bewerben – nicht umgekehrt.</p>
             </motion.div>
           </div>
         </div>
@@ -245,7 +243,7 @@ const EmployerBranding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Wie funktioniert Mitarbeitergewinnung 2025?
+            So funktioniert Mitarbeitergewinnung 2025
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -259,9 +257,9 @@ const EmployerBranding = () => {
               <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <X className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">Keine 0815-Stellenanzeigen mehr</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Authentizität statt Floskeln</h3>
                   <p className="text-muted-foreground">
-                    „Flache Hierarchie, Obstkorb & faire Bezahlung" interessieren niemanden mehr.
+                    Stellenanzeigen mit Phrasen wie „flache Hierarchie" und „Obstkorb" erzeugen keine Bewerbungen mehr. Bewerber:innen erwarten konkrete, überprüfbare Informationen über den Arbeitsalltag.
                   </p>
                 </CardContent>
               </Card>
@@ -277,9 +275,9 @@ const EmployerBranding = () => {
               <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <Target className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">Authentische Arbeitgebermarke</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Arbeitgebermarke als System</h3>
                   <p className="text-muted-foreground">
-                    Zeig, wer du bist, wie es bei dir aussieht, was dein Team besonders macht.
+                    Eine authentische Arbeitgebermarke zeigt den realen Arbeitsalltag: Team, Räumlichkeiten, Kultur und Werte. Altovate entwickelt dieses Bild systematisch über Content, Social Media und Kampagnen.
                   </p>
                 </CardContent>
               </Card>
@@ -295,9 +293,9 @@ const EmployerBranding = () => {
               <Card className="bg-card border-border h-full hover:border-[#ff1c5c]/50 transition-all">
                 <CardContent className="p-8">
                   <Smartphone className="w-12 h-12 text-[#ff1c5c] mb-4" />
-                  <h3 className="text-2xl font-bold mb-4 text-foreground">Sichtbarkeit dort, wo deine Mitarbeiter sind</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground">Sichtbarkeit auf den richtigen Kanälen</h3>
                   <p className="text-muted-foreground">
-                    Instagram, Facebook, LinkedIn – nicht im Kreisblatt.
+                    Potenzielle Mitarbeiter:innen sind auf Instagram, Facebook und LinkedIn aktiv – nicht im Kreisblatt. Employer Branding muss dort stattfinden, wo die Zielgruppe ihre Zeit verbringt.
                   </p>
                 </CardContent>
               </Card>
@@ -333,7 +331,7 @@ const EmployerBranding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Was macht dich heute zu einem attraktiven Arbeitgeber?
+            Was einen attraktiven Arbeitgeber 2025 ausmacht
           </motion.h2>
 
           <motion.div 
@@ -344,17 +342,16 @@ const EmployerBranding = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p>
-              Mitarbeitergewinnung funktioniert 2025 nicht mehr über Versprechen, sondern über Taten.
+              Mitarbeitergewinnung funktioniert 2025 über nachweisbare Leistungen als Arbeitgeber, nicht über Versprechen in Stellenanzeigen.
             </p>
             <p>
-              Es geht darum, was du deinen Leuten wirklich bieten kannst – und wie glaubwürdig du es zeigst.
+              Entscheidend ist, welche konkreten Vorteile ein Unternehmen bietet – und wie glaubwürdig diese nach außen kommuniziert werden.
             </p>
             <p>
-              In einer Welt, in der Luxemburg oft besser bezahlt, musst du mit anderen Werten punkten:
-              mit Benefits, Weiterentwicklung, Gesundheit und echtem Teamspirit.
+              Besonders in der Grenzregion zu Luxemburg, wo höhere Gehälter locken, müssen Arbeitgeber mit anderen Werten überzeugen: Benefits, Weiterentwicklung, Gesundheitsangebote und gelebter Teamkultur.
             </p>
             <p className="font-semibold text-foreground">
-              Denk nicht an „Extras" – denk an Erwartungen.
+              Diese Leistungen sind 2025 keine „Extras" mehr – sie sind Grunderwartungen von Bewerber:innen:
             </p>
             <p>
               Denn genau das sind heute Dinge, die Bewerber voraussetzen:

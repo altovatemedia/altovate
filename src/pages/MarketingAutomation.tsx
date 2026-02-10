@@ -101,20 +101,20 @@ const MarketingAutomation = () => {
 
   const faqs = [
     {
-      question: "Läuft das wirklich automatisch?",
-      answer: "Teilweise – du brauchst weiterhin aktiven Content, um neue Leute in den Funnel zu bringen."
+      question: "Was bedeutet Marketing-Automation genau?",
+      answer: "Marketing-Automation ist die technische Verknüpfung von Marketing-Kanälen (Social Media, E-Mail, Website) zu einem automatisierten Prozess, der Interessenten systematisch zu Kunden entwickelt. Bei Altovate umfasst das typischerweise Anzeigen, Freebies, Chat- oder E-Mail-Sequenzen und ein CRM-System."
     },
     {
-      question: "Wie lange dauert der Aufbau?",
-      answer: "4–8 Wochen bis zur fertigen Automatisierung."
+      question: "Wie lange dauert der Aufbau eines Marketing-Funnels?",
+      answer: "Der Aufbau eines vollständigen Marketing-Funnels dauert bei Altovate 4 bis 8 Wochen. Das umfasst Konzeption, Freebie-Erstellung, Landingpage, E-Mail-Sequenzen und die technische Integration aller Systeme."
     },
     {
-      question: "Welche Tools nutzt ihr?",
-      answer: "Manychat, Mailchimp, Brevo, Zapier, Notion u. a. – immer individuell abgestimmt."
+      question: "Welche Tools setzt Altovate für Marketing-Automation ein?",
+      answer: "Altovate setzt je nach Anforderung auf Manychat (Chat-Automatisierung), Mailchimp oder Brevo (E-Mail-Marketing), Zapier (Workflow-Automatisierung) und Notion (Content-Planung). Die Tool-Auswahl wird individuell auf das Geschäftsmodell abgestimmt."
     },
     {
-      question: "Was kostet das?",
-      answer: "Der Aufwand hängt vom Funnel-Typ ab – wir starten mit einem kostenlosen Strategie-Call."
+      question: "Was kostet Marketing-Automation bei Altovate?",
+      answer: "Die Kosten für Marketing-Automation hängen vom Umfang des Funnels ab. Altovate bietet ein kostenloses Erstgespräch an, in dem Ziel, Aufwand und Budget transparent besprochen werden."
     }
   ];
 
@@ -172,19 +172,17 @@ const MarketingAutomation = () => {
               className="mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">
-                Was Marketing-Automation wirklich ist
+                Was ist Marketing-Automation?
               </h2>
               <div className="prose prose-lg max-w-4xl mx-auto text-muted-foreground">
                 <p className="text-lg leading-relaxed mb-6">
-                  Viele denken: „Automation heißt, alles läuft von allein."<br />
-                  Das stimmt nicht.
+                  Marketing-Automation ist die systematische Verknüpfung von Marketing-Kanälen zu einem automatisierten Prozess. Das Ziel ist es, Interessenten durch eine definierte Abfolge von Kontaktpunkten – von der ersten Aufmerksamkeit bis zur Kaufentscheidung – zu führen.
                 </p>
                 <p className="text-lg leading-relaxed mb-6">
-                  In Wahrheit geht es darum, <strong>Prozesse zu automatisieren</strong> – nicht dein Marketinggefühl zu ersetzen.
+                  Der Unterschied zu klassischem Marketing: Marketing-Automation ersetzt nicht die Strategie, sondern automatisiert die <strong>wiederkehrenden Prozesse</strong> innerhalb einer Strategie – z. B. E-Mail-Sequenzen, Chat-Antworten und Lead-Qualifizierung.
                 </p>
                 <p className="text-lg leading-relaxed mb-8">
-                  Wir bauen Systeme, die dauerhaft Vertrauen schaffen – auch wenn du gerade keine Zeit hast.<br />
-                  Website, Social Media, Freebies und E-Mail-Automation greifen ineinander, um Interessenten Schritt für Schritt zu Kunden zu machen.
+                  So funktioniert ein Funnel bei Altovate: Website, Social Media, Freebies und E-Mail-Automation greifen als System ineinander. Interessenten werden Schritt für Schritt zu qualifizierten Leads entwickelt – auch wenn der Unternehmer gerade keine Zeit für aktives Marketing hat.
                 </p>
               </div>
             </motion.div>
@@ -227,7 +225,7 @@ const MarketingAutomation = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Warum das Sinn macht
+                Die Vorteile von Marketing-Automation
               </h2>
             </motion.div>
 
@@ -258,8 +256,8 @@ const MarketingAutomation = () => {
               className="max-w-4xl mx-auto text-center"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Viele Werbekampagnen sind wie ein Strohfeuer: an, aus, vorbei.<br />
-                <strong>Marketing-Automation ist dein Dauerfeuer</strong> – einmal aufgesetzt, brennt's, bis du stoppst.
+                Der Unterschied zwischen einer Werbekampagne und Marketing-Automation: Eine Kampagne endet, wenn das Budget aufgebraucht ist.<br />
+                <strong>Ein Marketing-Funnel arbeitet dauerhaft</strong> – einmal aufgesetzt, generiert er kontinuierlich Leads, solange der Content-Input besteht.
               </p>
             </motion.div>
           </div>
@@ -369,7 +367,7 @@ const MarketingAutomation = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Für wen das geeignet ist
+                Für wen ist Marketing-Automation geeignet?
               </h2>
             </motion.div>
 
