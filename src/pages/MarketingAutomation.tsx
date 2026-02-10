@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import SEOSchema from "@/components/SEOSchema";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, TrendingUp, Users, Target, Mail, Zap, CheckCircle2, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -128,6 +129,19 @@ const MarketingAutomation = () => {
         />
         <meta name="keywords" content="Marketing Automation Saarburg, Funnel Aufbau Trier, Leadgenerierung Saarland, E-Mail Marketing Luxemburg, Manychat Automatisierung, Sales Funnel Agentur Saar-Mosel" />
       </Helmet>
+      <SEOSchema
+        page="service"
+        faqItems={faqs}
+        service={{
+          name: "Marketing Automation & Funnel-Systeme",
+          description: "Marketing-Automation für mittelständische Unternehmen in Saarburg, Trier & Region. Automatisierte Leadgenerierung mit Manychat, Mailchimp, Brevo und Zapier.",
+          url: "https://altovate.de/marketing-automation-saarburg"
+        }}
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Marketing Automation", url: "https://altovate.de/marketing-automation-saarburg" }
+        ]}
+      />
 
       <NewNavigation />
       <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Marketing Automation" }]} />
