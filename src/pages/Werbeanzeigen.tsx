@@ -5,6 +5,7 @@ import { Target, TrendingUp, Search, Users, BarChart3, CheckCircle2, ArrowRight,
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
@@ -164,6 +165,7 @@ const Werbeanzeigen = () => {
       </Helmet>
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Werbeanzeigen & Performance" }]} />
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-background pt-16">

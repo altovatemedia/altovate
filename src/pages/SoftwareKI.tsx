@@ -6,6 +6,7 @@ import { ArrowRight, Settings, TrendingUp, Zap, Calculator, Clock, Smartphone, B
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import SoftwareContactForm from "@/components/sections/SoftwareContactForm";
 
 const SoftwareKI = () => {
@@ -156,6 +157,7 @@ const SoftwareKI = () => {
       </Helmet>
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Software & KI" }]} />
 
       <div className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}

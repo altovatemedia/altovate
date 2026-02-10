@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { ArrowRight, FileText, TrendingUp, AlertCircle, CheckCircle, MessageSquare, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NewNavigation from '@/components/sections/NewNavigation';
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from '@/components/Footer';
 import BookingModal from '@/components/BookingModal';
 import SEOSchema from '@/components/SEOSchema';
@@ -68,9 +69,10 @@ const Foerderung = () => {
         ]}
       />
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Förderung" }]} />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="pt-8 pb-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">

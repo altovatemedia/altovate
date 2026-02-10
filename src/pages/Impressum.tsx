@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import NewNavigation from '@/components/sections/NewNavigation';
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from '@/components/Footer';
 import SEOSchema from '@/components/SEOSchema';
 
@@ -21,8 +22,9 @@ const Impressum = () => {
       />
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Impressum" }]} />
       
-      <main className="pt-24 pb-16">
+      <main className="pb-16">
         <div className="container mx-auto px-6">
           <div className="max-w-[720px] mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-left">

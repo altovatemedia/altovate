@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import NewNavigation from '@/components/sections/NewNavigation';
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import { CookieBannerWrapper } from '@/components/CookieBanner';
@@ -133,6 +134,7 @@ const Erstkontakt = () => {
         <div className="scroll-progress" style={{ width: '0%' }}></div>
         
         <NewNavigation />
+        <VisualBreadcrumb items={[{ label: "Erstkontakt" }]} />
 
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden px-4 py-20 md:py-32">

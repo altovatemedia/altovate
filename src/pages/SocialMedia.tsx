@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Slider } from '@/components/ui/slider';
 import NewNavigation from '@/components/sections/NewNavigation';
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import ContactFunnel from '@/components/sections/ContactFunnel';
@@ -167,9 +168,10 @@ const SocialMedia = () => {
       <div className="scroll-progress" style={{ width: '0%' }}></div>
       
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Social Media Marketing" }]} />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-8 pb-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="finom-h1 mb-6">Social Media, das funktioniert.</h1>
           <p className="finom-lead text-muted-foreground">

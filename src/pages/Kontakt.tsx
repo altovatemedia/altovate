@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import { CookieBanner } from "@/components/CookieBanner";
@@ -87,11 +88,12 @@ END:VCARD`;
         ]}
       />
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Kontakt" }]} />
       <CookieBanner />
       <ChatBot />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
+      <section className="pt-8 pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
             Kontakt
