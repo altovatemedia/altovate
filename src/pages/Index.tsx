@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
-import FreebieBar from '@/components/sections/FreebieBar';
+
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
 import PainPoints from '@/components/sections/PainPoints';
@@ -78,7 +78,7 @@ const Index = () => {
 
         <div className="scroll-progress" style={{ width: '0%' }}></div>
       
-        <FreebieBar />
+        
         <NewNavigation />
         
         <main>
