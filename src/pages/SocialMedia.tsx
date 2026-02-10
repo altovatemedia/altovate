@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import SEOSchema from '@/components/SEOSchema';
-import { Check, Sparkles, MessageCircle, Search, Loader2, ArrowRight } from 'lucide-react';
+import { Check, Sparkles, MessageCircle, Search, Loader2, ArrowRight, Target, CalendarDays, Camera, Users, Hash, BarChart3, Layout } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -20,30 +20,37 @@ import { toast } from 'sonner';
 
 const workloadItems = [
   {
+    icon: Target,
     title: "Zielgruppenanalyse & Content-Strategie",
     description: "Ich analysiere deine Zielgruppe, definiere Themenwelten und entwickle eine Strategie, die zu deinem Geschäftsmodell passt."
   },
   {
+    icon: CalendarDays,
     title: "Contentplanung & Redaktionskalender",
     description: "Systematische Planung aller Inhalte mit festem Veröffentlichungsrhythmus – kein Raten, kein Improvisieren."
   },
   {
+    icon: Camera,
     title: "Content-Erstellung (Fotos, Reels, Grafiken)",
     description: "Professionelle Produktion von Bildern, Kurzvideos und Design-Vorlagen – abgestimmt auf deine Marke."
   },
   {
+    icon: Users,
     title: "Community Management & Interaktion",
     description: "Kommentare, Direktnachrichten und Engagement – ich sorge dafür, dass deine Community wächst und aktiv bleibt."
   },
   {
+    icon: Hash,
     title: "Hashtag-Strategie & SEO-Optimierung",
     description: "Gezielte Hashtag-Recherche und Profil-Optimierung, damit du von den richtigen Menschen gefunden wirst."
   },
   {
+    icon: BarChart3,
     title: "Performance-Analyse & Reporting",
     description: "Monatliche Auswertung der relevanten Kennzahlen mit klaren Handlungsempfehlungen."
   },
   {
+    icon: Layout,
     title: "Profil-Optimierung & Story-Highlights",
     description: "Dein Profil wird so aufgebaut, dass es professionell wirkt und Besucher sofort verstehen, was du anbietest."
   }
@@ -146,7 +153,10 @@ const SocialMedia = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {workloadItems.map((item, idx) => (
-              <div key={idx} className="finom-card hover-lift">
+              <div key={idx} className="group finom-card hover-lift border border-border/50 hover:border-primary/30 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
                 <h3 className="finom-h3 mb-3">{item.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
