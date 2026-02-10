@@ -155,7 +155,7 @@ const SocialMedia = () => {
             {workloadItems.map((item, idx) => (
               <div
                 key={idx}
-                className="group relative finom-card hover-lift border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden animate-fade-in"
+                className={`group relative finom-card hover-lift border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden animate-fade-in ${idx === workloadItems.length - 1 && workloadItems.length % 2 !== 0 ? 'md:col-span-2 md:max-w-[calc(50%-0.75rem)] md:mx-auto' : ''}`}
                 style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}
               >
                 {/* Accent line top */}
