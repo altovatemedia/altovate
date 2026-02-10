@@ -47,12 +47,14 @@ const PainPoints = () => {
     <section ref={sectionRef} className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          {/* Section header */}
+         {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Du weißt, dass du Marketing brauchst –<br />
-              <span className="text-muted-foreground">aber nicht, wie es sinnvoll in deinen Alltag passt.</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              Warum Marketing bei vielen Unternehmern nicht funktioniert
             </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Die häufigsten Probleme im Online-Marketing für KMU sind fehlende Struktur, keine messbaren Ergebnisse und Abhängigkeit von einzelnen Personen. Diese vier Symptome zeigen, dass kein System vorhanden ist:
+            </p>
           </div>
 
           {/* Pain point list */}

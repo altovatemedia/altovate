@@ -24,20 +24,20 @@ import SEOSchema from '@/components/SEOSchema';
 
 const faqItems = [
   {
-    question: "Muss ich selbst Content machen?",
-    answer: "Nein. Aber du musst verstanden werden. Ich helfe dir, Inhalte zu entwickeln, die deine Zielgruppe erreichen – unabhängig davon, ob du sie selbst erstellst oder wir das gemeinsam lösen."
+    question: "Muss ich als Unternehmer selbst Content erstellen?",
+    answer: "Nein. Altovate entwickelt Content-Strategien und übernimmt auf Wunsch die komplette Erstellung – von der Themenplanung über den Dreh bis zur Veröffentlichung. Voraussetzung ist lediglich, dass du deine Zielgruppe und dein Angebot kennst. Alternativ kann Altovate dir ein System aufbauen, mit dem du selbst effizient Content produzierst."
   },
   {
-    question: "Arbeitest du mit Ads?",
-    answer: "Ja, wenn sie Sinn machen. Werbeanzeigen sind ein Werkzeug, kein Selbstzweck. Wir setzen sie ein, wenn sie dein Ziel schneller erreichen als organische Maßnahmen."
+    question: "Arbeitet Altovate mit bezahlter Werbung (Ads)?",
+    answer: "Ja, wenn bezahlte Werbung das effizienteste Mittel ist, um dein Ziel zu erreichen. Werbeanzeigen auf Meta (Facebook & Instagram) und Google werden eingesetzt, wenn sie schneller und günstiger Ergebnisse liefern als rein organische Maßnahmen. Die Entscheidung basiert auf Daten, nicht auf Bauchgefühl."
   },
   {
-    question: "Langfristige Verträge?",
-    answer: "Nein. Projekte und klare Vereinbarungen. Du buchst konkrete Leistungen mit definierten Ergebnissen. Keine Knebelverträge, keine versteckten Laufzeiten."
+    question: "Gibt es langfristige Vertragsbindungen?",
+    answer: "Nein. Altovate arbeitet projektbasiert mit klar definierten Leistungen und Ergebnissen. Es gibt keine Knebelverträge und keine versteckten Laufzeiten. Jede Zusammenarbeit beginnt mit einer Strategie-Session, die einzeln buchbar ist."
   },
   {
-    question: "Für wen ist das nichts?",
-    answer: "Für alle, die schnelle Likes wollen. Wenn es dir um Reichweite ohne Substanz geht, bin ich der falsche Ansprechpartner. Ich arbeite mit Unternehmern, die echte Ergebnisse suchen."
+    question: "Für wen ist Altovate nicht geeignet?",
+    answer: "Altovate ist nicht geeignet für Unternehmer, die schnelle Likes und Follower-Zahlen als Ziel definieren. Der Fokus liegt auf messbaren Geschäftsergebnissen wie qualifizierten Anfragen, Terminbuchungen und Umsatz. Wenn Reichweite ohne Vertriebsziel im Vordergrund steht, ist Altovate der falsche Ansprechpartner."
   }
 ];
 

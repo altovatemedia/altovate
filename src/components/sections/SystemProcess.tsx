@@ -33,11 +33,14 @@ const SystemProcess = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+           <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               So entsteht <span className="text-primary">planbarer Vertrieb</span><br />
               über Content
             </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              So funktioniert Content-basierter Vertrieb: Zuerst wird die Zielgruppe definiert, dann entsteht Content mit klarer Funktion. Über ein Lead-System werden Interessenten erfasst und an den Vertrieb übergeben. Jeder Schritt ist messbar und dokumentiert.
+            </p>
           </div>
 
           {/* Process Steps */}

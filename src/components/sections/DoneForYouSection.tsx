@@ -66,7 +66,7 @@ const DoneForYouSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
+         {/* Header */}
           <div className="text-center mb-16">
             <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
               <Crown className="w-8 h-8 text-primary" />
@@ -75,22 +75,20 @@ const DoneForYouSection = () => {
               Done for You
             </h2>
             <p className="text-xl text-primary font-medium mb-6">
-              Marketing als vollständiges System
-            </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Die komplette Verantwortung liegt bei uns.
+              Marketing als vollständiges System – komplett ausgelagert
             </p>
           </div>
 
-          {/* Description */}
+          {/* Definition */}
           <div className="mb-12">
-            <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-8">
-              Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern
-              oder auf mehrere Schultern verteilen wollen.
+            <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
+              Done for You ist ein Betreuungsmodell, bei dem Altovate die komplette Marketing-Architektur übernimmt. Das umfasst Strategie, Content-Produktion, Kampagnensteuerung, technischen Aufbau und laufende Optimierung.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
+              Der Vorteil von Done for You ist, dass Unternehmer kein internes Marketing-Team aufbauen müssen. Stattdessen erhalten sie ein funktionierendes System mit dokumentierten Prozessen und regelmäßigem Reporting.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto">
-              Wir übernehmen den gesamten Prozess:
-              von der strategischen Idee über die Umsetzung bis zur laufenden Auswertung.
+              Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern wollen und einen festen Ansprechpartner für die gesamte Umsetzung suchen.
             </p>
           </div>
 

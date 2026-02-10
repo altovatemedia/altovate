@@ -22,13 +22,12 @@ const WhyNotFree = () => {
 
               {/* Content */}
               <div className="flex-1 space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Ich verschenke keine Beratung.
+               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Warum es keine kostenlosen Erstgespräche gibt
                 </h2>
 
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  In meinen Gesprächen entsteht echter strategischer Wert.<br />
-                  Deshalb sind alle Sessions bezahlt.
+                  Eine Strategie-Session bei Altovate ist keine Verkaufsveranstaltung, sondern eine vollwertige Beratungsleistung. In 60 oder 90 Minuten entsteht eine konkrete Analyse der aktuellen Situation mit priorisierten Handlungsempfehlungen. Deshalb sind alle Sessions kostenpflichtig.
                 </p>
 
                 <div className="pt-4">
