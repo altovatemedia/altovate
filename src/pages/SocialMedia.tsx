@@ -151,14 +151,32 @@ const SocialMedia = () => {
               Ein funktionierender Social-Media-Auftritt ist kein einzelner Post – sondern ein System aus Strategie, Produktion und Analyse.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {workloadItems.map((item, idx) => (
-              <div key={idx} className="group finom-card hover-lift border border-border/50 hover:border-primary/30 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
-                  <item.icon className="w-6 h-6 text-primary" />
+              <div
+                key={idx}
+                className="group relative finom-card hover-lift border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden animate-fade-in"
+                style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}
+              >
+                {/* Accent line top */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/60 to-primary/10 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+
+                <div className="flex items-start gap-5">
+                  {/* Number badge */}
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
+                      {idx + 1}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="finom-h3 mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-                <h3 className="finom-h3 mb-3">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
