@@ -70,8 +70,8 @@ const AboutFounder = () => {
                 </p>
                 
                 <p className="text-base text-foreground leading-relaxed">
-                  Bei uns bekommst du keine Standard-Pakete und auch kein „Wir machen einfach, was du sagst". 
-                  Wir hören zu, denken mit – und sagen dir ehrlich, wenn eine Idee Quatsch ist. Stattdessen 
+                  Bei mir bekommst du keine Standard-Pakete und auch kein „Ich mach einfach, was du sagst". 
+                  Ich höre zu, denke mit – und sage dir ehrlich, wenn eine Idee Quatsch ist. Stattdessen 
                   bekommst du das, was wirklich zu dir passt: kreative Konzepte, ehrliche Beratung und 
                   Marketing, das funktioniert.
                 </p>
@@ -81,7 +81,7 @@ const AboutFounder = () => {
               <div className="pt-6">
                 <img 
                   src={signatureImage} 
-                  alt="Alexander Unterschrift" 
+                  alt="Alex Unterschrift" 
                   className="h-16 w-auto mb-2"
                 />
                 <p className="text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ const AboutFounder = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={alexanderPortrait}
-                    alt="Alexander - Gründer von Altovate" 
+                    alt="Alex Buchmann - Gründer von Altovate" 
                     className="w-full h-auto object-cover"
                   />
                   {/* Subtle overlay gradient */}
@@ -126,8 +126,8 @@ const AboutFounder = () => {
               <p className="text-sm text-muted-foreground">Branchen betreut</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{teamCount.count}</div>
-              <p className="text-sm text-muted-foreground">Experten im Team</p>
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">1:1</div>
+              <p className="text-sm text-muted-foreground">Direkter Ansprechpartner</p>
             </div>
           </div>
         </div>

@@ -74,7 +74,7 @@ END:VCARD`;
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Kontakt | altovate GmbH – Saarburg</title>
-        <meta name="description" content="Kontaktiere altovate für Marketing-Beratung in Saarburg & Region. Termin buchen, anrufen oder schreiben. Alexander Buchmann freut sich auf dein Projekt." />
+        <meta name="description" content="Kontaktiere altovate für Marketing-Beratung in Saarburg & Region. Termin buchen, anrufen oder schreiben. Alex Buchmann freut sich auf dein Projekt." />
         <link rel="canonical" href="https://altovate.de/kontakt" />
         <meta property="og:title" content="Kontakt | altovate GmbH" />
         <meta property="og:description" content="Kontaktiere altovate für Marketing-Beratung. Termin buchen, anrufen oder schreiben." />
@@ -204,7 +204,7 @@ END:VCARD`;
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">LinkedIn</p>
-                      <p className="text-lg font-medium text-foreground">Alexander Buchmann</p>
+                      <p className="text-lg font-medium text-foreground">Alex Buchmann</p>
                     </div>
                   </a>
 
