@@ -46,7 +46,7 @@ const Offers = () => {
     },
     {
       icon: Building,
-      title: "System-Aufbau",
+      title: "Social Media Setup",
       duration: "Projektbasiert",
       price: "ab 1.800",
       forWho: [
@@ -57,7 +57,8 @@ const Offers = () => {
       results: [],
       note: "Kein Paket von der Stange. Umsetzung nur nach Strategie-Session.",
       cta: "Termin anfragen",
-      offerType: "System-Aufbau"
+      offerType: "Social Media Setup",
+      isFundingReduced: true
     }
   ];
 
@@ -77,7 +78,7 @@ const Offers = () => {
             </h2>
           </div>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-16 leading-relaxed">
-            Altovate bietet drei Angebotsformate: eine 60-Minuten-Strategie-Session für erste Klarheit, eine 90-Minuten-Session für konkrete Konzepte und einen projektbasierten System-Aufbau für die vollständige Umsetzung. Alle Formate sind einzeln buchbar – ohne Abo oder Mindestlaufzeit.
+            Altovate bietet drei Angebotsformate: eine 60-Minuten-Strategie-Session für erste Klarheit, eine 90-Minuten-Session für konkrete Konzepte und ein projektbasiertes Social Media Setup für die vollständige Umsetzung. Alle Formate sind einzeln buchbar – ohne Abo oder Mindestlaufzeit.
           </p>
 
           {/* Offer Cards */}
@@ -110,7 +111,7 @@ const Offers = () => {
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-6 bg-primary/10 hover:bg-primary/15 text-primary text-xs font-medium rounded-full transition-colors"
                 >
                   <BadgePercent className="w-3.5 h-3.5" />
-                  Bis zu 80% förderfähig
+                  {'isFundingReduced' in offer ? 'Bis zu 50% förderfähig' : 'Bis zu 80% förderfähig'}
                 </Link>
 
                 {/* For Who */}

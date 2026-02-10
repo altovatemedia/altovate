@@ -76,7 +76,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#angebote" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    System-Aufbau
+                    Social Media Setup
                   </a>
                 </li>
               </ul>
