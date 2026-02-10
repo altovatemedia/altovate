@@ -1,5 +1,7 @@
+import { Helmet } from 'react-helmet';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from "@/components/sections/NewNavigation";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
@@ -69,6 +71,21 @@ END:VCARD`;
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Kontakt | altovate GmbH – Saarburg</title>
+        <meta name="description" content="Kontaktiere altovate für Marketing-Beratung in Saarburg & Region. Termin buchen, anrufen oder schreiben. Alexander Buchmann freut sich auf dein Projekt." />
+        <link rel="canonical" href="https://altovate.de/kontakt" />
+        <meta property="og:title" content="Kontakt | altovate GmbH" />
+        <meta property="og:description" content="Kontaktiere altovate für Marketing-Beratung. Termin buchen, anrufen oder schreiben." />
+        <meta property="og:url" content="https://altovate.de/kontakt" />
+      </Helmet>
+      <SEOSchema
+        page="contact"
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Kontakt", url: "https://altovate.de/kontakt" }
+        ]}
+      />
       <NewNavigation />
       <CookieBanner />
       <ChatBot />

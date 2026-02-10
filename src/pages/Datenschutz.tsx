@@ -1,9 +1,16 @@
+import { Helmet } from 'react-helmet';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 
 const Datenschutz = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Datenschutzerklärung | altovate GmbH</title>
+        <meta name="description" content="Datenschutzerklärung der altovate GmbH gemäß DSGVO. Informationen zur Erhebung und Verarbeitung personenbezogener Daten." />
+        <link rel="canonical" href="https://altovate.de/datenschutz" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <NewNavigation />
       
       <main className="pt-24 pb-16">

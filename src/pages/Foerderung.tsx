@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { ArrowRight, FileText, TrendingUp, AlertCircle, CheckCircle, MessageSquare, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import BookingModal from '@/components/BookingModal';
+import SEOSchema from '@/components/SEOSchema';
 
 const Foerderung = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -50,6 +52,21 @@ const Foerderung = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Förderung für Marketing & Beratung | Bis zu 80 % Zuschuss – altovate</title>
+        <meta name="description" content="Staatliche Förderung für Marketing-Beratung: Bis zu 80 % Zuschuss für Strategie-Sessions und 1:1 Zusammenarbeit. Altovate begleitet den Antragsprozess." />
+        <link rel="canonical" href="https://altovate.de/foerderung" />
+        <meta property="og:title" content="Förderung für Marketing & Beratung | altovate" />
+        <meta property="og:description" content="Bis zu 80 % staatliche Förderung für Marketing-Beratung. Altovate begleitet den Antragsprozess." />
+        <meta property="og:url" content="https://altovate.de/foerderung" />
+      </Helmet>
+      <SEOSchema
+        page="service"
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Förderung", url: "https://altovate.de/foerderung" }
+        ]}
+      />
       <NewNavigation />
       
       {/* Hero */}
