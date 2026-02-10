@@ -1,9 +1,25 @@
+import { Helmet } from 'react-helmet';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
+import SEOSchema from '@/components/SEOSchema';
 
 const Impressum = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Impressum | altovate GmbH – Saarburg</title>
+        <meta name="description" content="Impressum der altovate GmbH, Max-Planck-Straße 6, 54439 Saarburg. Geschäftsführer Alexander Buchmann." />
+        <link rel="canonical" href="https://altovate.de/impressum" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
+      <SEOSchema
+        page="legal"
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Impressum", url: "https://altovate.de/impressum" }
+        ]}
+      />
+
       <NewNavigation />
       
       <main className="pt-24 pb-16">

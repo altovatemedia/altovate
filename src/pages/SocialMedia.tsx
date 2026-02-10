@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import SEOSchema from '@/components/SEOSchema';
 import { Check, ArrowRight, Star, Sparkles, MessageCircle, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -144,6 +146,23 @@ const SocialMedia = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Social Media Marketing Saarburg | Content & Betreuung – altovate</title>
+        <meta name="description" content="Social Media Marketing für Unternehmen in Saarburg & Region. Content-Erstellung, Instagram-Betreuung und Reels-Produktion. Pakete ab 290 €." />
+        <link rel="canonical" href="https://altovate.de/socialmedia" />
+        <meta property="og:title" content="Social Media Marketing Saarburg | altovate" />
+        <meta property="og:description" content="Social Media Marketing für Unternehmen. Content-Erstellung, Instagram-Betreuung und Reels-Produktion." />
+        <meta property="og:url" content="https://altovate.de/socialmedia" />
+      </Helmet>
+      <SEOSchema
+        page="service"
+        service={{ name: "Social Media Marketing", description: "Content-Erstellung, Instagram-Betreuung und Reels-Produktion für Unternehmen in Saarburg und Region.", url: "https://altovate.de/socialmedia" }}
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Social Media Marketing", url: "https://altovate.de/socialmedia" }
+        ]}
+      />
+
       {/* Scroll Progress Indicator */}
       <div className="scroll-progress" style={{ width: '0%' }}></div>
       
