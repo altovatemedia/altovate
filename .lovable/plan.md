@@ -1,58 +1,70 @@
 
 
-## Ziel
-Den "Über mich"-Abschnitt auf der Startseite authentischer gestalten: Ich-Perspektive statt 3. Person, "Alex" statt "Alexander", und den Ton so anpassen, dass es nicht nach großer Agentur klingt, sondern nach einem Unternehmer, der direkt mit seinen Kunden arbeitet.
+## Werbeanzeigen-Seite: Fokus auf Meta Ads + "Slots belegt"-Logik
 
-## Betroffene Dateien
+### Zusammenfassung
 
-### 1. `src/components/sections/AboutAlex.tsx` (Hauptseite – aktiv)
-Kompletter Text-Rewrite in Ich-Form:
+Die Werbeanzeigen-Unterseite wird grundlegend umgebaut: Weg von einer Preisliste mit Starter/Pro/Betreuung, hin zu einer informativen Seite, die den Umfang und die Komplexitaet von Meta Ads erklaert -- ohne konkrete Preise. Besucher sollen verstehen, was alles dazugehoert (Strategie, Creative, Targeting, Analyse), und dass Kapazitaeten aktuell begrenzt sind.
 
-- **Headline**: "Über Alexander Buchmann" wird zu "Über Alex Buchmann" (oder einfach "Über mich")
-- **Text umschreiben** von 3. Person ("Er entwickelt...") zu 1. Person ("Ich entwickle..."):
-  - Absatz 1: Kurze Vorstellung – wer ich bin, was ich mache, wo ich sitze
-  - Absatz 2: Schwerpunkt/Arbeitsweise – direkt und persönlich formuliert
-  - Absatz 3: Warum bewusst kein großes Team – "Du arbeitest direkt mit mir" statt "Unternehmer arbeiten direkt mit Alexander Buchmann"
+### Was sich aendert
 
-### 2. `src/components/sections/AboutFounder.tsx` (aktuell nicht eingebunden)
-- Gleiche Anpassungen der Texte für Konsistenz, falls die Komponente später reaktiviert wird
-- "Alexander" durch "Alex" ersetzen wo sinnvoll
-- Statistik "5 Experten im Team" entfernen oder anpassen (passt nicht zum Solopreneur-Bild)
-- "Bei uns" / "Wir" durch "Bei mir" / "Ich" ersetzen
+**1. Google Ads entfernen** (`src/pages/Werbeanzeigen.tsx`)
+- Die `channels`-Array-Eintraege werden auf nur Meta Ads reduziert (Push-Marketing Card bleibt, Pull-Marketing/Google wird entfernt)
+- Der Hinweis "Beide Kanaele lassen sich kombinieren" faellt weg
+- Die Kanalsektion wird zu einer einzelnen, ausfuehrlicheren Erklaerung von Meta Ads (Facebook + Instagram)
+- SEO-Meta-Tags: "Meta- und Google-Ads" wird zu "Meta Ads (Facebook & Instagram)"
 
-### 3. `src/pages/Kontakt.tsx`
-- Meta-Description: "Alexander Buchmann" zu "Alex Buchmann"
-- LinkedIn-Anzeigename: "Alexander Buchmann" zu "Alex Buchmann"
+**2. Preise-Sektion komplett ersetzen** (Zeilen 532-601)
+- Die drei Pricing Cards (Basic/Pro/Betreuung) werden entfernt
+- Stattdessen eine neue Sektion: "Was eine professionelle Meta-Ads-Betreuung umfasst"
+- Darstellung als Aufwands-Uebersicht (aehnlich wie bei DoneForYouSection), z.B.:
+  - Zielgruppenanalyse & Marktrecherche
+  - Kampagnenstruktur & Anzeigengruppen
+  - Creative-Erstellung (Text, Bild, Video)
+  - Pixel- & Conversion-Tracking Setup
+  - A/B-Testing & Hook-Strategien
+  - Laufende Optimierung & Budget-Steuerung
+  - Monatliches Reporting & Auswertung
+- Ziel: Besucher sollen denken "das ist viel Arbeit, das kostet sicher einiges"
 
-### 4. `src/components/SEOSchema.tsx`
-- Schema.org founder name: bleibt "Alexander Buchmann" (offizieller juristischer Name ist hier korrekt für structured data)
+**3. "Slots belegt" + Warteliste** (ersetzt den CTA-Bereich)
+- Status-Badge: "Kapazitaet aktuell ausgelastet" (aehnlich DoneForYouSection)
+- Erklaertext: Kurzer Hinweis, dass Meta-Ads-Betreuung angeboten wird, aber die Plaetze limitiert sind
+- Warteliste-Formular (E-Mail + Consent) -- gleiche Logik wie DoneForYouSection mit `send-contact-email` Edge Function, inquiry type "waitlist-ads"
+- Alternativ-Hinweis: Verweis auf Strategie-Session als sofort buchbare Option
 
-### 5. `src/pages/Impressum.tsx`
-- Bleibt unverändert – "Geschäftsführer Alexander Buchmann" ist die rechtlich korrekte Angabe
+**4. Prozess-Timeline anpassen** (Zeilen 74-100)
+- "Wir" durch "Ich" ersetzen (konsistent mit Ich-Perspektive)
+- Google-spezifische Referenzen entfernen
+- Schritte bleiben inhaltlich aehnlich, nur auf Meta Ads fokussiert
 
-## Textvorschlag AboutAlex (Ich-Perspektive)
+**5. FAQ anpassen** (Zeilen 138-155)
+- Google-Referenzen entfernen
+- Frage zu Kanalkombination entfernen oder anpassen
+- Optional: Neue FAQ "Warum nur Meta Ads?" hinzufuegen
 
-```
-Headline: Über Alex Buchmann
+### Was gleich bleibt
+- Hero-Section (Headline, Parallax-Effekt, Animationen)
+- "Was ist Performance-Marketing?"-Erklaersektion
+- Kreisblatt-Vergleichssektion
+- Vorteile-Cards (Zielgerichtet, Messbar, Effizient)
+- InternalLinks-Komponente am Ende
+- Footer, Navigation, Breadcrumbs
 
-Absatz 1:
-Ich bin Gründer der altovate GmbH in Saarburg und entwickle
-Marketing-Systeme für mittelständische Unternehmen in der
-Region Saar-Mosel, Trier und Luxemburg.
+### Technische Details
 
-Absatz 2:
-Mein Schwerpunkt liegt an der Schnittstelle von Content-Strategie,
-Marketing-Automatisierung und Vertriebssystem-Aufbau. Der Ansatz
-ist klar: dokumentierte Prozesse, messbare Ergebnisse und
-Unabhängigkeit von einzelnen Dienstleistern.
+**Datei:** `src/pages/Werbeanzeigen.tsx`
 
-Absatz 3 (hervorgehoben):
-Altovate ist bewusst keine große Agentur. Du arbeitest direkt
-mit mir – ohne Umwege über Projektmanager oder Junior-Teams.
-```
+Aenderungen im Detail:
+- `channels`-Array: Google-Eintrag entfernen, Meta-Eintrag ausfuehrlicher gestalten
+- `packages`-Array: Komplett entfernen
+- `steps`-Array: "Wir" zu "Ich", Google-Referenzen raus
+- `faqs`-Array: Google-Referenzen entfernen, neue FAQ ergaenzen
+- Pricing-Sektion (Zeilen 532-601): Ersetzen durch Leistungsuebersicht + Warteliste
+- Kanal-Sektion (Zeilen 403-447): Auf eine Karte reduzieren
+- CTA-Sektion (Zeilen 638-705): Anpassen auf "Interesse bekunden" statt "Jetzt starten"
+- Meta-Tags: Google-Referenzen entfernen
+- Neuer State fuer Warteliste (email, consent, isSubmitting, isSubmitted) -- gleiche Pattern wie DoneForYouSection
 
-## Was sich nicht ändert
-- Layout, Bild, Styling und Animationen bleiben identisch
-- Impressum bleibt bei "Alexander Buchmann" (rechtlich erforderlich)
-- SEOSchema bleibt bei "Alexander Buchmann" (structured data / offizieller Name)
-- vCard bleibt bei "Alex Buchmann" (ist bereits korrekt)
+**Keine neuen Dateien noetig** -- alles innerhalb der bestehenden Komponente.
+
