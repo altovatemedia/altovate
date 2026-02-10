@@ -21,6 +21,7 @@ import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import { CookieBannerWrapper } from '@/components/CookieBanner';
 import SEOSchema from '@/components/SEOSchema';
+import StickyMobileCTA from '@/components/StickyMobileCTA';
 
 const faqItems = [
   {
@@ -102,6 +103,7 @@ const Index = () => {
         
         <Footer />
         <ChatBot />
+        <StickyMobileCTA />
         <CookieBannerWrapper />
       </motion.div>
     </AnimatePresence>

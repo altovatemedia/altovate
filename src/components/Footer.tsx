@@ -1,8 +1,18 @@
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
 import altovateIcon from '@/assets/altovate-icon.png';
 import bniBadge from '@/assets/bni-badge.png';
+import BookingModal from '@/components/BookingModal';
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState('');
+
+  const handleBooking = (offerType: string) => {
+    setSelectedOffer(offerType);
+    setIsModalOpen(true);
+  };
+
   return (
     <footer className="bg-[#1a1a1a] relative overflow-hidden">
       {/* Subtle decorative elements */}
@@ -65,14 +75,14 @@ const Footer = () => {
               <h3 className="font-semibold mb-6 text-sm text-white uppercase tracking-wider">Angebote</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="https://calendly.com/altovate/60min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                  <button onClick={() => handleBooking('Strategie-Session 60 Minuten')} className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
                     Strategie-Session 60 Min
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="https://calendly.com/altovate/90min" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                  <button onClick={() => handleBooking('Strategie-Session 90 Minuten')} className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
                     Strategie-Session 90 Min
-                  </a>
+                  </button>
                 </li>
                 <li>
                   <a href="#angebote" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
@@ -167,6 +177,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        offerType={selectedOffer}
+      />
     </footer>
   );
 };

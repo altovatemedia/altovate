@@ -102,7 +102,7 @@ const Offers = () => {
                 {/* Price */}
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-foreground">{offer.price} €</span>
-                  <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
+                  <span className="text-sm text-muted-foreground ml-2">zzgl. MwSt.</span>
                 </div>
                 
                 {/* Funding Badge */}
@@ -157,6 +157,13 @@ const Offers = () => {
                 </Button>
               </div>
             ))}
+          </div>
+
+          {/* Klarheitsversprechen */}
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-sm italic">
+              „Wenn du nach der Session keinen klaren nächsten Schritt hast, war sie nicht gut genug."
+            </p>
           </div>
         </div>
       </div>
