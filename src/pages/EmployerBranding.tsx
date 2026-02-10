@@ -10,6 +10,7 @@ import {
 import NewNavigation from "@/components/sections/NewNavigation";
 import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
+import InternalLinks from "@/components/sections/InternalLinks";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const EmployerBranding = () => {
@@ -779,6 +780,7 @@ const EmployerBranding = () => {
         </Button>
       </div>
 
+      <InternalLinks currentPage="/employer-branding-saarburg" />
       <Footer />
     </>
   );

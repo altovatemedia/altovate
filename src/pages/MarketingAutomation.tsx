@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
 import VisualBreadcrumb from '@/components/VisualBreadcrumb';
+import InternalLinks from "@/components/sections/InternalLinks";
 
 const MarketingAutomation = () => {
   useEffect(() => {
@@ -489,6 +490,7 @@ const MarketingAutomation = () => {
         </div>
       </div>
 
+      <InternalLinks currentPage="/marketing-automation-saarburg" />
       <Footer />
     </>
   );

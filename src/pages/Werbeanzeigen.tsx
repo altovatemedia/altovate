@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import InternalLinks from "@/components/sections/InternalLinks";
 
 const Werbeanzeigen = () => {
   const navigate = useNavigate();
@@ -689,6 +690,7 @@ const Werbeanzeigen = () => {
         </div>
       </section>
 
+      <InternalLinks currentPage="/werbeanzeigen-saarburg" />
       <Footer />
     </>
   );
