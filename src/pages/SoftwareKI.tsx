@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
 import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import SoftwareContactForm from "@/components/sections/SoftwareContactForm";
+import InternalLinks from "@/components/sections/InternalLinks";
 
 const SoftwareKI = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -486,6 +487,7 @@ const SoftwareKI = () => {
         </DialogContent>
       </Dialog>
 
+      <InternalLinks currentPage="/software-ki-loesungen-saarburg" />
       <Footer />
     </>
   );
