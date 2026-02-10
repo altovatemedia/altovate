@@ -5,6 +5,7 @@ import { ArrowRight, Clock, TrendingUp, Users, Target, Mail, Zap, CheckCircle2, 
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 
 const MarketingAutomation = () => {
   useEffect(() => {
@@ -129,6 +130,7 @@ const MarketingAutomation = () => {
       </Helmet>
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Marketing Automation" }]} />
 
       <div className="min-h-screen bg-background text-foreground">
         {/* Hero Section */}

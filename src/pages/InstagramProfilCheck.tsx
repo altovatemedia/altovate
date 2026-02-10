@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 
@@ -125,6 +126,7 @@ export default function InstagramProfilCheck() {
       </Helmet>
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Instagram Profil-Check" }]} />
 
       <main className="min-h-screen bg-background pt-24 pb-16">
         {/* Hero Section */}

@@ -8,6 +8,7 @@ import {
   Megaphone, Users, CheckCircle2, ArrowRight 
 } from "lucide-react";
 import NewNavigation from "@/components/sections/NewNavigation";
+import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -132,6 +133,7 @@ const EmployerBranding = () => {
       </Helmet>
 
       <NewNavigation />
+      <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Employer Branding" }]} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
