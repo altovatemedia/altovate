@@ -22,6 +22,7 @@ import ChatBot from '@/components/ChatBot';
 import { CookieBannerWrapper } from '@/components/CookieBanner';
 import SEOSchema from '@/components/SEOSchema';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
+import ExitIntentBanner from '@/components/ExitIntentBanner';
 
 const faqItems = [
   {
@@ -105,6 +106,7 @@ const Index = () => {
         <ChatBot />
         <StickyMobileCTA />
         <CookieBannerWrapper />
+        <ExitIntentBanner />
       </motion.div>
     </AnimatePresence>
   );
