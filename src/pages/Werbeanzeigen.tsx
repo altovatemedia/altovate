@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Target, TrendingUp, Search, Users, BarChart3, CheckCircle2, ArrowRight, Megaphone, MousePointerClick } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import SEOSchema from "@/components/SEOSchema";
 import NewNavigation from "@/components/sections/NewNavigation";
 import VisualBreadcrumb from '@/components/VisualBreadcrumb';
 import Footer from "@/components/Footer";
@@ -163,6 +164,19 @@ const Werbeanzeigen = () => {
         <meta name="keywords" content="Werbeanzeigen Saarburg, Performance Marketing Agentur Saarland, Meta Ads Saar, Facebook Werbung Trier, Google Ads Betreuung Region Saarburg, Online Werbung für Unternehmen" />
         <link rel="canonical" href="https://altovate.de/werbeanzeigen-saarburg" />
       </Helmet>
+      <SEOSchema
+        page="service"
+        faqItems={faqs}
+        service={{
+          name: "Performance-Marketing & Werbeanzeigen",
+          description: "Online-Werbung für Unternehmen aus Saarburg, Trier & Region – messbar, regional & effizient. Meta Ads, Google Ads und datenbasierte Kampagnenoptimierung.",
+          url: "https://altovate.de/werbeanzeigen-saarburg"
+        }}
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Werbeanzeigen & Performance", url: "https://altovate.de/werbeanzeigen-saarburg" }
+        ]}
+      />
 
       <NewNavigation />
       <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Werbeanzeigen & Performance" }]} />

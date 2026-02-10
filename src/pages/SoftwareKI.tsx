@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import SEOSchema from "@/components/SEOSchema";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, Settings, TrendingUp, Zap, Calculator, Clock, Smartphone, Brain, Lightbulb, Code, Lock, MessageSquare, ChevronRight } from "lucide-react";
@@ -155,6 +156,19 @@ const SoftwareKI = () => {
         />
         <meta name="keywords" content="Software Entwicklung Saarburg, KI Tools Trier, digitale Prozesse Automatisierung Saarland, App Entwicklung Luxemburg, Web-Tools für Unternehmen, individueller Rechner Programmierung" />
       </Helmet>
+      <SEOSchema
+        page="service"
+        faqItems={faqs}
+        service={{
+          name: "Individuelle Software & KI-Lösungen",
+          description: "Individuelle Software-Entwicklung und KI-Integration für Unternehmen in Saarburg, Trier & Region. React, Next.js, Supabase und GPT-APIs.",
+          url: "https://altovate.de/software-ki-loesungen-saarburg"
+        }}
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Software & KI", url: "https://altovate.de/software-ki-loesungen-saarburg" }
+        ]}
+      />
 
       <NewNavigation />
       <VisualBreadcrumb items={[{ label: "Lösungen", href: "/#angebote" }, { label: "Software & KI" }]} />
