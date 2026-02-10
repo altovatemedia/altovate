@@ -92,6 +92,13 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>E-Mail:</strong> ${email}</p>
         <p>Diese Person möchte informiert werden, wenn ein Platz im Done for You Modell frei wird.</p>
       `;
+    } else if (type === 'waitlist-ads') {
+      subject = `Neue Wartelisten-Eintragung: Meta Ads Betreuung`;
+      htmlContent = `
+        <h2>Warteliste: Meta Ads Betreuung</h2>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        <p>Diese Person möchte informiert werden, wenn ein Platz für die Meta-Ads-Betreuung frei wird.</p>
+      `;
     } else {
       // Default contact form
       htmlContent += `
