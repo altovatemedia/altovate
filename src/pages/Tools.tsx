@@ -12,7 +12,8 @@ import typelessLogo from '@/assets/tools/typeless-logo.png';
 import whisprflowLogo from '@/assets/tools/whisprflow-logo.svg';
 import lovableLogo from '@/assets/tools/lovable-logo.png';
 
-const CopyCodeButton = ({ code }: { code: string; }) => {
+// eslint-disable-next-line react-refresh/only-export-components
+const CopyCodeButton = ({ code }: { code: string }) => {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
