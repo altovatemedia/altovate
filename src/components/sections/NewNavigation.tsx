@@ -22,7 +22,7 @@ const NewNavigation = () => {
   const navItems = [
     { name: 'Lösungen', href: '#signature-offer', hasDropdown: true },
     { name: 'Case Studies', href: '#proof', hasDropdown: false },
-    { name: 'Preis', href: '#pricing', hasDropdown: false },
+    { name: 'Preis', href: '#angebote', hasDropdown: false },
   ];
 
   const dropdownItems = [
