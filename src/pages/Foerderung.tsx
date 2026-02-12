@@ -72,7 +72,7 @@ const Foerderung = () => {
       <VisualBreadcrumb items={[{ label: "Förderung" }]} />
       
       {/* Hero */}
-      <section className="pt-8 pb-16 bg-muted/30">
+      <section className="pt-8 pb-16 bg-gradient-to-b from-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">

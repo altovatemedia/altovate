@@ -104,7 +104,7 @@ const MarketingAutomation = () => {
         </section>
 
         {/* Was ist Marketing Automation */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">Was ist Marketing-Automation?</h2>
@@ -164,7 +164,7 @@ const MarketingAutomation = () => {
         </section>
 
         {/* Examples */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-8">Praxisbeispiele</h2>
@@ -221,7 +221,7 @@ const MarketingAutomation = () => {
         </section>
 
         {/* Target Groups */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-8">Für wen ist Marketing-Automation geeignet?</h2>
@@ -263,7 +263,7 @@ const MarketingAutomation = () => {
         </section>
 
         {/* Final CTA */}
-        <section id="contact-cta" className="py-20 bg-muted/30">
+        <section id="contact-cta" className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Dein Marketing muss nicht automatisch laufen – aber es darf für dich arbeiten.</h2>

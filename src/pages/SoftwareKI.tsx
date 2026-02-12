@@ -115,7 +115,7 @@ const SoftwareKI = () => {
         </section>
 
         {/* Warum eigene Software */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">Warum individuelle Software für KMU sinnvoll ist</h2>
@@ -168,7 +168,7 @@ const SoftwareKI = () => {
         </section>
 
         {/* Timeline */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-8">So funktioniert ein Software-Projekt mit Altovate</h2>

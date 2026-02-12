@@ -336,7 +336,7 @@ const Werbeanzeigen = () => {
       </section>
 
       {/* Why it makes sense */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
@@ -431,7 +431,7 @@ const Werbeanzeigen = () => {
       </section>
 
       {/* Process Timeline */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
              <motion.h2 
@@ -610,7 +610,7 @@ const Werbeanzeigen = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">

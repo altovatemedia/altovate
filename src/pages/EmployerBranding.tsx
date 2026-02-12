@@ -137,7 +137,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* How it works Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             So funktioniert Mitarbeitergewinnung 2025
@@ -198,7 +198,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             Starke Partner für starke Arbeitgeber
@@ -237,7 +237,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-16 text-foreground text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             Wie wir dich unterstützen
@@ -308,7 +308,7 @@ const EmployerBranding = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
         <div className="container mx-auto px-6">
           <motion.h2 className="text-4xl md:text-5xl font-bold mb-12 text-foreground text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>FAQ</motion.h2>
           <motion.div className="max-w-3xl mx-auto" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
