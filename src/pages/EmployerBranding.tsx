@@ -145,9 +145,9 @@ const EmployerBranding = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { icon: X, title: "Authentizität statt Floskeln", desc: "Stellenanzeigen mit Phrasen wie „flache Hierarchie" und „Obstkorb" erzeugen keine Bewerbungen mehr. Bewerber:innen erwarten konkrete, überprüfbare Informationen über den Arbeitsalltag." },
-              { icon: Target, title: "Arbeitgebermarke als System", desc: "Eine authentische Arbeitgebermarke zeigt den realen Arbeitsalltag: Team, Räumlichkeiten, Kultur und Werte. Altovate entwickelt dieses Bild systematisch über Content, Social Media und Kampagnen." },
-              { icon: Smartphone, title: "Sichtbarkeit auf den richtigen Kanälen", desc: "Potenzielle Mitarbeiter:innen sind auf Instagram, Facebook und LinkedIn aktiv – nicht im Kreisblatt. Employer Branding muss dort stattfinden, wo die Zielgruppe ihre Zeit verbringt." }
+              { icon: X, title: "Authentizität statt Floskeln", desc: `Stellenanzeigen mit Phrasen wie „flache Hierarchie" und „Obstkorb" erzeugen keine Bewerbungen mehr. Bewerber:innen erwarten konkrete, überprüfbare Informationen über den Arbeitsalltag.` },
+              { icon: Target, title: "Arbeitgebermarke als System", desc: `Eine authentische Arbeitgebermarke zeigt den realen Arbeitsalltag: Team, Räumlichkeiten, Kultur und Werte. Altovate entwickelt dieses Bild systematisch über Content, Social Media und Kampagnen.` },
+              { icon: Smartphone, title: "Sichtbarkeit auf den richtigen Kanälen", desc: `Potenzielle Mitarbeiter:innen sind auf Instagram, Facebook und LinkedIn aktiv – nicht im Kreisblatt. Employer Branding muss dort stattfinden, wo die Zielgruppe ihre Zeit verbringt.` }
             ].map((card, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }} whileHover={{ y: -10 }}>
                 <Card className="bg-card border-border h-full hover:border-primary/50 transition-all">
