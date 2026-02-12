@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
+import Preloader from '@/components/Preloader';
 
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
@@ -46,6 +47,9 @@ const faqItems = [
 ];
 
 const Index = () => {
+  const [loading, setLoading] = useState(true);
+  const handlePreloaderComplete = useCallback(() => setLoading(false), []);
+
   useEffect(() => {
     const updateScrollProgress = () => {
       const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
@@ -61,7 +65,9 @@ const Index = () => {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
+    <>
+      {loading && <Preloader onComplete={handlePreloaderComplete} />}
+      <AnimatePresence mode="wait">
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -111,6 +117,7 @@ const Index = () => {
         <ExitIntentBanner />
       </motion.div>
     </AnimatePresence>
+    </>
   );
 };
 
