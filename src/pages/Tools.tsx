@@ -79,11 +79,16 @@ const Tools = () => {
   return (
     <>
       <Helmet>
-        <title>Meine Lieblingstools – KI-Tools die ich täglich nutze | Altovate</title>
+        <title>Meine Lieblingstools – KI-Tools für Unternehmer | altovate</title>
         <meta
           name="description"
-          content="Meine persönlichen Empfehlungen: KI-Tools, Nahrungsergänzung und Performance-Tipps aus 15 Jahren Erfahrung. Ehrliche Empfehlungen aus der Praxis – für Unternehmer, die mehr aus sich herausholen wollen."
+          content="KI-Tools, Diktiersoftware und Performance-Tipps aus 15 Jahren Erfahrung. Ehrliche Empfehlungen aus der Praxis – für Unternehmer, die mehr aus sich herausholen wollen."
         />
+        <link rel="canonical" href="https://altovate.de/tools" />
+        <meta property="og:title" content="Meine Lieblingstools – KI-Tools für Unternehmer | altovate" />
+        <meta property="og:description" content="KI-Tools, Diktiersoftware und Performance-Tipps aus der Praxis. Ehrliche Empfehlungen für Unternehmer." />
+        <meta property="og:url" content="https://altovate.de/tools" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <NewNavigation />

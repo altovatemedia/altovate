@@ -129,8 +129,13 @@ const Erstkontakt = () => {
         className="min-h-screen bg-background"
       >
         <Helmet>
-          <title>Erstgespräch anfragen | Altovate</title>
+          <title>Erstgespräch anfragen | altovate</title>
           <meta name="description" content="Bereit für systematische Kundengewinnung? Fordere jetzt dein persönliches Erstgespräch mit Alex an und erhalte individuelle Terminvorschläge." />
+          <link rel="canonical" href="https://altovate.de/erstkontakt" />
+          <meta property="og:title" content="Erstgespräch anfragen | altovate" />
+          <meta property="og:description" content="Fordere jetzt dein persönliches Erstgespräch mit Alex an." />
+          <meta property="og:url" content="https://altovate.de/erstkontakt" />
+          <meta property="og:type" content="website" />
         </Helmet>
 
         <div className="scroll-progress" style={{ width: '0%' }}></div>

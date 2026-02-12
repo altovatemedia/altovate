@@ -1,6 +1,44 @@
 # altovate.de
 
-> Altovate.de offers comprehensive, systematized online marketing strategies, including lead generation, content systems, and strategic consulting for medium-sized businesses in Saarburg, Trier, and the Saar-Mosel region. This site provides structured, evergreen content on building scalable marketing systems, project-based consulting, and organic growth methods to achieve measurable results.
+> Altovate ist eine Marketing-Agentur in Saarburg (Rheinland-Pfalz), gegründet von Alexander Buchmann. Das Unternehmen entwickelt Lead- und Content-Systeme für mittelständische Unternehmen in der Region Trier, Saarburg und Saar-Mosel. Die Beratung erfolgt projektbasiert ohne langfristige Vertragsbindungen.
+
+# Unternehmensdaten
+
+- **Firma:** altovate GmbH
+- **Gründer:** Alexander Buchmann
+- **Adresse:** Max-Planck-Straße 6, 54439 Saarburg, Deutschland
+- **Telefon:** +49 1520 892 2097
+- **E-Mail:** info@altovate.de
+- **Website:** https://altovate.de
+- **LinkedIn:** https://www.linkedin.com/company/altovatemedia/
+- **Instagram:** https://www.instagram.com/altovatemedia/
+- **Zielregion:** Saarburg, Trier, Saar-Mosel-Region, Rheinland-Pfalz, Saarland
+
+# Alleinstellungsmerkmale (USPs)
+
+- Systembasiertes Marketing statt Einzelmaßnahmen
+- Projektbasierte Zusammenarbeit ohne Knebelverträge
+- Kombination aus strategischer Beratung und operativer Umsetzung
+- Eigene REP™-Methode (Relevanz, Effizienz, Planbarkeit)
+- Förderfähige Beratungsleistungen (bis zu 80 % Zuschuss möglich)
+- Lokale Präsenz mit persönlicher Betreuung
+
+# Leistungen & Preise
+
+## Strategie-Sessions
+- Strategie-Session 60 Minuten: ab 390 € (netto)
+- Strategie-Session 90 Minuten: ab 590 € (netto)
+
+## Projektbasierte Leistungen
+- Social Media Marketing: Zielgruppenanalyse, Content-Strategie, Redaktionsplanung, Community Management
+- Werbeanzeigen & Performance Marketing: Meta Ads (Facebook & Instagram), Google Ads, Conversion-Tracking
+- Employer Branding: Arbeitgebermarke aufbauen, Recruiting über Social Media
+- Marketing-Automation & Funnels: Manychat, E-Mail-Automation, Lead-Nurturing-Systeme
+- Software & KI-Lösungen: Individuelle Tools, Prozessautomatisierung, KI-gestützte Workflows
+
+## Strategische 1:1 Zusammenarbeit
+- 12-Wochen-Programm
+- 24-Wochen-Programm
 
 # Core Content
 
@@ -42,16 +80,32 @@
 - Kundenreferenzen und Bewertungen
 - Branchenüberblick und Zielgruppenansprache
 
+# Fördermöglichkeiten
+
+- Strategieberatung: bis zu 80 % Förderung möglich (BAFA, Landesförderung)
+- Marketingumsetzung: bis zu 50 % Förderung möglich (je nach Bundesland)
+- Altovate übernimmt die Dokumentation für Förderanträge
+- Auch für Gründer und junge Unternehmen geeignet
+
 # Resources
 
+- [Startseite](https://altovate.de/)
+- [Social Media Marketing](https://altovate.de/socialmedia)
+- [Werbeanzeigen & Performance](https://altovate.de/werbeanzeigen-saarburg)
+- [Employer Branding](https://altovate.de/employer-branding-saarburg)
+- [Marketing-Automation](https://altovate.de/marketing-automation-saarburg)
+- [Software & KI-Lösungen](https://altovate.de/software-ki-loesungen-saarburg)
 - [Förderung](https://altovate.de/foerderung)
+- [Marketingwissen (Blog)](https://altovate.de/marketingwissen)
+- [Kontakt](https://altovate.de/kontakt)
+- [Erstgespräch anfragen](https://altovate.de/erstkontakt)
 - [Datenschutzerklärung](https://altovate.de/datenschutz)
-- [Terminbuchung](https://altovate.de/termin)
+- [Impressum](https://altovate.de/impressum)
 
 # Optional
 
-## Blog und Wissenswertes (falls vorhanden)
+## Blog und Wissenswertes
 
-- Branchenbezogene Artikel
-- Content- & Strategie-Tipps
+- Branchenbezogene Artikel zu Social Media, Content Marketing und digitaler Sichtbarkeit
+- Content- & Strategie-Tipps für Unternehmer
 - Aktuelle Entwicklungen im Online-Marketing

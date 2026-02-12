@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, CalendarDays } from 'lucide-react';
+import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
@@ -87,9 +88,33 @@ const BlogArticle = () => {
         {article.meta_description && (
           <meta name="description" content={article.meta_description} />
         )}
+        <link rel="canonical" href={`https://altovate.de/marketingwissen/${article.slug}`} />
+        <meta property="og:title" content={`${article.title} | altovate`} />
+        {article.meta_description && (
+          <meta property="og:description" content={article.meta_description} />
+        )}
+        <meta property="og:url" content={`https://altovate.de/marketingwissen/${article.slug}`} />
+        <meta property="og:type" content="article" />
+        {article.hero_image_url && (
+          <meta property="og:image" content={article.hero_image_url} />
+        )}
       </Helmet>
 
-      <NewNavigation />
+      <SEOSchema
+        page="service"
+        article={{
+          headline: article.title,
+          description: article.meta_description || '',
+          url: `https://altovate.de/marketingwissen/${article.slug}`,
+          datePublished: article.published_at || undefined,
+          image: article.hero_image_url || undefined,
+        }}
+        breadcrumbs={[
+          { name: "Startseite", url: "https://altovate.de/" },
+          { name: "Marketingwissen", url: "https://altovate.de/marketingwissen" },
+          { name: article.title, url: `https://altovate.de/marketingwissen/${article.slug}` }
+        ]}
+      />
 
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6">

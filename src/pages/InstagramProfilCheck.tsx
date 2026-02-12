@@ -118,11 +118,16 @@ export default function InstagramProfilCheck() {
   return (
     <>
       <Helmet>
-        <title>Instagram-Profil-Check für Unternehmen | Altovate</title>
+        <title>Instagram-Profil-Check für Unternehmen | altovate</title>
         <meta
           name="description"
           content="Kostenloser Instagram-Profil-Check: Erhalte eine KI-gestützte Bewertung deines Unternehmensprofils aus Kundensicht – in wenigen Sekunden."
         />
+        <link rel="canonical" href="https://altovate.de/instagram-profil-check" />
+        <meta property="og:title" content="Instagram-Profil-Check für Unternehmen | altovate" />
+        <meta property="og:description" content="Kostenloser Instagram-Profil-Check mit KI-gestützter Bewertung aus Kundensicht." />
+        <meta property="og:url" content="https://altovate.de/instagram-profil-check" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <NewNavigation />

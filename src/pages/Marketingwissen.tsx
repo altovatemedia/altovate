@@ -51,6 +51,11 @@ const Marketingwissen = () => {
       <Helmet>
         <title>Marketingwissen | altovate</title>
         <meta name="description" content="Praxisnahes Marketingwissen für Unternehmer: Strategien, Tipps und Insights rund um Social Media, Content Marketing und digitale Sichtbarkeit." />
+        <link rel="canonical" href="https://altovate.de/marketingwissen" />
+        <meta property="og:title" content="Marketingwissen | altovate" />
+        <meta property="og:description" content="Praxisnahe Artikel rund um Marketing, Social Media und digitale Sichtbarkeit – direkt anwendbar für dein Unternehmen." />
+        <meta property="og:url" content="https://altovate.de/marketingwissen" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <NewNavigation />
