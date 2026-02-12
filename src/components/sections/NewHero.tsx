@@ -115,13 +115,14 @@ const NewHero = () => {
             className="hidden lg:flex justify-center items-end relative"
           >
             <div className="relative">
-              <div className="absolute inset-[-15%] z-10 pointer-events-none" style={{
-                background: `radial-gradient(ellipse 75% 85% at 50% 50%, transparent 30%, hsl(var(--background)) 65%)`
-              }}></div>
               <img 
                 src={alexanderPortrait}
                 alt="Alexander – Gründer von Altovate"
                 className="w-full max-w-lg h-auto object-contain relative z-0"
+                style={{
+                  maskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
+                }}
               />
             </div>
           </motion.div>
