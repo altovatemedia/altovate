@@ -110,7 +110,7 @@ const PricingToggle = () => {
             <h2 className="finom-h2 whitespace-nowrap">Pakete & Preise</h2>
             
             {/* Toggle Switch */}
-            <div className="flex items-center gap-4 bg-white dark:bg-card rounded-full p-2 shadow-card mx-auto md:mx-0 border border-border">
+            <div className="flex items-center gap-4 bg-card rounded-full p-2 shadow-card mx-auto md:mx-0 border border-border">
               <button
                 onClick={() => setIsMonthly(false)}
                 className={`px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
