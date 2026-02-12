@@ -25,7 +25,8 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         <motion.img
           src="/altovate-logo.png"
           alt="altovate"
-          className="h-10 md:h-12 brightness-0 invert"
+          className="h-10 md:h-12"
+          style={{ filter: 'brightness(0) invert(1)' }}
           initial={{ opacity: 0, scale: 0.8, filter: 'blur(16px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
