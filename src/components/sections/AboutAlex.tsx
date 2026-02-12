@@ -32,18 +32,17 @@ const AboutAlex = () => {
 
             {/* Image */}
             <Reveal direction="right" delay={0.2} className="order-1 lg:order-2">
-              <div className="relative">
-                <div className="relative">
-                  <img 
-                    src={alexanderPortrait}
-                    alt="Alexander Buchmann – Gründer der altovate GmbH, Marketing-Stratege für mittelständische Unternehmen in Saarburg" 
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-[-20%] z-10 pointer-events-none" style={{
-                    background: `radial-gradient(ellipse 80% 90% at center, transparent 30%, hsl(var(--background)) 65%)`
-                  }}></div>
-                </div>
+              <div className="relative flex justify-center">
+                <img 
+                  src={alexanderPortrait}
+                  alt="Alexander Buchmann – Gründer der altovate GmbH, Marketing-Stratege für mittelständische Unternehmen in Saarburg" 
+                  className="w-full max-w-md h-auto object-cover"
+                  loading="lazy"
+                  style={{
+                    maskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
+                  }}
+                />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10"></div>
               </div>
             </Reveal>
