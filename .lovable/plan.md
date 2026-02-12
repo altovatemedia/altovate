@@ -1,86 +1,59 @@
 
-# Preloader entfernen + Mina-Wissen aktualisieren
-
-## Zusammenfassung
-
-Zwei Aenderungen: (1) Der Preloader wird komplett entfernt, da er Performance kostet und trotz CSS-Filter kurz das Magenta-Logo zeigt. (2) Minas System-Prompt wird mit dem aktuellen Angebot aus der llms.txt synchronisiert -- insbesondere die REP-Methode, Strategie-Sessions, 1:1-Programme, Foerdermoeglichkeiten und der neue Marketing-System-Bereich.
+# Plan: 4 Fixes fuer das Artikel-Template und die Marketing-Wissen-Startseite
 
 ---
 
-## Aenderung 1: Preloader entfernen
+## 1. LinkedIn-Share reparieren
 
-Der Preloader (2,2 Sekunden Verzoegerung) wird komplett entfernt. Die Seite laedt direkt.
+**Problem:** Der LinkedIn-Share-Button oeffnet eine URL, die nicht mehr funktioniert. LinkedIn hat die `sharing/share-offsite/`-URL veraendert und erfordert mittlerweile ein anderes Format.
 
-**Betroffene Dateien:**
+**Loesung:** In `ShareSection.tsx` die LinkedIn-Share-URL auf das aktuelle Format umstellen:
+```
+https://www.linkedin.com/shareArticle?mini=true&url=...&title=...
+```
+
+---
+
+## 2. Anchor-Link-Icons an H2-Ueberschriften entfernen
+
+**Problem:** An jeder H2-Ueberschrift wird ein kleines Ketten-Icon (Link-Symbol) eingefuegt. Beim Klick springt die Seite zur jeweiligen Ueberschrift. Das verwirrt Nutzer, die die Funktion nicht kennen.
+
+**Loesung:** Die `processContentHtml`-Funktion in `BlogArticle.tsx` so aendern, dass keine Anchor-Links mehr an H2-Elemente angehaengt werden. Die IDs bleiben erhalten (fuer das Inhaltsverzeichnis), aber das sichtbare Ketten-Icon und der klickbare Link werden entfernt. Die zugehoerigen CSS-Regeln in `index.css` (`.article-anchor-link`) werden ebenfalls entfernt.
+
+---
+
+## 3. Text-Formatierung: Aufzaehlungspunkte und Abstaende
+
+**Problem:** Die Tailwind `prose`-Klasse entfernt standardmaessig List-Styles auf dunklen Themes. Aufzaehlungspunkte (`ul > li`) fehlen, und nach nummerierten Listen (`ol`) stimmen die Abstaende nicht.
+
+**Loesung:** In `index.css` explizite Prose-Overrides ergaenzen:
+- `prose ul` bekommt `list-style-type: disc` und linkes Padding
+- `prose ol` bekommt `list-style-type: decimal` und linkes Padding  
+- `prose li` bekommt korrekten Abstand (`margin-bottom`)
+- `prose li::marker` bekommt die richtige Farbe (`text-muted-foreground`)
+- Abstaende nach Listen werden normalisiert
+
+---
+
+## 4. Marketing-Wissen-Startseite: Chronologische Artikelliste mit optionalem Filter
+
+**Problem:** Die Startseite `/marketing-wissen` zeigt aktuell nur die 5 Themencluster-Karten. Nutzer muessen erst einen Cluster waehlen, bevor sie Artikel sehen. Das ist ueberfordern.
+
+**Loesung:** Die `MarketingSystem.tsx`-Seite wird um eine neue Sektion erweitert:
+- **Schmale Filterleiste** oberhalb der Artikel: Horizontal angeordnete Chips/Buttons fuer jeden Cluster (z.B. "Alle", "ROI", "Social Media", "Funnel", "Recruiting", "GEO"). Standard: "Alle" ist aktiv.
+- **Chronologische Artikelliste** darunter: Alle publizierten Artikel aus der Datenbank, sortiert nach `published_at DESC`. Jeder Eintrag zeigt Titel, Meta-Beschreibung, Lesezeit und Cluster-Zuordnung. Klick fuehrt zum Artikel.
+- Die bestehende `CoreTopics`-Sektion bleibt als Themenuebersicht darueber, wird aber kompakter.
+- Die Filterleiste filtert die Artikelliste live per Client-State, ohne Neuladen.
+
+---
+
+## Technische Aenderungen (Zusammenfassung)
 
 | Datei | Aenderung |
 |---|---|
-| `src/pages/Index.tsx` | `Preloader`-Import und -Logik entfernen, `loading`-State entfernen, `AnimatePresence` vereinfachen |
-| `src/components/Preloader.tsx` | Datei loeschen |
+| `src/components/marketing-system/article/ShareSection.tsx` | LinkedIn-URL-Format korrigieren |
+| `src/pages/BlogArticle.tsx` | Anchor-Link-Injection aus `processContentHtml` entfernen |
+| `src/index.css` | `.article-anchor-link`-CSS entfernen; Prose-Overrides fuer Listen hinzufuegen |
+| `src/pages/MarketingSystem.tsx` | Neue Sektion mit Filterleiste + chronologischer Artikelliste |
 
-**Details:**
-- `useState(true)` fuer `loading` faellt weg
-- `handlePreloaderComplete` Callback faellt weg
-- Die `motion.div` bleibt fuer den sanften Fade-In, startet aber sofort
-- Der `framer-motion` Import in Index.tsx kann vereinfacht werden
-
----
-
-## Aenderung 2: Mina System-Prompt aktualisieren
-
-Der System-Prompt in `supabase/functions/mina-chat/index.ts` wird aktualisiert, um die aktuelle Positionierung widerzuspiegeln:
-
-**Was sich aendert im Prompt:**
-
-1. **Positionierung**: "Digital Marketing Agentur" wird zu "Lead- und Content-Systeme fuer mittelstaendische Unternehmen". Betonung der REP-Methode (Relevanz, Effizienz, Planbarkeit).
-
-2. **Strategie-Sessions hinzufuegen**: 60 Min ab 390 Euro, 90 Min ab 590 Euro -- als niedrigschwelligen Einstieg erwaehnen.
-
-3. **1:1 Zusammenarbeit**: 12-Wochen und 24-Wochen Programme als Premium-Option.
-
-4. **Foerderung**: Mina soll aktiv auf bis zu 80% Foerderung hinweisen (BAFA, Landesfoerderung).
-
-5. **Marketing System**: Verweis auf /marketing-system mit ROI-Rechner und Sichtbarkeits-Check.
-
-6. **Region**: Saarburg, Trier, Saar-Mosel-Region betonen.
-
-7. **USPs aktualisieren**: Systembasiert statt Einzelmassnahmen, projektbasiert ohne Knebelvertraege, eigene REP-Methode.
-
-**Bestehende Paket-Infos bleiben erhalten** (Content Lite, Ads & Automation, Scale Plan, einmalige Pakete etc.) -- diese werden nur um die neuen Punkte ergaenzt.
-
-**Betroffene Datei:**
-
-| Datei | Aenderung |
-|---|---|
-| `supabase/functions/mina-chat/index.ts` | System-Prompt erweitern (Zeilen 35-196) |
-
----
-
-## Technische Details
-
-### Index.tsx vorher:
-```text
-const [loading, setLoading] = useState(true);
-const handlePreloaderComplete = useCallback(() => setLoading(false), []);
-...
-{loading && <Preloader onComplete={handlePreloaderComplete} />}
-<AnimatePresence mode="wait">
-  <motion.div ...>
-```
-
-### Index.tsx nachher:
-```text
-// Kein loading-State, kein Preloader
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.3 }}
-  className="min-h-screen bg-background"
->
-```
-
-### Mina-Prompt Ergaenzungen (neue Abschnitte):
-- "UNSERE POSITIONIERUNG & METHODE" mit REP-Erklaerung
-- "STRATEGIE-SESSIONS" als Einstieg
-- "FOERDERUNG" mit konkreten Zahlen
-- "INTERAKTIVE TOOLS" Verweis auf /marketing-system
+Keine neuen Abhaengigkeiten noetig. Keine Datenbank-Aenderungen.
