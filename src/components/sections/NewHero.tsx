@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
 import BookingModal from '@/components/BookingModal';
 import TrustBar from '@/components/sections/TrustBar';
 
 const NewHero = () => {
-  const heroRef = useScrollAnimation({ threshold: 0.2 });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const portraitY = useTransform(scrollY, [0, 600], [0, 80]);
 
   const bulletPoints = [
     "Kein Dauer-Posten – Systeme, die für dich arbeiten",
@@ -26,41 +27,55 @@ const NewHero = () => {
   };
 
   return (
-    <section 
-      ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
-    >
-      {/* Subtle background glow */}
-      {/* No background glows - clean seamless look */}
-
-      {/* Content */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="container mx-auto px-6 z-10 relative py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in-up tracking-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
+            >
               Online-Marketing für Unternehmer, die{' '}
               <span className="gold-gradient-text">keine Zeit für Marketing</span> haben.
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <motion.p
+              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
+            >
               Altovate entwickelt Lead- & Content-Systeme, die planbare Anfragen generieren – ohne dass du selbst zum Influencer werden musst. Für mittelständische Unternehmen in Saarburg, Trier und der Region Saar-Mosel.
-            </p>
+            </motion.p>
 
             {/* Bullet Points */}
-            <div className="space-y-3 fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <div className="space-y-3">
               {bulletPoints.map((point, index) => (
-                <div key={index} className="flex items-start gap-3">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.35 + index * 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+                  className="flex items-start gap-3"
+                >
                   <div className="mt-1 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <Check className="w-3 h-3 text-primary" />
                   </div>
                   <span className="text-foreground/80 text-base">{point}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 fade-in-up pt-2 relative z-30" style={{ animationDelay: '0.4s' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+              className="flex flex-col sm:flex-row items-start gap-4 pt-2 relative z-30"
+            >
               <Button 
                 size="lg"
                 className="btn-hero px-8 py-6 text-base"
@@ -78,22 +93,30 @@ const NewHero = () => {
               >
                 Direkt Klarheit statt Erstgespräch
               </Button>
-            </div>
+            </motion.div>
 
             {/* Microcopy */}
-            <p className="text-sm text-muted-foreground fade-in-up relative z-30" style={{ animationDelay: '0.5s' }}>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="text-sm text-muted-foreground relative z-30"
+            >
               Bezahlte Session. Keine Verkaufsshow.
-            </p>
+            </motion.p>
           </div>
 
-          {/* Right: Portrait */}
-          <div className="hidden lg:flex justify-center items-end fade-in-up relative" style={{ animationDelay: '0.3s' }}>
+          {/* Right: Portrait with parallax */}
+          <motion.div
+            style={{ y: portraitY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+            className="hidden lg:flex justify-center items-end relative"
+          >
             <div className="relative">
-              {/* Edge fade - all sides to blend into background */}
               <div className="absolute inset-[-15%] z-10 pointer-events-none" style={{
-                background: `
-                  radial-gradient(ellipse 75% 85% at 50% 50%, transparent 30%, hsl(var(--background)) 65%)
-                `
+                background: `radial-gradient(ellipse 75% 85% at 50% 50%, transparent 30%, hsl(var(--background)) 65%)`
               }}></div>
               <img 
                 src={alexanderPortrait}
@@ -101,11 +124,17 @@ const NewHero = () => {
                 className="w-full max-w-lg h-auto object-contain relative z-0"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Trust Bar */}
-        <TrustBar />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1 }}
+        >
+          <TrustBar />
+        </motion.div>
       </div>
 
       <BookingModal
