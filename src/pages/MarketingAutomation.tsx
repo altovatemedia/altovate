@@ -118,8 +118,8 @@ const MarketingAutomation = () => {
             <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto items-stretch">
               {processSteps.map((step, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }} className="relative flex">
-                  <div className="bg-background border-2 border-border rounded-2xl p-6 text-center hover:border-primary/50 transition-all hover:shadow-lg flex flex-col items-center justify-start w-full min-h-[240px]">
-                    <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0">
+                  <div className="liquid-glass rounded-2xl p-6 text-center hover:border-primary/50 transition-all hover:shadow-lg flex flex-col items-center justify-start w-full min-h-[240px]">
+                    <div className="liquid-glass-icon w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0">
                       <step.icon className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="font-semibold mb-2 text-sm leading-tight">{step.title}</h3>
@@ -144,8 +144,8 @@ const MarketingAutomation = () => {
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {benefits.map((benefit, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-muted/30 rounded-2xl p-8 text-center hover:bg-muted/50 transition-all">
-                  <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  className="liquid-glass rounded-2xl p-8 text-center transition-all">
+                  <div className="liquid-glass-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                     <benefit.icon className="h-10 w-10 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{benefit.title}</h3>
@@ -173,7 +173,7 @@ const MarketingAutomation = () => {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {examples.map((example, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-background border-2 border-border rounded-2xl p-8 hover:border-primary/50 transition-all">
+                  className="liquid-glass rounded-2xl p-8 hover:border-primary/50 transition-all">
                   <h3 className="text-xl font-bold mb-6 text-primary">{example.title}</h3>
                   <ul className="space-y-4">
                     {example.steps.map((step, stepIndex) => (
@@ -230,7 +230,7 @@ const MarketingAutomation = () => {
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
               {targetGroups.map((group, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-background border-2 border-border rounded-2xl p-6 flex items-center gap-4 hover:border-primary/50 transition-all">
+                  className="liquid-glass rounded-2xl p-6 flex items-center gap-4 hover:border-primary/50 transition-all">
                   <CheckCircle2 className="h-8 w-8 text-primary flex-shrink-0" />
                   <p className="text-lg font-medium">{group}</p>
                 </motion.div>
@@ -253,7 +253,7 @@ const MarketingAutomation = () => {
             <div className="space-y-6">
               {faqs.map((faq, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-muted/30 rounded-2xl p-8">
+                  className="liquid-glass rounded-2xl p-8">
                   <h3 className="text-xl font-bold mb-3 text-primary">{faq.question}</h3>
                   <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </motion.div>
