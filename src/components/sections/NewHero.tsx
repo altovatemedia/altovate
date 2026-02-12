@@ -63,7 +63,7 @@ const NewHero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 fade-in-up pt-2" style={{ animationDelay: '0.4s' }}>
+            <div className="flex flex-col sm:flex-row items-start gap-4 fade-in-up pt-2 relative z-30" style={{ animationDelay: '0.4s' }}>
               <Button 
                 size="lg"
                 className="btn-hero px-8 py-6 text-base"
@@ -76,7 +76,7 @@ const NewHero = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground relative z-20"
+                className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground"
                 onClick={scrollToOffers}
               >
                 Direkt Klarheit statt Erstgespräch
@@ -84,7 +84,7 @@ const NewHero = () => {
             </div>
 
             {/* Microcopy */}
-            <p className="text-sm text-muted-foreground fade-in-up" style={{ animationDelay: '0.5s' }}>
+            <p className="text-sm text-muted-foreground fade-in-up relative z-30" style={{ animationDelay: '0.5s' }}>
               Bezahlte Session. Keine Verkaufsshow.
             </p>
           </div>
@@ -94,8 +94,15 @@ const NewHero = () => {
             <div className="relative">
               {/* Gold glow behind portrait */}
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(245,200,66,0.25) 0%, rgba(232,160,32,0.15) 40%, transparent 70%)' }}></div>
-              {/* Bottom fade gradient - taller and smoother */}
-              <div className="absolute bottom-0 left-[-20%] right-[-20%] h-2/5 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
+              {/* Edge fade - all sides to blend into background */}
+              <div className="absolute inset-0 z-10 pointer-events-none" style={{
+                background: `
+                  linear-gradient(to top, hsl(var(--background)) 0%, transparent 50%),
+                  linear-gradient(to right, hsl(var(--background)) 0%, transparent 20%),
+                  linear-gradient(to left, hsl(var(--background)) 0%, transparent 20%),
+                  linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 15%)
+                `
+              }}></div>
               <img 
                 src={alexanderPortrait}
                 alt="Alexander – Gründer von Altovate"
