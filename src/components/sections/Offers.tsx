@@ -68,7 +68,7 @@ const Offers = () => {
   };
 
   return (
-    <section id="angebote" className="py-24 bg-muted/30">
+    <section id="angebote" className="py-24 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
          {/* Header */}

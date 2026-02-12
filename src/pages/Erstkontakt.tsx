@@ -220,7 +220,7 @@ const Erstkontakt = () => {
         </section>
 
         {/* REP Method Section */}
-        <section className="py-16 md:py-24 px-4 bg-muted/30">
+        <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-transparent via-muted/30 to-transparent">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
