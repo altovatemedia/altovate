@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useTheme } from 'next-themes';
 
 const NewNavigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +9,6 @@ const NewNavigation = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +42,6 @@ const NewNavigation = () => {
     if (href.startsWith('/')) {
       navigate(href);
     } else if (location.pathname !== '/') {
-      // Navigate to home first, then scroll
       navigate('/');
       setTimeout(() => {
         const element = document.querySelector(href);
@@ -74,7 +71,11 @@ const NewNavigation = () => {
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 bg-white border-gray-200 dark:bg-[#1a1a1a] dark:border-white/10 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 backdrop-blur-xl ${
+        isScrolled 
+          ? 'bg-background/90 border-border' 
+          : 'bg-background/70 border-transparent'
+      }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -98,7 +99,7 @@ const NewNavigation = () => {
               >
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className="text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] font-medium transition-colors duration-300 flex items-center gap-1"
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-300 flex items-center gap-1"
                 >
                   {item.name}
                   {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
@@ -106,12 +107,12 @@ const NewNavigation = () => {
                 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && isDropdownOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-72 bg-white dark:bg-[#2a2a2a] rounded-lg shadow-lg border border-gray-200 dark:border-white/10 py-2 z-50">
+                  <div className="absolute left-0 top-full mt-2 w-72 bg-card rounded-lg shadow-lg border border-border py-2 z-50">
                     {dropdownItems.map((dropItem) => (
                       <button
                         key={dropItem.name}
                         onClick={() => handleNavClick(dropItem.href)}
-                        className="block w-full text-left px-4 py-3 text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] hover:bg-gray-50 dark:hover:bg-[#333333] transition-colors duration-200 text-sm font-medium"
+                        className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-primary hover:bg-muted transition-colors duration-200 text-sm font-medium"
                       >
                         {dropItem.name}
                       </button>
@@ -122,26 +123,8 @@ const NewNavigation = () => {
             ))}
           </div>
 
-          {/* Dark Mode Toggle & Desktop CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Theme Switch Toggle */}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative flex items-center gap-2 bg-gray-100 dark:bg-[#2a2a2a] rounded-full p-1 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-[#333333]"
-            >
-              <span className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
-                theme !== 'dark' ? 'bg-white text-[#09002C] shadow-sm' : 'text-gray-400'
-              }`}>
-                <Sun className="w-3.5 h-3.5" />
-                Light
-              </span>
-              <span className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
-                theme === 'dark' ? 'bg-[#1a1a1a] text-white shadow-sm' : 'text-gray-500'
-              }`}>
-                <Moon className="w-3.5 h-3.5" />
-                Dark
-              </span>
-            </button>
+          {/* Desktop CTA Button */}
+          <div className="hidden md:flex items-center">
             <Button 
               className="btn-hero text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={handleBookCall}
@@ -150,26 +133,10 @@ const NewNavigation = () => {
             </Button>
           </div>
 
-          {/* Mobile menu button & Dark Mode Toggle */}
-          <div className="md:hidden flex items-center gap-2">
-            {/* Mobile Theme Switch */}
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative flex items-center gap-1 bg-gray-100 dark:bg-[#2a2a2a] rounded-full p-0.5 transition-all duration-300"
-            >
-              <span className={`text-[10px] font-medium px-2 py-1 rounded-full transition-all duration-300 flex items-center gap-1 ${
-                theme !== 'dark' ? 'bg-white text-[#09002C] shadow-sm' : 'text-gray-400'
-              }`}>
-                <Sun className="w-3 h-3" />
-              </span>
-              <span className={`text-[10px] font-medium px-2 py-1 rounded-full transition-all duration-300 flex items-center gap-1 ${
-                theme === 'dark' ? 'bg-[#1a1a1a] text-white shadow-sm' : 'text-gray-500'
-              }`}>
-                <Moon className="w-3 h-3" />
-              </span>
-            </button>
-            <button
-              className="p-2 text-[#09002C] dark:text-white hover:text-primary dark:hover:text-primary transition-colors duration-300"
+              className="p-2 text-foreground hover:text-primary transition-colors duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -179,7 +146,7 @@ const NewNavigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-white dark:bg-[#1a1a1a]">
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
             <div className="px-2 pt-2 pb-6 space-y-1">
               {navItems.map((item) => (
                 <div key={item.name}>
@@ -191,7 +158,7 @@ const NewNavigation = () => {
                         handleNavClick(item.href);
                       }
                     }}
-                    className="flex items-center justify-between w-full text-left px-3 py-3 text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] font-medium transition-colors duration-300"
+                    className="flex items-center justify-between w-full text-left px-3 py-3 text-foreground/80 hover:text-primary font-medium transition-colors duration-300"
                   >
                     {item.name}
                     {item.hasDropdown && <ChevronDown className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />}
@@ -204,7 +171,7 @@ const NewNavigation = () => {
                         <button
                           key={dropItem.name}
                           onClick={() => handleNavClick(dropItem.href)}
-                          className="block w-full text-left px-3 py-2 text-sm text-[#09002C] dark:text-white hover:text-[#ff1c5c] dark:hover:text-[#ff1c5c] transition-colors duration-300"
+                          className="block w-full text-left px-3 py-2 text-sm text-foreground/70 hover:text-primary transition-colors duration-300"
                         >
                           {dropItem.name}
                         </button>
