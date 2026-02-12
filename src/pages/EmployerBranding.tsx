@@ -150,7 +150,7 @@ const EmployerBranding = () => {
               { icon: Smartphone, title: "Sichtbarkeit auf den richtigen Kanälen", desc: `Potenzielle Mitarbeiter:innen sind auf Instagram, Facebook und LinkedIn aktiv – nicht im Kreisblatt. Employer Branding muss dort stattfinden, wo die Zielgruppe ihre Zeit verbringt.` }
             ].map((card, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }} whileHover={{ y: -10 }}>
-                <Card className="bg-card border-border h-full hover:border-primary/50 transition-all">
+                <Card className="h-full hover:border-primary/50 transition-all">
                   <CardContent className="p-8">
                     <card.icon className="w-12 h-12 text-primary mb-4" />
                     <h3 className="text-2xl font-bold mb-4 text-foreground">{card.title}</h3>
@@ -161,7 +161,7 @@ const EmployerBranding = () => {
             ))}
           </div>
 
-          <motion.div className="max-w-3xl mx-auto mt-12 p-8 bg-card rounded-lg border border-border" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
+          <motion.div className="max-w-3xl mx-auto mt-12 p-8 liquid-glass rounded-lg" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
             <p className="text-xl text-muted-foreground italic">
               Einen Azubi findest du nicht im Kreisblatt – höchstens, wenn die Oma deine Anzeige liest. Aber auf Empfehlung der Oma bewirbt sich niemand mehr.
               <br /><br />
@@ -214,7 +214,7 @@ const EmployerBranding = () => {
               { icon: GraduationCap, title: "Weiterbildung & Förderung", partner: "Partner KMU", desc: "→ Staatlich förderbare Schulungen & Qualifizierung im Bereich Digitalisierung & Gesundheitsmanagement.", href: "https://partner-kmu.de/" }
             ].map((card, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }} whileHover={{ y: -10 }}>
-                <Card className="bg-card border-border h-full hover:border-primary/50 transition-all">
+                <Card className="h-full hover:border-primary/50 transition-all">
                   <CardContent className="p-8">
                     <card.icon className="w-12 h-12 text-primary mb-4" />
                     <h3 className="text-2xl font-bold mb-4 text-foreground">{card.title}</h3>
@@ -256,7 +256,7 @@ const EmployerBranding = () => {
                         <Icon className="w-8 h-8" />
                       </motion.div>
                       <motion.div className="flex-1" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}>
-                        <Card className="bg-card border-border hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+                        <Card className="hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
                           <CardContent className="p-6">
                             <h3 className="text-2xl font-bold mb-2 text-foreground">{step.title}</h3>
                             <p className="text-muted-foreground text-lg">{step.desc}</p>
@@ -287,7 +287,7 @@ const EmployerBranding = () => {
               const Icon = service.icon;
               return (
                 <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-                  <Card className="bg-card border-border h-full hover:border-primary/40 transition-all hover:shadow-md">
+                  <Card className="h-full hover:border-primary/40 transition-all hover:shadow-md">
                     <CardContent className="p-6">
                       <Icon className="w-10 h-10 text-primary mb-4" />
                       <h3 className="text-lg font-bold mb-2 text-foreground">{service.title}</h3>
@@ -315,7 +315,7 @@ const EmployerBranding = () => {
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
-                  <AccordionItem value={`item-${index}`} className="bg-card border-border rounded-lg px-6 hover:border-primary/50 transition-colors">
+                  <AccordionItem value={`item-${index}`} className="liquid-glass rounded-lg px-6 hover:border-primary/50 transition-colors">
                     <AccordionTrigger className="text-foreground hover:text-primary text-left text-lg">{faq.question}</AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
                   </AccordionItem>
