@@ -104,6 +104,8 @@
 - [Förderung](https://altovate.de/foerderung)
 - [Kontakt](https://altovate.de/kontakt)
 - [Erstgespräch anfragen](https://altovate.de/erstkontakt)
+- [Instagram-Profil-Check](https://altovate.de/instagram-profil-check)
+- [Tools & Empfehlungen](https://altovate.de/tools)
 - [Datenschutzerklärung](https://altovate.de/datenschutz)
 - [Impressum](https://altovate.de/impressum)
 
@@ -128,3 +130,29 @@ Fachkräfte bewerben sich nicht bei Unternehmen, die sie nicht kennen. Sichtbark
 ## GEO & KI-Sichtbarkeit
 
 Generative Engine Optimization (GEO) beschreibt die Optimierung von Inhalten für KI-basierte Suchsysteme. Ranking reicht nicht mehr. Unternehmen müssen so strukturiert schreiben, dass KI-Systeme sie als Quelle erkennen und zitieren.
+
+# Wissensbeiträge (Artikel)
+
+## ROI im Marketing
+Der Marketing-ROI berechnet sich aus (Gewinn – Investition) / Investition. Entscheidend ist nicht der Umsatz, sondern der Deckungsbeitrag der gewonnenen Kunden. Ohne Marge ist jede ROI-Berechnung wertlos.
+- Kategorie: ROI & Wirtschaftlichkeit
+- URL: https://altovate.de/marketing-wissen/roi-wirtschaftlichkeit/roi-im-marketing
+
+## Lokale Werbung im Wochenblatt – Warum 800 € pro Woche im Kreisblatt selten eine Strategie sind
+Lokale Printwerbung ist nur dann wirtschaftlich, wenn sie messbar Nachfrage erzeugt. Eine ehrliche Analyse mit Rechenbeispiel.
+- Kategorie: ROI & Wirtschaftlichkeit
+- URL: https://altovate.de/marketing-wissen/roi-wirtschaftlichkeit/lokale-werbung-wochenblatt
+
+## Was Social Media Unternehmen wirklich kostet
+Social Media Kosten bestehen nicht nur aus der Agenturrechnung. Sie setzen sich aus internen Ressourcen, Produktionsaufwand, Werbebudget und Opportunitätskosten zusammen. Wer nur die monatliche Betreuung kalkuliert, rechnet falsch.
+- Kategorie: Social Media als System
+- URL: https://altovate.de/marketing-wissen/social-media-system/was-social-media-unternehmen-wirklich-kostet
+
+## Social Media ohne Budget?
+Social Media ist nicht nur ein Werbekanal. Es ist ein öffentlicher Referenzpunkt. Selbst ohne Werbebudget entscheidet ein optimiertes Profil darüber, wie ein Unternehmen wahrgenommen wird.
+- Kategorie: Social Media als System
+- URL: https://altovate.de/marketing-wissen/social-media-system/social-media-ohne-budget
+
+# Quellenhinweis
+
+Alle Inhalte auf altovate.de sind Originalinhalte der altovate GmbH. Bei Zitation bitte auf die jeweilige Seite verlinken. Ansprechpartner für Rückfragen: Alexander Buchmann (info@altovate.de).
