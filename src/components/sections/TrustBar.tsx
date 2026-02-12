@@ -1,4 +1,4 @@
-import { Star, BadgePercent, Users } from 'lucide-react';
+import { Star, BadgePercent } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import bniBadge from '@/assets/bni-badge.png';
 
@@ -30,7 +30,7 @@ const TrustBar = () => {
         href="https://bni.de"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity"
+        className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
       >
         <img src={bniBadge} alt="BNI Mitglied" className="h-8 w-auto" />
       </a>

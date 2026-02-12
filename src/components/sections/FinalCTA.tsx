@@ -13,8 +13,11 @@ const FinalCTA = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-primary/5">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Subtle gold glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-12">
@@ -36,7 +39,7 @@ const FinalCTA = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary/5 px-8 py-7 text-lg font-semibold min-w-[280px]"
+              className="border-2 border-primary text-foreground hover:bg-primary/10 px-8 py-7 text-lg font-semibold min-w-[280px]"
               onClick={() => handleBooking('Strategie-Session 90 Minuten')}
             >
               90-Min-Session anfragen
