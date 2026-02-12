@@ -522,3 +522,19 @@ body {
     }
   }
 }
+
+/* Article anchor links */
+.article-anchor-link {
+  opacity: 0;
+  margin-left: 0.5rem;
+  color: hsl(var(--muted-foreground));
+  transition: opacity 0.2s, color 0.2s;
+}
+
+h2:hover .article-anchor-link {
+  opacity: 1;
+}
+
+.article-anchor-link:hover {
+  color: hsl(var(--foreground));
+}
