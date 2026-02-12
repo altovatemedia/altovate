@@ -1,26 +1,74 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/"
+    },
+    {
+      "source": "/socialmedia",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/socialmedia"
+    },
+    {
+      "source": "/werbeanzeigen-saarburg",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/werbeanzeigen-saarburg"
+    },
+    {
+      "source": "/employer-branding-saarburg",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/employer-branding-saarburg"
+    },
+    {
+      "source": "/marketing-automation-saarburg",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-automation-saarburg"
+    },
+    {
+      "source": "/software-ki-loesungen-saarburg",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/software-ki-loesungen-saarburg"
+    },
+    {
+      "source": "/marketing-wissen",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen"
+    },
+    {
       "source": "/marketing-wissen/:cluster/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*"
-        }
-      ],
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
       "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/:cluster/:slug"
     },
     {
       "source": "/marketing-wissen/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*"
-        }
-      ],
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
       "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/:slug"
+    },
+    {
+      "source": "/tools",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/tools"
+    },
+    {
+      "source": "/foerderung",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/foerderung"
+    },
+    {
+      "source": "/erstkontakt",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/erstkontakt"
+    },
+    {
+      "source": "/kontakt",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/kontakt"
+    },
+    {
+      "source": "/instagram-profil-check",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/instagram-profil-check"
     },
     { "source": "/", "destination": "/index.html" },
     { "source": "/socialmedia", "destination": "/index.html" },
