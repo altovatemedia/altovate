@@ -20,49 +20,28 @@ const ROICalculator = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div>
           <Label className="text-xs text-muted-foreground">Werbebudget (€)</Label>
-          <Input
-            type="number"
-            value={budget}
-            onChange={(e) => setBudget(Number(e.target.value))}
-            min={0}
-            className="mt-1"
-          />
+          <Input type="number" value={budget} onChange={(e) => setBudget(Number(e.target.value))} min={0} className="mt-1" />
         </div>
         <div>
           <Label className="text-xs text-muted-foreground">Klickpreis (€)</Label>
-          <Input
-            type="number"
-            value={cpc}
-            onChange={(e) => setCpc(Number(e.target.value))}
-            min={0}
-            step={0.1}
-            className="mt-1"
-          />
+          <Input type="number" value={cpc} onChange={(e) => setCpc(Number(e.target.value))} min={0} step={0.1} className="mt-1" />
         </div>
         <div>
           <Label className="text-xs text-muted-foreground">Conversionrate (%)</Label>
-          <Input
-            type="number"
-            value={convRate}
-            onChange={(e) => setConvRate(Number(e.target.value))}
-            min={0}
-            max={100}
-            step={0.5}
-            className="mt-1"
-          />
+          <Input type="number" value={convRate} onChange={(e) => setConvRate(Number(e.target.value))} min={0} max={100} step={0.5} className="mt-1" />
         </div>
       </div>
       <div className="grid grid-cols-3 gap-4 text-center">
         <div className="liquid-glass rounded-xl p-4">
-          <p className="text-2xl font-bold text-[#ff1c5c]">{clicks}</p>
+          <p className="text-2xl font-bold text-primary">{clicks}</p>
           <p className="text-xs text-muted-foreground">Klicks</p>
         </div>
         <div className="liquid-glass rounded-xl p-4">
-          <p className="text-2xl font-bold text-[#ff1c5c]">{leads}</p>
+          <p className="text-2xl font-bold text-primary">{leads}</p>
           <p className="text-xs text-muted-foreground">Leads</p>
         </div>
         <div className="liquid-glass rounded-xl p-4">
-          <p className="text-2xl font-bold text-[#ff1c5c]">{costPerLead} €</p>
+          <p className="text-2xl font-bold text-primary">{costPerLead} €</p>
           <p className="text-xs text-muted-foreground">Cost per Lead</p>
         </div>
       </div>

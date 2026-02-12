@@ -58,13 +58,13 @@ const CoreTopics = () => {
               className="liquid-glass rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 group block"
             >
               <div className="w-14 h-14 rounded-xl liquid-glass-icon flex items-center justify-center mb-6">
-                <cluster.icon className="w-7 h-7 text-[#ff1c5c]" />
+                <cluster.icon className="w-7 h-7 text-primary" />
               </div>
               <h2 className="finom-h3 mb-4">{cluster.title}</h2>
               <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
                 {cluster.definition}
               </p>
-              <span className="text-[#ff1c5c] font-semibold text-sm group-hover:underline transition-colors">
+              <span className="text-primary font-semibold text-sm group-hover:underline transition-colors">
                 {cluster.cta} →
               </span>
             </Link>

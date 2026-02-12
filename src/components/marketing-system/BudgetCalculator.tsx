@@ -27,14 +27,7 @@ const BudgetCalculator = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div>
           <Label className="text-xs text-muted-foreground">Jahresumsatz (€)</Label>
-          <Input
-            type="number"
-            value={revenue}
-            onChange={(e) => setRevenue(Number(e.target.value))}
-            min={0}
-            step={10000}
-            className="mt-1"
-          />
+          <Input type="number" value={revenue} onChange={(e) => setRevenue(Number(e.target.value))} min={0} step={10000} className="mt-1" />
         </div>
         <div>
           <Label className="text-xs text-muted-foreground">Branche</Label>
@@ -44,16 +37,14 @@ const BudgetCalculator = () => {
             className="mt-1 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             {Object.entries(BRANCHES).map(([key, val]) => (
-              <option key={key} value={key}>
-                {val.label}
-              </option>
+              <option key={key} value={key}>{val.label}</option>
             ))}
           </select>
         </div>
       </div>
       <div className="liquid-glass rounded-xl p-6 text-center">
         <p className="text-muted-foreground text-sm mb-2">Empfohlenes jährliches Marketingbudget</p>
-        <p className="text-3xl font-bold text-[#ff1c5c]">
+        <p className="text-3xl font-bold text-primary">
           {minBudget.toLocaleString('de-DE')} € – {maxBudget.toLocaleString('de-DE')} €
         </p>
         <p className="text-xs text-muted-foreground mt-2">

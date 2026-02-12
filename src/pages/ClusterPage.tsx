@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { ArrowLeft, Clock, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Clock, ArrowRight, Copy, Check } from 'lucide-react';
 import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
@@ -92,6 +92,48 @@ const CLUSTERS: ClusterConfig[] = [
   },
 ];
 
+const DefinitionBox = ({ definition, clusterSlug }: { definition: string; clusterSlug: string }) => {
+  const [copied, setCopied] = useState(false);
+  const url = `https://altovate.de/marketing-wissen/${clusterSlug}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(definition);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(url);
+  };
+
+  return (
+    <div className="relative bg-card/60 rounded-lg pl-6 pr-6 py-6 mb-12 border-l-2 border-primary">
+      <button
+        onClick={handleCopy}
+        className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+        title="Definition kopieren"
+      >
+        {copied ? <Check size={16} /> : <Copy size={16} />}
+      </button>
+      <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 font-medium">Definition</p>
+      <p className="text-foreground leading-relaxed pr-8">
+        {definition}
+      </p>
+      <div className="mt-4 flex items-center gap-4">
+        <span className="text-xs text-muted-foreground">
+          Quelle: Altovate – Strategisches Marketingwissen
+        </span>
+        <button
+          onClick={handleCopyLink}
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+        >
+          Direktlink kopieren
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const ClusterPage = () => {
   const { clusterSlug } = useParams<{ clusterSlug: string }>();
   const [articles, setArticles] = useState<Article[]>([]);
@@ -152,7 +194,7 @@ const ClusterPage = () => {
           <div className="max-w-3xl mx-auto">
             <Link
               to="/marketing-wissen"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#ff1c5c] transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
             >
               <ArrowLeft size={16} /> Zurück zur Übersicht
             </Link>
@@ -161,19 +203,14 @@ const ClusterPage = () => {
               {cluster.h1}
             </h1>
 
-            {/* Definition Box */}
-            <div className="liquid-glass rounded-xl p-6 mb-12 border-l-4 border-[#ff1c5c]">
-              <p className="text-foreground leading-relaxed">
-                {cluster.definition}
-              </p>
-            </div>
+            <DefinitionBox definition={cluster.definition} clusterSlug={cluster.slug} />
 
             {/* Artikelübersicht */}
             <h2 className="finom-h3 mb-6">Artikel in diesem Themencluster</h2>
 
             {loading ? (
               <div className="flex justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ff1c5c]" />
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
               </div>
             ) : articles.length === 0 ? (
               <p className="text-muted-foreground py-8">
@@ -185,11 +222,11 @@ const ClusterPage = () => {
                   <Link
                     key={article.id}
                     to={`/marketing-wissen/${article.slug}`}
-                    className="block liquid-glass rounded-xl p-6 hover:-translate-y-1 transition-all duration-300 group"
+                    className="block bg-card/40 rounded-xl p-6 hover:-translate-y-1 transition-all duration-300 group"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground group-hover:text-[#ff1c5c] transition-colors mb-2">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
                           {article.title}
                         </h3>
                         {article.meta_description && (
@@ -204,7 +241,7 @@ const ClusterPage = () => {
                             <Clock size={12} /> {article.reading_time_minutes} Min
                           </span>
                         )}
-                        <ArrowRight size={16} className="text-[#ff1c5c]" />
+                        <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
                       </div>
                     </div>
                   </Link>
@@ -218,7 +255,7 @@ const ClusterPage = () => {
                 <h2 className="finom-h3 mb-6">Häufige Fragen</h2>
                 <div className="space-y-4">
                   {cluster.faqItems.map((faq, i) => (
-                    <div key={i} className="liquid-glass rounded-xl p-6">
+                    <div key={i} className="bg-card/40 rounded-xl p-6">
                       <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
                     </div>
