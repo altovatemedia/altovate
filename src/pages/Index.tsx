@@ -1,31 +1,33 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import Preloader from '@/components/Preloader';
 
+// Above the fold – eagerly loaded
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
 import ParallaxOrbs from '@/components/animations/ParallaxOrbs';
-
-import PainPoints from '@/components/sections/PainPoints';
-import Positioning from '@/components/sections/Positioning';
-import SystemProcess from '@/components/sections/SystemProcess';
-import Offers from '@/components/sections/Offers';
-import FoerderungHint from '@/components/sections/FoerderungHint';
-import OneOnOneSection from '@/components/sections/OneOnOneSection';
-import WhyNotFree from '@/components/sections/WhyNotFree';
-import AboutAlex from '@/components/sections/AboutAlex';
-import DoneForYouSection from '@/components/sections/DoneForYouSection';
-import CaseStudies from '@/components/sections/CaseStudies';
-import GoogleReviews from '@/components/sections/GoogleReviews';
-import FAQ from '@/components/FAQ';
-import FinalCTA from '@/components/sections/FinalCTA';
-import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
-import { CookieBannerWrapper } from '@/components/CookieBanner';
 import SEOSchema from '@/components/SEOSchema';
-import StickyMobileCTA from '@/components/StickyMobileCTA';
-import ExitIntentBanner from '@/components/ExitIntentBanner';
+
+// Below the fold – lazy loaded
+const PainPoints = lazy(() => import('@/components/sections/PainPoints'));
+const Positioning = lazy(() => import('@/components/sections/Positioning'));
+const SystemProcess = lazy(() => import('@/components/sections/SystemProcess'));
+const Offers = lazy(() => import('@/components/sections/Offers'));
+const FoerderungHint = lazy(() => import('@/components/sections/FoerderungHint'));
+const OneOnOneSection = lazy(() => import('@/components/sections/OneOnOneSection'));
+const WhyNotFree = lazy(() => import('@/components/sections/WhyNotFree'));
+const AboutAlex = lazy(() => import('@/components/sections/AboutAlex'));
+const DoneForYouSection = lazy(() => import('@/components/sections/DoneForYouSection'));
+const CaseStudies = lazy(() => import('@/components/sections/CaseStudies'));
+const GoogleReviews = lazy(() => import('@/components/sections/GoogleReviews'));
+const FAQ = lazy(() => import('@/components/FAQ'));
+const FinalCTA = lazy(() => import('@/components/sections/FinalCTA'));
+const Footer = lazy(() => import('@/components/Footer'));
+const ChatBot = lazy(() => import('@/components/ChatBot'));
+const CookieBannerWrapper = lazy(() => import('@/components/CookieBanner').then(m => ({ default: m.CookieBannerWrapper })));
+const StickyMobileCTA = lazy(() => import('@/components/StickyMobileCTA'));
+const ExitIntentBanner = lazy(() => import('@/components/ExitIntentBanner'));
 
 const faqItems = [
   {
@@ -94,27 +96,31 @@ const Index = () => {
         <main>
           <article>
             <NewHero />
-            <PainPoints />
-            <Positioning />
-            <SystemProcess />
-            <Offers />
-            <FoerderungHint />
-            <OneOnOneSection />
-            <WhyNotFree />
-            <AboutAlex />
-            <DoneForYouSection />
-            <CaseStudies />
-            <GoogleReviews />
-            <FAQ />
-            <FinalCTA />
+            <Suspense fallback={null}>
+              <PainPoints />
+              <Positioning />
+              <SystemProcess />
+              <Offers />
+              <FoerderungHint />
+              <OneOnOneSection />
+              <WhyNotFree />
+              <AboutAlex />
+              <DoneForYouSection />
+              <CaseStudies />
+              <GoogleReviews />
+              <FAQ />
+              <FinalCTA />
+            </Suspense>
           </article>
         </main>
         
-        <Footer />
-        <ChatBot />
-        <StickyMobileCTA />
-        <CookieBannerWrapper />
-        <ExitIntentBanner />
+        <Suspense fallback={null}>
+          <Footer />
+          <ChatBot />
+          <StickyMobileCTA />
+          <CookieBannerWrapper />
+          <ExitIntentBanner />
+        </Suspense>
       </motion.div>
     </AnimatePresence>
     </>
