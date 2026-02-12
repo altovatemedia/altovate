@@ -145,10 +145,11 @@ body {
 @layer components {
   /* Gold Gradient Text */
   .gold-gradient-text {
-    background: linear-gradient(135deg, #F5C842, #D4A843, #E8A020);
+    background: linear-gradient(135deg, #FFE082, #F5C842, #E8A020, #D4A843);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(245, 200, 66, 0.3));
   }
 
   /* Liquid Glass */
@@ -173,15 +174,17 @@ body {
   /* Enhanced Button Effects with Gold Gradient */
   .btn-hero {
     @apply text-primary-foreground font-bold text-base py-[14px] px-[22px] rounded-lg shadow-card transform hover:scale-105 transition-all duration-300;
-    background: linear-gradient(135deg, #F5C842, #D4A843, #E8A020);
+    background: linear-gradient(135deg, #FFD54F, #F5C842, #E8A020, #D4A843);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
   
   .btn-hero:hover {
-    background: linear-gradient(135deg, #F5C842, #E8A020, #D4A843);
+    background: linear-gradient(135deg, #FFE082, #F5C842, #E8A020);
     box-shadow: 
       0 16px 40px rgba(0, 0, 0, 0.3),
-      0 0 25px rgba(245, 200, 66, 0.4),
-      0 0 50px rgba(232, 160, 32, 0.2);
+      0 0 30px rgba(245, 200, 66, 0.5),
+      0 0 60px rgba(232, 160, 32, 0.3),
+      0 0 90px rgba(245, 200, 66, 0.15);
   }
 
   .btn-secondary {

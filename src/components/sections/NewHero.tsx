@@ -93,7 +93,7 @@ const NewHero = () => {
           <div className="hidden lg:flex justify-center items-end fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
               {/* Gold glow behind portrait */}
-              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/15 rounded-full blur-3xl"></div>
+              <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(245,200,66,0.25) 0%, rgba(232,160,32,0.15) 40%, transparent 70%)' }}></div>
               {/* Bottom fade gradient */}
               <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
               <img 
