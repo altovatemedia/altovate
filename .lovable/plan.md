@@ -1,64 +1,54 @@
 
 
-## Neue Unterseite: "Meine Lieblingstools" (Affiliate-Tool-Sammlung)
+## Neue Kategorie "Performance & Gesundheit" auf der Tools-Seite
 
-### Konzept
+### Was sich aendert
 
-Eine neue Unterseite `/tools` wird erstellt, die Alex' persoenlich genutzte KI-Tools vorstellt. Der Fokus liegt auf **authentischer Empfehlung**, nicht auf Werbung. Jedes Tool wird mit einem kurzen, persoenlichen Erfahrungsbericht praesentiert -- warum Alex es nutzt, welches Problem es loest und wie viel Zeit es spart. Der Affiliate-Vorteil wird subtil als "Bonus" erwaehnt, nicht als Hauptargument.
+Die `/tools`-Seite wird um einen neuen Abschnitt erweitert, der sich thematisch von den KI-Tools absetzt. Unter einer eigenen Zwischen-Headline (z.B. "Performance & Gesundheit") werden Empfehlungen aus dem Bereich Fitness, Ernaehrung und Nahrungsergaenzung praesentiert -- mit persoenlichem Kontext zu Alex' 15 Jahren Erfahrung in diesem Bereich.
 
-### Seitenstruktur
+### Seitenstruktur (erweitert)
 
-1. **Hero-Bereich**: Kurze Einleitung in Ich-Perspektive -- "Diese Tools nutze ich taeglich, um mit der Effizienz von 10 A-Playern zu arbeiten. Wenn du auch Zeit sparen willst, probier sie aus."
-2. **Tool-Karten**: Jedes Tool als eigene Karte im Dark-Premium-Design (Liquid Glass) mit:
-   - Tool-Logo (Platzhalter-Icon bis Logos hochgeladen werden)
-   - Tool-Name und Kategorie-Badge (z.B. "Motion Design", "Diktiersoftware", "No-Code")
-   - 2-3 Saetze persoenlicher Erfahrungsbericht
-   - Konkreter Zeitersparnis-Hinweis
-   - Subtiler Vorteil (z.B. "Mit meinem Link: 15% Rabatt" als kleiner Hinweis, nicht als Headline)
-   - CTA-Button zum Affiliate-Link (extern, target="_blank")
-3. **Disclaimer**: Transparenter Hinweis am Ende, dass Affiliate-Links enthalten sind
+Die bisherige Seite bleibt unveraendert. Unterhalb der KI-Tool-Karten kommt:
 
-### Tools zum Start
-
-| Tool | Kategorie | Vorteil | Link |
-|------|-----------|---------|------|
-| **Hera** | Motion Design / KI-Video | 15% Rabatt | hera.cello.so/JoZSq4tkrXH |
-| **Typeless** | Diktiersoftware (Desktop) | -- | typeless.com/?via=alexander-buchmann |
-| **Whispr Flow** | Diktiersoftware (iPhone/Cross) | 1 Monat Pro gratis | wisprflow.ai/r/MEAWERI!131 |
-| **Lovable** | No-Code Website-Builder | 10 gratis Credits | lovable.dev/invite/ADKF155 |
+1. **Ueberleitung/Intro-Block**: Ein kurzer Text, der den Schwenk von KI-Tools zu Performance-Themen macht. Kernbotschaft: "Meine Wurzeln liegen in der Fitness-Welt. 15 Jahre Erfahrung in Fitness, Ernaehrung und Bodybuilding. Gerade fuer Unternehmer kann man hier unglaublich viel herausholen."
+2. **One Step Further Verweis**: Hinweis, dass die Basis (Bewegung + Ernaehrung) stimmen muss, mit Link zu One Step Further fuer individuelle Betreuung.
+3. **Supplement-Karten**: Zwei Karten im selben Liquid-Glass-Design:
+   - **Adaptogen-Komplex** (z.B. Ashwagandha) -- Stresskiller Nr. 1 fuer Unternehmer
+   - **Vitalpilze** (z.B. Loewenmaehne) -- kognitive Performance
+   - Beide mit Rabattcode ONESTEP und Affiliate-Link zu Zec+
 
 ### Texte (Entwurf)
 
-**Hera**: "Frueher habe ich Stunden in After Effects verbracht, um ein einziges Motion Design zu erstellen. Mit Hera beschreibe ich per Prompt, was ich brauche -- und bekomme in Sekunden ein Ergebnis in Profi-Qualitaet. Fuer mich einer der groessten Zeitspar-Hebel in der Content-Produktion."
+**Intro-Block:**
+> Neben KI-Tools gibt es noch einen Bereich, in dem ich 15 Jahre Erfahrung mitbringe: Fitness, Ernaehrung und Nahrungsergaenzung. Gerade als Unternehmer kannst du hier unglaublich viel fuer deine taegliche Leistungsfaehigkeit herausholen. Die Basis -- Bewegung und Ernaehrung -- muss natuerlich stimmen. Wer dort Unterstuetzung sucht, dem empfehle ich One Step Further.
 
-**Typeless**: "Ich tippe fast nichts mehr. Typeless hoert zu, versteht den Inhalt und formuliert daraus saubere, zusammengefasste Saetze -- kein rohes Transkript, sondern fertiger Text. Spart mir taeglich mindestens eine Stunde."
+**Adaptogen-Komplex:**
+> Stress gehoert zum Unternehmer-Alltag. Adaptogene wie Ashwagandha helfen dem Koerper, besser mit chronischem Stress umzugehen -- natuerlich und ohne Nebenwirkungen. Fuer mich ein absoluter Game-Changer im Alltag.
 
-**Whispr Flow**: "Macht dasselbe wie Typeless, aber nativ auf dem iPhone -- und mittlerweile auch auf dem Desktop. Koennte fuer mich bald Typeless ersetzen. Ideal, wenn du viel unterwegs diktierst."
-
-**Lovable**: "Mein absolutes Lieblingstool. Websites, Web-Apps, Landingpages -- alles durch einfache Prompt-Eingabe. Voll funktional mit Hosting, Datenbank und Integrationen wie Stripe, Shopify und mehr. Diese Website hier? Damit gebaut."
+**Vitalpilze (Loewenmaehne):**
+> Loewenmaehne-Extrakt (Lion's Mane) ist einer der spannendsten Vitalpilze fuer kognitive Leistung: Fokus, Klarheit, Gedaechtnisleistung. Ich nehme ihn taeglich und merke den Unterschied besonders an langen Arbeitstagen.
 
 ---
 
 ### Technische Details
 
-**Neue Dateien:**
+**Datei:** `src/pages/Tools.tsx`
 
-| Datei | Beschreibung |
-|-------|-------------|
-| `src/pages/Tools.tsx` | Neue Seite mit Helmet, Navigation, Footer, Tool-Karten |
+1. **Hero-Text anpassen**: Die Meta-Description und den Lead-Text leicht erweitern, damit die Seite nicht mehr nur "KI-Tools" verspricht, sondern breiter als "Empfehlungen" positioniert ist.
 
-**Bestehende Dateien:**
+2. **Neuer Abschnitt nach den Tool-Karten**: Eine neue `<section>` mit:
+   - Zwischen-Headline "Performance & Gesundheit" (gold-gradient)
+   - Intro-Text mit persoenlichem Hintergrund (Fitness-Wurzeln, 15 Jahre Erfahrung)
+   - Link zu One Step Further (externer Link, eigene kleine Karte oder Inline-Link)
+   - Zwei Supplement-Karten im gleichen Grid-Layout wie die KI-Tools, aber mit:
+     - Kategorie-Badge "Nahrungsergaenzung"
+     - Rabattcode "ONESTEP" als Benefit (statt Prozent-Rabatt)
+     - Gleicher Affiliate-Link zu Zec+ fuer beide
+   - Placeholder-Icons (Lucide: `Leaf` fuer Adaptogene, `Brain` fuer Vitalpilze) bis echte Produktbilder hochgeladen werden
+
+3. **Keine neuen Dateien noetig** -- alles in `Tools.tsx` ergaenzt.
 
 | Datei | Aenderung |
 |-------|-----------|
-| `src/App.tsx` | Route `/tools` hinzufuegen |
-| `src/components/sections/NewNavigation.tsx` | Optional: Link zu Tools in der Navigation oder im Footer |
-
-**Design-Vorgaben:**
-- Liquid-Glass-Karten fuer jedes Tool (konsistent mit restlicher Website)
-- Gold-Gradient fuer Tool-Namen und Kategorie-Badges
-- Externe Links mit `target="_blank"` und `rel="noopener noreferrer"`
-- Responsive Grid: 1 Spalte mobil, 2 Spalten ab md
-- Radiale Gradient-Uebergaenge zwischen Sektionen (keine harten Kanten)
-- Tool-Logos werden als Platzhalter-Icons (Lucide) eingesetzt bis du die echten Logos hochlaedst
+| `src/pages/Tools.tsx` | Neuer Abschnitt "Performance & Gesundheit" mit Intro, One Step Further Link, zwei Supplement-Karten |
 
