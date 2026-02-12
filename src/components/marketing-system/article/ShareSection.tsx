@@ -17,7 +17,7 @@ const ShareSection = ({ title, url }: ShareSectionProps) => {
 
   const handleLinkedIn = () => {
     window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
       '_blank',
       'noopener,noreferrer'
     );

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import HeroSection from '@/components/marketing-system/HeroSection';
 import CoreTopics from '@/components/marketing-system/CoreTopics';
+import ArticleFeed from '@/components/marketing-system/ArticleFeed';
 import CTASection from '@/components/marketing-system/CTASection';
 
 const MarketingSystem = () => {
@@ -42,6 +43,7 @@ const MarketingSystem = () => {
       <NewNavigation />
       <HeroSection />
       <CoreTopics />
+      <ArticleFeed />
       <CTASection />
       <Footer />
       <ChatBot />
