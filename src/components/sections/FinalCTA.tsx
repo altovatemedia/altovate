@@ -29,7 +29,7 @@ const FinalCTA = () => {
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-7 text-lg font-semibold min-w-[280px]"
               onClick={() => handleBooking('Strategie-Session 60 Minuten')}
             >
-              60 Min Strategie-Session
+              60-Min-Session anfragen
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
@@ -39,14 +39,14 @@ const FinalCTA = () => {
               className="border-2 border-primary text-primary hover:bg-primary/5 px-8 py-7 text-lg font-semibold min-w-[280px]"
               onClick={() => handleBooking('Strategie-Session 90 Minuten')}
             >
-              90 Min Strategie-Session
+              90-Min-Session anfragen
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
 
           {/* Subtext */}
           <p className="text-muted-foreground mt-8 text-sm">
-            Beide Sessions sind bezahlt. Du bekommst echten strategischen Wert.
+            Beide Sessions sind bezahlt. Keine Erstgespräche, kein Pitch.
           </p>
         </div>
       </div>

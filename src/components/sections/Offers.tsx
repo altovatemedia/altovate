@@ -23,7 +23,7 @@ const Offers = () => {
         "Konkrete nächste Schritte",
         "Entscheidung: selber umsetzen oder skalieren"
       ],
-      cta: "Direkt Termin buchen",
+      cta: "60-Min-Session anfragen",
       offerType: "Strategie-Session 60 Minuten"
     },
     {
@@ -41,7 +41,7 @@ const Offers = () => {
         "Priorisierte Maßnahmen",
         "Konkrete Umsetzungslogik"
       ],
-      cta: "Direkt Termin buchen",
+      cta: "90-Min-Session anfragen",
       offerType: "Strategie-Session 90 Minuten"
     },
     {
@@ -56,7 +56,7 @@ const Offers = () => {
       ],
       results: [],
       note: "Kein Paket von der Stange. Umsetzung nur nach Strategie-Session.",
-      cta: "Termin anfragen",
+      cta: "Setup besprechen",
       offerType: "Social Media Setup",
       isFundingReduced: true
     }
@@ -155,6 +155,9 @@ const Offers = () => {
                   {offer.cta}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
+                <p className="text-xs text-muted-foreground text-center mt-2">
+                  Bezahlte Session – du bekommst echten Wert.
+                </p>
               </div>
             ))}
           </div>

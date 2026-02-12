@@ -231,12 +231,15 @@ const SoftwareContactForm = () => {
         {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Wird gesendet...
+            Anfrage wird übermittelt...
           </>
         ) : (
-          'Anfrage senden'
+          'Projektanfrage absenden'
         )}
       </Button>
+      <p className="text-xs text-muted-foreground text-center mt-2">
+        Wir melden uns innerhalb von 24h mit einer Einschätzung.
+      </p>
     </form>
   );
 };

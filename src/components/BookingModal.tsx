@@ -290,7 +290,7 @@ const BookingModal = ({ isOpen, onClose, offerType = "Strategie-Session" }: Book
               disabled={!isStepValid()}
               className="bg-primary hover:bg-primary/90"
             >
-              Weiter
+              Weiter zu Schritt {step + 1}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           ) : (
@@ -302,17 +302,20 @@ const BookingModal = ({ isOpen, onClose, offerType = "Strategie-Session" }: Book
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Wird gesendet...
+                  Anfrage wird übermittelt...
                 </>
               ) : (
                 <>
-                  Anfrage senden
+                  Session-Anfrage absenden
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </>
               )}
             </Button>
           )}
         </div>
+        <p className="text-xs text-muted-foreground text-center mt-3">
+          Antwort innerhalb von 24h – kein Abo, keine Verpflichtung.
+        </p>
       </DialogContent>
     </Dialog>
   );

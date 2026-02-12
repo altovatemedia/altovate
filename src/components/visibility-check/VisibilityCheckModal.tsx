@@ -181,7 +181,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         className="w-full py-6 text-lg font-semibold"
         style={{ backgroundColor: '#ff1c5c' }}
       >
-        Check starten
+        Jetzt Check starten – kostenlos
       </Button>
     </div>
   );
@@ -263,7 +263,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         className="w-full py-6 text-lg font-semibold"
         style={{ backgroundColor: '#ff1c5c' }}
       >
-        {currentQuestionIndex < totalQuestions - 1 ? 'Weiter' : 'Fertig'}
+        {currentQuestionIndex < totalQuestions - 1 ? 'Nächste Frage' : 'Ergebnis berechnen'}
       </Button>
     </div>
   );
@@ -299,8 +299,11 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         className="w-full py-6 text-lg font-semibold"
         style={{ backgroundColor: '#ff1c5c' }}
       >
-        {isSubmitting ? 'Wird gespeichert...' : 'Ergebnis anzeigen'}
+        {isSubmitting ? 'Wird gespeichert...' : 'Mein Ergebnis jetzt sehen'}
       </Button>
+      <p className="text-xs text-muted-foreground mt-2">
+        Deine Daten bleiben bei uns. Kein Newsletter.
+      </p>
     </div>
   );
 
@@ -346,7 +349,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
           className="w-full py-6 text-lg font-semibold"
           style={{ backgroundColor: '#ff1c5c' }}
         >
-          Fertig
+          Check abschließen
         </Button>
       </div>
     );
