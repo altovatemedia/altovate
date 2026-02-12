@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_articles: {
+        Row: {
+          content_html: string | null
+          content_markdown: string | null
+          created_at: string
+          hero_image_url: string | null
+          id: string
+          meta_description: string | null
+          published_at: string | null
+          slug: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content_html?: string | null
+          content_markdown?: string | null
+          created_at?: string
+          hero_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          published_at?: string | null
+          slug: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content_html?: string | null
+          content_markdown?: string | null
+          created_at?: string
+          hero_image_url?: string | null
+          id?: string
+          meta_description?: string | null
+          published_at?: string | null
+          slug?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       visibility_check_leads: {
         Row: {
           answers: Json
