@@ -84,7 +84,7 @@ const NewNavigation = () => {
             <img 
               src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
               alt="Altovate"
-              className="h-8 w-auto object-contain"
+              className="h-8 w-auto object-contain brightness-0 invert"
             />
           </button>
 

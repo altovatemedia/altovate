@@ -64,7 +64,8 @@ export default {
 				},
 			gold: {
 				DEFAULT: 'hsl(var(--primary))',
-				light: 'hsl(41 55% 65%)',
+				light: '#F5C842',
+				warm: '#E8A020',
 				dark: 'hsl(41 55% 45%)'
 			},
 				popover: {
