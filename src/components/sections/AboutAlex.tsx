@@ -35,8 +35,9 @@ const AboutAlex = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={alexanderPortrait}
-                    alt="Alex Buchmann - Gründer von Altovate" 
+                    alt="Alexander Buchmann – Gründer der altovate GmbH, Marketing-Stratege für mittelständische Unternehmen in Saarburg" 
                     className="w-full h-auto object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
                 </div>

@@ -53,13 +53,15 @@ const NewHero = () => {
         {/* Subtle logo icon decorations */}
         <img 
           src={altovateIcon} 
-          alt="" 
+          alt="Altovate Logo Dekoration" 
           className="absolute top-1/4 right-10 w-32 h-32 opacity-[0.03] dark:opacity-[0.02] animate-float-slow pointer-events-none"
+          loading="lazy"
         />
         <img 
           src={altovateIcon} 
-          alt="" 
+          alt="Altovate Logo Dekoration" 
           className="absolute bottom-1/4 left-10 w-40 h-40 opacity-[0.02] dark:opacity-[0.015] animate-float pointer-events-none rotate-12"
+          loading="lazy"
         />
       </div>
 

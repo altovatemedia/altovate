@@ -95,10 +95,10 @@ const CaseStudies = () => {
     { name: "BAV Workflow", src: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png" }, // Updated BAV logo
     { name: "Ayler Kupp", src: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png" }, // Updated Ayler Kupp logo
     { name: "Brotchi", src: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png" }, // Updated Brotchi logo
-    { name: "Taza", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
-    { name: "SG Hochwald", src: "/lovable-uploads/3c245c78-a67c-4767-80b3-8787c63e8cca.png" },
-    { name: "LumaVision", src: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png" },
-    { name: "Zec+", src: "/lovable-uploads/6f42872a-3902-411d-8ec7-91f5166a2f41.png" }
+    { name: "Taza – Restaurant & Bar Saarburg", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
+    { name: "SG Hochwald – Sportgemeinschaft", src: "/lovable-uploads/3c245c78-a67c-4767-80b3-8787c63e8cca.png" },
+    { name: "LumaVision – Videoproduktion", src: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png" },
+    { name: "Zec+ Nutrition – Sportnahrung", src: "/lovable-uploads/6f42872a-3902-411d-8ec7-91f5166a2f41.png" }
   ];
 
   return (
@@ -143,20 +143,23 @@ const CaseStudies = () => {
                   {study.id === 'phillys' ? (
                     <img 
                       src="/lovable-uploads/24cbce68-76e8-453f-8fce-f12458644af2.png"
-                      alt="Philly's Mac n' Cheese Campaign"
+                      alt="Philly's Burger Saarbrücken – Social Media Kampagne mit Content-Produktion und Werbeanzeigen"
                       className="w-full h-full object-cover object-center"
+                      loading="lazy"
                     />
                   ) : study.id === 'circle' ? (
                     <img 
                       src="/lovable-uploads/8c5b3133-3900-4dff-ac8b-7840e5d85931.png"
-                      alt="Circle Fitness Mobile Campaign"
+                      alt="Circle Fitness – Mobile Werbekampagne für Lead-Generierung und Mitgliedergewinnung"
                       className="w-full h-full object-cover object-center"
+                      loading="lazy"
                     />
                   ) : study.id === 'bav' ? (
                     <img 
                       src="/lovable-uploads/b8c10b63-73f3-4add-bf5a-ae99d5e6acdf.png"
-                      alt="BAV Workflow Website Screenshot"
+                      alt="BAV Workflow – Website-Relaunch mit ROI-Calculator für HR-Entscheider"
                       className="w-full h-full object-cover object-center"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-400 text-sm">
