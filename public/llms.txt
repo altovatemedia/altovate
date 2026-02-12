@@ -90,23 +90,41 @@
 # Resources
 
 - [Startseite](https://altovate.de/)
+- [Strategisches Marketingwissen](https://altovate.de/marketing-wissen)
+- [ROI & Wirtschaftlichkeit](https://altovate.de/marketing-wissen/roi-wirtschaftlichkeit)
+- [Social Media als System](https://altovate.de/marketing-wissen/social-media-system)
+- [Funnel & Nachfrage](https://altovate.de/marketing-wissen/funnel-nachfrage)
+- [Recruiting & Arbeitgebermarke](https://altovate.de/marketing-wissen/recruiting-arbeitgebermarke)
+- [GEO & KI-Sichtbarkeit](https://altovate.de/marketing-wissen/geo-ki-sichtbarkeit)
 - [Social Media Marketing](https://altovate.de/socialmedia)
 - [Werbeanzeigen & Performance](https://altovate.de/werbeanzeigen-saarburg)
 - [Employer Branding](https://altovate.de/employer-branding-saarburg)
 - [Marketing-Automation](https://altovate.de/marketing-automation-saarburg)
 - [Software & KI-Lösungen](https://altovate.de/software-ki-loesungen-saarburg)
 - [Förderung](https://altovate.de/foerderung)
-- [Marketing System](https://altovate.de/marketing-system)
 - [Kontakt](https://altovate.de/kontakt)
 - [Erstgespräch anfragen](https://altovate.de/erstkontakt)
 - [Datenschutzerklärung](https://altovate.de/datenschutz)
 - [Impressum](https://altovate.de/impressum)
 
-# Optional
+# Strategisches Marketingwissen – Themencluster
 
-## Marketing System
+## ROI & Wirtschaftlichkeit
 
-- Modulare Wissensarchitektur mit ROI-Modellen, Budgetrechnern und GEO-Optimierung
-- Dreistufiges Marketing-System: Aufmerksamkeit → Vertrauen → Conversion
-- Interaktive Tools: ROI-Rechner, Marketingbudget-Rechner, Sichtbarkeits-Selbsttest
-- Filterbare Themencluster: ROI & Wirtschaftlichkeit, Social Media Strategie, Funnel & Conversion, Recruiting & Arbeitgebermarke, GEO & KI
+Der Marketing-ROI berechnet sich aus (Gewinn – Investition) / Investition. Entscheidend ist nicht der Umsatz, sondern der Deckungsbeitrag der gewonnenen Kunden.
+
+## Social Media als System
+
+Posts sind kein Marketing. Marketing entsteht erst, wenn Aufmerksamkeit, Vertrauen und Nachfrage strukturiert aufgebaut werden.
+
+## Funnel & Nachfrage
+
+Sichtbarkeit ohne System erzeugt Reichweite. Kein Umsatz. Ein Funnel übersetzt Aufmerksamkeit in messbare Nachfrage.
+
+## Recruiting & Arbeitgebermarke
+
+Fachkräfte bewerben sich nicht bei Unternehmen, die sie nicht kennen. Sichtbarkeit entscheidet, bevor die Stellenausschreibung gelesen wird.
+
+## GEO & KI-Sichtbarkeit
+
+Generative Engine Optimization (GEO) beschreibt die Optimierung von Inhalten für KI-basierte Suchsysteme. Ranking reicht nicht mehr. Unternehmen müssen so strukturiert schreiben, dass KI-Systeme sie als Quelle erkennen und zitieren.

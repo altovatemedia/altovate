@@ -17,6 +17,7 @@ import Kontakt from "./pages/Kontakt";
 import InstagramProfilCheck from "./pages/InstagramProfilCheck";
 import Foerderung from "./pages/Foerderung";
 import MarketingSystem from "./pages/MarketingSystem";
+import ClusterPage from "./pages/ClusterPage";
 import BlogArticle from "./pages/BlogArticle";
 import Tools from "./pages/Tools";
 
@@ -40,11 +41,14 @@ const App = () => (
           <Route path="/instagram-profil-check" element={<InstagramProfilCheck />} />
           <Route path="/foerderung" element={<Foerderung />} />
           <Route path="/tools" element={<Tools />} />
-          <Route path="/marketing-system" element={<MarketingSystem />} />
-          <Route path="/marketing-system/:slug" element={<BlogArticle />} />
+          <Route path="/marketing-wissen" element={<MarketingSystem />} />
+          <Route path="/marketing-wissen/:clusterSlug" element={<ClusterPage />} />
+          <Route path="/marketing-wissen/:clusterSlug/:slug" element={<BlogArticle />} />
           {/* Redirects from old URLs */}
-          <Route path="/marketingwissen" element={<Navigate to="/marketing-system" replace />} />
-          <Route path="/marketingwissen/:slug" element={<RedirectArticle />} />
+          <Route path="/marketing-system" element={<Navigate to="/marketing-wissen" replace />} />
+          <Route path="/marketing-system/:slug" element={<RedirectArticle from="marketing-system" />} />
+          <Route path="/marketingwissen" element={<Navigate to="/marketing-wissen" replace />} />
+          <Route path="/marketingwissen/:slug" element={<RedirectArticle from="marketingwissen" />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
@@ -55,9 +59,9 @@ const App = () => (
 );
 
 // Helper component for slug redirect
-const RedirectArticle = () => {
+const RedirectArticle = ({ from }: { from: string }) => {
   const slug = window.location.pathname.split('/').pop();
-  return <Navigate to={`/marketing-system/${slug}`} replace />;
+  return <Navigate to={`/marketing-wissen/${slug}`} replace />;
 };
 
 export default App;
