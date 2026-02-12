@@ -42,6 +42,18 @@ const GoogleReviews = () => {
   return (
     <section ref={sectionRef} className="py-section bg-background">
       <div className="container mx-auto px-6">
+        {/* SVG Gradient Definition */}
+        <svg width="0" height="0" className="absolute">
+          <defs>
+            <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFEB3B" />
+              <stop offset="35%" stopColor="#FFC107" />
+              <stop offset="70%" stopColor="#FF9800" />
+              <stop offset="100%" stopColor="#F57C00" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         {/* Header with Google Rating */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -54,10 +66,10 @@ const GoogleReviews = () => {
           </div>
           
           <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-5xl font-bold text-foreground">{avgRating}</span>
+            <span className="text-5xl font-bold gold-gradient-text">{avgRating}</span>
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                <Star key={i} className="w-6 h-6" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
               ))}
             </div>
           </div>
@@ -98,7 +110,7 @@ const GoogleReviews = () => {
               {/* Stars */}
               <div className="flex gap-1 mb-3">
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-4 h-4" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
                 ))}
               </div>
 
