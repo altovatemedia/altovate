@@ -1,152 +1,86 @@
 
-
-# Marketing System – Kompletter Seitenumbau
+# Preloader entfernen + Mina-Wissen aktualisieren
 
 ## Zusammenfassung
 
-Die bisherige Blog-Listenseite "Marketingwissen" wird zu einer modularen Wissensarchitektur "Marketing System" umgebaut. Neuer Slug `/marketing-system`, neues Design mit Magenta-Akzent (#ff1c5c), Hero-Section, drei Kernthemen-Karten, Framework-Visualisierung, filterbare Artikel-Kategorien und interaktive Tools (ROI-Rechner, Budget-Rechner, Sichtbarkeits-Check).
+Zwei Aenderungen: (1) Der Preloader wird komplett entfernt, da er Performance kostet und trotz CSS-Filter kurz das Magenta-Logo zeigt. (2) Minas System-Prompt wird mit dem aktuellen Angebot aus der llms.txt synchronisiert -- insbesondere die REP-Methode, Strategie-Sessions, 1:1-Programme, Foerdermoeglichkeiten und der neue Marketing-System-Bereich.
 
 ---
 
-## Schritt 1: Datenbank – Kategorie-Feld hinzufuegen
+## Aenderung 1: Preloader entfernen
 
-Die `blog_articles`-Tabelle bekommt eine neue Spalte `category` (text, nullable) mit den Werten:
-- `roi` (ROI & Wirtschaftlichkeit)
-- `social-media` (Social Media Strategie)
-- `funnel` (Funnel & Conversion)
-- `recruiting` (Recruiting & Arbeitgebermarke)
-- `geo` (GEO & KI)
+Der Preloader (2,2 Sekunden Verzoegerung) wird komplett entfernt. Die Seite laedt direkt.
 
-Zusaetzlich eine Spalte `reading_time_minutes` (integer, nullable) fuer die Lesedauer.
-
----
-
-## Schritt 2: Routing & Redirects aktualisieren
-
-**App.tsx:**
-- `/marketingwissen` wird zu `/marketing-system`
-- `/marketingwissen/:slug` wird zu `/marketing-system/:slug`
-- Alte Routen `/marketingwissen` und `/marketingwissen/:slug` leiten per `<Navigate>` auf die neuen URLs um (301-Redirect-Logik)
-
-**vercel.json:**
-- Neue Rewrites fuer `/marketing-system` und `/marketing-system/:slug`
-- Alte `/marketingwissen`-Rewrites bleiben fuer Redirect-Kompatibilitaet
-
----
-
-## Schritt 3: Neue Seite `MarketingSystem.tsx`
-
-Komplett neue Datei mit folgenden Sektionen:
-
-### 3.1 Hero Section
-- H1: "Marketing ohne Bullshit. Mit System."
-- Subline wie im Briefing
-- 3 CTA-Buttons: "ROI verstehen", "Sichtbarkeit aufbauen", "GEO & KI verstehen"
-- Scroll-Anker zu den jeweiligen Sektionen
-
-### 3.2 Drei Kernthemen-Karten
-Drei grosse Karten mit Lucide-Icons:
-1. **Wirtschaftlichkeit & ROI** – mit Button "ROI-Modelle ansehen"
-2. **Sichtbarkeit & Funnel** – mit Button "System verstehen"
-3. **GEO & KI-Sichtbarkeit** – mit Button "GEO lernen"
-
-Liquid-Glass-Design, Magenta-Akzent fuer Hover und Buttons.
-
-### 3.3 Framework-Bereich: Das Altovate Marketing-System
-- Dreistufiges visuelles Modell: Aufmerksamkeit -> Vertrauen -> Conversion
-- Jede Stufe mit zitierfahiger Definition
-- Horizontale Darstellung auf Desktop, vertikal auf Mobile
-- Verbindungslinien/Pfeile zwischen den Stufen
-
-### 3.4 Themencluster-Navigation (Artikel mit Filtern)
-- Filter-Tabs: ROI & Wirtschaftlichkeit | Social Media Strategie | Funnel & Conversion | Recruiting & Arbeitgebermarke | GEO & KI | Alle
-- Artikel-Karten mit: Kategorie-Badge, Lesedauer, Teaser-Text, interner Link
-- Daten aus `blog_articles` mit `category`-Filter
-- Kein endloser Feed, sondern strukturierte Darstellung
-
-### 3.5 Interaktive Tools
-Drei Tool-Karten die zu Inline-Modulen fuehren:
-1. **ROI-Rechner** – Eingabe: Werbebudget, Klickpreis, Conversionrate -> Berechnet Cost-per-Lead und ROI
-2. **Marketingbudget-Rechner** – Eingabe: Jahresumsatz, Branche -> Empfohlenes Budget
-3. **Sichtbarkeits-Selbsttest** – Oeffnet den bestehenden VisibilityCheckModal
-
-### 3.6 Sticky Navigation (oben)
-Drei Buttons permanent sichtbar innerhalb der Seite:
-- "System verstehen" (Scroll zu Framework)
-- "ROI berechnen" (Scroll zu Tools)
-- "Kontakt" (Scroll zu Kontakt auf Startseite)
-
----
-
-## Schritt 4: BlogArticle.tsx aktualisieren
-
-- Alle `/marketingwissen/`-Referenzen zu `/marketing-system/` aendern
-- Breadcrumb: "Marketing System" statt "Marketingwissen"
-- Canonical URLs aktualisieren
-
----
-
-## Schritt 5: Alle Referenzen aktualisieren
-
-- **Footer.tsx**: Link und Text von "Marketingwissen" zu "Marketing System" aendern
-- **NewNavigation.tsx**: Falls Marketingwissen im Dropdown, umbenennen
-- **index.html (noscript)**: Link aktualisieren
-- **public/sitemap.xml**: URL von `/marketingwissen` zu `/marketing-system`
-- **supabase/functions/sitemap/index.ts**: URLs aktualisieren
-- **public/llms.txt**: Referenzen aktualisieren
-
----
-
-## Schritt 6: SEO & Schema
-
-- Meta Title: "Marketing System fuer Unternehmen | ROI, Social Media, GEO – Altovate"
-- Meta Description: "Fundiertes Marketingwissen fuer Unternehmen ohne internes Marketingteam. ROI-Modelle, Budgetrechner, GEO-Optimierung und ehrliche Analysen."
-- Canonical: `https://altovate.de/marketing-system`
-- FAQ Schema fuer die Kernthemen-Definitionen
-- BreadcrumbList Schema
-
----
-
-## Schritt 7: Design-Richtlinien
-
-- Dunkles Layout (bestehend)
-- **Magenta #ff1c5c als Akzent** fuer CTAs und Hover-States auf dieser Seite (via CSS-Variablen oder Inline)
-- Klare Typografie, strukturierte Boxen, viel Weissraum
-- Keine verspielten Blog-Layouts
-- Liquid-Glass-Karten wie auf dem Rest der Seite
-
----
-
-## Neue Dateien
-
-| Datei | Zweck |
-|---|---|
-| `src/pages/MarketingSystem.tsx` | Komplette neue Seite |
-| `src/components/marketing-system/HeroSection.tsx` | Hero mit CTAs |
-| `src/components/marketing-system/CoreTopics.tsx` | 3 Kernthemen-Karten |
-| `src/components/marketing-system/FrameworkSection.tsx` | Dreistufiges Modell |
-| `src/components/marketing-system/ArticleCluster.tsx` | Filterbare Artikel |
-| `src/components/marketing-system/InteractiveTools.tsx` | ROI-/Budget-Rechner |
-| `src/components/marketing-system/ROICalculator.tsx` | ROI-Rechner Logik |
-| `src/components/marketing-system/BudgetCalculator.tsx` | Budget-Rechner Logik |
-
-## Geaenderte Dateien
+**Betroffene Dateien:**
 
 | Datei | Aenderung |
 |---|---|
-| `src/App.tsx` | Neue Route + Redirect |
-| `src/pages/BlogArticle.tsx` | URLs aktualisieren |
-| `src/components/Footer.tsx` | Link umbenennen |
-| `vercel.json` | Neue Rewrites |
-| `public/sitemap.xml` | URL aendern |
-| `supabase/functions/sitemap/index.ts` | URL aendern |
-| `index.html` | Noscript-Links |
-| `public/llms.txt` | Referenzen |
+| `src/pages/Index.tsx` | `Preloader`-Import und -Logik entfernen, `loading`-State entfernen, `AnimatePresence` vereinfachen |
+| `src/components/Preloader.tsx` | Datei loeschen |
 
-## Datenbank-Migration
+**Details:**
+- `useState(true)` fuer `loading` faellt weg
+- `handlePreloaderComplete` Callback faellt weg
+- Die `motion.div` bleibt fuer den sanften Fade-In, startet aber sofort
+- Der `framer-motion` Import in Index.tsx kann vereinfacht werden
 
-```sql
-ALTER TABLE blog_articles ADD COLUMN category text;
-ALTER TABLE blog_articles ADD COLUMN reading_time_minutes integer;
+---
+
+## Aenderung 2: Mina System-Prompt aktualisieren
+
+Der System-Prompt in `supabase/functions/mina-chat/index.ts` wird aktualisiert, um die aktuelle Positionierung widerzuspiegeln:
+
+**Was sich aendert im Prompt:**
+
+1. **Positionierung**: "Digital Marketing Agentur" wird zu "Lead- und Content-Systeme fuer mittelstaendische Unternehmen". Betonung der REP-Methode (Relevanz, Effizienz, Planbarkeit).
+
+2. **Strategie-Sessions hinzufuegen**: 60 Min ab 390 Euro, 90 Min ab 590 Euro -- als niedrigschwelligen Einstieg erwaehnen.
+
+3. **1:1 Zusammenarbeit**: 12-Wochen und 24-Wochen Programme als Premium-Option.
+
+4. **Foerderung**: Mina soll aktiv auf bis zu 80% Foerderung hinweisen (BAFA, Landesfoerderung).
+
+5. **Marketing System**: Verweis auf /marketing-system mit ROI-Rechner und Sichtbarkeits-Check.
+
+6. **Region**: Saarburg, Trier, Saar-Mosel-Region betonen.
+
+7. **USPs aktualisieren**: Systembasiert statt Einzelmassnahmen, projektbasiert ohne Knebelvertraege, eigene REP-Methode.
+
+**Bestehende Paket-Infos bleiben erhalten** (Content Lite, Ads & Automation, Scale Plan, einmalige Pakete etc.) -- diese werden nur um die neuen Punkte ergaenzt.
+
+**Betroffene Datei:**
+
+| Datei | Aenderung |
+|---|---|
+| `supabase/functions/mina-chat/index.ts` | System-Prompt erweitern (Zeilen 35-196) |
+
+---
+
+## Technische Details
+
+### Index.tsx vorher:
+```text
+const [loading, setLoading] = useState(true);
+const handlePreloaderComplete = useCallback(() => setLoading(false), []);
+...
+{loading && <Preloader onComplete={handlePreloaderComplete} />}
+<AnimatePresence mode="wait">
+  <motion.div ...>
 ```
 
+### Index.tsx nachher:
+```text
+// Kein loading-State, kein Preloader
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}
+  className="min-h-screen bg-background"
+>
+```
+
+### Mina-Prompt Ergaenzungen (neue Abschnitte):
+- "UNSERE POSITIONIERUNG & METHODE" mit REP-Erklaerung
+- "STRATEGIE-SESSIONS" als Einstieg
+- "FOERDERUNG" mit konkreten Zahlen
+- "INTERAKTIVE TOOLS" Verweis auf /marketing-system
