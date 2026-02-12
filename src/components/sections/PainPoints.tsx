@@ -44,7 +44,7 @@ const PainPoints = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
+    <section ref={sectionRef} className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
          {/* Section header */}

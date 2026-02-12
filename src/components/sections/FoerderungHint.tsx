@@ -3,7 +3,7 @@ import { ArrowRight, BadgePercent } from 'lucide-react';
 
 const FoerderungHint = () => {
   return (
-    <section className="py-12 bg-primary/5">
+    <section className="py-12">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <Link 

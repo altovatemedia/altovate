@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
-import SectionDivider from '@/components/sections/SectionDivider';
+
 import PainPoints from '@/components/sections/PainPoints';
 import Positioning from '@/components/sections/Positioning';
 import SystemProcess from '@/components/sections/SystemProcess';
@@ -87,31 +87,18 @@ const Index = () => {
         <main>
           <article>
             <NewHero />
-            <SectionDivider />
             <PainPoints />
-            <SectionDivider />
             <Positioning />
-            <SectionDivider />
             <SystemProcess />
-            <SectionDivider />
             <Offers />
-            <SectionDivider />
             <FoerderungHint />
-            <SectionDivider />
             <OneOnOneSection />
-            <SectionDivider />
             <WhyNotFree />
-            <SectionDivider />
             <AboutAlex />
-            <SectionDivider />
             <DoneForYouSection />
-            <SectionDivider />
             <CaseStudies />
-            <SectionDivider />
             <GoogleReviews />
-            <SectionDivider />
             <FAQ />
-            <SectionDivider />
             <FinalCTA />
           </article>
         </main>

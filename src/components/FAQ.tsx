@@ -36,7 +36,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-transparent via-muted/30 to-transparent relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       {/* Grid Background Pattern */}
       <div 
         className="absolute inset-0 opacity-[0.02]"

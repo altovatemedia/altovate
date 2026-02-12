@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card relative overflow-hidden border-t border-border">
+    <footer className="bg-background relative overflow-hidden">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
       
