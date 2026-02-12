@@ -76,7 +76,7 @@ const NewHero = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground"
+                className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground relative z-20"
                 onClick={scrollToOffers}
               >
                 Direkt Klarheit statt Erstgespräch
@@ -90,12 +90,12 @@ const NewHero = () => {
           </div>
 
           {/* Right: Portrait */}
-          <div className="hidden lg:flex justify-center items-end fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div className="hidden lg:flex justify-center items-end fade-in-up relative" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
               {/* Gold glow behind portrait */}
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(245,200,66,0.25) 0%, rgba(232,160,32,0.15) 40%, transparent 70%)' }}></div>
-              {/* Bottom fade gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
+              {/* Bottom fade gradient - taller and smoother */}
+              <div className="absolute bottom-0 left-[-20%] right-[-20%] h-2/5 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
               <img 
                 src={alexanderPortrait}
                 alt="Alexander – Gründer von Altovate"
