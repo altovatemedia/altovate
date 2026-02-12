@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, CalendarDays, Link2 } from 'lucide-react';
+import { ArrowLeft, CalendarDays } from 'lucide-react';
 import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
@@ -43,12 +43,6 @@ const processContentHtml = (html: string): string => {
   headings.forEach((h2, i) => {
     const id = h2.id || `section-${i}`;
     h2.id = id;
-    // Add anchor icon
-    const anchor = doc.createElement('a');
-    anchor.href = `#${id}`;
-    anchor.className = 'article-anchor-link';
-    anchor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`;
-    h2.appendChild(anchor);
   });
 
   return doc.body.innerHTML;
@@ -202,7 +196,7 @@ const BlogArticle = () => {
             {/* Main Content */}
             {processedHtml && (
               <article
-                className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:flex prose-h2:items-center prose-h2:gap-2"
+                className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground"
                 dangerouslySetInnerHTML={{ __html: processedHtml }}
               />
             )}
