@@ -1,59 +1,51 @@
 
-# Plan: 4 Fixes fuer das Artikel-Template und die Marketing-Wissen-Startseite
+
+# Plan: Themencluster kompakter machen, neuen Artikel einfuegen und Cross-Links setzen
 
 ---
 
-## 1. LinkedIn-Share reparieren
+## 1. CoreTopics-Sektion deutlich verkleinern
 
-**Problem:** Der LinkedIn-Share-Button oeffnet eine URL, die nicht mehr funktioniert. LinkedIn hat die `sharing/share-offsite/`-URL veraendert und erfordert mittlerweile ein anderes Format.
+**Problem:** Die fuenf Cluster-Karten nehmen zu viel Platz ein und ueberfordern auf der Startseite.
 
-**Loesung:** In `ShareSection.tsx` die LinkedIn-Share-URL auf das aktuelle Format umstellen:
-```
-https://www.linkedin.com/shareArticle?mini=true&url=...&title=...
-```
+**Loesung:** Die Karten von grossen Bloecken mit Icon, Beschreibung und CTA zu einer kompakten horizontalen Leiste umbauen. Statt `p-8` und grossem Icon wird jeder Cluster ein kleiner Chip/Pill-Link in einer einzigen Zeile -- aehnlich den Filter-Chips, aber als eigenstaendige Navigationslinks zu den Cluster-Seiten. Die lange Definition faellt weg, es bleibt nur Icon + Titel als Link.
 
----
-
-## 2. Anchor-Link-Icons an H2-Ueberschriften entfernen
-
-**Problem:** An jeder H2-Ueberschrift wird ein kleines Ketten-Icon (Link-Symbol) eingefuegt. Beim Klick springt die Seite zur jeweiligen Ueberschrift. Das verwirrt Nutzer, die die Funktion nicht kennen.
-
-**Loesung:** Die `processContentHtml`-Funktion in `BlogArticle.tsx` so aendern, dass keine Anchor-Links mehr an H2-Elemente angehaengt werden. Die IDs bleiben erhalten (fuer das Inhaltsverzeichnis), aber das sichtbare Ketten-Icon und der klickbare Link werden entfernt. Die zugehoerigen CSS-Regeln in `index.css` (`.article-anchor-link`) werden ebenfalls entfernt.
+**Datei:** `src/components/marketing-system/CoreTopics.tsx`
 
 ---
 
-## 3. Text-Formatierung: Aufzaehlungspunkte und Abstaende
+## 2. Neuen Artikel in die Datenbank einfuegen
 
-**Problem:** Die Tailwind `prose`-Klasse entfernt standardmaessig List-Styles auf dunklen Themes. Aufzaehlungspunkte (`ul > li`) fehlen, und nach nummerierten Listen (`ol`) stimmen die Abstaende nicht.
+**Artikel:** "Lokale Werbung im Wochenblatt – Warum 800 Euro pro Woche im Kreisblatt selten eine Strategie sind"
 
-**Loesung:** In `index.css` explizite Prose-Overrides ergaenzen:
-- `prose ul` bekommt `list-style-type: disc` und linkes Padding
-- `prose ol` bekommt `list-style-type: decimal` und linkes Padding  
-- `prose li` bekommt korrekten Abstand (`margin-bottom`)
-- `prose li::marker` bekommt die richtige Farbe (`text-muted-foreground`)
-- Abstaende nach Listen werden normalisiert
+- Kategorie: `roi` (Cluster: ROI & Wirtschaftlichkeit)
+- Slug: `lokale-werbung-wochenblatt`
+- Lesezeit: ca. 7 Minuten
+- Vollstaendiger HTML-Content mit Definition-Box, Kernaussage, Rechenbeispiel-Tabelle, FAQ-Schema
 
 ---
 
-## 4. Marketing-Wissen-Startseite: Chronologische Artikelliste mit optionalem Filter
+## 3. Cross-Links zwischen allen Artikeln
 
-**Problem:** Die Startseite `/marketing-wissen` zeigt aktuell nur die 5 Themencluster-Karten. Nutzer muessen erst einen Cluster waehlen, bevor sie Artikel sehen. Das ist ueberfordern.
+Der neue Artikel referenziert thematisch drei bestehende Artikel. Gleichzeitig koennen bestehende Artikel zurueckverlinken:
 
-**Loesung:** Die `MarketingSystem.tsx`-Seite wird um eine neue Sektion erweitert:
-- **Schmale Filterleiste** oberhalb der Artikel: Horizontal angeordnete Chips/Buttons fuer jeden Cluster (z.B. "Alle", "ROI", "Social Media", "Funnel", "Recruiting", "GEO"). Standard: "Alle" ist aktiv.
-- **Chronologische Artikelliste** darunter: Alle publizierten Artikel aus der Datenbank, sortiert nach `published_at DESC`. Jeder Eintrag zeigt Titel, Meta-Beschreibung, Lesezeit und Cluster-Zuordnung. Klick fuehrt zum Artikel.
-- Die bestehende `CoreTopics`-Sektion bleibt als Themenuebersicht darueber, wird aber kompakter.
-- Die Filterleiste filtert die Artikelliste live per Client-State, ohne Neuladen.
+| Von | Nach | Stelle im Text |
+|---|---|---|
+| lokale-werbung-wochenblatt | roi-im-marketing | "Weiterfuehrende Themen" + Rechenbeispiel-Abschnitt |
+| lokale-werbung-wochenblatt | was-social-media-unternehmen-wirklich-kostet | "Weiterfuehrende Themen" |
+| lokale-werbung-wochenblatt | social-media-ohne-budget | Abschnitt "Lokale Sichtbarkeit heute" |
+| roi-im-marketing | lokale-werbung-wochenblatt | Abschnitt "Typische ROI-Fehler" (nicht messbare Kanaele) |
+| was-social-media-unternehmen-wirklich-kostet | lokale-werbung-wochenblatt | Abschnitt "Werbebudget" (Vergleich Print vs. Digital) |
 
 ---
 
-## Technische Aenderungen (Zusammenfassung)
+## Technische Aenderungen
 
-| Datei | Aenderung |
+| Datei / Aktion | Aenderung |
 |---|---|
-| `src/components/marketing-system/article/ShareSection.tsx` | LinkedIn-URL-Format korrigieren |
-| `src/pages/BlogArticle.tsx` | Anchor-Link-Injection aus `processContentHtml` entfernen |
-| `src/index.css` | `.article-anchor-link`-CSS entfernen; Prose-Overrides fuer Listen hinzufuegen |
-| `src/pages/MarketingSystem.tsx` | Neue Sektion mit Filterleiste + chronologischer Artikelliste |
+| `src/components/marketing-system/CoreTopics.tsx` | Kompakte horizontale Darstellung statt grosse Karten |
+| SQL INSERT | Neuer Artikel mit HTML-Content, category `roi` |
+| SQL UPDATE (2x) | Cross-Links in bestehenden Artikeln ergaenzen |
 
-Keine neuen Abhaengigkeiten noetig. Keine Datenbank-Aenderungen.
+Keine neuen Abhaengigkeiten. Keine Schema-Aenderungen.
+
