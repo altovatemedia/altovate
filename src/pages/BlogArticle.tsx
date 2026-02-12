@@ -72,7 +72,7 @@ const BlogArticle = () => {
         <NewNavigation />
         <div className="flex flex-col items-center justify-center min-h-[60vh] px-6">
           <h1 className="text-2xl font-bold text-foreground mb-4">Artikel nicht gefunden</h1>
-          <Link to="/marketingwissen" className="text-primary hover:underline flex items-center gap-2">
+      <Link to="/marketing-system" className="text-primary hover:underline flex items-center gap-2">
             <ArrowLeft size={16} /> Zurück zur Übersicht
           </Link>
         </div>
@@ -88,12 +88,12 @@ const BlogArticle = () => {
         {article.meta_description && (
           <meta name="description" content={article.meta_description} />
         )}
-        <link rel="canonical" href={`https://altovate.de/marketingwissen/${article.slug}`} />
+        <link rel="canonical" href={`https://altovate.de/marketing-system/${article.slug}`} />
         <meta property="og:title" content={`${article.title} | altovate`} />
         {article.meta_description && (
           <meta property="og:description" content={article.meta_description} />
         )}
-        <meta property="og:url" content={`https://altovate.de/marketingwissen/${article.slug}`} />
+        <meta property="og:url" content={`https://altovate.de/marketing-system/${article.slug}`} />
         <meta property="og:type" content="article" />
         {article.hero_image_url && (
           <meta property="og:image" content={article.hero_image_url} />
@@ -105,14 +105,14 @@ const BlogArticle = () => {
         article={{
           headline: article.title,
           description: article.meta_description || '',
-          url: `https://altovate.de/marketingwissen/${article.slug}`,
+          url: `https://altovate.de/marketing-system/${article.slug}`,
           datePublished: article.published_at || undefined,
           image: article.hero_image_url || undefined,
         }}
         breadcrumbs={[
           { name: "Startseite", url: "https://altovate.de/" },
-          { name: "Marketingwissen", url: "https://altovate.de/marketingwissen" },
-          { name: article.title, url: `https://altovate.de/marketingwissen/${article.slug}` }
+          { name: "Marketing System", url: "https://altovate.de/marketing-system" },
+          { name: article.title, url: `https://altovate.de/marketing-system/${article.slug}` }
         ]}
       />
 
@@ -120,7 +120,7 @@ const BlogArticle = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <Link
-              to="/marketingwissen"
+              to="/marketing-system"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft size={16} /> Zurück zur Übersicht

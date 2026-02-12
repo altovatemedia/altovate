@@ -74,8 +74,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/marketingwissen" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
-                    Marketingwissen
+                  <a href="/marketing-system" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Marketing System
                   </a>
                 </li>
                 <li>

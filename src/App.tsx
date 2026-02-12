@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Datenschutz from "./pages/Datenschutz";
@@ -16,7 +16,7 @@ import Erstkontakt from "./pages/Erstkontakt";
 import Kontakt from "./pages/Kontakt";
 import InstagramProfilCheck from "./pages/InstagramProfilCheck";
 import Foerderung from "./pages/Foerderung";
-import Marketingwissen from "./pages/Marketingwissen";
+import MarketingSystem from "./pages/MarketingSystem";
 import BlogArticle from "./pages/BlogArticle";
 import Tools from "./pages/Tools";
 
@@ -40,8 +40,11 @@ const App = () => (
           <Route path="/instagram-profil-check" element={<InstagramProfilCheck />} />
           <Route path="/foerderung" element={<Foerderung />} />
           <Route path="/tools" element={<Tools />} />
-          <Route path="/marketingwissen" element={<Marketingwissen />} />
-          <Route path="/marketingwissen/:slug" element={<BlogArticle />} />
+          <Route path="/marketing-system" element={<MarketingSystem />} />
+          <Route path="/marketing-system/:slug" element={<BlogArticle />} />
+          {/* Redirects from old URLs */}
+          <Route path="/marketingwissen" element={<Navigate to="/marketing-system" replace />} />
+          <Route path="/marketingwissen/:slug" element={<RedirectArticle />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
@@ -50,5 +53,11 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+// Helper component for slug redirect
+const RedirectArticle = () => {
+  const slug = window.location.pathname.split('/').pop();
+  return <Navigate to={`/marketing-system/${slug}`} replace />;
+};
 
 export default App;

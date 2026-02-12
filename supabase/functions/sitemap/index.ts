@@ -14,7 +14,7 @@ const STATIC_URLS = [
   { loc: "https://altovate.de/marketing-automation-saarburg", changefreq: "monthly", priority: "0.8" },
   { loc: "https://altovate.de/software-ki-loesungen-saarburg", changefreq: "monthly", priority: "0.8" },
   { loc: "https://altovate.de/tools", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://altovate.de/marketingwissen", changefreq: "weekly", priority: "0.7" },
+  { loc: "https://altovate.de/marketing-system", changefreq: "weekly", priority: "0.7" },
   { loc: "https://altovate.de/instagram-profil-check", changefreq: "monthly", priority: "0.6" },
   { loc: "https://altovate.de/erstkontakt", changefreq: "monthly", priority: "0.7" },
   { loc: "https://altovate.de/kontakt", changefreq: "monthly", priority: "0.7" },
@@ -67,7 +67,7 @@ Deno.serve(async (req) => {
           : today;
 
         xml += `  <url>\n`;
-        xml += `    <loc>https://altovate.de/marketingwissen/${article.slug}</loc>\n`;
+        xml += `    <loc>https://altovate.de/marketing-system/${article.slug}</loc>\n`;
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += `    <changefreq>monthly</changefreq>\n`;
         xml += `    <priority>0.6</priority>\n`;
