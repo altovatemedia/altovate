@@ -36,10 +36,10 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-muted/30 relative overflow-hidden">
       {/* Grid Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
             linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
@@ -71,7 +71,7 @@ const FAQ = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
-                    className="bg-white dark:bg-card rounded-lg shadow-sm border border-border overflow-hidden mb-4 transition-shadow hover:shadow-md"
+                    className="bg-card rounded-lg border border-border overflow-hidden mb-4 transition-shadow hover:border-primary/20"
                   >
                     <AccordionTrigger 
                       className="text-left text-base md:text-lg font-bold text-foreground hover:text-foreground
@@ -104,14 +104,14 @@ const FAQ = () => {
               <div className="flex items-center gap-4">
                 <Button 
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-semibold"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold"
                   onClick={handleBooking}
                 >
                   STRATEGIE-SESSION BUCHEN
                 </Button>
 
                 {/* Profile Picture */}
-                <div className="w-12 h-12 rounded-full border-2 border-background overflow-hidden">
+                <div className="w-12 h-12 rounded-full border-2 border-border overflow-hidden">
                   <img 
                     src={alexanderPortrait}
                     alt="Alexander - Gründer" 

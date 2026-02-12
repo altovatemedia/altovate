@@ -8,7 +8,6 @@ const CaseStudies = () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Animate cards
           const cards = entry.target.querySelectorAll('.case-study-card');
           cards.forEach((card, index) => {
             setTimeout(() => {
@@ -16,7 +15,6 @@ const CaseStudies = () => {
             }, index * 120);
           });
 
-          // Start counter animations
           const kpiElements = entry.target.querySelectorAll('[data-count]');
           kpiElements.forEach((element) => {
             const target = parseInt(element.getAttribute('data-count') || '0');
@@ -48,7 +46,7 @@ const CaseStudies = () => {
       id: 'phillys',
       title: "Philly's Burger",
       logo: "Philly's",
-      logoSrc: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png", // Updated Philly's logo
+      logoSrc: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png",
       text: "Für Philly's haben wir das Rebranding und den Launch der Saarbrücken-Filiale begleitet – mit Content-Produktion, Ads und Franchise-Strategie. Das Ergebnis: volle Tage, lange Schlangen und lokaler Hype.",
       kpi: { value: 60000, label: "Zielgerichtete Views in 4 Tagen" },
       size: "large"
@@ -57,7 +55,7 @@ const CaseStudies = () => {
       id: 'circle',
       title: "Circle Fitness",
       logo: "Circle Fitness",
-      logoSrc: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png", // Updated Circle logo
+      logoSrc: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png",
       text: "Für Circle liefern wir regelmäßig Content – Videos, Grafiken und Ads, die Vertrauen schaffen, Leads generieren und Recruiting unterstützen. Das Studio wird als moderne Fitnessmarke sichtbar.",
       kpi: { value: 200, label: "Leads pro Kampagne", prefix: "+" },
       size: "large"
@@ -66,7 +64,7 @@ const CaseStudies = () => {
       id: 'bav',
       title: "BAV Workflow",
       logo: "BAV Workflow",
-      logoSrc: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png", // Updated BAV logo
+      logoSrc: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png",
       text: "Ein komplexes Thema modern und verständlich gemacht: Mit Website-Relaunch, ROI-Calculator und neuen Werbemitteln wird BAV Workflow für HR-Entscheider endlich greifbar – und gewinnt mehr qualifizierte Leads.",
       kpi: { text: "Komplexe Themen", label: "einfach erklärt" },
       size: "large"
@@ -75,7 +73,7 @@ const CaseStudies = () => {
       id: 'ayler',
       title: "WeinHotel Ayler Kupp",
       logo: "Ayler Kupp",
-      logoSrc: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png", // Updated Ayler Kupp logo
+      logoSrc: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png",
       text: "Für das Weinhotel Ayler Kupp betreuen wir Social Media und Events. Durch kontinuierlichen Content & Event-Marketing steigerten wir die Reichweite im Saarland & Luxemburg – und füllten die Veranstaltungen.",
       size: "small"
     },
@@ -83,18 +81,18 @@ const CaseStudies = () => {
       id: 'brotchi',
       title: "Brotchi",
       logo: "Brotchi",
-      logoSrc: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png", // Updated Brotchi logo
+      logoSrc: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png",
       text: "Mit einem neuen Gastro-Konzept, modernem Branding und authentischem Storytelling haben wir Brotchi von Grund auf aufgebaut. Ergebnis: klare Markenidentität, starke Wiedererkennung und ein erfolgreicher Launch im hart umkämpften Food-Markt.",
       size: "small"
     }
   ];
 
   const logos = [
-    { name: "Philly's", src: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png" }, // Updated Philly's logo
-    { name: "Circle Fitness", src: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png" }, // Updated Circle logo
-    { name: "BAV Workflow", src: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png" }, // Updated BAV logo
-    { name: "Ayler Kupp", src: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png" }, // Updated Ayler Kupp logo
-    { name: "Brotchi", src: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png" }, // Updated Brotchi logo
+    { name: "Philly's", src: "/lovable-uploads/802af6c1-6171-4113-82a2-41d3e9ef44a2.png" },
+    { name: "Circle Fitness", src: "/lovable-uploads/572d288c-03ed-494b-a3c7-c02711246e25.png" },
+    { name: "BAV Workflow", src: "/lovable-uploads/6bcbb94c-c06b-4cce-a414-bf347db95fcd.png" },
+    { name: "Ayler Kupp", src: "/lovable-uploads/50fe6fa4-8882-47de-bb67-c64cca395894.png" },
+    { name: "Brotchi", src: "/lovable-uploads/7dcd22f3-021d-49b7-a3a7-c7cf9fba3d36.png" },
     { name: "Taza – Restaurant & Bar Saarburg", src: "/lovable-uploads/7a13b33d-edd3-4e48-a5a7-4066a841b56b.png" },
     { name: "SG Hochwald – Sportgemeinschaft", src: "/lovable-uploads/3c245c78-a67c-4767-80b3-8787c63e8cca.png" },
     { name: "LumaVision – Videoproduktion", src: "/lovable-uploads/97450c7b-0c1e-4f20-b3b4-adcc94af0dfd.png" },
@@ -102,14 +100,14 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="proof" className="py-section bg-[#F9F9FB] dark:bg-background">
+    <section ref={sectionRef} id="proof" className="py-section bg-muted/30">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#09002C] dark:text-foreground mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Ergebnisse, die für sich sprechen.
           </h2>
-          <p className="text-lg text-[#09002C]/70 dark:text-muted-foreground max-w-[720px] mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-[720px] mx-auto leading-relaxed">
             Von regionalen Heroes bis zu wachsenden Marken – wir helfen Unternehmen, sichtbar zu werden, 
             Leads zu generieren und ihre Marke klar zu positionieren.
           </p>
@@ -119,22 +117,18 @@ const CaseStudies = () => {
         <div className="space-y-8 mb-20">
           {/* Row 1: 3 large cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.filter(study => study.size === 'large').map((study, index) => (
+            {caseStudies.filter(study => study.size === 'large').map((study) => (
               <div
                 key={study.id}
-                className="case-study-card bg-white dark:bg-card rounded-2xl p-8 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
-                         hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
-                         hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
+                className="case-study-card bg-card rounded-2xl p-8 border border-border
+                         transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-gray-100 dark:bg-muted p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
+                <div className="inline-block bg-muted p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
-                    className="max-h-10 max-w-24 object-contain"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
-                    }}
+                    className="max-h-10 max-w-24 object-contain brightness-0 invert opacity-70"
                   />
                 </div>
 
@@ -162,7 +156,7 @@ const CaseStudies = () => {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center text-gray-400 text-sm">
+                    <div className="w-full h-full bg-muted rounded-xl flex items-center justify-center text-muted-foreground text-sm">
                       Case Study Image
                     </div>
                   )}
@@ -170,16 +164,16 @@ const CaseStudies = () => {
 
                 {/* Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-[#09002C] dark:text-foreground">{study.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{study.title}</h3>
                   
-                  <p className="text-[#09002C]/70 dark:text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {study.text}
                   </p>
 
                   {/* KPI Highlight */}
                   {study.kpi && (
-                    <div className="pt-4 border-t border-gray-100 dark:border-border">
-                       <div className="text-2xl font-bold text-[#EA3B5F]">
+                    <div className="pt-4 border-t border-border">
+                       <div className="text-2xl font-bold text-primary">
                          {study.kpi.text ? (
                            study.kpi.text
                          ) : (
@@ -194,7 +188,7 @@ const CaseStudies = () => {
                            </>
                          )}
                        </div>
-                      <div className="text-sm text-[#09002C]/50 dark:text-muted-foreground">{study.kpi.label}</div>
+                      <div className="text-sm text-muted-foreground">{study.kpi.label}</div>
                     </div>
                   )}
                 </div>
@@ -207,25 +201,21 @@ const CaseStudies = () => {
             {caseStudies.filter(study => study.size === 'small').map((study) => (
               <div
                 key={study.id}
-                className="case-study-card bg-white dark:bg-card rounded-2xl p-6 shadow-[0_8px_24px_rgba(9,0,44,0.08)] 
-                         hover:shadow-[0_16px_40px_rgba(9,0,44,0.12)] hover:-translate-y-1.5 
-                         hover:shadow-[#EA3B5F]/20 transition-all duration-300 group opacity-0 translate-y-8"
+                className="case-study-card bg-card rounded-2xl p-6 border border-border
+                         transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-gray-100 dark:bg-muted p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
+                <div className="inline-block bg-muted p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
-                    className="max-h-8 max-w-20 object-contain"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(20%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
-                    }}
+                    className="max-h-8 max-w-20 object-contain brightness-0 invert opacity-70"
                   />
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-bold text-[#09002C] dark:text-foreground">{study.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{study.title}</h3>
                   
-                  <p className="text-[#09002C]/70 dark:text-muted-foreground text-xs leading-relaxed">
+                  <p className="text-muted-foreground text-xs leading-relaxed">
                     {study.text}
                   </p>
                 </div>
@@ -235,7 +225,7 @@ const CaseStudies = () => {
         </div>
 
         {/* Logo Slider */}
-        <div className="bg-gray-50 dark:bg-muted/30 rounded-2xl py-8 overflow-hidden border border-gray-100 dark:border-border">
+        <div className="bg-muted/30 rounded-2xl py-8 overflow-hidden border border-border">
           <div className="logo-marquee">
             <div className="logo-track">
               {[...logos, ...logos].map((logo, index) => (
@@ -246,10 +236,7 @@ const CaseStudies = () => {
                   <img 
                     src={logo.src} 
                     alt={logo.name}
-                    className="max-h-12 max-w-32 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      filter: 'brightness(0) saturate(100%) invert(25%) sepia(10%) saturate(1000%) hue-rotate(210deg)'
-                    }}
+                    className="max-h-12 max-w-32 object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity duration-300"
                   />
                 </div>
               ))}

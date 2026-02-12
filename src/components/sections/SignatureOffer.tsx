@@ -19,47 +19,27 @@ const SignatureOffer = () => {
     {
       title: "Website Refresh",
       price: "ab 3.000 €",
-      features: [
-        "Komplette Website-Überarbeitung",
-        "Mobile-first Design",
-        "SEO-Optimierung",
-        "Performance-Boost"
-      ]
+      features: ["Komplette Website-Überarbeitung", "Mobile-first Design", "SEO-Optimierung", "Performance-Boost"]
     },
     {
       title: "Performance Set", 
       price: "ab 1.500 €",
-      features: [
-        "Facebook & Google Ads Setup",
-        "Zielgruppen-Analyse", 
-        "Kampagnen-Struktur",
-        "1 Monat Betreuung"
-      ]
+      features: ["Facebook & Google Ads Setup", "Zielgruppen-Analyse", "Kampagnen-Struktur", "1 Monat Betreuung"]
     },
     {
       title: "Content Kickstart",
       price: "ab 1.800 €",
-      features: [
-        "Professioneller Drehtag",
-        "20+ Social Media Assets",
-        "3 Kurze Werbevideos",
-        "Nutzungsrechte inklusive"
-      ]
+      features: ["Professioneller Drehtag", "20+ Social Media Assets", "3 Kurze Werbevideos", "Nutzungsrechte inklusive"]
     },
     {
       title: "SmartFlow System",
       price: "ab 1.200 €", 
-      features: [
-        "KI-Chatbot Integration",
-        "Automatisierte Antworten",
-        "Lead-Qualifikation",
-        "Terminbuchung-System"
-      ]
+      features: ["KI-Chatbot Integration", "Automatisierte Antworten", "Lead-Qualifikation", "Terminbuchung-System"]
     }
   ];
 
   return (
-    <section id="signature-offer" className="py-section bg-white dark:bg-background">
+    <section id="signature-offer" className="py-section bg-background">
       <div className="container mx-auto px-6 max-w-content">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -126,20 +106,20 @@ const SignatureOffer = () => {
                 
                 {/* Mobile: 0 € im Paket first, then crossed out price */}
                 <div className="block md:hidden mb-4">
-                  <div className="text-2xl font-bold text-[hsl(var(--color-success))] mb-2">
+                  <div className="text-2xl font-bold text-[hsl(168,76%,36%)] mb-2">
                     0 € im Paket
                   </div>
-                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through">
+                  <div className="text-sm text-muted-foreground line-through">
                     {module.price}
                   </div>
                 </div>
                 
                 {/* Desktop: crossed out price first, then 0 € im Paket */}
                 <div className="hidden md:block mb-4">
-                  <div className="text-sm text-[hsl(var(--color-text-muted))] line-through mb-2">
+                  <div className="text-sm text-muted-foreground line-through mb-2">
                     {module.price}
                   </div>
-                  <div className="text-2xl font-bold text-[hsl(var(--color-success))]">
+                  <div className="text-2xl font-bold text-[hsl(168,76%,36%)]">
                     0 € im Paket
                   </div>
                 </div>
