@@ -178,8 +178,8 @@ const SoftwareContactForm = () => {
               onClick={() => handleChange('projectType', type)}
               className={`p-3 text-sm rounded-lg border-2 transition-all ${
                 formData.projectType === type
-                  ? 'border-[#ff1c5c] bg-[#ff1c5c]/10 text-[#ff1c5c] font-medium'
-                  : 'border-border hover:border-[#ff1c5c]/50'
+                  ? 'border-primary bg-primary/10 text-primary font-medium'
+                  : 'border-border hover:border-primary/50'
               }`}
             >
               {type}
@@ -215,7 +215,7 @@ const SoftwareContactForm = () => {
         />
         <label htmlFor="privacy" className="text-sm text-muted-foreground">
           Ich habe die{' '}
-          <a href="/datenschutz" target="_blank" className="text-[#ff1c5c] hover:underline">
+          <a href="/datenschutz" target="_blank" className="text-primary hover:underline">
             Datenschutzerklärung
           </a>{' '}
           zur Kenntnis genommen. *
@@ -225,7 +225,7 @@ const SoftwareContactForm = () => {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#ff1c5c] hover:bg-[#ff3d75] text-white"
+        className="w-full btn-hero"
         size="lg"
       >
         {isSubmitting ? (

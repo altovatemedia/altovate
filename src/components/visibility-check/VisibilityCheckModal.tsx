@@ -83,7 +83,6 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       return;
     }
 
-    // Validate sub-questions if they are shown
     if (showSubQuestions && currentSubAnswers.length === 0) {
       toast({
         title: 'Bitte auswählen',
@@ -164,12 +163,12 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
   const renderIntro = () => (
     <div className="space-y-6 text-center py-6">
       <div className="flex justify-center">
-        <div className="w-20 h-20 rounded-full bg-[#ff1c5c]/10 flex items-center justify-center">
-          <Sparkles className="w-10 h-10 text-[#ff1c5c]" />
+        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+          <Sparkles className="w-10 h-10 text-primary" />
         </div>
       </div>
       <div>
-        <h3 className="text-3xl font-bold mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <h3 className="text-3xl font-bold mb-3">
           0 € Sichtbarkeits-Check
         </h3>
         <p className="text-muted-foreground text-lg">
@@ -178,8 +177,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       </div>
       <Button 
         onClick={handleStartCheck} 
-        className="w-full py-6 text-lg font-semibold"
-        style={{ backgroundColor: '#ff1c5c' }}
+        className="w-full py-6 text-lg font-semibold btn-hero"
       >
         Jetzt Check starten – kostenlos
       </Button>
@@ -192,7 +190,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         <p className="text-sm text-muted-foreground mb-2">
           Frage {currentQuestionIndex + 1} von {totalQuestions}
         </p>
-        <h3 className="text-xl font-semibold" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <h3 className="text-xl font-semibold">
           {currentQuestion.text}
         </h3>
       </div>
@@ -260,8 +258,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       <Button 
         onClick={handleNext} 
         disabled={isSubmitting} 
-        className="w-full py-6 text-lg font-semibold"
-        style={{ backgroundColor: '#ff1c5c' }}
+        className="w-full py-6 text-lg font-semibold btn-hero"
       >
         {currentQuestionIndex < totalQuestions - 1 ? 'Nächste Frage' : 'Ergebnis berechnen'}
       </Button>
@@ -271,10 +268,10 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
   const renderFinish = () => (
     <div className="space-y-6 text-center py-6">
       <div className="flex justify-center">
-        <CheckCircle2 className="w-16 h-16 animate-bounce" style={{ color: '#ff1c5c' }} />
+        <CheckCircle2 className="w-16 h-16 text-primary animate-bounce" />
       </div>
       <div>
-        <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <h3 className="text-2xl font-bold mb-2">
           Dein Ergebnis ist fertig! 🎉
         </h3>
         <p className="text-muted-foreground mb-6">
@@ -296,8 +293,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
       <Button 
         onClick={handleEmailSubmit} 
         disabled={isSubmitting} 
-        className="w-full py-6 text-lg font-semibold"
-        style={{ backgroundColor: '#ff1c5c' }}
+        className="w-full py-6 text-lg font-semibold btn-hero"
       >
         {isSubmitting ? 'Wird gespeichert...' : 'Mein Ergebnis jetzt sehen'}
       </Button>
@@ -317,7 +313,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         case 'medium':
           return 'text-yellow-600';
         case 'low':
-          return 'text-[#ff1c5c]';
+          return 'text-destructive';
       }
     };
 
@@ -327,7 +323,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
           <CheckCircle2 className={`w-16 h-16 ${getColorClass()}`} />
         </div>
         <div>
-          <h3 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
+          <h3 className="text-2xl font-bold mb-2">
             Dein Ergebnis
           </h3>
           <div className={`text-5xl font-bold mb-4 ${getColorClass()}`}>
@@ -335,8 +331,8 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
           </div>
           <p className="text-muted-foreground text-lg">{result.message}</p>
         </div>
-        <div className="p-6 rounded-lg" style={{ backgroundColor: '#ff1c5c10' }}>
-          <h4 className="font-semibold mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <div className="p-6 rounded-lg bg-primary/10">
+          <h4 className="font-semibold mb-2">
             Was bedeutet das?
           </h4>
           <p className="text-sm text-muted-foreground">
@@ -346,8 +342,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
         </div>
         <Button 
           onClick={handleClose} 
-          className="w-full py-6 text-lg font-semibold"
-          style={{ backgroundColor: '#ff1c5c' }}
+          className="w-full py-6 text-lg font-semibold btn-hero"
         >
           Check abschließen
         </Button>
@@ -361,7 +356,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle style={{ fontFamily: 'Inter, sans-serif' }}>
+          <DialogTitle>
             {showIntro ? '0 € Sichtbarkeits-Check' : 'Unternehmens-Sichtbarkeits-Check'}
           </DialogTitle>
         </DialogHeader>
@@ -372,9 +367,7 @@ const VisibilityCheckModal = ({ open, onOpenChange }: VisibilityCheckModalProps)
                 <span>Fortschritt</span>
                 <span>{Math.round(progress)}%</span>
               </div>
-              <Progress value={progress} className="w-full h-2" style={{ 
-                backgroundColor: '#ff1c5c20'
-              }} />
+              <Progress value={progress} className="w-full h-2" />
             </div>
           )}
           {showIntro && renderIntro()}

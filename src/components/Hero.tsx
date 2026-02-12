@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="absolute bottom-48 right-80 w-2 h-2 bg-primary/40 rounded-full opacity-90 animate-float-slow" style={{ animationDelay: '1.7s' }}></div>
         <div className="absolute top-28 left-80 w-1.5 h-1.5 bg-primary/75 rounded-full opacity-50 animate-float-drift" style={{ animationDelay: '2.5s' }}></div>
         
-        {/* Dynamic magenta glow areas */}
+        {/* Dynamic gold glow areas */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary/40 to-transparent rounded-full blur-3xl animate-glow-breathe" style={{ animationDelay: '0s' }}></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-radial from-primary/35 to-transparent rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '2s' }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-primary/25 to-transparent rounded-full blur-3xl animate-glow-breathe" style={{ animationDelay: '1s' }}></div>
