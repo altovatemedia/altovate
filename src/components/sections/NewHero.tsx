@@ -43,7 +43,7 @@ const NewHero = () => {
           <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in-up tracking-tight">
               Online-Marketing für Unternehmer,{' '}
-              <span className="text-primary">die keine Zeit für Marketing haben.</span>
+              <span className="gold-gradient-text">die keine Zeit für Marketing haben.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -92,11 +92,14 @@ const NewHero = () => {
           {/* Right: Portrait */}
           <div className="hidden lg:flex justify-center items-end fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 rounded-2xl"></div>
+              {/* Gold glow behind portrait */}
+              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/15 rounded-full blur-3xl"></div>
+              {/* Bottom fade gradient */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
               <img 
                 src={alexanderPortrait}
                 alt="Alexander – Gründer von Altovate"
-                className="w-full max-w-md h-auto object-contain relative z-0"
+                className="w-full max-w-lg h-auto object-contain relative z-0"
               />
             </div>
           </div>

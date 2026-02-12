@@ -63,15 +63,15 @@ const PainPoints = () => {
               <div
                 key={index}
                 data-index={index}
-                className={`group flex items-start gap-4 p-6 rounded-2xl bg-muted/30 border border-border
+                className={`group flex items-start gap-4 p-6 rounded-2xl liquid-glass
                            hover:border-primary/30 transition-all duration-500
                            ${visibleItems.includes(index) 
                              ? 'opacity-100 translate-y-0' 
                              : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <point.icon className="w-6 h-6 text-primary" />
+                <div className="shrink-0 w-16 h-16 rounded-full liquid-glass-icon flex items-center justify-center">
+                  <point.icon className="w-7 h-7 text-primary" />
                 </div>
                 <p className="text-lg text-foreground font-medium leading-relaxed pt-2">
                   {point.text}
