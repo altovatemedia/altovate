@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
-import { ExternalLink, Clock, Sparkles, Leaf, Brain, Dumbbell } from 'lucide-react';
+import { ExternalLink, Clock, Sparkles, Leaf, Brain, Dumbbell, Copy, Check } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import NewNavigation from '@/components/sections/NewNavigation';
@@ -10,6 +11,24 @@ import heraLogo from '@/assets/tools/hera-logo.svg';
 import typelessLogo from '@/assets/tools/typeless-logo.png';
 import whisprflowLogo from '@/assets/tools/whisprflow-logo.svg';
 import lovableLogo from '@/assets/tools/lovable-logo.png';
+
+const CopyCodeButton = ({ code }: { code: string }) => {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/5 hover:bg-primary/10 text-xs font-mono text-primary/90 transition-colors cursor-pointer"
+    >
+      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? 'Kopiert!' : code}
+    </button>
+  );
+};
 
 const tools = [
   {
@@ -217,9 +236,7 @@ const Tools = () => {
                         <ExternalLink className="w-4 h-4" />
                       </Button>
                     </a>
-                    <span className="text-xs text-primary/80 font-medium">
-                      ✦ Rabattcode: ONESTEP
-                    </span>
+                    <CopyCodeButton code="ONESTEP" />
                   </div>
                 </div>
               </div>
@@ -252,9 +269,7 @@ const Tools = () => {
                         <ExternalLink className="w-4 h-4" />
                       </Button>
                     </a>
-                    <span className="text-xs text-primary/80 font-medium">
-                      ✦ Rabattcode: ONESTEP
-                    </span>
+                    <CopyCodeButton code="ONESTEP" />
                   </div>
                 </div>
               </div>
