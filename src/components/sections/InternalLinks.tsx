@@ -65,7 +65,7 @@ const InternalLinks = ({ currentPage }: InternalLinksProps) => {
             >
               <Link
                 to={link.href}
-                className="group flex items-start gap-3 p-5 rounded-xl border border-border bg-card hover:border-primary/40 hover:shadow-md transition-all"
+                className="group flex items-start gap-3 p-5 rounded-xl liquid-glass hover:border-primary/40 transition-all"
               >
                 <div className="flex-1">
                   <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-1">

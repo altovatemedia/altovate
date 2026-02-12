@@ -120,11 +120,11 @@ const CaseStudies = () => {
             {caseStudies.filter(study => study.size === 'large').map((study) => (
               <div
                 key={study.id}
-                className="case-study-card bg-card rounded-2xl p-8 border border-border
+                className="case-study-card liquid-glass rounded-2xl p-8
                          transition-all duration-300 group opacity-0 translate-y-8"
               >
                 {/* Logo Badge */}
-                <div className="inline-block bg-muted p-3 rounded-2xl shadow-sm mb-6 h-16 flex items-center justify-center min-w-[100px]">
+                <div className="inline-block liquid-glass-icon p-3 rounded-2xl mb-6 h-16 flex items-center justify-center min-w-[100px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
@@ -201,10 +201,10 @@ const CaseStudies = () => {
             {caseStudies.filter(study => study.size === 'small').map((study) => (
               <div
                 key={study.id}
-                className="case-study-card bg-card rounded-2xl p-6 border border-border
+                className="case-study-card liquid-glass rounded-2xl p-6
                          transition-all duration-300 group opacity-0 translate-y-8"
               >
-                <div className="inline-block bg-muted p-2 rounded-xl shadow-sm mb-4 h-12 flex items-center justify-center min-w-[80px]">
+                <div className="inline-block liquid-glass-icon p-2 rounded-xl mb-4 h-12 flex items-center justify-center min-w-[80px]">
                   <img 
                     src={study.logoSrc} 
                     alt={study.logo}
@@ -225,7 +225,7 @@ const CaseStudies = () => {
         </div>
 
         {/* Logo Slider */}
-        <div className="bg-muted/30 rounded-2xl py-8 overflow-hidden border border-border">
+        <div className="liquid-glass rounded-2xl py-8 overflow-hidden">
           <div className="logo-marquee">
             <div className="logo-track">
               {[...logos, ...logos].map((logo, index) => (
