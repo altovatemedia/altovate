@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, CalendarDays } from 'lucide-react';
+import { ArrowLeft, CalendarDays, Link2, Linkedin, Copy, Check, FileDown } from 'lucide-react';
 import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
@@ -26,6 +26,55 @@ const CATEGORY_TO_CLUSTER: Record<string, { label: string; slug: string }> = {
   funnel: { label: 'Funnel & Nachfrage', slug: 'funnel-nachfrage' },
   recruiting: { label: 'Recruiting & Arbeitgebermarke', slug: 'recruiting-arbeitgebermarke' },
   geo: { label: 'GEO & KI-Sichtbarkeit', slug: 'geo-ki-sichtbarkeit' },
+};
+
+const ShareSection = ({ title, url }: { title: string; url: string }) => {
+  const [linkCopied, setLinkCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(url);
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 2000);
+  };
+
+  const handleLinkedIn = () => {
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
+  const handlePdf = () => {
+    window.print();
+  };
+
+  return (
+    <div className="mt-16 mb-8">
+      <h3 className="text-sm font-medium text-foreground mb-4">Artikel teilen</h3>
+      <div className="flex flex-wrap gap-3">
+        <button
+          onClick={handleLinkedIn}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
+        >
+          <Linkedin size={16} /> LinkedIn
+        </button>
+        <button
+          onClick={handleCopyLink}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
+        >
+          {linkCopied ? <Check size={16} /> : <Copy size={16} />}
+          {linkCopied ? 'Kopiert' : 'Link kopieren'}
+        </button>
+        <button
+          onClick={handlePdf}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
+        >
+          <FileDown size={16} /> Als PDF speichern
+        </button>
+      </div>
+    </div>
+  );
 };
 
 const BlogArticle = () => {
@@ -142,7 +191,7 @@ const BlogArticle = () => {
           <div className="max-w-3xl mx-auto">
             <Link
               to={backPath}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#ff1c5c] transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
             >
               <ArrowLeft size={16} /> Zurück zu {backLabel}
             </Link>
@@ -175,6 +224,14 @@ const BlogArticle = () => {
                 dangerouslySetInnerHTML={{ __html: article.content_html }}
               />
             )}
+
+            {/* Share Section */}
+            <ShareSection title={article.title} url={articleUrl} />
+
+            {/* Zitierhinweis */}
+            <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
+              Wenn Sie Inhalte aus diesem Artikel zitieren, verlinken Sie bitte auf die Originalquelle bei Altovate.
+            </p>
           </div>
         </div>
       </main>

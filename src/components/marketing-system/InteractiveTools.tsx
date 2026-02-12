@@ -22,7 +22,6 @@ const InteractiveTools = () => {
           <p className="finom-lead">Keine Theorie. Rechne selbst.</p>
         </div>
 
-        {/* Tool Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           {tools.map((tool) => (
             <button
@@ -35,11 +34,11 @@ const InteractiveTools = () => {
                 }
               }}
               className={`liquid-glass rounded-xl p-6 text-left transition-all duration-300 hover:-translate-y-1 ${
-                activeTool === tool.key ? 'ring-2 ring-[#ff1c5c]' : ''
+                activeTool === tool.key ? 'ring-2 ring-primary' : ''
               }`}
             >
               <div className="w-12 h-12 rounded-lg liquid-glass-icon flex items-center justify-center mb-4">
-                <tool.icon className="w-6 h-6 text-[#ff1c5c]" />
+                <tool.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-semibold text-foreground mb-1">{tool.title}</h3>
               <p className="text-sm text-muted-foreground">{tool.desc}</p>
@@ -47,7 +46,6 @@ const InteractiveTools = () => {
           ))}
         </div>
 
-        {/* Active Tool */}
         <div className="max-w-4xl mx-auto">
           {activeTool === 'roi' && <ROICalculator />}
           {activeTool === 'budget' && <BudgetCalculator />}
