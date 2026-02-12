@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
-import altovateIcon from '@/assets/altovate-icon.png';
 import bniBadge from '@/assets/bni-badge.png';
 import BookingModal from '@/components/BookingModal';
 
@@ -17,18 +16,6 @@ const Footer = () => {
     <footer className="bg-card relative overflow-hidden border-t border-border">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
-      <img 
-        src={altovateIcon} 
-        alt="Altovate Logo Dekoration" 
-        className="absolute top-1/4 left-10 w-48 h-48 opacity-[0.03] rotate-12 pointer-events-none"
-        loading="lazy"
-      />
-      <img 
-        src={altovateIcon} 
-        alt="Altovate Logo Dekoration" 
-        className="absolute bottom-10 right-20 w-40 h-40 opacity-[0.04] -rotate-12 pointer-events-none"
-        loading="lazy"
-      />
       
       {/* Main Footer */}
       <div className="py-16 relative z-10">
@@ -37,16 +24,11 @@ const Footer = () => {
             
             {/* Spalte 1 - Logo & Claim */}
             <div>
-              <div className="mb-6 flex items-center gap-3">
+              <div className="mb-6">
                 <img 
-                  src={altovateIcon} 
-                  alt="Altovate Icon" 
-                  className="h-8 w-8 object-contain" 
-                />
-                <img 
-                  src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
+                  src="/altovate-logo.png" 
                   alt="Altovate Logo" 
-                  className="h-7 w-auto object-contain" 
+                  className="h-8 w-auto object-contain brightness-0 invert" 
                 />
               </div>
               <p className="text-white/70 mb-8 text-sm font-light leading-relaxed">
