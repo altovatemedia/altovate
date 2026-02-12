@@ -54,34 +54,35 @@
 @tailwind utilities;
 
 /*
- * Altovate Design System - Light & Clean (Finom/Apple Style)
- * Philosophy: Light background, magenta accent (#EA3B5F), clean typography
+ * Altovate Design System - Dark Premium (Navy + Gold)
+ * Philosophy: Deep navy background, gold/amber accent (#D4A843), premium glassmorphism
  * All colors MUST be HSL format for consistency
  */
 
 @layer base {
   :root {
-    /* Core Finom-style color tokens */
-    --color-bg: 0 0% 100%;                    /* #FFFFFF */
-    --color-bg-soft: 246 25% 95%;             /* #F3F2F7 */
-    --color-text: 253 100% 9%;                /* #09002C */
-    --color-text-muted: 254 17% 35%;          /* #4B4765 */
-    --color-primary: 347 82% 58%;             /* #EA3B5F */
-    --color-primary-ghost: 347 82% 58%;       /* #EA3B5F with opacity */
-    --color-border: 248 24% 90%;              /* #E6E4EE */
-    --color-success: 168 76% 36%;             /* #0BA37F */
-    --color-warning: 37 91% 55%;              /* #F59E0B */
-    --color-info: 217 91% 60%;                /* #3B82F6 */
+    /* Core Dark Premium color tokens */
+    --color-bg: 222 47% 8%;                    /* #0B1120 deep navy */
+    --color-bg-soft: 221 33% 14%;              /* #162033 slightly lighter navy */
+    --color-card: 222 36% 13%;                 /* #131B2E card background */
+    --color-text: 0 0% 95%;                    /* #F1F1F1 almost white */
+    --color-text-muted: 218 15% 60%;           /* #8B95A8 muted grey */
+    --color-primary: 41 55% 55%;               /* #D4A843 gold/amber */
+    --color-primary-ghost: 41 55% 55%;         /* gold with opacity */
+    --color-border: 217 33% 17%;               /* #1E293B subtle dark borders */
+    --color-success: 168 76% 36%;              /* #0BA37F */
+    --color-warning: 37 91% 55%;               /* #F59E0B */
+    --color-info: 217 91% 60%;                 /* #3B82F6 */
 
     /* Shadcn compatibility */
     --background: var(--color-bg);
     --foreground: var(--color-text);
-    --card: var(--color-bg);
+    --card: var(--color-card);
     --card-foreground: var(--color-text);
-    --popover: var(--color-bg);
+    --popover: var(--color-card);
     --popover-foreground: var(--color-text);
     --primary: var(--color-primary);
-    --primary-foreground: var(--color-bg);
+    --primary-foreground: 222 47% 8%;          /* dark text on gold */
     --secondary: var(--color-bg-soft);
     --secondary-foreground: var(--color-text);
     --muted: var(--color-bg-soft);
@@ -89,76 +90,43 @@
     --accent: var(--color-bg-soft);
     --accent-foreground: var(--color-text);
     --destructive: 0 84% 60%;
-    --destructive-foreground: var(--color-bg);
+    --destructive-foreground: var(--color-text);
     --border: var(--color-border);
     --input: var(--color-border);
     --ring: var(--color-primary);
     --radius: 1rem;
     
     /* Chart colors */
-    --chart-1: 12 76% 61%;
+    --chart-1: 41 55% 55%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    /* Enhanced shadows for light theme */
-    --shadow-card: 0 8px 30px rgba(9, 0, 44, 0.06);
-    --shadow-hover: 0 16px 40px rgba(9, 0, 44, 0.08);
-    --shadow-elegant: 0 25px 50px -12px rgba(9, 0, 44, 0.15);
+    /* Dark premium shadows - gold glows */
+    --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.4);
+    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 
     /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-quick: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px rgba(9, 0, 44, 0.1);
+    /* Glassmorphism - dark variant */
+    --glass-bg: rgba(19, 27, 46, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 
     /* Sidebar */
     --sidebar-background: var(--color-bg);
     --sidebar-foreground: var(--color-text);
     --sidebar-primary: var(--color-primary);
-    --sidebar-primary-foreground: var(--color-bg);
+    --sidebar-primary-foreground: 222 47% 8%;
     --sidebar-accent: var(--color-bg-soft);
     --sidebar-accent-foreground: var(--color-text);
     --sidebar-border: var(--color-border);
     --sidebar-ring: var(--color-primary);
-  }
-
-  .dark {
-    /* Dark anthracite theme - high contrast for readability */
-    --background: 0 0% 10%;                 /* Dark anthracite background #1a1a1a */
-    --foreground: 0 0% 98%;                 /* Almost white text */
-    --card: 0 0% 15%;                       /* Slightly lighter card background #262626 */
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 347 82% 58%;                 /* Magenta primary color */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 20%;                  /* Lighter secondary #333333 */
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;           /* Bright muted text for readability */
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 30%;                     /* Visible borders #4d4d4d */
-    --input: 0 0% 25%;
-    --ring: 347 82% 58%;
-    
-    /* Dark mode shadows */
-    --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.5);
-    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-    
-    /* Dark glassmorphism */
-    --glass-bg: rgba(38, 38, 38, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -175,46 +143,45 @@ body {
 }
 
 @layer components {
-  /* Enhanced Button Effects with Glow */
+  /* Enhanced Button Effects with Gold Glow */
   .btn-hero {
-    @apply bg-primary hover:bg-primary/90 text-white font-bold text-base py-[14px] px-[22px] rounded-full shadow-card transform hover:scale-105 transition-all duration-300;
-    box-shadow: 0 8px 30px rgba(9, 0, 44, 0.06);
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base py-[14px] px-[22px] rounded-lg shadow-card transform hover:scale-105 transition-all duration-300;
   }
   
   .btn-hero:hover {
     box-shadow: 
-      0 16px 40px rgba(9, 0, 44, 0.08),
-      0 0 20px rgba(234, 59, 95, 0.3),
-      0 0 40px rgba(234, 59, 95, 0.1);
+      0 16px 40px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(212, 168, 67, 0.3),
+      0 0 40px rgba(212, 168, 67, 0.1);
   }
 
   .btn-secondary {
-    @apply bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold text-base py-[14px] px-[22px] rounded-full shadow-card transform hover:scale-105 transition-all duration-300;
+    @apply bg-transparent border-2 border-primary text-foreground hover:bg-primary hover:text-primary-foreground font-bold text-base py-[14px] px-[22px] rounded-lg shadow-card transform hover:scale-105 transition-all duration-300;
   }
   
   .btn-secondary:hover {
     box-shadow: 
-      0 16px 40px rgba(9, 0, 44, 0.08),
-      0 0 20px rgba(234, 59, 95, 0.2);
+      0 16px 40px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(212, 168, 67, 0.2);
   }
 
   .btn-ghost {
-    @apply backdrop-blur-sm border border-white/20 text-primary hover:bg-primary/10 font-bold text-base py-[14px] px-[22px] rounded-full transform hover:scale-105 transition-all duration-300;
+    @apply backdrop-blur-sm border border-white/10 text-primary hover:bg-primary/10 font-bold text-base py-[14px] px-[22px] rounded-lg transform hover:scale-105 transition-all duration-300;
     background: var(--glass-bg);
     box-shadow: var(--glass-shadow);
   }
 
   /* Card Variants */
   .finom-card {
-    @apply bg-white dark:bg-card border border-border rounded-2xl p-8 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
+    @apply bg-card border border-border rounded-2xl p-8 shadow-card transition-all duration-300 hover:shadow-hover hover:-translate-y-1;
   }
 
   .highlight-card {
-    @apply bg-muted dark:bg-card border border-border rounded-2xl p-8 shadow-elegant;
+    @apply bg-muted border border-border rounded-2xl p-8 shadow-elegant;
   }
 
   .glass-badge {
-    @apply bg-white/80 dark:bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-card;
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm font-medium shadow-card;
   }
 
   /* Typography Classes */
@@ -250,8 +217,8 @@ body {
   /* Background Elements */
   .subtle-grid {
     background-image: 
-      radial-gradient(circle at 25px 25px, rgba(234, 59, 95, 0.02) 1px, transparent 0),
-      radial-gradient(circle at 75px 75px, rgba(234, 59, 95, 0.01) 1px, transparent 0);
+      radial-gradient(circle at 25px 25px, rgba(212, 168, 67, 0.03) 1px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(212, 168, 67, 0.02) 1px, transparent 0);
     background-size: 100px 100px;
   }
 
@@ -298,42 +265,28 @@ body {
   .case-study-card:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 
-      0 20px 50px rgba(9,0,44,0.15), 
-      0 0 30px rgba(234, 59, 95, 0.1),
-      0 0 0 1px rgba(234, 59, 95, 0.05);
+      0 20px 50px rgba(0, 0, 0, 0.4), 
+      0 0 30px rgba(212, 168, 67, 0.1),
+      0 0 0 1px rgba(212, 168, 67, 0.05);
     backdrop-filter: blur(10px);
   }
 
   /* Glassmorphism Navigation */
   .glass-nav {
-    background: var(--glass-bg);
+    background: rgba(11, 17, 32, 0.85);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-  }
-  
-  .dark .glass-nav {
-    background: rgba(26, 26, 26, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   /* Glassmorphism CTA Boxes */
   .glass-cta {
-    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+    background: linear-gradient(135deg, rgba(19, 27, 46, 0.9), rgba(19, 27, 46, 0.7));
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 
-      0 8px 32px rgba(9, 0, 44, 0.1),
-      inset 0 1px 0 rgba(255,255,255,0.4);
-  }
-  
-  .dark .glass-cta {
-    background: linear-gradient(135deg, rgba(38, 38, 38, 0.9), rgba(38, 38, 38, 0.7));
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255,255,255,0.1);
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
   /* Advanced Scroll Animations */
@@ -379,8 +332,8 @@ body {
   .hover-float:hover {
     transform: translateY(-12px) scale(1.02);
     box-shadow: 
-      0 25px 50px rgba(9, 0, 44, 0.15),
-      0 0 20px rgba(234, 59, 95, 0.1);
+      0 25px 50px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(212, 168, 67, 0.1);
     backdrop-filter: blur(8px);
   }
 
@@ -424,8 +377,8 @@ body {
   .module-box:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 
-      0 20px 40px rgba(9, 0, 44, 0.12),
-      0 0 25px rgba(234, 59, 95, 0.15);
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 25px rgba(212, 168, 67, 0.15);
   }
 
   /* Logo Carousel with Enhanced Effects */
