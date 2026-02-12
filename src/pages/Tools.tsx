@@ -1,16 +1,21 @@
 import { Helmet } from 'react-helmet';
-import { ExternalLink, Video, Mic, Smartphone, Code2, Clock, Sparkles } from 'lucide-react';
+import { ExternalLink, Clock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import { CookieBanner } from '@/components/CookieBanner';
 
+import heraLogo from '@/assets/tools/hera-logo.svg';
+import typelessLogo from '@/assets/tools/typeless-logo.png';
+import whisprflowLogo from '@/assets/tools/whisprflow-logo.svg';
+import lovableLogo from '@/assets/tools/lovable-logo.png';
+
 const tools = [
   {
     name: 'Lovable',
     category: 'No-Code Website-Builder',
-    icon: Code2,
+    logo: lovableLogo,
     benefit: '10 gratis Credits mit meinem Link',
     link: 'https://lovable.dev/invite/ADKF155',
     description:
@@ -21,7 +26,7 @@ const tools = [
   {
     name: 'Hera',
     category: 'Motion Design / KI-Video',
-    icon: Video,
+    logo: heraLogo,
     benefit: '15 % Rabatt mit meinem Link',
     link: 'https://hera.cello.so/JoZSq4tkrXH',
     description:
@@ -31,7 +36,7 @@ const tools = [
   {
     name: 'Typeless',
     category: 'Diktiersoftware (Desktop)',
-    icon: Mic,
+    logo: typelessLogo,
     benefit: null,
     link: 'https://www.typeless.com/?via=alexander-buchmann',
     description:
@@ -41,7 +46,7 @@ const tools = [
   {
     name: 'Whispr Flow',
     category: 'Diktiersoftware (iPhone & Desktop)',
-    icon: Smartphone,
+    logo: whisprflowLogo,
     benefit: '1 Monat Pro gratis mit meinem Link',
     link: 'https://wisprflow.ai/r/MEAWERI!131',
     description:
@@ -93,7 +98,6 @@ const Tools = () => {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {tools.map((tool) => {
-                const Icon = tool.icon;
                 return (
                   <div
                     key={tool.name}
@@ -105,10 +109,10 @@ const Tools = () => {
                     )}
 
                     <div className={`flex flex-col ${tool.featured ? 'md:flex-row md:items-start md:gap-10' : ''}`}>
-                      {/* Icon + Meta */}
+                      {/* Logo + Meta */}
                       <div className={`flex items-start gap-4 mb-5 ${tool.featured ? 'md:mb-0 md:min-w-[220px]' : ''}`}>
-                        <div className="liquid-glass-icon rounded-xl p-3 flex-shrink-0">
-                          <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                        <div className="liquid-glass-icon rounded-xl p-3 flex-shrink-0 w-12 h-12 flex items-center justify-center">
+                          <img src={tool.logo} alt={`${tool.name} Logo`} className="w-6 h-6 object-contain" />
                         </div>
                         <div>
                           <h2 className="text-xl font-bold text-foreground gold-gradient-text">{tool.name}</h2>
