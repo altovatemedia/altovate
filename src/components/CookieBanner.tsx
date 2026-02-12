@@ -57,16 +57,16 @@ export const CookieBanner = () => {
   const content = showDetails ? (
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-start justify-between">
-        <h2 className="text-2xl font-semibold text-gray-900">Cookie-Einstellungen 🍪</h2>
+        <h2 className="text-2xl font-semibold text-foreground">Cookie-Einstellungen 🍪</h2>
       </div>
 
       <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
         {/* Essential */}
-        <div className="space-y-2 pb-4 border-b">
+        <div className="space-y-2 pb-4 border-b border-border">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900">Essenziell</h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <h3 className="font-semibold text-foreground">Essenziell</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Erforderlich für grundlegende Funktionen wie Sicherheit und Seitennavigation.
               </p>
             </div>
@@ -77,11 +77,11 @@ export const CookieBanner = () => {
         </div>
 
         {/* Statistics */}
-        <div className="space-y-2 pb-4 border-b">
+        <div className="space-y-2 pb-4 border-b border-border">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900">Statistik</h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <h3 className="font-semibold text-foreground">Statistik</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Google Analytics hilft uns zu verstehen, wie Besucher unsere Website nutzen, um sie stetig zu verbessern.
               </p>
             </div>
@@ -97,11 +97,11 @@ export const CookieBanner = () => {
         </div>
 
         {/* Marketing */}
-        <div className="space-y-2 pb-4 border-b">
+        <div className="space-y-2 pb-4 border-b border-border">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900">Marketing</h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <h3 className="font-semibold text-foreground">Marketing</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Ermöglicht uns, relevante Werbung über Meta & LinkedIn zu schalten.
               </p>
             </div>
@@ -120,8 +120,8 @@ export const CookieBanner = () => {
         <div className="space-y-2 pb-4">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h3 className="font-semibold text-gray-900">Funktional</h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <h3 className="font-semibold text-foreground">Funktional</h3>
+              <p className="text-sm text-muted-foreground mt-1">
                 Optimiert dein Nutzungserlebnis (z. B. Karten, Videos, Formulare).
               </p>
             </div>
@@ -137,23 +137,23 @@ export const CookieBanner = () => {
         </div>
       </div>
 
-      <div className="space-y-3 pt-4 border-t">
+      <div className="space-y-3 pt-4 border-t border-border">
         <Button
           onClick={handleSaveSelection}
-          className="w-full bg-[#ff1c5c] hover:bg-[#e01850] text-white rounded-[10px] shadow-md h-12 font-medium"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-[10px] shadow-md h-12 font-medium"
         >
           Auswahl speichern
         </Button>
         <Button
           onClick={handleAcceptAll}
           variant="outline"
-          className="w-full border-2 border-gray-300 hover:bg-gray-50 text-gray-900 rounded-[10px] h-12 font-medium"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
         >
           Alle akzeptieren
         </Button>
         <button
           onClick={handleEssentialOnly}
-          className="w-full text-[#ff1c5c] hover:underline font-medium py-2"
+          className="w-full text-primary hover:underline font-medium py-2"
         >
           Nur essenzielle Cookies
         </button>
@@ -161,11 +161,11 @@ export const CookieBanner = () => {
     </div>
   ) : (
     <div className="space-y-6 animate-fade-in">
-      <h2 className="text-2xl font-semibold text-gray-900">
+      <h2 className="text-2xl font-semibold text-foreground">
         Diese Website verwendet Cookies 🍪
       </h2>
 
-      <div className="space-y-4 text-gray-700 leading-relaxed">
+      <div className="space-y-4 text-muted-foreground leading-relaxed">
         <p>
           Wir verwenden Cookies und ähnliche Technologien, um unsere Website sicher, funktional und
           benutzerfreundlich zu gestalten. Mit deiner Zustimmung helfen uns optionale Tools dabei,
@@ -176,7 +176,7 @@ export const CookieBanner = () => {
       <div className="flex gap-3 text-sm">
         <a
           href="/impressum"
-          className="text-[#ff1c5c] hover:underline font-medium"
+          className="text-primary hover:underline font-medium"
           onClick={(e) => {
             e.preventDefault();
             window.location.href = '/impressum';
@@ -184,10 +184,10 @@ export const CookieBanner = () => {
         >
           Impressum
         </a>
-        <span className="text-gray-400">·</span>
+        <span className="text-muted-foreground/50">·</span>
         <a
           href="/datenschutz"
-          className="text-[#ff1c5c] hover:underline font-medium"
+          className="text-primary hover:underline font-medium"
           onClick={(e) => {
             e.preventDefault();
             window.location.href = '/datenschutz';
@@ -197,22 +197,22 @@ export const CookieBanner = () => {
         </a>
       </div>
 
-      <div className="space-y-3 pt-4 border-t">
+      <div className="space-y-3 pt-4 border-t border-border">
         <Button
           onClick={handleAcceptAll}
-          className="w-full bg-[#ff1c5c] hover:bg-[#e01850] text-white rounded-[10px] shadow-md h-12 font-medium"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-[10px] shadow-md h-12 font-medium"
         >
           Alle akzeptieren
         </Button>
         <Button
           onClick={handleEssentialOnly}
-          className="w-full bg-[#e5e5e5] hover:bg-[#d5d5d5] text-gray-900 rounded-[10px] h-12 font-medium"
+          className="w-full bg-muted hover:bg-muted/80 text-foreground rounded-[10px] h-12 font-medium"
         >
           Nur essenzielle
         </Button>
         <button
           onClick={() => setShowDetails(true)}
-          className="w-full text-[#ff1c5c] hover:underline font-medium py-2"
+          className="w-full text-primary hover:underline font-medium py-2"
         >
           Einstellungen
         </button>
@@ -232,7 +232,7 @@ export const CookieBanner = () => {
         <Sheet open={isOpen} onOpenChange={handleClose}>
           <SheetContent
             side="bottom"
-            className="h-[90vh] rounded-t-[20px] p-6 border-0 z-[101] bg-white"
+            className="h-[90vh] rounded-t-[20px] p-6 border-0 z-[101] bg-card"
           >
             {content}
           </SheetContent>
@@ -251,7 +251,7 @@ export const CookieBanner = () => {
       )}
       <Dialog open={isOpen} onOpenChange={handleClose}>
         <DialogContent
-          className="max-w-[600px] p-8 rounded-[20px] shadow-2xl border-0 z-[101] bg-white animate-fade-in"
+          className="max-w-[600px] p-8 rounded-[20px] shadow-2xl border border-border z-[101] bg-card animate-fade-in"
           style={{ animationDuration: '200ms' }}
         >
           {content}
