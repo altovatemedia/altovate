@@ -328,6 +328,7 @@ body {
     background: linear-gradient(90deg, #FFEB3B, #FFC107, #FF9800, #F57C00);
     z-index: 9999;
     transition: width 0.1s ease;
+    box-shadow: 0 0 12px 2px rgba(255, 193, 7, 0.4), 0 0 4px 1px rgba(255, 152, 0, 0.3);
   }
 
   /* Gradient Stars for Reviews */

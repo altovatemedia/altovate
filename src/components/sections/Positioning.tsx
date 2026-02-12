@@ -1,4 +1,5 @@
-import { ArrowRight, Layers, Target, CheckCircle } from 'lucide-react';
+import { Layers, Target, CheckCircle } from 'lucide-react';
+import Reveal, { StaggerContainer, StaggerItem } from '@/components/animations/Reveal';
 
 const Positioning = () => {
   const focusPoints = [
@@ -11,35 +12,37 @@ const Positioning = () => {
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Main Statement */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            Marketing, das als <span className="text-primary">System</span> funktioniert.
-          </h2>
+          <Reveal blur>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+              Marketing, das als <span className="text-primary">System</span> funktioniert.
+            </h2>
+          </Reveal>
 
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
-            Altovate ist eine Marketing-Agentur aus Saarburg, die Lead- und Content-Systeme für mittelständische Unternehmen entwickelt. Der Fokus liegt auf planbaren Anfragen und messbaren Ergebnissen – nicht auf Reichweite ohne Substanz.
-          </p>
+          <Reveal delay={0.15} blur>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
+              Altovate ist eine Marketing-Agentur aus Saarburg, die Lead- und Content-Systeme für mittelständische Unternehmen entwickelt. Der Fokus liegt auf planbaren Anfragen und messbaren Ergebnissen – nicht auf Reichweite ohne Substanz.
+            </p>
+          </Reveal>
 
-          <p className="text-lg text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
-            Ein Marketing-System ist eine dokumentierte, wiederholbare Struktur aus Content, Lead-Erfassung und Vertriebsprozess. Es funktioniert unabhängig von einzelnen Personen und liefert kontinuierlich qualifizierte Anfragen.
-          </p>
+          <Reveal delay={0.25}>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
+              Ein Marketing-System ist eine dokumentierte, wiederholbare Struktur aus Content, Lead-Erfassung und Vertriebsprozess. Es funktioniert unabhängig von einzelnen Personen und liefert kontinuierlich qualifizierte Anfragen.
+            </p>
+          </Reveal>
 
           {/* Focus Points */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
             {focusPoints.map((point, index) => (
-              <div 
-                key={index}
-                className="flex flex-col items-center space-y-4 p-6 rounded-2xl liquid-glass hover:border-primary/20 transition-colors"
-              >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <point.icon className="w-7 h-7 text-primary" />
+              <StaggerItem key={index} scale blur>
+                <div className="flex flex-col items-center space-y-4 p-6 rounded-2xl liquid-glass hover:border-primary/20 transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <point.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <p className="text-lg font-semibold text-foreground">{point.text}</p>
                 </div>
-                <p className="text-lg font-semibold text-foreground">
-                  {point.text}
-                </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

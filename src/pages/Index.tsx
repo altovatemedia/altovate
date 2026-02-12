@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import NewNavigation from '@/components/sections/NewNavigation';
 import NewHero from '@/components/sections/NewHero';
+import ParallaxOrbs from '@/components/animations/ParallaxOrbs';
 
 import PainPoints from '@/components/sections/PainPoints';
 import Positioning from '@/components/sections/Positioning';
@@ -80,8 +81,8 @@ const Index = () => {
         <SEOSchema page="home" faqItems={faqItems} />
 
         <div className="scroll-progress" style={{ width: '0%' }}></div>
-      
         
+        <ParallaxOrbs />
         <NewNavigation />
         
         <main>

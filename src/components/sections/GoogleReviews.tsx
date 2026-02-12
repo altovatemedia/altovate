@@ -1,29 +1,7 @@
-import { useEffect, useRef } from 'react';
 import { Star } from 'lucide-react';
+import Reveal, { StaggerContainer, StaggerItem } from '@/components/animations/Reveal';
 
 const GoogleReviews = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const cards = entry.target.querySelectorAll('.review-card');
-          cards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('animate-in');
-            }, index * 100);
-          });
-        }
-      });
-    }, { threshold: 0.1 });
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-
   const reviews = [
     { name: "s g", rating: 5, date: "vor 4 Monaten", text: "Alex weiß, wie man Appetit macht – im wahrsten Sinne. Seitdem Alex bei uns mit an Bord ist, sehen unsere Bilder und Videos so gut aus, dass man fast denkt, man könnte das Essen direkt vom Bildschirm riechen und schmecken. Absolute Empfehlung für alle, die ihre Gastro-Marke lebendig machen wollen!", avatar: "S" },
     { name: "Thomas Greßnich", rating: 5, date: "vor 4 Monaten", text: "Ich bin absolut begeistert von der Umsetzung meines Logos. Die Kommunikation war unkompliziert, meine Wünsche wurden bis ins kleinste Detail berücksichtigt und mit viel Kreativität sowie Sorgfalt umgesetzt. Das Ergebnis hat meine Erwartungen übertroffen. Vielen Dank für die tolle Zusammenarbeit – jederzeit wieder!", avatar: "T" },
@@ -40,9 +18,8 @@ const GoogleReviews = () => {
   const totalReviews = 9;
 
   return (
-    <section ref={sectionRef} className="py-section">
+    <section className="py-section">
       <div className="container mx-auto px-6">
-        {/* SVG Gradient Definition */}
         <svg width="0" height="0" className="absolute">
           <defs>
             <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -54,73 +31,48 @@ const GoogleReviews = () => {
           </defs>
         </svg>
 
-        {/* Header with Google Rating */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <img 
-              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-              alt="Google"
-              className="h-6 opacity-90"
-            />
-            <span className="text-muted-foreground text-sm font-medium">Bewertungen</span>
-          </div>
-          
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="text-5xl font-bold gold-gradient-text">{avgRating}</span>
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
-              ))}
+          <Reveal>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-6 opacity-90" />
+              <span className="text-muted-foreground text-sm font-medium">Bewertungen</span>
             </div>
-          </div>
-          
-          <p className="text-muted-foreground">
-            Basierend auf {totalReviews} Google Bewertungen
-          </p>
-        </div>
-
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="review-card liquid-glass rounded-2xl p-6
-                       hover:border-primary/20 hover:-translate-y-1
-                       transition-all duration-300"
-              style={{
-                animation: `fade-in 0.6s ease-out ${index * 0.1}s both`
-              }}
-            >
-              {/* Avatar & Name */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">
-                  {review.avatar}
-                </div>
-                <div className="flex-1">
-                  <div className="font-semibold text-foreground">{review.name}</div>
-                  <div className="text-xs text-muted-foreground">{review.date}</div>
-                </div>
-                <img 
-                  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                  alt="Google"
-                  className="h-4 opacity-70"
-                />
-              </div>
-
-              {/* Stars */}
-              <div className="flex gap-1 mb-3">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
+          </Reveal>
+          <Reveal delay={0.1} blur>
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-5xl font-bold gold-gradient-text">{avgRating}</span>
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
                 ))}
               </div>
-
-              {/* Review Text */}
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {review.text}
-              </p>
             </div>
-          ))}
+            <p className="text-muted-foreground">Basierend auf {totalReviews} Google Bewertungen</p>
+          </Reveal>
         </div>
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
+          {reviews.map((review, index) => (
+            <StaggerItem key={index}>
+              <div className="liquid-glass rounded-2xl p-6 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold">{review.avatar}</div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-foreground">{review.name}</div>
+                    <div className="text-xs text-muted-foreground">{review.date}</div>
+                  </div>
+                  <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-4 opacity-70" />
+                </div>
+                <div className="flex gap-1 mb-3">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4" style={{ fill: 'url(#star-gradient)', stroke: 'none' }} />
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{review.text}</p>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );
