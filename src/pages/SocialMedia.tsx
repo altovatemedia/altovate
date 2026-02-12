@@ -164,7 +164,7 @@ const SocialMedia = () => {
                 <div className="flex items-start gap-5">
                   {/* Number badge */}
                   <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl liquid-glass-icon flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
                     <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow-md">
@@ -282,7 +282,7 @@ const SocialMedia = () => {
             {/* Tool 1: KI-Demo */}
             <div className="finom-card hover-lift">
               <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 liquid-glass-icon rounded-full flex items-center justify-center mx-auto mb-4">
                   <Sparkles className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="finom-h3 mb-2">🧠 Content-Ideen Finder</h3>
@@ -296,7 +296,7 @@ const SocialMedia = () => {
             {/* Tool 2: Paketfinder */}
             <div className="finom-card hover-lift">
               <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 liquid-glass-icon rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageCircle className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="finom-h3 mb-2">🔍 Welches Angebot passt?</h3>
@@ -310,7 +310,7 @@ const SocialMedia = () => {
             {/* Tool 3: Social Media Check */}
             <div className="finom-card hover-lift">
               <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 liquid-glass-icon rounded-full flex items-center justify-center mx-auto mb-4">
                   <Search className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="finom-h3 mb-2">📊 Social Media Check</h3>
