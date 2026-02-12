@@ -5,6 +5,18 @@ import bniBadge from '@/assets/bni-badge.png';
 const TrustBar = () => {
   return (
     <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 pt-8 fade-in-up" style={{ animationDelay: '0.5s' }}>
+      {/* SVG Gradient Definition */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="trustbar-star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFEB3B" />
+            <stop offset="35%" stopColor="#FFC107" />
+            <stop offset="70%" stopColor="#FF9800" />
+            <stop offset="100%" stopColor="#F57C00" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* Google Rating */}
       <a
         href="https://www.google.com/maps/place/Altovate"
@@ -14,7 +26,7 @@ const TrustBar = () => {
       >
         <div className="flex items-center gap-0.5">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <Star key={i} className="w-4 h-4" style={{ fill: 'url(#trustbar-star-gradient)', stroke: 'none' }} />
           ))}
         </div>
         <span className="text-sm font-medium">

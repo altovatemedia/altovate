@@ -67,8 +67,8 @@
     --color-card: 222 36% 13%;                 /* #131B2E card background */
     --color-text: 0 0% 95%;                    /* #F1F1F1 almost white */
     --color-text-muted: 218 15% 60%;           /* #8B95A8 muted grey */
-    --color-primary: 41 55% 55%;               /* #D4A843 gold/amber */
-    --color-primary-ghost: 41 55% 55%;         /* gold with opacity */
+    --color-primary: 40 90% 55%;                /* #F0A818 vivid amber */
+    --color-primary-ghost: 40 90% 55%;         /* vivid amber with opacity */
     --color-border: 217 33% 17%;               /* #1E293B subtle dark borders */
     --color-success: 168 76% 36%;              /* #0BA37F */
     --color-warning: 37 91% 55%;               /* #F59E0B */
@@ -143,13 +143,13 @@ body {
 }
 
 @layer components {
-  /* Gold Gradient Text */
+  /* Vivid Gradient Text */
   .gold-gradient-text {
-    background: linear-gradient(135deg, #FFE082, #F5C842, #E8A020, #D4A843);
+    background: linear-gradient(135deg, #FFEB3B, #FFC107, #FF9800, #F57C00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 8px rgba(245, 200, 66, 0.3));
+    filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.5));
   }
 
   /* Liquid Glass */
@@ -171,20 +171,20 @@ body {
       0 4px 16px rgba(0,0,0,0.3);
   }
 
-  /* Enhanced Button Effects with Gold Gradient */
+  /* Enhanced Button Effects with Vivid Gradient */
   .btn-hero {
     @apply text-primary-foreground font-bold text-base py-[14px] px-[22px] rounded-lg shadow-card transform hover:scale-105 transition-all duration-300;
-    background: linear-gradient(135deg, #FFD54F, #F5C842, #E8A020, #D4A843);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #FFEB3B, #FFC107, #FF9800, #F57C00);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
   
   .btn-hero:hover {
-    background: linear-gradient(135deg, #FFE082, #F5C842, #E8A020);
+    background: linear-gradient(135deg, #FFF176, #FFD54F, #FFA726, #FF9800);
     box-shadow: 
       0 16px 40px rgba(0, 0, 0, 0.3),
-      0 0 30px rgba(245, 200, 66, 0.5),
-      0 0 60px rgba(232, 160, 32, 0.3),
-      0 0 90px rgba(245, 200, 66, 0.15);
+      0 0 30px rgba(255, 193, 7, 0.6),
+      0 0 60px rgba(255, 152, 0, 0.4),
+      0 0 90px rgba(255, 193, 7, 0.2);
   }
 
   .btn-secondary {
@@ -249,8 +249,8 @@ body {
   /* Background Elements */
   .subtle-grid {
     background-image: 
-      radial-gradient(circle at 25px 25px, rgba(212, 168, 67, 0.03) 1px, transparent 0),
-      radial-gradient(circle at 75px 75px, rgba(212, 168, 67, 0.02) 1px, transparent 0);
+      radial-gradient(circle at 25px 25px, rgba(255, 193, 7, 0.03) 1px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(255, 152, 0, 0.02) 1px, transparent 0);
     background-size: 100px 100px;
   }
 
@@ -260,9 +260,15 @@ body {
     top: 0;
     left: 0;
     height: 3px;
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary)));
+    background: linear-gradient(90deg, #FFEB3B, #FFC107, #FF9800, #F57C00);
     z-index: 9999;
     transition: width 0.1s ease;
+  }
+
+  /* Gradient Stars for Reviews */
+  .gradient-star svg {
+    fill: url(#star-gradient);
+    stroke: none;
   }
 
   /* Toggle Switch */
