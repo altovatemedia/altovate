@@ -1,130 +1,123 @@
 
 
-# Conversion-Optimierung: Gesamtumsetzung
+# Marketingwissen-Sektion mit BabyLoveGrowth-Integration
 
-## Korrekturen gegenueber dem Audit
+## Uebersicht
 
-Folgende Punkte aus deinem Feedback werden beruecksichtigt:
-- **BAFA**: "Foerderfaehig" ja, aber NICHT "BAFA-zertifiziert" -- kein Zertifizierungs-Badge
-- **Betreute Unternehmen**: Keine konkrete Zahl anzeigen (15+ wirkt zu gering) -- stattdessen wird nur Google-Rating und BNI-Badge genutzt
-- **Preise**: Alle "inkl. MwSt." Angaben werden zu "zzgl. MwSt." korrigiert (betrifft Offers-Sektion und ueberall sonst)
+BabyLoveGrowth arbeitet als Push-System: Es sendet fertige Blogbeitraege per Webhook an deine Seite. Die Architektur besteht aus drei Teilen:
 
----
-
-## Phase 1: Trust-Bar + MwSt.-Korrektur
-
-### 1.1 Neue Komponente: TrustBar
-**Neue Datei:** `src/components/sections/TrustBar.tsx`
-
-Kompakte Leiste mit drei Elementen:
-- Google-Rating: "5.0 Sterne -- 9 Bewertungen" (mit Stern-Icons, Google-Logo)
-- BNI-Mitglied (Badge-Icon)
-- "Foerderfaehig bis 80 %" (mit BadgePercent-Icon, Link zu /foerderung)
-
-Platzierung: direkt unter den CTA-Buttons im Hero (`NewHero.tsx`).
-
-### 1.2 MwSt.-Korrektur
-**Datei:** `src/components/sections/Offers.tsx`
-- Alle "inkl. MwSt." aendern zu "zzgl. MwSt."
+1. **Datenbank-Tabelle** fuer Artikel
+2. **Webhook-Endpoint** (Backend-Funktion), der Artikel von BabyLoveGrowth empfaengt und speichert
+3. **Blog-Seiten** (Uebersicht + Einzelartikel) im Frontend, verlinkt im Footer
 
 ---
 
-## Phase 2: Widersprueche und CTA-Konsistenz
+## Schritt 1: Datenbank-Tabelle erstellen
 
-### 2.1 ContactFunnel-Text korrigieren
-**Datei:** `src/components/sections/ContactFunnel.tsx`
-- Zeile 332: "Kostenloses Erstgespraech buchen" aendern zu "Anfrage senden"
-- Zeile 357: "Einladung zum kostenlosen Erstgespraech" entfernen, stattdessen "Erhalte eine persoenliche Einschaetzung"
-- Zeile 323: Datenschutz-Link `href="#"` korrigieren zu `href="/datenschutz"` (als React-Router Link)
+Neue Tabelle `blog_articles` mit folgenden Feldern:
 
-### 2.2 FAQ: Calendly durch BookingModal ersetzen
-**Datei:** `src/components/FAQ.tsx`
-- `window.open('https://calendly.com/altovate/60min')` ersetzen durch BookingModal-State und -Komponente
-- BookingModal importieren, useState hinzufuegen
+| Feld | Typ | Beschreibung |
+|------|-----|-------------|
+| id | uuid (PK) | Automatisch generiert |
+| title | text | Artikeltitel |
+| slug | text (unique) | URL-freundlicher Pfad |
+| content_html | text | HTML-Inhalt des Artikels |
+| content_markdown | text | Markdown-Inhalt (optional) |
+| meta_description | text | SEO-Beschreibung |
+| hero_image_url | text | Titelbild-URL |
+| status | text | "draft" oder "published" |
+| published_at | timestamptz | Veroeffentlichungsdatum |
+| created_at | timestamptz | Erstellungsdatum |
 
-### 2.3 Footer: Calendly-Links durch BookingModal ersetzen
+RLS-Policy: Oeffentlich lesbar (SELECT) fuer alle, kein INSERT/UPDATE/DELETE ueber den Client.
+
+---
+
+## Schritt 2: Webhook-Endpoint (Backend-Funktion)
+
+**Neue Datei:** `supabase/functions/babylovegrowth-webhook/index.ts`
+
+- Empfaengt POST-Requests von BabyLoveGrowth
+- Authentifizierung per API-Key im Header (Bearer Token)
+- Speichert den API-Key als Secret (`BABYLOVEGROWTH_API_KEY`)
+- Akzeptiert: `title`, `slug`, `content_html`, `content_markdown`, `metaDescription`, `heroImageUrl`, `status`
+- Erstellt oder aktualisiert Artikel (upsert auf `slug`)
+- Gibt Ping-Endpoint zurueck (GET-Request)
+
+Die Webhook-URL, die du in BabyLoveGrowth konfigurierst, wird sein:
+`https://euglobmdsrurbbmfargp.supabase.co/functions/v1/babylovegrowth-webhook`
+
+---
+
+## Schritt 3: Blog-Seiten im Frontend
+
+### 3a: Uebersichtsseite `/marketingwissen`
+
+**Neue Datei:** `src/pages/Marketingwissen.tsx`
+
+- Navigation + Footer (wie alle anderen Seiten)
+- SEO-Helmet mit Titel "Marketingwissen | altovate"
+- Grid mit Artikelkarten (Bild, Titel, Beschreibung, Datum)
+- Nur Artikel mit `status = 'published'` anzeigen
+- Sortiert nach `published_at DESC`
+- Klick fuehrt zur Einzelansicht
+
+### 3b: Einzelartikel-Seite `/marketingwissen/:slug`
+
+**Neue Datei:** `src/pages/BlogArticle.tsx`
+
+- Artikel per `slug` aus der Datenbank laden
+- HTML-Inhalt rendern (sanitized mit dangerouslySetInnerHTML)
+- Titelbild, Titel, Datum, Inhalt
+- Zurueck-Link zur Uebersicht
+- SEO: Dynamischer Titel + Meta-Description aus Artikeldaten
+
+---
+
+## Schritt 4: Routing
+
+**Datei:** `src/App.tsx`
+
+- Neue Route: `/marketingwissen` -> `Marketingwissen`
+- Neue Route: `/marketingwissen/:slug` -> `BlogArticle`
+
+---
+
+## Schritt 5: Footer-Verlinkung
+
 **Datei:** `src/components/Footer.tsx`
-- Zeilen 68-76: Direkte Calendly-Links (60min / 90min) durch onClick-Handler ersetzen, die den BookingModal oeffnen
-- BookingModal und useState importieren
+
+- In der Angebote-Spalte einen neuen Link "Marketingwissen" hinzufuegen, der auf `/marketingwissen` zeigt
 
 ---
 
-## Phase 3: Sticky Mobile CTA
+## Schritt 6: API-Key als Secret speichern
 
-### 3.1 Neue Komponente: StickyMobileCTA
-**Neue Datei:** `src/components/StickyMobileCTA.tsx`
-- Sticky Bottom-Bar, nur auf Mobile sichtbar (md:hidden)
-- Erscheint nach dem Hero-Bereich (Scroll-Trigger)
-- CTA: "Strategie-Session anfragen" -- oeffnet BookingModal
-- Dezentes Design: leichter Schatten, Primary-Farbe
-
-### 3.2 Einbindung
-**Datei:** `src/pages/Index.tsx`
-- StickyMobileCTA importieren und vor `</motion.div>` einfuegen
-
----
-
-## Phase 4: Erstkontakt-Seite verbessern
-
-### 4.1 Datenschutz-Checkbox ergaenzen
-**Datei:** `src/pages/Erstkontakt.tsx`
-- Checkbox mit Label und Link zu `/datenschutz` vor dem Submit-Button einfuegen
-- formData um `privacy: false` erweitern
-- Validierung: Checkbox muss aktiviert sein
-
-### 4.2 Trust-Element neben dem Formular
-**Datei:** `src/pages/Erstkontakt.tsx`
-- Unter dem Formular: Kompakte Google-Rating-Anzeige (5.0 Sterne, 9 Bewertungen) + kurzes Alex-Zitat als Vertrauenselement
-
----
-
-## Phase 5: Employer Branding umbauen
-
-### 5.1 Preise entfernen, Leistungsuebersicht einfuegen
-**Datei:** `src/pages/EmployerBranding.tsx`
-- Das `packages`-Array (Zeilen 45-75) mit den 3 Preispaketen (350/950/1.500 EUR) entfernen
-- Ersetzen durch eine Leistungsuebersicht analog zur Social-Media-Seite (Grid mit Icons, Titel, Beschreibung)
-- Warteliste oder Verweis auf Strategie-Session als CTA
-
----
-
-## Phase 6: Psychologische Elemente
-
-### 6.1 Klarheitsversprechen
-**Datei:** `src/components/sections/Offers.tsx`
-- Unter den Strategie-Session-Karten: kurzer Hinweis: "Wenn du nach der Session keinen klaren naechsten Schritt hast, war sie nicht gut genug."
-- Kein explizites "Geld zurueck", sondern ein Qualitaetsversprechen
-
-### 6.2 Slot-Limitierung konkreter machen
-**Datei:** `src/components/sections/DoneForYouSection.tsx` (falls vorhanden)
-- "Limitiert auf wenige Spots" konkretisieren zu z.B. "Aktuell nur 2 freie Plaetze"
+Der API-Key (`ec2cebf7-fe9b-4cfd-94f0-ecced6a0b0f5`) wird als Secret `BABYLOVEGROWTH_API_KEY` gespeichert, damit der Webhook nur authentifizierte Anfragen akzeptiert.
 
 ---
 
 ## Technische Details
 
 ### Neue Dateien
-- `src/components/sections/TrustBar.tsx`
-- `src/components/StickyMobileCTA.tsx`
+| Datei | Beschreibung |
+|-------|-------------|
+| `supabase/functions/babylovegrowth-webhook/index.ts` | Webhook-Endpoint |
+| `src/pages/Marketingwissen.tsx` | Blog-Uebersicht |
+| `src/pages/BlogArticle.tsx` | Einzelartikel-Ansicht |
 
 ### Geaenderte Dateien
 | Datei | Aenderung |
-|---|---|
-| `src/components/sections/NewHero.tsx` | TrustBar einbinden |
-| `src/components/sections/Offers.tsx` | MwSt.-Korrektur + Klarheitsversprechen |
-| `src/components/sections/ContactFunnel.tsx` | Text-Korrekturen + Datenschutz-Link fixen |
-| `src/components/FAQ.tsx` | Calendly durch BookingModal ersetzen |
-| `src/components/Footer.tsx` | Calendly-Links durch BookingModal ersetzen |
-| `src/pages/Index.tsx` | StickyMobileCTA einbinden |
-| `src/pages/Erstkontakt.tsx` | Datenschutz-Checkbox + Trust-Element |
-| `src/pages/EmployerBranding.tsx` | Preispakete durch Leistungsuebersicht ersetzen |
+|-------|----------|
+| `src/App.tsx` | 2 neue Routen |
+| `src/components/Footer.tsx` | Link zu /marketingwissen |
+| `supabase/config.toml` | Neue Funktion registrieren |
 
 ### Umsetzungsreihenfolge
-1. MwSt.-Korrektur (schnell, ueberall)
-2. TrustBar + Hero-Einbindung
-3. ContactFunnel + FAQ + Footer Widersprueche fixen
-4. Sticky Mobile CTA
-5. Erstkontakt verbessern
-6. Employer Branding umbauen
-7. Psychologische Elemente (Klarheitsversprechen, Slot-Limitierung)
+1. Datenbank-Tabelle + RLS-Policies erstellen
+2. API-Key als Secret speichern lassen
+3. Webhook-Funktion erstellen + deployen
+4. Blog-Seiten (Uebersicht + Einzelartikel) erstellen
+5. Routing + Footer-Link hinzufuegen
+6. In BabyLoveGrowth die Webhook-URL konfigurieren (das machst du selbst im BabyLoveGrowth-Dashboard)
 
