@@ -17,6 +17,8 @@ import Erstkontakt from "./pages/Erstkontakt";
 import Kontakt from "./pages/Kontakt";
 import InstagramProfilCheck from "./pages/InstagramProfilCheck";
 import Foerderung from "./pages/Foerderung";
+import Marketingwissen from "./pages/Marketingwissen";
+import BlogArticle from "./pages/BlogArticle";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/instagram-profil-check" element={<InstagramProfilCheck />} />
             <Route path="/foerderung" element={<Foerderung />} />
+            <Route path="/marketingwissen" element={<Marketingwissen />} />
+            <Route path="/marketingwissen/:slug" element={<BlogArticle />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
