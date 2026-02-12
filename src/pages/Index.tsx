@@ -1,7 +1,6 @@
-import { useEffect, useState, useCallback, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion, AnimatePresence } from 'framer-motion';
-import Preloader from '@/components/Preloader';
+import { motion } from 'framer-motion';
 
 // Above the fold – eagerly loaded
 import NewNavigation from '@/components/sections/NewNavigation';
@@ -49,8 +48,6 @@ const faqItems = [
 ];
 
 const Index = () => {
-  const [loading, setLoading] = useState(true);
-  const handlePreloaderComplete = useCallback(() => setLoading(false), []);
 
   useEffect(() => {
     const updateScrollProgress = () => {
@@ -67,16 +64,12 @@ const Index = () => {
   }, []);
 
   return (
-    <>
-      {loading && <Preloader onComplete={handlePreloaderComplete} />}
-      <AnimatePresence mode="wait">
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="min-h-screen bg-background"
-      >
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="min-h-screen bg-background"
+    >
         <Helmet>
           <title>altovate | Online-Marketing für Unternehmer</title>
           <meta name="description" content="Lead- & Content-Systeme für mittelständische Unternehmen in Saarburg, Trier & Region. Planbare Anfragen statt Reichweiten-Blabla. Strategie-Session ab 390 €." />
@@ -121,9 +114,7 @@ const Index = () => {
           <CookieBannerWrapper />
           <ExitIntentBanner />
         </Suspense>
-      </motion.div>
-    </AnimatePresence>
-    </>
+    </motion.div>
   );
 };
 
