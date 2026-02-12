@@ -35,7 +35,7 @@ const FreebieBar = () => {
             <span className="sm:hidden">Strategie-Session</span>
           </span>
           <span className="text-primary font-semibold group-hover:text-primary/80 transition-colors whitespace-nowrap flex items-center gap-1">
-            <span className="hidden sm:inline">Termin wählen</span>
+            <span className="hidden sm:inline">Jetzt Termin sichern</span>
             <ArrowRight className="w-4 h-4" />
           </span>
         </button>

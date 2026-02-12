@@ -106,7 +106,7 @@ const SignatureOffer = () => {
                   contactSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Jetzt starten
+                Unverbindlich anfragen
                 <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5" />
               </Button>
             </div>
@@ -170,7 +170,7 @@ const SignatureOffer = () => {
               contactSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Jetzt starten
+            Unverbindlich anfragen
             <ArrowRight className="ml-2 w-4 h-4 lg:w-5 lg:h-5" />
           </Button>
           <p className="text-sm text-muted-foreground">

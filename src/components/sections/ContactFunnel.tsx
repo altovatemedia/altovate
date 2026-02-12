@@ -329,9 +329,12 @@ Antworten aus dem Funnel:
                 className="w-full bg-primary hover:bg-primary/90 text-white rounded-full py-4 text-lg font-bold transition-all duration-200 hover:scale-[1.02] group"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Anfrage senden
+                Persönliche Einschätzung anfordern
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <p className="text-xs text-muted-foreground text-center mt-3">
+                Kostenfrei und unverbindlich. Antwort in 24h.
+              </p>
             </div>
           </div>
         );

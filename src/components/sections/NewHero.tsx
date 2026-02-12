@@ -96,7 +96,7 @@ const NewHero = () => {
               className="btn-hero px-8 py-6 text-base"
               onClick={handleBooking}
             >
-              Strategie-Session buchen
+              Strategie-Session anfragen
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
@@ -109,6 +109,11 @@ const NewHero = () => {
               Direkt Klarheit statt Erstgespräch
             </Button>
           </div>
+
+          {/* Microcopy */}
+          <p className="text-sm text-muted-foreground fade-in-up" style={{ animationDelay: '0.5s' }}>
+            Bezahlte Session. Keine Verkaufsshow.
+          </p>
 
           {/* Trust Bar */}
           <TrustBar />

@@ -267,9 +267,12 @@ const Contact = () => {
               </div>
 
               <Button type="submit" className="btn-hero w-full group relative z-10">
-                Nachricht senden
+                Nachricht absenden
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <p className="text-xs text-muted-foreground text-center mt-2">
+                Antwort innerhalb von 24 Stunden.
+              </p>
             </form>
           </div>
         </div>

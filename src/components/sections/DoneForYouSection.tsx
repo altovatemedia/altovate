@@ -137,10 +137,16 @@ const DoneForYouSection = () => {
                     {isSubmitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <ArrowRight className="w-4 h-4" />
+                      <>
+                        Eintragen
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </>
                     )}
                   </Button>
                 </div>
+                <p className="text-xs text-muted-foreground text-center mt-2">
+                  Kein Spam. Nur eine Info, wenn ein Platz frei wird.
+                </p>
                 <div className="flex items-start gap-2 justify-center">
                   <Checkbox
                     id="consent"
