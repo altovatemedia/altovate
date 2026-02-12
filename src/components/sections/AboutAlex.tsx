@@ -23,7 +23,11 @@ const AboutAlex = () => {
                 </p>
                 
                 <p className="text-lg text-foreground leading-relaxed font-medium">
-                  Altovate ist bewusst keine große Agentur. Du arbeitest direkt mit mir – ohne Umwege über Projektmanager oder Junior-Teams.
+                  Altovate ist bewusst keine große Agentur. Ich arbeite mit einem Netzwerk aus Experten, die ich koordiniere – und mit KI-Tools, Agents und automatisierten Workflows, die mich arbeiten lassen wie 10 A-Player. Du bekommst also nicht weniger, sondern mehr: direkte Zusammenarbeit mit mir, ohne Umwege über Projektmanager oder Junior-Teams.
+                </p>
+                
+                <p className="text-lg text-primary leading-relaxed font-medium">
+                  Wenn du wissen willst, wie wir gemeinsam mehr Zeit aus deinem Alltag holen – lass uns sprechen.
                 </p>
               </div>
             </div>
@@ -32,19 +36,21 @@ const AboutAlex = () => {
             <div className="order-1 lg:order-2">
               <div className="relative">
                 {/* Main image */}
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative">
                   <img 
                     src={alexanderPortrait}
                     alt="Alexander Buchmann – Gründer der altovate GmbH, Marketing-Stratege für mittelständische Unternehmen in Saarburg" 
                     className="w-full h-auto object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                  {/* Radial gradient fade */}
+                  <div className="absolute inset-[-20%] z-10 pointer-events-none" style={{
+                    background: `radial-gradient(ellipse 80% 90% at center, transparent 30%, hsl(var(--background)) 65%)`
+                  }}></div>
                 </div>
                 
-                {/* Decorative elements */}
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-                <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/5 rounded-full blur-2xl -z-10"></div>
+                {/* Gold glow behind portrait */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10"></div>
               </div>
             </div>
           </div>
