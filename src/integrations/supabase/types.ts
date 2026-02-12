@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       blog_articles: {
         Row: {
+          category: string | null
           content_html: string | null
           content_markdown: string | null
           created_at: string
@@ -23,12 +24,14 @@ export type Database = {
           id: string
           meta_description: string | null
           published_at: string | null
+          reading_time_minutes: number | null
           slug: string
           status: string
           title: string
           updated_at: string
         }
         Insert: {
+          category?: string | null
           content_html?: string | null
           content_markdown?: string | null
           created_at?: string
@@ -36,12 +39,14 @@ export type Database = {
           id?: string
           meta_description?: string | null
           published_at?: string | null
+          reading_time_minutes?: number | null
           slug: string
           status?: string
           title: string
           updated_at?: string
         }
         Update: {
+          category?: string | null
           content_html?: string | null
           content_markdown?: string | null
           created_at?: string
@@ -49,6 +54,7 @@ export type Database = {
           id?: string
           meta_description?: string | null
           published_at?: string | null
+          reading_time_minutes?: number | null
           slug?: string
           status?: string
           title?: string

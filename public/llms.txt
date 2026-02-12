@@ -96,7 +96,7 @@
 - [Marketing-Automation](https://altovate.de/marketing-automation-saarburg)
 - [Software & KI-Lösungen](https://altovate.de/software-ki-loesungen-saarburg)
 - [Förderung](https://altovate.de/foerderung)
-- [Marketingwissen (Blog)](https://altovate.de/marketingwissen)
+- [Marketing System](https://altovate.de/marketing-system)
 - [Kontakt](https://altovate.de/kontakt)
 - [Erstgespräch anfragen](https://altovate.de/erstkontakt)
 - [Datenschutzerklärung](https://altovate.de/datenschutz)
@@ -104,8 +104,9 @@
 
 # Optional
 
-## Blog und Wissenswertes
+## Marketing System
 
-- Branchenbezogene Artikel zu Social Media, Content Marketing und digitaler Sichtbarkeit
-- Content- & Strategie-Tipps für Unternehmer
-- Aktuelle Entwicklungen im Online-Marketing
+- Modulare Wissensarchitektur mit ROI-Modellen, Budgetrechnern und GEO-Optimierung
+- Dreistufiges Marketing-System: Aufmerksamkeit → Vertrauen → Conversion
+- Interaktive Tools: ROI-Rechner, Marketingbudget-Rechner, Sichtbarkeits-Selbsttest
+- Filterbare Themencluster: ROI & Wirtschaftlichkeit, Social Media Strategie, Funnel & Conversion, Recruiting & Arbeitgebermarke, GEO & KI
