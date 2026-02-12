@@ -1,79 +1,41 @@
 
 
-# Verfeinerung: Gold-Gradient, Logo-Farbe, Hero-Portrait und Liquid Glass
+## Aenderungen am "Ueber Alex Buchmann"-Abschnitt
 
-## Was sich aendert
+### Was sich aendert
 
-### 1. Logo weiss machen (`NewNavigation.tsx`)
-Das Logo im Header bekommt einen CSS-Filter (`brightness(0) invert(1)`), damit es auf dem dunklen Hintergrund weiss erscheint.
+Der dritte Absatz in `src/components/sections/AboutAlex.tsx` (Zeile 25-27) wird inhaltlich erweitert. Statt nur "bewusst keine grosse Agentur, du arbeitest direkt mit mir" wird die Botschaft ausgebaut:
 
-### 2. Gold-Farbverlauf statt flaches Gold
+**Aktuell:**
+> Altovate ist bewusst keine grosse Agentur. Du arbeitest direkt mit mir -- ohne Umwege ueber Projektmanager oder Junior-Teams.
 
-**CSS-Variablen und Buttons (`index.css`)**:
-- Die `.btn-hero`-Klasse bekommt einen Verlauf von warmem Gold (#F5C842) ueber Orange-Gold (#E8A020) statt der flachen `bg-primary`-Farbe
-- Hover-Glow wird waermer und intensiver mit orange-goldenen Toenen
-- Neuer `.gold-gradient-text`-Utility fuer Headline-Akzente: `background: linear-gradient(135deg, #F5C842, #D4A843, #E8A020)` mit `-webkit-background-clip: text`
+**Neu (sinngemass):**
+> Altovate ist bewusst keine grosse Agentur. Ich arbeite mit einem Netzwerk aus Experten, die ich koordiniere -- und mit KI-Tools, Agents und automatisierten Workflows, die mich arbeiten lassen wie 10 A-Player. Du bekommst also nicht weniger, sondern mehr: direkte Zusammenarbeit mit mir, ohne Umwege ueber Projektmanager oder Junior-Teams. Wenn du wissen willst, wie wir gemeinsam mehr Zeit aus deinem Alltag holen -- lass uns sprechen.
 
-**Tailwind Config**: Gold-Farbtokens erweitern um `gold-light: #F5C842` und `gold-warm: #E8A020`
+### Zusaetzlich: Portrait-Bild mit Gradient Fade
 
-### 3. Hero-Portrait ohne Hintergrund, fliessend eingebettet (`NewHero.tsx`)
+Das Bild in diesem Abschnitt hat aktuell noch `rounded-2xl overflow-hidden shadow-2xl` -- also harte Kanten. Analog zum Hero wird das Portrait auch hier mit einem radialen Gradient-Overlay versehen, damit es nahtlos in den Hintergrund uebergeht.
 
-Aktuell wird das Foto einfach als rechteckiges Bild gezeigt mit einem `rounded-2xl` Container. Stattdessen:
-- `rounded-2xl` entfernen - das Bild soll "frei" stehen (alexander-portrait.png hat bereits freigestellten Hintergrund)
-- Gradient von unten (`bg-gradient-to-t from-background via-background/50 to-transparent`) damit das Portrait nahtlos in den Hintergrund uebergeht - wie bei der Referenzseite
-- Leichter Gold-Glow hinter dem Portrait als atmosphaerischer Effekt
-- Portrait etwas groesser machen (`max-w-lg` statt `max-w-md`)
+### Zusammenfassung der Hero-Aenderung
 
-### 4. Liquid Glass Effekte
-
-**Neue CSS-Klasse `.liquid-glass` (`index.css`)**:
-```css
-.liquid-glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 8px 32px rgba(0,0,0,0.3);
-}
-```
-
-**Neue CSS-Klasse `.liquid-glass-icon` fuer Icon-Container** (wie im Referenz-Screenshot 5 - die Kreise mit Glas-Effekt um die Icons):
-```css
-.liquid-glass-icon {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 
-    inset 0 1px 2px rgba(255,255,255,0.08),
-    0 4px 16px rgba(0,0,0,0.3);
-}
-```
-
-**Anwendung in PainPoints.tsx**:
-- Cards bekommen `.liquid-glass` statt `bg-muted/30`
-- Icon-Container bekommen `.liquid-glass-icon` statt `bg-primary/10`
-- Icons bleiben `text-primary` (Gold)
-- Runde Icon-Container (`rounded-full` statt `rounded-xl`, groesser `w-16 h-16`)
-
-### 5. Gold-Akzent-Text fuer Headlines
-
-In `NewHero.tsx` wird der `<span className="text-primary">` durch eine Gradient-Variante ersetzt:
-```jsx
-<span className="gold-gradient-text">die keine Zeit fuer Marketing haben.</span>
-```
-
-Der CSS-Gradient erzeugt den Effekt aus dem Referenz-Screenshot: warmes Gold von hell nach dunkel, nicht flach.
+Der Hero-Text (Zeile 49-51 in `NewHero.tsx`) bleibt **unveraendert** -- der aktuelle Text dort ("Altovate entwickelt Lead- & Content-Systeme...") passt als allgemeine Intro-Beschreibung und wird nicht mit der "keine grosse Agentur"-Botschaft ueberschrieben.
 
 ---
 
-## Geaenderte Dateien (4 Stueck)
+### Technische Details
+
+**Datei:** `src/components/sections/AboutAlex.tsx`
+
+1. **Text-Erweiterung (Zeilen 25-27):** Der dritte `<p>`-Absatz wird durch zwei Absaetze ersetzt:
+   - Absatz 1: "Bewusst keine grosse Agentur" + Experten-Netzwerk + KI-Tools/Agents/Workflows als Multiplikator
+   - Absatz 2: Hook/CTA -- "Wenn du wissen willst, wie wir mehr Zeit aus deinem Alltag holen..."
+
+2. **Bild-Anpassung (Zeilen 35-43):** 
+   - `rounded-2xl overflow-hidden shadow-2xl` entfernen
+   - Radiales Gradient-Overlay hinzufuegen (gleiche Technik wie im Hero: `radial-gradient(ellipse ... transparent 30%, hsl(var(--background)) 65%)`)
+   - Gold-Glow hinter dem Portrait als atmosphaerischer Effekt
 
 | Datei | Aenderung |
 |-------|-----------|
-| `src/index.css` | `.btn-hero` Gold-Gradient, `.liquid-glass`, `.liquid-glass-icon`, `.gold-gradient-text` |
-| `tailwind.config.ts` | Erweiterte Gold-Farbtokens |
-| `src/components/sections/NewHero.tsx` | Portrait fliessend eingebettet, Gold-Gradient-Text, Glow hinter Portrait |
-| `src/components/sections/NewNavigation.tsx` | Logo-Filter weiss |
-| `src/components/sections/PainPoints.tsx` | Liquid Glass Cards und Icon-Container |
+| `src/components/sections/AboutAlex.tsx` | Text erweitern + Portrait mit Gradient Fade |
 
