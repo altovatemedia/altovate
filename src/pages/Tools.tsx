@@ -231,7 +231,7 @@ const Tools = () => {
                     <span>Bessere Stressresistenz & Fokus</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-3">
-                    <a href="https://zec-nutrition-gmbh-co-kg.myshopify.com/10479532" target="_blank" rel="noopener noreferrer">
+                    <a href="https://zec-nutrition-gmbh-co-kg.myshopify.com/products/health-adaptogen-komplex?sca_ref=10479532.Jqh0ls9US4ldy" target="_blank" rel="noopener noreferrer">
                       <Button className="btn-hero text-sm px-6 py-3 gap-2">
                         Produkt ansehen
                         <ExternalLink className="w-4 h-4" />
@@ -264,7 +264,7 @@ const Tools = () => {
                     <span>Mehr Fokus & kognitive Klarheit</span>
                   </div>
                   <div className="flex flex-wrap items-center gap-3">
-                    <a href="https://zec-nutrition-gmbh-co-kg.myshopify.com/10479532" target="_blank" rel="noopener noreferrer">
+                    <a href="https://zec-nutrition-gmbh-co-kg.myshopify.com/products/health-lowenmahne-extrakt-60-kapseln?sca_ref=10479532.Jqh0ls9US4ldy" target="_blank" rel="noopener noreferrer">
                       <Button className="btn-hero text-sm px-6 py-3 gap-2">
                         Produkt ansehen
                         <ExternalLink className="w-4 h-4" />
