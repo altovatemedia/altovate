@@ -78,6 +78,11 @@ const Footer = () => {
                     Marketingwissen
                   </a>
                 </li>
+                <li>
+                  <a href="/tools" className="text-white/70 hover:text-white transition-all duration-300 text-sm font-light">
+                    Meine Lieblingstools
+                  </a>
+                </li>
               </ul>
               
               {/* Förderung */}
