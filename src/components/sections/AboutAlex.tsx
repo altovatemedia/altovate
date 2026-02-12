@@ -43,7 +43,7 @@ const AboutAlex = () => {
                     WebkitMaskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
                   }}
                 />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/8 rounded-full blur-3xl -z-10"></div>
+                
               </div>
             </Reveal>
           </div>
