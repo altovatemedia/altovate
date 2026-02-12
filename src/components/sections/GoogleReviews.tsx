@@ -40,7 +40,7 @@ const GoogleReviews = () => {
   const totalReviews = 9;
 
   return (
-    <section ref={sectionRef} className="py-section bg-background">
+    <section ref={sectionRef} className="py-section">
       <div className="container mx-auto px-6">
         {/* SVG Gradient Definition */}
         <svg width="0" height="0" className="absolute">
