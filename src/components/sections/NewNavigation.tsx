@@ -31,6 +31,7 @@ const NewNavigation = () => {
     { name: 'Employer Branding 2025', href: '/employer-branding-saarburg' },
     { name: 'Marketing-Automation & Funnels', href: '/marketing-automation-saarburg' },
     { name: 'Software & KI-Lösungen', href: '/software-ki-loesungen-saarburg' },
+    { name: 'Strategisches Marketingwissen', href: '/marketing-wissen' },
   ];
 
   const handleLogoClick = () => {
