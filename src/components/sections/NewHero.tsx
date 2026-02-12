@@ -42,8 +42,8 @@ const NewHero = () => {
           {/* Left: Text */}
           <div className="space-y-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in-up tracking-tight">
-              Online-Marketing für Unternehmer,{' '}
-              <span className="gold-gradient-text">die keine Zeit für Marketing haben.</span>
+              Online-Marketing für Unternehmer, die{' '}
+              <span className="gold-gradient-text">keine Zeit für Marketing</span> haben.
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light fade-in-up" style={{ animationDelay: '0.2s' }}>
