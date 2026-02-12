@@ -14,7 +14,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] relative overflow-hidden">
+    <footer className="bg-card relative overflow-hidden border-t border-border">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
       <img 
@@ -108,7 +108,7 @@ const Footer = () => {
                 </p>
                 <a 
                   href="/foerderung" 
-                  className="text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                  className="text-primary hover:text-primary/80 transition-colors text-sm font-medium footer-link"
                 >
                   Förderung prüfen →
                 </a>
