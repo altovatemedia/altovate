@@ -59,7 +59,7 @@ const OneOnOneSection = () => {
             {packages.map((pkg, index) => (
               <div 
                 key={index}
-                className="liquid-glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-300"
+                className="liquid-glass rounded-2xl p-8 hover:border-primary/20 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Calendar className="w-5 h-5 text-primary" />

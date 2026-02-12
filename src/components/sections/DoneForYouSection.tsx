@@ -93,7 +93,7 @@ const DoneForYouSection = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="bg-background rounded-2xl border border-border p-8 md:p-12 mb-12">
+          <div className="liquid-glass rounded-2xl p-8 md:p-12 mb-12">
             <div className="grid md:grid-cols-2 gap-4">
               {services.map((service, index) => (
                 <div 

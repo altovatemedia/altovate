@@ -86,7 +86,7 @@ const Offers = () => {
             {offers.map((offer, index) => (
               <div 
                 key={index}
-                className="bg-background rounded-2xl border border-border p-8 flex flex-col hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="liquid-glass rounded-2xl p-8 flex flex-col hover:border-primary/20 hover:shadow-lg transition-all duration-300"
               >
                 {/* Icon & Title */}
                 <div className="mb-6">

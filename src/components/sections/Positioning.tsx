@@ -29,7 +29,7 @@ const Positioning = () => {
             {focusPoints.map((point, index) => (
               <div 
                 key={index}
-                className="flex flex-col items-center space-y-4 p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-colors"
+                className="flex flex-col items-center space-y-4 p-6 rounded-2xl liquid-glass hover:border-primary/20 transition-colors"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <point.icon className="w-7 h-7 text-primary" />
