@@ -1,8 +1,19 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/socialmedia", "destination": "/index.html" },
+    { "source": "/werbeanzeigen-saarburg", "destination": "/index.html" },
+    { "source": "/employer-branding-saarburg", "destination": "/index.html" },
+    { "source": "/marketing-automation-saarburg", "destination": "/index.html" },
+    { "source": "/software-ki-loesungen-saarburg", "destination": "/index.html" },
+    { "source": "/erstkontakt", "destination": "/index.html" },
+    { "source": "/kontakt", "destination": "/index.html" },
+    { "source": "/instagram-profil-check", "destination": "/index.html" },
+    { "source": "/foerderung", "destination": "/index.html" },
+    { "source": "/tools", "destination": "/index.html" },
+    { "source": "/marketingwissen", "destination": "/index.html" },
+    { "source": "/marketingwissen/:slug", "destination": "/index.html" },
+    { "source": "/datenschutz", "destination": "/index.html" },
+    { "source": "/impressum", "destination": "/index.html" }
   ]
 }

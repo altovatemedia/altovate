@@ -166,7 +166,7 @@ const Footer = () => {
               </button>
             </div>
             <p className="text-white/50 text-xs font-light">
-              © 2025 Altovate. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} Altovate. Alle Rechte vorbehalten.
             </p>
           </div>
         </div>

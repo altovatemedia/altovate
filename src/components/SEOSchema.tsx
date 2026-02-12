@@ -1,18 +1,18 @@
 import { Helmet } from 'react-helmet';
 
-// Organization schema - used on every page
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "altovate GmbH",
   "url": "https://altovate.de",
   "logo": "https://altovate.de/altovate-logo.png",
-  "description": "Ganzheitliches, sichtbarkeitsorientiertes Marketing für mittelständische Unternehmen. Lead- & Content-Systeme, die planbare Anfragen generieren.",
+  "description": "Altovate ist eine Marketing-Agentur in Saarburg, die Lead- und Content-Systeme für mittelständische Unternehmen entwickelt. Gründer Alexander Buchmann berät projektbasiert zu Social Media, Werbeanzeigen, Employer Branding und Marketing-Automation.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Max-Planck-Straße 6",
     "addressLocality": "Saarburg",
     "postalCode": "54439",
+    "addressRegion": "Rheinland-Pfalz",
     "addressCountry": "DE"
   },
   "contactPoint": {
@@ -28,8 +28,75 @@ const organizationSchema = {
   ],
   "founder": {
     "@type": "Person",
-    "name": "Alexander Buchmann"
+    "name": "Alexander Buchmann",
+    "url": "https://www.linkedin.com/in/alexander-buchmann",
+    "jobTitle": "Geschäftsführer",
+    "sameAs": [
+      "https://www.linkedin.com/in/alexander-buchmann",
+      "https://www.instagram.com/iamalexbuchmann/"
+    ]
   }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://altovate.de/#localbusiness",
+  "name": "altovate GmbH",
+  "image": "https://altovate.de/altovate-logo.png",
+  "url": "https://altovate.de",
+  "telephone": "+49-1520-892-2097",
+  "email": "info@altovate.de",
+  "description": "Marketing-Agentur für Lead- und Content-Systeme in Saarburg. Projektbasierte Beratung für mittelständische Unternehmen in der Region Trier, Saarburg und Saar-Mosel.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Max-Planck-Straße 6",
+    "addressLocality": "Saarburg",
+    "postalCode": "54439",
+    "addressRegion": "Rheinland-Pfalz",
+    "addressCountry": "DE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.6108,
+    "longitude": 6.5533
+  },
+  "priceRange": "€€",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/altovatemedia/",
+    "https://www.instagram.com/altovatemedia/"
+  ]
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alexander Buchmann",
+  "jobTitle": "Geschäftsführer & Marketing-Berater",
+  "url": "https://altovate.de",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "altovate GmbH",
+    "url": "https://altovate.de"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/alexander-buchmann",
+    "https://www.instagram.com/iamalexbuchmann/"
+  ],
+  "knowsAbout": [
+    "Social Media Marketing",
+    "Content Marketing",
+    "Lead-Generierung",
+    "Marketing-Automation",
+    "Employer Branding",
+    "KI-gestütztes Marketing"
+  ]
 };
 
 const websiteSchema = {
@@ -53,13 +120,20 @@ interface SEOSchemaProps {
     description: string;
     url: string;
   };
+  article?: {
+    headline: string;
+    description: string;
+    url: string;
+    datePublished?: string;
+    image?: string;
+  };
 }
 
-const SEOSchema = ({ page = 'home', faqItems, breadcrumbs, service }: SEOSchemaProps) => {
+const SEOSchema = ({ page = 'home', faqItems, breadcrumbs, service, article }: SEOSchemaProps) => {
   const schemas: object[] = [organizationSchema];
 
   if (page === 'home') {
-    schemas.push(websiteSchema);
+    schemas.push(websiteSchema, localBusinessSchema, personSchema);
   }
 
   if (faqItems && faqItems.length > 0) {
@@ -109,6 +183,30 @@ const SEOSchema = ({ page = 'home', faqItems, breadcrumbs, service }: SEOSchemaP
           "longitude": 6.5533
         },
         "geoRadius": "50000"
+      }
+    });
+  }
+
+  if (article) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": article.headline,
+      "description": article.description,
+      "url": article.url,
+      ...(article.datePublished && { "datePublished": article.datePublished }),
+      ...(article.image && { "image": article.image }),
+      "author": {
+        "@type": "Person",
+        "name": "Alexander Buchmann"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "altovate GmbH",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://altovate.de/altovate-logo.png"
+        }
       }
     });
   }

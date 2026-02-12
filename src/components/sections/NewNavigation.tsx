@@ -71,6 +71,7 @@ const NewNavigation = () => {
 
   return (
     <nav 
+      aria-label="Hauptnavigation"
       className={`fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 backdrop-blur-xl ${
         isScrolled 
           ? 'bg-background/90 border-border' 
@@ -83,7 +84,7 @@ const NewNavigation = () => {
           <button onClick={handleLogoClick} className="flex-shrink-0 cursor-pointer">
             <img 
               src="/lovable-uploads/935277c1-a2e5-4649-9f17-01644bb65880.png" 
-              alt="Altovate"
+              alt="Altovate – zur Startseite"
               className="h-8 w-auto object-contain brightness-0 invert"
             />
           </button>
