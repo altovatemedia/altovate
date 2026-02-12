@@ -47,7 +47,6 @@ const ContactFunnel = () => {
 
   const handleOptionSelect = (field: keyof FunnelData, value: string) => {
     setData(prev => ({ ...prev, [field]: value }));
-    // Auto advance after selection (except for final step)
     if (currentStep < 4) {
       setTimeout(() => setCurrentStep(prev => prev + 1), 300);
     }
@@ -62,7 +61,6 @@ const ContactFunnel = () => {
   };
 
   const handleSubmit = async () => {
-    // Validate form data with zod schema
     const result = funnelSchema.safeParse(data);
     
     if (!result.success) {
@@ -75,11 +73,9 @@ const ContactFunnel = () => {
       return;
     }
 
-    // Use validated data
     const validatedData = result.data;
 
     try {
-      // Send email via edge function
       const { data: responseData, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           firstName: validatedData.name.split(' ')[0] || validatedData.name,
@@ -113,33 +109,28 @@ Antworten aus dem Funnel:
   };
 
   const renderStep = () => {
+    const optionButtonClass = "w-full p-6 text-left bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group";
+
     switch (currentStep) {
       case 1:
         return (
           <div className="animate-slide-in-right">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Was ist dein Hauptziel?
             </h2>
-            <p className="text-lg text-text-muted mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Wähle aus, womit wir dir am besten helfen können
             </p>
-            
             <div className="space-y-4">
               {[
                 { value: 'mehr-kunden', label: 'Mehr Kunden gewinnen' },
                 { value: 'mehr-bewerber', label: 'Mehr Bewerber finden' },
                 { value: 'mehr-sichtbarkeit', label: 'Mehr Sichtbarkeit aufbauen' }
               ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleOptionSelect('goal', option.label)}
-                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
-                >
+                <button key={option.value} onClick={() => handleOptionSelect('goal', option.label)} className={optionButtonClass}>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
-                      {option.label}
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{option.label}</span>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </button>
               ))}
@@ -150,13 +141,10 @@ Antworten aus dem Funnel:
       case 2:
         return (
           <div className="animate-slide-in-right">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Was ist deine größte Herausforderung aktuell?
             </h2>
-            <p className="text-lg text-text-muted mb-8">
-              Damit wir gezielt helfen können
-            </p>
-            
+            <p className="text-lg text-muted-foreground mb-8">Damit wir gezielt helfen können</p>
             <div className="space-y-4">
               {[
                 { value: 'keine-bewerbungen', label: 'Keine Bewerbungen' },
@@ -164,28 +152,17 @@ Antworten aus dem Funnel:
                 { value: 'keine-zeit', label: 'Keine Zeit fürs Marketing' },
                 { value: 'andere', label: 'Andere' }
               ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleOptionSelect('challenge', option.label)}
-                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
-                >
+                <button key={option.value} onClick={() => handleOptionSelect('challenge', option.label)} className={optionButtonClass}>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
-                      {option.label}
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{option.label}</span>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </button>
               ))}
             </div>
-
             {data.challenge === 'Andere' && (
               <div className="mt-6">
-                <Textarea
-                  placeholder="Beschreibe deine Herausforderung..."
-                  className="w-full"
-                  rows={3}
-                />
+                <Textarea placeholder="Beschreibe deine Herausforderung..." className="w-full" rows={3} />
               </div>
             )}
           </div>
@@ -194,29 +171,20 @@ Antworten aus dem Funnel:
       case 3:
         return (
           <div className="animate-slide-in-right">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Wie viel Budget setzt du bisher monatlich für Marketing ein?
             </h2>
-            <p className="text-lg text-text-muted mb-8">
-              Hilft uns, passende Lösungen vorzuschlagen
-            </p>
-            
+            <p className="text-lg text-muted-foreground mb-8">Hilft uns, passende Lösungen vorzuschlagen</p>
             <div className="space-y-4">
               {[
                 { value: 'unter-500', label: 'Unter 500 €' },
                 { value: '500-2000', label: '500 – 2.000 €' },
                 { value: 'ueber-2000', label: 'Über 2.000 €' }
               ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleOptionSelect('budget', option.label)}
-                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
-                >
+                <button key={option.value} onClick={() => handleOptionSelect('budget', option.label)} className={optionButtonClass}>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
-                      {option.label}
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{option.label}</span>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </button>
               ))}
@@ -227,29 +195,18 @@ Antworten aus dem Funnel:
       case 4:
         return (
           <div className="animate-slide-in-right">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-              Wann willst du starten?
-            </h2>
-            <p className="text-lg text-text-muted mb-8">
-              Je nach Zeitpunkt können wir verschiedene Optionen anbieten
-            </p>
-            
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Wann willst du starten?</h2>
+            <p className="text-lg text-muted-foreground mb-8">Je nach Zeitpunkt können wir verschiedene Optionen anbieten</p>
             <div className="space-y-4">
               {[
                 { value: 'sofort', label: 'Sofort' },
                 { value: '1-3-monate', label: 'In 1–3 Monaten' },
                 { value: 'spaeter', label: 'Später (interessiert, aber noch nicht bereit)' }
               ].map((option) => (
-                <button
-                  key={option.value}
-                  onClick={() => handleOptionSelect('timeline', option.label)}
-                  className="w-full p-6 text-left bg-white dark:bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group"
-                >
+                <button key={option.value} onClick={() => handleOptionSelect('timeline', option.label)} className={optionButtonClass}>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
-                      {option.label}
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <span className="text-lg font-medium text-foreground group-hover:text-primary transition-colors">{option.label}</span>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </button>
               ))}
@@ -262,71 +219,32 @@ Antworten aus dem Funnel:
           <div className="animate-slide-in-right">
             <div className="text-center mb-8">
               <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4 animate-bounce" />
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-                Fast geschafft 🚀
-              </h2>
-              <p className="text-lg text-text-muted">
-                Nur noch deine Kontaktdaten und wir melden uns bei dir
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Fast geschafft 🚀</h2>
+              <p className="text-lg text-muted-foreground">Nur noch deine Kontaktdaten und wir melden uns bei dir</p>
             </div>
-            
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-text mb-2">Name *</label>
-                <Input 
-                  name="name"
-                  value={data.name}
-                  onChange={handleInputChange}
-                  placeholder="Dein Name" 
-                  maxLength={100}
-                  required
-                />
+                <label className="block text-sm font-medium text-foreground mb-2">Name *</label>
+                <Input name="name" value={data.name} onChange={handleInputChange} placeholder="Dein Name" maxLength={100} required />
               </div>
-
               <div>
-                <label className="block text-sm font-medium text-text mb-2">E-Mail *</label>
-                <Input 
-                  type="email" 
-                  name="email"
-                  value={data.email}
-                  onChange={handleInputChange}
-                  placeholder="deine@email.de" 
-                  maxLength={255}
-                  required
-                />
+                <label className="block text-sm font-medium text-foreground mb-2">E-Mail *</label>
+                <Input type="email" name="email" value={data.email} onChange={handleInputChange} placeholder="deine@email.de" maxLength={255} required />
               </div>
-
               <div>
-                <label className="block text-sm font-medium text-text mb-2">Telefonnummer (optional)</label>
-                <Input 
-                  type="tel" 
-                  name="phone"
-                  value={data.phone}
-                  onChange={handleInputChange}
-                  placeholder="+49 123 456 789" 
-                  maxLength={30}
-                />
+                <label className="block text-sm font-medium text-foreground mb-2">Telefonnummer (optional)</label>
+                <Input type="tel" name="phone" value={data.phone} onChange={handleInputChange} placeholder="+49 123 456 789" maxLength={30} />
               </div>
-
               <div className="flex items-start space-x-3">
-                <input 
-                  type="checkbox" 
-                  className="mt-1" 
-                  id="privacy" 
-                  name="privacy"
-                  checked={data.privacy}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="privacy" className="text-sm text-text-muted">
+                <input type="checkbox" className="mt-1" id="privacy" name="privacy" checked={data.privacy} onChange={handleInputChange} required />
+                <label htmlFor="privacy" className="text-sm text-muted-foreground">
                   Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
                   <a href="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</a> zu. *
                 </label>
               </div>
-
               <Button 
                 onClick={handleSubmit}
-                className="w-full bg-primary hover:bg-primary/90 text-white rounded-full py-4 text-lg font-bold transition-all duration-200 hover:scale-[1.02] group"
+                className="w-full btn-hero rounded-full py-4 text-lg font-bold transition-all duration-200 hover:scale-[1.02] group"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Persönliche Einschätzung anfordern
@@ -345,18 +263,18 @@ Antworten aus dem Funnel:
   };
 
   return (
-    <section id="contact" className="py-24 bg-bg-soft">
+    <section id="contact" className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           
           {/* Left: Intro Block */}
           <div className="animate-fade-in-up lg:animate-slide-in-left">
-            <div className="bg-white dark:bg-card rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-6">
+            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Bereit für den nächsten Schritt?
               </h2>
               
-              <p className="text-lg text-text-muted mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Beantworte 4 kurze Fragen und erhalte eine persönliche Einschätzung für dein Marketing.
               </p>
               
@@ -371,21 +289,21 @@ Antworten aus dem Funnel:
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <benefit.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-text font-medium">{benefit.text}</span>
+                    <span className="text-foreground font-medium">{benefit.text}</span>
                   </div>
                 ))}
               </div>
               
               {/* Visual Element */}
-               <div className="bg-bg-soft rounded-xl p-6 border border-border">
+               <div className="bg-secondary rounded-xl p-6 border border-border">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium text-text">100 % transparente Kosten – keine versteckten Gebühren</span>
+                    <span className="text-sm font-medium text-foreground">100 % transparente Kosten – keine versteckten Gebühren</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium text-text">30 Tage bis zu sichtbaren Ergebnissen</span>
+                    <span className="text-sm font-medium text-foreground">30 Tage bis zu sichtbaren Ergebnissen</span>
                   </div>
                 </div>
               </div>
@@ -402,8 +320,8 @@ Antworten aus dem Funnel:
                     <div key={i} className="flex items-center flex-shrink-0">
                       <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${
                         i + 1 <= currentStep 
-                          ? 'bg-primary text-white' 
-                          : 'bg-white dark:bg-card text-text-muted border border-border'
+                          ? 'bg-primary text-primary-foreground' 
+                          : 'bg-card text-muted-foreground border border-border'
                       }`}>
                         {i + 1 <= currentStep ? (
                           i + 1 < currentStep ? <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" /> : i + 1
@@ -417,36 +335,26 @@ Antworten aus dem Funnel:
                     </div>
                   ))}
                 </div>
-                <p className="text-center text-sm text-text-muted">
+                <p className="text-center text-sm text-muted-foreground">
                   Schritt {currentStep} von {totalSteps}
                 </p>
               </div>
 
               {/* Funnel Card */}
-              <div className="bg-white dark:bg-card rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
+              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
                 {renderStep()}
 
                 {/* Navigation Buttons */}
                 {currentStep > 1 && currentStep < 5 && (
                   <div className="flex justify-between mt-12">
-                    <Button 
-                      variant="outline"
+                    <Button
+                      variant="ghost"
                       onClick={() => setCurrentStep(prev => prev - 1)}
-                      className="rounded-full px-6"
+                      className="text-muted-foreground hover:text-foreground"
                     >
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Zurück
                     </Button>
-                    
-                    {currentStep === 4 && data.timeline && (
-                      <Button 
-                        onClick={() => setCurrentStep(5)}
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-8"
-                      >
-                        Weiter
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    )}
                   </div>
                 )}
               </div>

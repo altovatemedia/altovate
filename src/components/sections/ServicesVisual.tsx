@@ -60,12 +60,12 @@ const ServicesVisual = () => {
       <img 
         src={altovateIcon} 
         alt="" 
-        className="absolute top-20 -right-20 w-64 h-64 opacity-[0.02] dark:opacity-[0.015] rotate-12 pointer-events-none"
+        className="absolute top-20 -right-20 w-64 h-64 opacity-[0.02] rotate-12 pointer-events-none"
       />
       <img 
         src={altovateIcon} 
         alt="" 
-        className="absolute bottom-20 -left-20 w-64 h-64 opacity-[0.02] dark:opacity-[0.015] -rotate-12 pointer-events-none"
+        className="absolute bottom-20 -left-20 w-64 h-64 opacity-[0.02] -rotate-12 pointer-events-none"
       />
       
       <div className="container mx-auto px-6 relative z-10">
