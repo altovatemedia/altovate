@@ -6,6 +6,7 @@ import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
+import CTASection from '@/components/marketing-system/CTASection';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Article {
@@ -16,10 +17,19 @@ interface Article {
   meta_description: string | null;
   hero_image_url: string | null;
   published_at: string | null;
+  category: string | null;
 }
 
+const CATEGORY_TO_CLUSTER: Record<string, { label: string; slug: string }> = {
+  roi: { label: 'ROI & Wirtschaftlichkeit', slug: 'roi-wirtschaftlichkeit' },
+  'social-media': { label: 'Social Media als System', slug: 'social-media-system' },
+  funnel: { label: 'Funnel & Nachfrage', slug: 'funnel-nachfrage' },
+  recruiting: { label: 'Recruiting & Arbeitgebermarke', slug: 'recruiting-arbeitgebermarke' },
+  geo: { label: 'GEO & KI-Sichtbarkeit', slug: 'geo-ki-sichtbarkeit' },
+};
+
 const BlogArticle = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug, clusterSlug } = useParams<{ slug: string; clusterSlug: string }>();
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -54,6 +64,10 @@ const BlogArticle = () => {
     });
   };
 
+  const cluster = article?.category ? CATEGORY_TO_CLUSTER[article.category] : null;
+  const backPath = cluster ? `/marketing-wissen/${cluster.slug}` : '/marketing-wissen';
+  const backLabel = cluster ? cluster.label : 'Übersicht';
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -72,7 +86,7 @@ const BlogArticle = () => {
         <NewNavigation />
         <div className="flex flex-col items-center justify-center min-h-[60vh] px-6">
           <h1 className="text-2xl font-bold text-foreground mb-4">Artikel nicht gefunden</h1>
-      <Link to="/marketing-system" className="text-primary hover:underline flex items-center gap-2">
+          <Link to="/marketing-wissen" className="text-primary hover:underline flex items-center gap-2">
             <ArrowLeft size={16} /> Zurück zur Übersicht
           </Link>
         </div>
@@ -81,6 +95,10 @@ const BlogArticle = () => {
     );
   }
 
+  const articleUrl = cluster
+    ? `https://altovate.de/marketing-wissen/${cluster.slug}/${article.slug}`
+    : `https://altovate.de/marketing-wissen/${article.slug}`;
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -88,12 +106,12 @@ const BlogArticle = () => {
         {article.meta_description && (
           <meta name="description" content={article.meta_description} />
         )}
-        <link rel="canonical" href={`https://altovate.de/marketing-system/${article.slug}`} />
+        <link rel="canonical" href={articleUrl} />
         <meta property="og:title" content={`${article.title} | altovate`} />
         {article.meta_description && (
           <meta property="og:description" content={article.meta_description} />
         )}
-        <meta property="og:url" content={`https://altovate.de/marketing-system/${article.slug}`} />
+        <meta property="og:url" content={articleUrl} />
         <meta property="og:type" content="article" />
         {article.hero_image_url && (
           <meta property="og:image" content={article.hero_image_url} />
@@ -105,25 +123,28 @@ const BlogArticle = () => {
         article={{
           headline: article.title,
           description: article.meta_description || '',
-          url: `https://altovate.de/marketing-system/${article.slug}`,
+          url: articleUrl,
           datePublished: article.published_at || undefined,
           image: article.hero_image_url || undefined,
         }}
         breadcrumbs={[
-          { name: "Startseite", url: "https://altovate.de/" },
-          { name: "Marketing System", url: "https://altovate.de/marketing-system" },
-          { name: article.title, url: `https://altovate.de/marketing-system/${article.slug}` }
+          { name: 'Startseite', url: 'https://altovate.de/' },
+          { name: 'Strategisches Marketingwissen', url: 'https://altovate.de/marketing-wissen' },
+          ...(cluster ? [{ name: cluster.label, url: `https://altovate.de/marketing-wissen/${cluster.slug}` }] : []),
+          { name: article.title, url: articleUrl },
         ]}
       />
+
+      <NewNavigation />
 
       <main className="pt-32 pb-20">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <Link
-              to="/marketing-system"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+              to={backPath}
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#ff1c5c] transition-colors mb-8"
             >
-              <ArrowLeft size={16} /> Zurück zur Übersicht
+              <ArrowLeft size={16} /> Zurück zu {backLabel}
             </Link>
 
             {article.hero_image_url && (
@@ -132,6 +153,7 @@ const BlogArticle = () => {
                   src={article.hero_image_url}
                   alt={article.title}
                   className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </div>
             )}
@@ -157,6 +179,7 @@ const BlogArticle = () => {
         </div>
       </main>
 
+      <CTASection />
       <Footer />
       <ChatBot />
     </div>

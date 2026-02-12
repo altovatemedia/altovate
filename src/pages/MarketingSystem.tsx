@@ -5,11 +5,8 @@ import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import HeroSection from '@/components/marketing-system/HeroSection';
-import StickyNav from '@/components/marketing-system/StickyNav';
 import CoreTopics from '@/components/marketing-system/CoreTopics';
-import FrameworkSection from '@/components/marketing-system/FrameworkSection';
-import ArticleCluster from '@/components/marketing-system/ArticleCluster';
-import InteractiveTools from '@/components/marketing-system/InteractiveTools';
+import CTASection from '@/components/marketing-system/CTASection';
 
 const MarketingSystem = () => {
   useEffect(() => {
@@ -19,18 +16,18 @@ const MarketingSystem = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Marketing System für Unternehmen | altovate</title>
+        <title>Strategisches Marketingwissen | altovate</title>
         <meta
           name="description"
-          content="Fundiertes Marketingwissen für Unternehmen ohne internes Marketingteam. ROI-Modelle, Budgetrechner, GEO-Optimierung und ehrliche Analysen."
+          content="Klare Modelle, echte Zahlen und strukturierte Analysen zu ROI, Social Media, Funnel, Recruiting und KI-Sichtbarkeit. Für Unternehmen, die Marketing wirtschaftlich denken."
         />
-        <link rel="canonical" href="https://altovate.de/marketing-system" />
-        <meta property="og:title" content="Marketing System für Unternehmen | altovate" />
+        <link rel="canonical" href="https://altovate.de/marketing-wissen" />
+        <meta property="og:title" content="Strategisches Marketingwissen für Unternehmen | altovate" />
         <meta
           property="og:description"
-          content="Fundiertes Marketingwissen für Unternehmen ohne internes Marketingteam. ROI-Modelle, Budgetrechner, GEO-Optimierung und ehrliche Analysen."
+          content="Klare Modelle, echte Zahlen und strukturierte Analysen zu ROI, Social Media, Funnel, Recruiting und KI-Sichtbarkeit."
         />
-        <meta property="og:url" content="https://altovate.de/marketing-system" />
+        <meta property="og:url" content="https://altovate.de/marketing-wissen" />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -38,17 +35,14 @@ const MarketingSystem = () => {
         page="service"
         breadcrumbs={[
           { name: 'Startseite', url: 'https://altovate.de/' },
-          { name: 'Marketing System', url: 'https://altovate.de/marketing-system' },
+          { name: 'Strategisches Marketingwissen', url: 'https://altovate.de/marketing-wissen' },
         ]}
       />
 
       <NewNavigation />
       <HeroSection />
-      <StickyNav />
       <CoreTopics />
-      <FrameworkSection />
-      <ArticleCluster />
-      <InteractiveTools />
+      <CTASection />
       <Footer />
       <ChatBot />
     </div>

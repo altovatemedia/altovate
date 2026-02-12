@@ -11,6 +11,8 @@
     { "source": "/instagram-profil-check", "destination": "/index.html" },
     { "source": "/foerderung", "destination": "/index.html" },
     { "source": "/tools", "destination": "/index.html" },
+    { "source": "/marketing-wissen", "destination": "/index.html" },
+    { "source": "/marketing-wissen/:path*", "destination": "/index.html" },
     { "source": "/marketing-system", "destination": "/index.html" },
     { "source": "/marketing-system/:slug", "destination": "/index.html" },
     { "source": "/marketingwissen", "destination": "/index.html" },
