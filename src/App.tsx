@@ -18,6 +18,7 @@ import InstagramProfilCheck from "./pages/InstagramProfilCheck";
 import Foerderung from "./pages/Foerderung";
 import Marketingwissen from "./pages/Marketingwissen";
 import BlogArticle from "./pages/BlogArticle";
+import Tools from "./pages/Tools";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/instagram-profil-check" element={<InstagramProfilCheck />} />
           <Route path="/foerderung" element={<Foerderung />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/marketingwissen" element={<Marketingwissen />} />
           <Route path="/marketingwissen/:slug" element={<BlogArticle />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
