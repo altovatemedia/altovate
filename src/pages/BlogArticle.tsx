@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, CalendarDays, Link2, Linkedin, Copy, Check, FileDown } from 'lucide-react';
+import { ArrowLeft, CalendarDays, Link2 } from 'lucide-react';
 import SEOSchema from '@/components/SEOSchema';
 import NewNavigation from '@/components/sections/NewNavigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
-import CTASection from '@/components/marketing-system/CTASection';
+import DefinitionBox from '@/components/marketing-system/article/DefinitionBox';
+import TableOfContents from '@/components/marketing-system/article/TableOfContents';
+import ShareSection from '@/components/marketing-system/article/ShareSection';
+import RelatedLinks from '@/components/marketing-system/article/RelatedLinks';
+import ConsultingBridge from '@/components/marketing-system/article/ConsultingBridge';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Article {
@@ -28,53 +32,26 @@ const CATEGORY_TO_CLUSTER: Record<string, { label: string; slug: string }> = {
   geo: { label: 'GEO & KI-Sichtbarkeit', slug: 'geo-ki-sichtbarkeit' },
 };
 
-const ShareSection = ({ title, url }: { title: string; url: string }) => {
-  const [linkCopied, setLinkCopied] = useState(false);
+/**
+ * Adds IDs to H2 headings and inserts anchor link icons for deep-linking.
+ */
+const processContentHtml = (html: string): string => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const headings = doc.querySelectorAll('h2');
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(url);
-    setLinkCopied(true);
-    setTimeout(() => setLinkCopied(false), 2000);
-  };
+  headings.forEach((h2, i) => {
+    const id = h2.id || `section-${i}`;
+    h2.id = id;
+    // Add anchor icon
+    const anchor = doc.createElement('a');
+    anchor.href = `#${id}`;
+    anchor.className = 'article-anchor-link';
+    anchor.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`;
+    h2.appendChild(anchor);
+  });
 
-  const handleLinkedIn = () => {
-    window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
-
-  const handlePdf = () => {
-    window.print();
-  };
-
-  return (
-    <div className="mt-16 mb-8">
-      <h3 className="text-sm font-medium text-foreground mb-4">Artikel teilen</h3>
-      <div className="flex flex-wrap gap-3">
-        <button
-          onClick={handleLinkedIn}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
-        >
-          <Linkedin size={16} /> LinkedIn
-        </button>
-        <button
-          onClick={handleCopyLink}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
-        >
-          {linkCopied ? <Check size={16} /> : <Copy size={16} />}
-          {linkCopied ? 'Kopiert' : 'Link kopieren'}
-        </button>
-        <button
-          onClick={handlePdf}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground border border-border hover:text-primary hover:border-primary/30 transition-all duration-300"
-        >
-          <FileDown size={16} /> Als PDF speichern
-        </button>
-      </div>
-    </div>
-  );
+  return doc.body.innerHTML;
 };
 
 const BlogArticle = () => {
@@ -88,7 +65,7 @@ const BlogArticle = () => {
     const fetchArticle = async () => {
       if (!slug) return;
       const { data, error } = await supabase
-        .from('blog_articles' as any)
+        .from('blog_articles')
         .select('*')
         .eq('slug', slug)
         .eq('status', 'published')
@@ -97,25 +74,25 @@ const BlogArticle = () => {
       if (error || !data) {
         setNotFound(true);
       } else {
-        setArticle(data as unknown as Article);
+        setArticle(data as Article);
       }
       setLoading(false);
     };
     fetchArticle();
   }, [slug]);
 
-  const formatDate = (dateStr: string | null) => {
-    if (!dateStr) return '';
-    return new Date(dateStr).toLocaleDateString('de-DE', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-    });
-  };
-
   const cluster = article?.category ? CATEGORY_TO_CLUSTER[article.category] : null;
   const backPath = cluster ? `/marketing-wissen/${cluster.slug}` : '/marketing-wissen';
   const backLabel = cluster ? cluster.label : 'Übersicht';
+
+  const articleUrl = cluster
+    ? `https://altovate.de/marketing-wissen/${cluster.slug}/${article?.slug}`
+    : `https://altovate.de/marketing-wissen/${article?.slug}`;
+
+  const processedHtml = useMemo(() => {
+    if (!article?.content_html) return '';
+    return processContentHtml(article.content_html);
+  }, [article?.content_html]);
 
   if (loading) {
     return (
@@ -144,27 +121,17 @@ const BlogArticle = () => {
     );
   }
 
-  const articleUrl = cluster
-    ? `https://altovate.de/marketing-wissen/${cluster.slug}/${article.slug}`
-    : `https://altovate.de/marketing-wissen/${article.slug}`;
-
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>{article.title} | altovate</title>
-        {article.meta_description && (
-          <meta name="description" content={article.meta_description} />
-        )}
+        {article.meta_description && <meta name="description" content={article.meta_description} />}
         <link rel="canonical" href={articleUrl} />
         <meta property="og:title" content={`${article.title} | altovate`} />
-        {article.meta_description && (
-          <meta property="og:description" content={article.meta_description} />
-        )}
+        {article.meta_description && <meta property="og:description" content={article.meta_description} />}
         <meta property="og:url" content={articleUrl} />
         <meta property="og:type" content="article" />
-        {article.hero_image_url && (
-          <meta property="og:image" content={article.hero_image_url} />
-        )}
+        {article.hero_image_url && <meta property="og:image" content={article.hero_image_url} />}
       </Helmet>
 
       <SEOSchema
@@ -186,7 +153,8 @@ const BlogArticle = () => {
 
       <NewNavigation />
 
-      <main className="pt-32 pb-20">
+      {/* Hero – dark, clean, no hero image in foreground */}
+      <header className="pt-32 pb-12">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <Link
@@ -196,39 +164,56 @@ const BlogArticle = () => {
               <ArrowLeft size={16} /> Zurück zu {backLabel}
             </Link>
 
-            {article.hero_image_url && (
-              <div className="rounded-xl overflow-hidden mb-8">
-                <img
-                  src={article.hero_image_url}
-                  alt={article.title}
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-            )}
-
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {article.title}
             </h1>
 
-            {article.published_at && (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-                <CalendarDays size={16} />
-                <span>{formatDate(article.published_at)}</span>
-              </div>
+            {article.meta_description && (
+              <p className="text-muted-foreground text-lg mb-4">{article.meta_description}</p>
             )}
 
-            {article.content_html && (
+            {article.published_at && (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
+                <CalendarDays size={14} />
+                <span>
+                  {new Date(article.published_at).toLocaleDateString('de-DE', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
+
+      <main className="pb-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            {/* Definition Box */}
+            {article.meta_description && (
+              <DefinitionBox definition={article.meta_description} articleUrl={articleUrl} />
+            )}
+
+            {/* Table of Contents */}
+            {processedHtml && <TableOfContents contentHtml={processedHtml} />}
+
+            {/* Main Content */}
+            {processedHtml && (
               <article
-                className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground"
-                dangerouslySetInnerHTML={{ __html: article.content_html }}
+                className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-h2:flex prose-h2:items-center prose-h2:gap-2"
+                dangerouslySetInnerHTML={{ __html: processedHtml }}
               />
             )}
 
-            {/* Share Section */}
+            {/* Related Internal Links */}
+            <RelatedLinks currentCategory={article.category} />
+
+            {/* Share */}
             <ShareSection title={article.title} url={articleUrl} />
 
-            {/* Zitierhinweis */}
+            {/* Citation hint */}
             <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
               Wenn Sie Inhalte aus diesem Artikel zitieren, verlinken Sie bitte auf die Originalquelle bei Altovate.
             </p>
@@ -236,7 +221,8 @@ const BlogArticle = () => {
         </div>
       </main>
 
-      <CTASection />
+      {/* Consulting Bridge CTA */}
+      <ConsultingBridge />
       <Footer />
       <ChatBot />
     </div>
