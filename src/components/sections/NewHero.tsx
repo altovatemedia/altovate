@@ -31,10 +31,7 @@ const NewHero = () => {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Subtle background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/3 rounded-full blur-3xl"></div>
-      </div>
+      {/* No background glows - clean seamless look */}
 
       {/* Content */}
       <div className="container mx-auto px-6 z-10 relative py-32">
@@ -92,8 +89,6 @@ const NewHero = () => {
           {/* Right: Portrait */}
           <div className="hidden lg:flex justify-center items-end fade-in-up relative" style={{ animationDelay: '0.3s' }}>
             <div className="relative">
-              {/* Gold glow behind portrait */}
-              <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(245,200,66,0.25) 0%, rgba(232,160,32,0.15) 40%, transparent 70%)' }}></div>
               {/* Edge fade - all sides to blend into background */}
               <div className="absolute inset-[-15%] z-10 pointer-events-none" style={{
                 background: `
