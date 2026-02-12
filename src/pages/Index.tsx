@@ -68,10 +68,10 @@ const Index = () => {
         className="min-h-screen bg-background"
       >
         <Helmet>
-          <title>altovate | Online-Marketing für Unternehmer – Saarburg & Region</title>
+          <title>altovate | Online-Marketing für Unternehmer</title>
           <meta name="description" content="Lead- & Content-Systeme für mittelständische Unternehmen in Saarburg, Trier & Region. Planbare Anfragen statt Reichweiten-Blabla. Strategie-Session ab 390 €." />
           <link rel="canonical" href="https://altovate.de/" />
-          <meta property="og:title" content="altovate | Online-Marketing für Unternehmer – Saarburg & Region" />
+          <meta property="og:title" content="altovate | Online-Marketing für Unternehmer" />
           <meta property="og:description" content="Lead- & Content-Systeme für mittelständische Unternehmen. Planbare Anfragen statt Reichweiten-Blabla." />
           <meta property="og:url" content="https://altovate.de/" />
           <meta property="og:type" content="website" />

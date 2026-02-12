@@ -19,13 +19,15 @@ const Footer = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -z-0"></div>
       <img 
         src={altovateIcon} 
-        alt="" 
+        alt="Altovate Logo Dekoration" 
         className="absolute top-1/4 left-10 w-48 h-48 opacity-[0.03] rotate-12 pointer-events-none"
+        loading="lazy"
       />
       <img 
         src={altovateIcon} 
-        alt="" 
+        alt="Altovate Logo Dekoration" 
         className="absolute bottom-10 right-20 w-40 h-40 opacity-[0.04] -rotate-12 pointer-events-none"
+        loading="lazy"
       />
       
       {/* Main Footer */}
