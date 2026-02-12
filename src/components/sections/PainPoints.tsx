@@ -82,7 +82,7 @@ const PainPoints = () => {
 
           {/* Conclusion Statement */}
           <div className="text-center">
-            <div className="inline-block bg-primary/5 border border-primary/20 rounded-2xl px-8 py-6">
+            <div className="inline-block liquid-glass rounded-2xl px-8 py-6">
               <p className="text-xl md:text-2xl font-bold text-foreground">
                 Das ist kein Content-Problem.
               </p>
