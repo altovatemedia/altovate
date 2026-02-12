@@ -28,7 +28,7 @@ const NotFor = () => {
             {notForItems.map((item, index) => (
               <div 
                 key={index}
-                className="p-6 bold-card text-left flex items-start space-x-4"
+                className="p-6 liquid-glass rounded-2xl text-left flex items-start space-x-4"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <Ban className="w-6 h-6 text-primary flex-shrink-0 mt-1" />

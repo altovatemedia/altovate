@@ -54,7 +54,7 @@ const SystemProcess = () => {
                 className="relative text-center group"
               >
                 {/* Step Number with Icon */}
-                <div className="relative z-10 mx-auto w-24 h-24 rounded-2xl bg-background border-2 border-border group-hover:border-primary/50 transition-colors flex items-center justify-center mb-6 shadow-sm">
+                <div className="relative z-10 mx-auto w-24 h-24 rounded-2xl liquid-glass-icon group-hover:border-primary/50 transition-colors flex items-center justify-center mb-6">
                   <step.icon className="w-10 h-10 text-primary" />
                   <span className="absolute -top-2 -right-2 w-7 h-7 bg-primary text-primary-foreground rounded-full text-sm font-bold flex items-center justify-center">
                     {step.number}

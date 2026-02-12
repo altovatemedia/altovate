@@ -43,10 +43,10 @@ const Problem = () => {
           {problems.map((problem, index) => (
             <div 
               key={problem.title}
-              className="text-center p-8 bold-card"
+              className="text-center p-8 liquid-glass rounded-2xl"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-xl flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-6 liquid-glass-icon rounded-xl flex items-center justify-center">
                 <problem.icon className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground flex items-center justify-center">

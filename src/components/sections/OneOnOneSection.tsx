@@ -30,7 +30,7 @@ const OneOnOneSection = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 rounded-2xl liquid-glass-icon flex items-center justify-center mx-auto mb-6">
               <Users className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -42,7 +42,7 @@ const OneOnOneSection = () => {
           </div>
 
           {/* Description */}
-          <div className="bg-background rounded-2xl border border-border p-8 md:p-12 mb-12">
+          <div className="liquid-glass rounded-2xl p-8 md:p-12 mb-12">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               Keine Agenturbetreuung. Kein klassisches Coaching.
               Sondern enge strategische Begleitung bei Positionierung, Angebotsstruktur
@@ -59,7 +59,7 @@ const OneOnOneSection = () => {
             {packages.map((pkg, index) => (
               <div 
                 key={index}
-                className="bg-background rounded-2xl border border-border p-8 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="liquid-glass rounded-2xl p-8 hover:border-primary/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Calendar className="w-5 h-5 text-primary" />

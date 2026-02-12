@@ -84,7 +84,7 @@ const GoogleReviews = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="review-card bg-card rounded-2xl p-6 border border-border
+              className="review-card liquid-glass rounded-2xl p-6
                        hover:border-primary/20 hover:-translate-y-1
                        transition-all duration-300"
               style={{

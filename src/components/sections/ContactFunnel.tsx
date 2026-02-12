@@ -109,7 +109,7 @@ Antworten aus dem Funnel:
   };
 
   const renderStep = () => {
-    const optionButtonClass = "w-full p-6 text-left bg-card border border-border rounded-2xl hover:shadow-hover hover:border-primary/20 transition-all duration-200 group";
+    const optionButtonClass = "w-full p-6 text-left liquid-glass rounded-2xl hover:border-primary/20 transition-all duration-200 group";
 
     switch (currentStep) {
       case 1:
@@ -269,7 +269,7 @@ Antworten aus dem Funnel:
           
           {/* Left: Intro Block */}
           <div className="animate-fade-in-up lg:animate-slide-in-left">
-            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-elegant h-fit">
+            <div className="liquid-glass rounded-2xl p-8 md:p-10 h-fit">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Bereit für den nächsten Schritt?
               </h2>
@@ -295,7 +295,7 @@ Antworten aus dem Funnel:
               </div>
               
               {/* Visual Element */}
-               <div className="bg-secondary rounded-xl p-6 border border-border">
+               <div className="liquid-glass rounded-xl p-6">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
@@ -341,7 +341,7 @@ Antworten aus dem Funnel:
               </div>
 
               {/* Funnel Card */}
-              <div className="bg-card rounded-3xl p-8 md:p-10 shadow-elegant min-h-[500px] flex flex-col justify-center">
+              <div className="liquid-glass rounded-3xl p-8 md:p-10 min-h-[500px] flex flex-col justify-center">
                 {renderStep()}
 
                 {/* Navigation Buttons */}
