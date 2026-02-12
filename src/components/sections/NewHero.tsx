@@ -95,12 +95,9 @@ const NewHero = () => {
               {/* Gold glow behind portrait */}
               <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(245,200,66,0.25) 0%, rgba(232,160,32,0.15) 40%, transparent 70%)' }}></div>
               {/* Edge fade - all sides to blend into background */}
-              <div className="absolute inset-0 z-10 pointer-events-none" style={{
+              <div className="absolute inset-[-10%] z-10 pointer-events-none" style={{
                 background: `
-                  linear-gradient(to top, hsl(var(--background)) 0%, transparent 50%),
-                  linear-gradient(to right, hsl(var(--background)) 0%, transparent 20%),
-                  linear-gradient(to left, hsl(var(--background)) 0%, transparent 20%),
-                  linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 15%)
+                  radial-gradient(ellipse 80% 90% at center, transparent 40%, hsl(var(--background)) 75%)
                 `
               }}></div>
               <img 
