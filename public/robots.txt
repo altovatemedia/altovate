@@ -14,3 +14,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://altovate.de/sitemap.xml
+Sitemap: https://euglobmdsrurbbmfargp.supabase.co/functions/v1/sitemap
