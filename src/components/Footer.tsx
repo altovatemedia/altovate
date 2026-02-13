@@ -145,7 +145,7 @@ const Footer = () => {
       </div>
 
       {/* Sub-Footer */}
-      <div className="border-t border-white/10 py-6 relative z-10">
+      <div className="border-t border-white/10 py-6 pb-24 md:pb-6 relative z-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex space-x-8">
