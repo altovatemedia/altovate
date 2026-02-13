@@ -8,7 +8,7 @@ const ParallaxOrbs = () => {
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="hidden md:block fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <motion.div
         style={{ y: y1 }}
         className="absolute top-[30%] left-[10%] w-[500px] h-[500px] rounded-full opacity-[0.04]"

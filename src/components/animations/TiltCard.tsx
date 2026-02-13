@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react';
+import { useRef, useState, useEffect, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 interface TiltCardProps {
@@ -11,8 +11,14 @@ const TiltCard = ({ children, className = '', tiltAmount = 8 }: TiltCardProps) =
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [glare, setGlare] = useState({ x: 50, y: 50 });
+  const [hasHover, setHasHover] = useState(true);
+
+  useEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    if (!hasHover) return;
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;

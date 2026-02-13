@@ -135,6 +135,10 @@
     @apply border-border;
   }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-background text-foreground font-sans antialiased;
   scroll-behavior: smooth;
@@ -509,6 +513,30 @@ body {
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  /* Mobile performance: reduce heavy backdrop-filter */
+  @media (max-width: 768px) {
+    .liquid-glass {
+      backdrop-filter: blur(8px) saturate(1.1);
+      -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    }
+    .liquid-glass-icon {
+      backdrop-filter: blur(8px) saturate(1.1);
+      -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    }
+    .finom-card {
+      backdrop-filter: blur(8px) saturate(1.1);
+      -webkit-backdrop-filter: blur(8px) saturate(1.1);
+    }
+    .highlight-card {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .glass-nav {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
   }
 

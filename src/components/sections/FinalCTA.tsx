@@ -36,7 +36,7 @@ const FinalCTA = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-7 text-lg font-semibold min-w-[280px]"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-7 text-lg font-semibold w-full sm:w-auto sm:min-w-[280px]"
                 onClick={() => handleBooking('Strategie-Session 60 Minuten')}
               >
                 60-Min-Session anfragen
@@ -45,7 +45,7 @@ const FinalCTA = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-2 border-primary text-foreground hover:bg-primary/10 px-8 py-7 text-lg font-semibold min-w-[280px]"
+                className="border-2 border-primary text-foreground hover:bg-primary/10 px-8 py-7 text-lg font-semibold w-full sm:w-auto sm:min-w-[280px]"
                 onClick={() => handleBooking('Strategie-Session 90 Minuten')}
               >
                 90-Min-Session anfragen

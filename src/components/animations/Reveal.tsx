@@ -12,6 +12,11 @@ interface RevealProps {
   once?: boolean;
 }
 
+const isMobileDevice = () => {
+  if (typeof window === 'undefined') return false;
+  return !window.matchMedia('(min-width: 768px)').matches;
+};
+
 const getVariants = (
   direction: string,
   blur: boolean,
@@ -26,13 +31,14 @@ const getVariants = (
   };
 
   const { x, y } = transforms[direction] || transforms.up;
+  const useBlur = blur && !isMobileDevice();
 
   return {
     hidden: {
       opacity: 0,
       x,
       y,
-      filter: blur ? 'blur(12px)' : 'blur(0px)',
+      filter: useBlur ? 'blur(12px)' : 'blur(0px)',
       scale: scale ? 0.95 : 1,
     },
     visible: {
