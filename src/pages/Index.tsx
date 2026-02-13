@@ -23,9 +23,7 @@ const GoogleReviews = lazy(() => import('@/components/sections/GoogleReviews'));
 const FAQ = lazy(() => import('@/components/FAQ'));
 const FinalCTA = lazy(() => import('@/components/sections/FinalCTA'));
 const Footer = lazy(() => import('@/components/Footer'));
-const ChatBot = lazy(() => import('@/components/ChatBot'));
 const CookieBannerWrapper = lazy(() => import('@/components/CookieBanner').then(m => ({ default: m.CookieBannerWrapper })));
-const StickyMobileCTA = lazy(() => import('@/components/StickyMobileCTA'));
 const ExitIntentBanner = lazy(() => import('@/components/ExitIntentBanner'));
 
 const faqItems = [
@@ -109,8 +107,6 @@ const Index = () => {
         
         <Suspense fallback={null}>
           <Footer />
-          <ChatBot />
-          <StickyMobileCTA />
           <CookieBannerWrapper />
           <ExitIntentBanner />
         </Suspense>
