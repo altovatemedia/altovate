@@ -45,7 +45,7 @@ const faqItems = [
   }
 ];
 
-const Index = () => {
+const Index = () => { // refreshed
 
   useEffect(() => {
     const updateScrollProgress = () => {
