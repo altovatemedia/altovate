@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +21,9 @@ import MarketingSystem from "./pages/MarketingSystem";
 import ClusterPage from "./pages/ClusterPage";
 import BlogArticle from "./pages/BlogArticle";
 import Tools from "./pages/Tools";
+
+const ChatBot = lazy(() => import("./components/ChatBot"));
+const StickyMobileCTA = lazy(() => import("./components/StickyMobileCTA"));
 
 const queryClient = new QueryClient();
 
@@ -53,6 +57,10 @@ const App = () => (
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Suspense fallback={null}>
+          <ChatBot />
+          <StickyMobileCTA />
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
