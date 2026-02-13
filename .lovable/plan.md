@@ -1,51 +1,59 @@
 
 
-# Plan: Themencluster kompakter machen, neuen Artikel einfuegen und Cross-Links setzen
+# Plan: Horizontales Scrollen beheben und Animationen auf Mobile beschleunigen
+
+## Problem 1: Horizontales Scrollen
+
+Mehrere Elemente ragen auf kleinen Bildschirmen ueber den sichtbaren Bereich hinaus:
+
+- **Kein globaler Overflow-Schutz** auf `html`/`body` -- jedes Element, das breiter als der Viewport ist, erzeugt horizontales Scrollen.
+- **ParallaxOrbs**: Fixierte Elemente mit 500-600px Breite ohne Clipping.
+- **FinalCTA**: Pulsierender Glow-Kreis (600px) ueberragt den Viewport.
+- **FinalCTA-Buttons**: `min-w-[280px]` ist auf schmalen Geraeten zu breit.
+- **Logo-Marquee** (CaseStudies): `inline-flex` Animation kann ohne korrektes Clipping ueberlaufen.
+
+**Loesung:**
+- `overflow-x: hidden` auf `html` und `body` in `src/index.css` setzen -- das ist die sicherste globale Absicherung.
+- `FinalCTA`-Buttons: `min-w-[280px]` durch `min-w-0 w-full sm:w-auto` ersetzen, damit sie sich auf Mobile anpassen.
 
 ---
 
-## 1. CoreTopics-Sektion deutlich verkleinern
+## Problem 2: Langsame Animationen auf Mobile
 
-**Problem:** Die fuenf Cluster-Karten nehmen zu viel Platz ein und ueberfordern auf der Startseite.
+Mehrere Effekte sind GPU-intensiv und verlangsamen insbesondere aeltere Smartphones:
 
-**Loesung:** Die Karten von grossen Bloecken mit Icon, Beschreibung und CTA zu einer kompakten horizontalen Leiste umbauen. Statt `p-8` und grossem Icon wird jeder Cluster ein kleiner Chip/Pill-Link in einer einzigen Zeile -- aehnlich den Filter-Chips, aber als eigenstaendige Navigationslinks zu den Cluster-Seiten. Die lange Definition faellt weg, es bleibt nur Icon + Titel als Link.
-
-**Datei:** `src/components/marketing-system/CoreTopics.tsx`
-
----
-
-## 2. Neuen Artikel in die Datenbank einfuegen
-
-**Artikel:** "Lokale Werbung im Wochenblatt – Warum 800 Euro pro Woche im Kreisblatt selten eine Strategie sind"
-
-- Kategorie: `roi` (Cluster: ROI & Wirtschaftlichkeit)
-- Slug: `lokale-werbung-wochenblatt`
-- Lesezeit: ca. 7 Minuten
-- Vollstaendiger HTML-Content mit Definition-Box, Kernaussage, Rechenbeispiel-Tabelle, FAQ-Schema
-
----
-
-## 3. Cross-Links zwischen allen Artikeln
-
-Der neue Artikel referenziert thematisch drei bestehende Artikel. Gleichzeitig koennen bestehende Artikel zurueckverlinken:
-
-| Von | Nach | Stelle im Text |
+| Effekt | Problem | Loesung |
 |---|---|---|
-| lokale-werbung-wochenblatt | roi-im-marketing | "Weiterfuehrende Themen" + Rechenbeispiel-Abschnitt |
-| lokale-werbung-wochenblatt | was-social-media-unternehmen-wirklich-kostet | "Weiterfuehrende Themen" |
-| lokale-werbung-wochenblatt | social-media-ohne-budget | Abschnitt "Lokale Sichtbarkeit heute" |
-| roi-im-marketing | lokale-werbung-wochenblatt | Abschnitt "Typische ROI-Fehler" (nicht messbare Kanaele) |
-| was-social-media-unternehmen-wirklich-kostet | lokale-werbung-wochenblatt | Abschnitt "Werbebudget" (Vergleich Print vs. Digital) |
+| **ParallaxOrbs** (3 Elemente mit `blur(100-140px)`) | Extremer GPU-Aufwand fuer grosse Blur-Radien | Auf Mobile komplett ausblenden (`hidden md:block`) oder Blur-Radius stark reduzieren |
+| **`liquid-glass` / `liquid-glass-icon`** (ca. 20+ Elemente) | `backdrop-filter: blur(20-24px)` auf jedem Element | Auf Mobile `backdrop-filter` auf `blur(8px)` reduzieren oder ganz entfernen |
+| **Reveal-Komponente mit `blur`-Prop** | Jede Section-Ueberschrift animiert mit `filter: blur(12px)` Uebergang | Blur-Eigenschaft auf Mobile deaktivieren, nur `opacity + translateY` behalten |
+| **TiltCard** (3D-Tilt auf Angebotskarten) | `perspective` + `rotateX/Y` auf jedem Mausbewegen | Auf Touch-Geraeten deaktivieren (kein Hover moeglich) |
+
+**Loesung:**
+
+### 2a. ParallaxOrbs auf Mobile ausblenden
+In `src/components/animations/ParallaxOrbs.tsx`: Die drei Orbs mit `hidden md:block` versehen oder den gesamten Container auf Mobile ausblenden. Der Effekt ist auf kleinen Screens ohnehin kaum wahrnehmbar.
+
+### 2b. Backdrop-Filter auf Mobile reduzieren
+In `src/index.css`: Eine `@media (max-width: 768px)` Regel hinzufuegen, die `backdrop-filter` in `.liquid-glass` und `.liquid-glass-icon` auf `blur(8px)` oder `none` setzt.
+
+### 2c. Reveal-Blur auf Mobile deaktivieren
+In `src/components/animations/Reveal.tsx`: Den `blur`-Effekt in den Varianten nur fuer Desktop anwenden. Mobile bekommt nur `opacity + translate` -- das ist fluessiger und visuell kaum ein Unterschied.
+
+### 2d. TiltCard auf Touch deaktivieren
+In `src/components/animations/TiltCard.tsx`: Mit einem Media-Query oder `matchMedia('(hover: hover)')` den Tilt-Effekt nur fuer Geraete mit echtem Hover aktivieren. Auf Touch-Geraeten wird die Karte ohne 3D-Transformation gerendert.
 
 ---
 
 ## Technische Aenderungen
 
-| Datei / Aktion | Aenderung |
+| Datei | Aenderung |
 |---|---|
-| `src/components/marketing-system/CoreTopics.tsx` | Kompakte horizontale Darstellung statt grosse Karten |
-| SQL INSERT | Neuer Artikel mit HTML-Content, category `roi` |
-| SQL UPDATE (2x) | Cross-Links in bestehenden Artikeln ergaenzen |
+| `src/index.css` | `overflow-x: hidden` auf `html, body`; reduzierter `backdrop-filter` auf Mobile |
+| `src/components/animations/ParallaxOrbs.tsx` | Auf Mobile (`< md`) komplett ausblenden |
+| `src/components/animations/Reveal.tsx` | `blur`-Filter nur ab `md`-Viewport anwenden (per `window.matchMedia`) |
+| `src/components/animations/TiltCard.tsx` | Tilt nur bei `hover: hover` Geraeten aktivieren |
+| `src/components/sections/FinalCTA.tsx` | `min-w-[280px]` durch responsive Breite ersetzen |
 
 Keine neuen Abhaengigkeiten. Keine Schema-Aenderungen.
 
