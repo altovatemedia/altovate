@@ -111,7 +111,7 @@ const CaseStudies = () => {
               <StaggerItem key={study.id} scale>
                 <div className="liquid-glass rounded-2xl p-8 transition-all duration-300 group h-full">
                   <div className="inline-block liquid-glass-icon p-3 rounded-2xl mb-6 h-16 flex items-center justify-center min-w-[100px]">
-                    <img src={study.logoSrc} alt={study.logo} className="max-h-10 max-w-24 object-contain brightness-0 invert opacity-70" />
+                    <img src={study.logoSrc} alt={study.logo} className="max-h-10 max-w-24 object-contain brightness-0 invert opacity-70" width={96} height={40} loading="lazy" />
                   </div>
                   {'imgSrc' in study && (
                     <div className="w-full h-48 rounded-xl mb-6 overflow-hidden">
@@ -147,7 +147,7 @@ const CaseStudies = () => {
               <StaggerItem key={study.id} scale>
                 <div className="liquid-glass rounded-2xl p-6 transition-all duration-300 group h-full">
                   <div className="inline-block liquid-glass-icon p-2 rounded-xl mb-4 h-12 flex items-center justify-center min-w-[80px]">
-                    <img src={study.logoSrc} alt={study.logo} className="max-h-8 max-w-20 object-contain brightness-0 invert opacity-70" />
+                    <img src={study.logoSrc} alt={study.logo} className="max-h-8 max-w-20 object-contain brightness-0 invert opacity-70" width={80} height={32} loading="lazy" />
                   </div>
                   <div className="space-y-3">
                     <h3 className="text-lg font-bold text-foreground">{study.title}</h3>
@@ -166,7 +166,7 @@ const CaseStudies = () => {
               <div className="logo-track">
                 {[...logos, ...logos].map((logo, index) => (
                   <div key={index} className="logo-item px-8 flex items-center justify-center h-16 transition-all duration-300 hover:scale-105">
-                    <img src={logo.src} alt={logo.name} className="max-h-12 max-w-32 object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity duration-300" />
+                    <img src={logo.src} alt={logo.name} className="max-h-12 max-w-32 object-contain brightness-0 invert opacity-50 hover:opacity-80 transition-opacity duration-300" width={128} height={48} loading="lazy" />
                   </div>
                 ))}
               </div>

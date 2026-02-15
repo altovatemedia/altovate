@@ -61,7 +61,7 @@ const MarketingAutomation = () => {
   return (
     <>
       <Helmet>
-        <title>Marketing Automation & Funnel Systeme | Altovate Saarburg / Region Saar–Mosel</title>
+        <title>Marketing Automation & Funnels | Altovate Saarburg</title>
         <meta name="description" content="Kein Autopilot, sondern ein System, das für dich arbeitet. Wir zeigen dir, wie Marketing-Automation Leads generiert, Vertrauen aufbaut und Anfragen bringt – Schritt für Schritt." />
         <meta name="keywords" content="Marketing Automation Saarburg, Funnel Aufbau Trier, Leadgenerierung Saarland, E-Mail Marketing Luxemburg, Manychat Automatisierung, Sales Funnel Agentur Saar-Mosel" />
         <link rel="canonical" href="https://altovate.de/marketing-automation-saarburg" />

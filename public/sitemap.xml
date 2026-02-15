@@ -2,85 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://altovate.de/</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://altovate.de/socialmedia</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altovate.de/werbeanzeigen-saarburg</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altovate.de/employer-branding-saarburg</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altovate.de/marketing-automation-saarburg</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altovate.de/software-ki-loesungen-saarburg</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://altovate.de/tools</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://altovate.de/marketing-system</loc>
-    <lastmod>2026-02-12</lastmod>
+    <loc>https://altovate.de/marketing-wissen</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://altovate.de/marketing-wissen/roi-wirtschaftlichkeit</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altovate.de/marketing-wissen/social-media-system</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altovate.de/marketing-wissen/funnel-nachfrage</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altovate.de/marketing-wissen/recruiting-arbeitgebermarke</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://altovate.de/marketing-wissen/geo-ki-sichtbarkeit</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://altovate.de/instagram-profil-check</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://altovate.de/erstkontakt</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://altovate.de/kontakt</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://altovate.de/foerderung</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://altovate.de/impressum</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://altovate.de/datenschutz</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

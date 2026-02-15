@@ -109,16 +109,18 @@ const NewNavigation = () => {
                 
                 {/* Dropdown Menu */}
                 {item.hasDropdown && isDropdownOpen && (
-                  <div className="absolute left-0 top-full mt-2 w-72 bg-card rounded-lg shadow-lg border border-border py-2 z-50">
-                    {dropdownItems.map((dropItem) => (
-                      <button
-                        key={dropItem.name}
-                        onClick={() => handleNavClick(dropItem.href)}
-                        className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-primary hover:bg-muted transition-colors duration-200 text-sm font-medium"
-                      >
-                        {dropItem.name}
-                      </button>
-                    ))}
+                  <div className="absolute left-0 top-full w-72 pt-2 z-50">
+                    <div className="bg-card rounded-lg shadow-lg border border-border py-2">
+                      {dropdownItems.map((dropItem) => (
+                        <button
+                          key={dropItem.name}
+                          onClick={() => handleNavClick(dropItem.href)}
+                          className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-primary hover:bg-muted transition-colors duration-200 text-sm font-medium"
+                        >
+                          {dropItem.name}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>

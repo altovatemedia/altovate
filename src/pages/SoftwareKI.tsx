@@ -66,7 +66,7 @@ const SoftwareKI = () => {
   return (
     <>
       <Helmet>
-        <title>Individuelle Software & KI-Lösungen | Altovate Saarburg / Region Saar–Mosel</title>
+        <title>Software & KI-Lösungen | Altovate Saarburg</title>
         <meta name="description" content="Prozesse digitalisieren, Aufgaben vereinfachen, Daten clever nutzen – mit individuellen Software- und KI-Lösungen von Altovate. Wir entwickeln Tools, die wirklich arbeiten." />
         <meta name="keywords" content="Software Entwicklung Saarburg, KI Tools Trier, digitale Prozesse Automatisierung Saarland, App Entwicklung Luxemburg, Web-Tools für Unternehmen, individueller Rechner Programmierung" />
         <link rel="canonical" href="https://altovate.de/software-ki-loesungen-saarburg" />

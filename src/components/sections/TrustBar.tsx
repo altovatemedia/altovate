@@ -44,7 +44,7 @@ const TrustBar = () => {
         rel="noopener noreferrer"
         className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
       >
-        <img src={bniBadge} alt="BNI Mitglied" className="h-8 w-auto" />
+        <img src={bniBadge} alt="BNI Mitglied" className="h-8 w-auto" width={32} height={32} loading="lazy" />
       </a>
 
       {/* Divider */}

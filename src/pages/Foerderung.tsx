@@ -54,7 +54,7 @@ const Foerderung = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Förderung für Marketing & Beratung | Bis zu 80 % Zuschuss – altovate</title>
+        <title>Förderung bis 80 % Zuschuss | altovate</title>
         <meta name="description" content="Staatliche Förderung für Marketing-Beratung: Bis zu 80 % Zuschuss für Strategie-Sessions und 1:1 Zusammenarbeit. Altovate begleitet den Antragsprozess." />
         <link rel="canonical" href="https://altovate.de/foerderung" />
         <meta property="og:title" content="Förderung für Marketing & Beratung | altovate" />
