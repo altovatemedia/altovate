@@ -115,10 +115,12 @@ const NewHero = () => {
             className="hidden lg:flex justify-center items-end relative"
           >
             <div className="relative">
-              <img 
+                <img 
                 src={alexanderPortrait}
                 alt="Alexander – Gründer von Altovate"
                 className="w-full max-w-lg h-auto object-contain relative z-0"
+                width={512}
+                height={640}
                 style={{
                   maskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
                   WebkitMaskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',

@@ -34,7 +34,7 @@ const GoogleReviews = () => {
         <div className="text-center mb-16">
           <Reveal>
             <div className="flex items-center justify-center gap-3 mb-4">
-              <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-6 opacity-90" />
+              <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-6 opacity-90" width={92} height={30} loading="lazy" />
               <span className="text-muted-foreground text-sm font-medium">Bewertungen</span>
             </div>
           </Reveal>
@@ -61,7 +61,7 @@ const GoogleReviews = () => {
                     <div className="font-semibold text-foreground">{review.name}</div>
                     <div className="text-xs text-muted-foreground">{review.date}</div>
                   </div>
-                  <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-4 opacity-70" />
+                  <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-4 opacity-70" width={92} height={30} loading="lazy" />
                 </div>
                 <div className="flex gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (

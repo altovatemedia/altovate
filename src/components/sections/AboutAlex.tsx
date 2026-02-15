@@ -38,6 +38,8 @@ const AboutAlex = () => {
                   alt="Alexander Buchmann – Gründer der altovate GmbH, Marketing-Stratege für mittelständische Unternehmen in Saarburg" 
                   className="w-full max-w-md h-auto object-cover"
                   loading="lazy"
+                  width={448}
+                  height={560}
                   style={{
                     maskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
                     WebkitMaskImage: 'radial-gradient(ellipse 80% 85% at 50% 45%, black 35%, transparent 65%)',
