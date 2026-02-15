@@ -20,6 +20,7 @@ const STATIC_URLS = [
   { loc: "https://altovate.de/marketing-wissen/funnel-nachfrage", changefreq: "monthly", priority: "0.7" },
   { loc: "https://altovate.de/marketing-wissen/recruiting-arbeitgebermarke", changefreq: "monthly", priority: "0.7" },
   { loc: "https://altovate.de/marketing-wissen/geo-ki-sichtbarkeit", changefreq: "monthly", priority: "0.7" },
+  { loc: "https://altovate.de/marketing-wissen/glossar", changefreq: "weekly", priority: "0.7" },
   { loc: "https://altovate.de/instagram-profil-check", changefreq: "monthly", priority: "0.6" },
   { loc: "https://altovate.de/erstkontakt", changefreq: "monthly", priority: "0.7" },
   { loc: "https://altovate.de/kontakt", changefreq: "monthly", priority: "0.7" },
@@ -76,6 +77,29 @@ Deno.serve(async (req) => {
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += `    <changefreq>monthly</changefreq>\n`;
         xml += `    <priority>0.6</priority>\n`;
+        xml += `  </url>\n`;
+      }
+    }
+
+    // Add glossary terms
+    const { data: glossaryTerms, error: glossaryError } = await supabase
+      .from("glossary_terms")
+      .select("slug, updated_at")
+      .eq("status", "published")
+      .order("term", { ascending: true });
+
+    if (glossaryError) {
+      console.error("Error fetching glossary terms:", glossaryError);
+    }
+
+    if (glossaryTerms && glossaryTerms.length > 0) {
+      for (const term of glossaryTerms) {
+        const lastmod = term.updated_at ? term.updated_at.split("T")[0] : today;
+        xml += `  <url>\n`;
+        xml += `    <loc>https://altovate.de/marketing-wissen/glossar/${term.slug}</loc>\n`;
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
+        xml += `    <changefreq>monthly</changefreq>\n`;
+        xml += `    <priority>0.5</priority>\n`;
         xml += `  </url>\n`;
       }
     }
