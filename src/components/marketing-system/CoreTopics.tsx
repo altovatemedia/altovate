@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TrendingUp, Eye, Target, Users, Brain } from 'lucide-react';
+import { TrendingUp, Eye, Target, Users, Brain, BookOpen } from 'lucide-react';
 
 const clusters = [
   { icon: TrendingUp, title: 'ROI & Wirtschaftlichkeit', href: '/marketing-wissen/roi-wirtschaftlichkeit' },
@@ -7,6 +7,7 @@ const clusters = [
   { icon: Target, title: 'Funnel & Nachfrage', href: '/marketing-wissen/funnel-nachfrage' },
   { icon: Users, title: 'Recruiting & Arbeitgebermarke', href: '/marketing-wissen/recruiting-arbeitgebermarke' },
   { icon: Brain, title: 'GEO & KI-Sichtbarkeit', href: '/marketing-wissen/geo-ki-sichtbarkeit' },
+  { icon: BookOpen, title: 'Glossar', href: '/marketing-wissen/glossar' },
 ];
 
 const CoreTopics = () => {

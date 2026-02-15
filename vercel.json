@@ -41,6 +41,16 @@
       "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/:cluster/:slug"
     },
     {
+      "source": "/marketing-wissen/glossar",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/glossar"
+    },
+    {
+      "source": "/marketing-wissen/glossar/:slug",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
+      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/glossar/:slug"
+    },
+    {
       "source": "/marketing-wissen/:slug",
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
       "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/marketing-wissen/:slug"

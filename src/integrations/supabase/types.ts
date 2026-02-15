@@ -62,6 +62,45 @@ export type Database = {
         }
         Relationships: []
       }
+      glossary_terms: {
+        Row: {
+          category: string | null
+          content_html: string | null
+          created_at: string
+          id: string
+          related_terms: string[] | null
+          short_definition: string
+          slug: string
+          status: string
+          term: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          content_html?: string | null
+          created_at?: string
+          id?: string
+          related_terms?: string[] | null
+          short_definition: string
+          slug: string
+          status?: string
+          term: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          content_html?: string | null
+          created_at?: string
+          id?: string
+          related_terms?: string[] | null
+          short_definition?: string
+          slug?: string
+          status?: string
+          term?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       visibility_check_leads: {
         Row: {
           answers: Json
