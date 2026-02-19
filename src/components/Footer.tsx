@@ -44,7 +44,7 @@ const Footer = () => {
                   <Linkedin size={22} strokeWidth={1.5} />
                 </a>
                 <a 
-                  href="https://www.instagram.com/altovatemedia/" 
+                  href="https://www.instagram.com/altovate.de/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
