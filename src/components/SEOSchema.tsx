@@ -24,7 +24,7 @@ const organizationSchema = {
   },
   "sameAs": [
     "https://www.linkedin.com/company/altovatemedia/",
-    "https://www.instagram.com/altovatemedia/"
+    "https://www.instagram.com/altovate.de/"
   ],
   "founder": {
     "@type": "Person",
@@ -70,7 +70,7 @@ const localBusinessSchema = {
   },
   "sameAs": [
     "https://www.linkedin.com/company/altovatemedia/",
-    "https://www.instagram.com/altovatemedia/"
+    "https://www.instagram.com/altovate.de/"
   ]
 };
 
