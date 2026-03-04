@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BookingModal from '@/components/BookingModal';
 
 const StickyMobileCTA = () => {
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -16,7 +18,8 @@ const StickyMobileCTA = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (!isVisible) return null;
+  const hiddenRoutes = ['/circle-marketing-check'];
+  if (!isVisible || hiddenRoutes.includes(location.pathname)) return null;
 
   return (
     <>
