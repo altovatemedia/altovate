@@ -18,8 +18,10 @@ const OneOnOneSection = lazy(() => import('@/components/sections/OneOnOneSection
 const WhyNotFree = lazy(() => import('@/components/sections/WhyNotFree'));
 const AboutAlex = lazy(() => import('@/components/sections/AboutAlex'));
 const DoneForYouSection = lazy(() => import('@/components/sections/DoneForYouSection'));
+const TargetAudience = lazy(() => import('@/components/sections/TargetAudience'));
 const CaseStudies = lazy(() => import('@/components/sections/CaseStudies'));
 const GoogleReviews = lazy(() => import('@/components/sections/GoogleReviews'));
+const MarketingAnalyse = lazy(() => import('@/components/sections/MarketingAnalyse'));
 const FAQ = lazy(() => import('@/components/FAQ'));
 const FinalCTA = lazy(() => import('@/components/sections/FinalCTA'));
 const Footer = lazy(() => import('@/components/Footer'));
@@ -97,8 +99,10 @@ const Index = () => { // refreshed
               <WhyNotFree />
               <AboutAlex />
               <DoneForYouSection />
+              <TargetAudience />
               <CaseStudies />
               <GoogleReviews />
+              <MarketingAnalyse />
               <FAQ />
               <FinalCTA />
             </Suspense>

@@ -3,10 +3,10 @@ import Reveal, { StaggerContainer, StaggerItem } from '@/components/animations/R
 
 const PainPoints = () => {
   const painPoints = [
-    { icon: Clock, text: "Social Media frisst Zeit, bringt aber keine Anfragen" },
-    { icon: TrendingDown, text: "Agenturen reden über Reichweite statt Umsatz" },
-    { icon: User, text: "Dein Marketing hängt an Einzelpersonen" },
-    { icon: FileQuestion, text: "Nichts ist dokumentiert, skalierbar oder messbar" }
+    { icon: Clock, text: "Content ohne klare Strategie" },
+    { icon: TrendingDown, text: "Fehlende Werbekampagnen" },
+    { icon: User, text: "Kein System zur Leadgewinnung" },
+    { icon: FileQuestion, text: "Social Media wird nur bespielt, aber nicht als Vertriebskanal genutzt" }
   ];
 
   return (
@@ -17,12 +17,12 @@ const PainPoints = () => {
           <div className="text-center mb-16">
             <Reveal blur>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-                Warum Marketing bei vielen Unternehmern nicht funktioniert
+                Warum Social Media für viele Unternehmen nicht funktioniert
               </h2>
             </Reveal>
             <Reveal delay={0.15} blur>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Die häufigsten Probleme im Online-Marketing für KMU sind fehlende Struktur, keine messbaren Ergebnisse und Abhängigkeit von einzelnen Personen. Diese vier Symptome zeigen, dass kein System vorhanden ist:
+                Viele Unternehmen investieren Zeit und Geld in Social Media. Beiträge werden erstellt, Videos produziert und Profile gepflegt. Trotzdem entstehen kaum neue Kundenanfragen. Der Grund ist selten der Content selbst, sondern die fehlende Struktur dahinter.
               </p>
             </Reveal>
           </div>
@@ -50,11 +50,8 @@ const PainPoints = () => {
           <Reveal scale blur delay={0.1}>
             <div className="text-center">
               <div className="inline-block liquid-glass rounded-2xl px-8 py-6">
-                <p className="text-xl md:text-2xl font-bold text-foreground">
-                  Das ist kein Content-Problem.
-                </p>
                 <p className="text-xl md:text-2xl font-bold text-primary">
-                  Das ist ein fehlendes System.
+                  Genau hier setzt Altovate an.
                 </p>
               </div>
             </div>

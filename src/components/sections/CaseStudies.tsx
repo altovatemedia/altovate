@@ -98,8 +98,7 @@ const CaseStudies = () => {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-lg text-muted-foreground max-w-[720px] mx-auto leading-relaxed">
-              Von regionalen Heroes bis zu wachsenden Marken – wir helfen Unternehmen, sichtbar zu werden, 
-              Leads zu generieren und ihre Marke klar zu positionieren.
+              Ergebnisse aus realen Projekten zeigen, wie Marketing-Systeme in der Praxis funktionieren.
             </p>
           </Reveal>
         </div>

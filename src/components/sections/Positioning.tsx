@@ -3,9 +3,9 @@ import Reveal, { StaggerContainer, StaggerItem } from '@/components/animations/R
 
 const Positioning = () => {
   const focusPoints = [
-    { text: "Struktur vor Content", icon: Layers },
-    { text: "System vor Aktionismus", icon: Target },
-    { text: "Abschluss vor Reichweite", icon: CheckCircle },
+    { text: "Klare Strategie statt Aktionismus", icon: Target },
+    { text: "Strukturierte Leadgewinnung statt zufälliger Reichweite", icon: Layers },
+    { text: "Marketing, das dauerhaft für dein Unternehmen arbeitet", icon: CheckCircle },
   ];
 
   return (
@@ -14,19 +14,19 @@ const Positioning = () => {
         <div className="max-w-4xl mx-auto text-center">
           <Reveal blur>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-              Marketing, das als <span className="text-primary">System</span> funktioniert.
+              Mehr als eine klassische <span className="text-primary">Marketingagentur</span>
             </h2>
           </Reveal>
 
           <Reveal delay={0.15} blur>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-6 max-w-3xl mx-auto">
-              Altovate ist eine Marketing-Agentur aus Saarburg, die Lead- und Content-Systeme für mittelständische Unternehmen entwickelt. Der Fokus liegt auf planbaren Anfragen und messbaren Ergebnissen – nicht auf Reichweite ohne Substanz.
+              Viele Agenturen erstellen Inhalte oder schalten Werbung. Altovate entwickelt Marketing-Systeme.
             </p>
           </Reveal>
 
           <Reveal delay={0.25}>
             <p className="text-lg text-muted-foreground leading-relaxed mb-16 max-w-3xl mx-auto">
-              Ein Marketing-System ist eine dokumentierte, wiederholbare Struktur aus Content, Lead-Erfassung und Vertriebsprozess. Es funktioniert unabhängig von einzelnen Personen und liefert kontinuierlich qualifizierte Anfragen.
+              Die Umsetzung kann durch Altovate erfolgen oder durch dein eigenes Team.
             </p>
           </Reveal>
 
