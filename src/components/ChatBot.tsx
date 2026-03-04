@@ -169,9 +169,9 @@ const ChatBot = () => {
       {/* Chat Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-[120px] md:bottom-6 right-6 z-[9999] rounded-full shadow-lg transition-all hover:scale-110 group bg-primary text-primary-foreground ${
+        className={`fixed bottom-[90px] md:bottom-6 right-4 md:right-6 z-50 rounded-full shadow-lg transition-all hover:scale-110 group bg-primary text-primary-foreground ${
           isOpen ? 'hidden' : 'flex'
-        } items-center gap-3 h-16 px-4`}
+        } items-center gap-3 h-14 md:h-16 px-3 md:px-4`}
       >
         <Avatar className="h-12 w-12 flex-shrink-0">
           <AvatarImage src={minaAvatar} alt="Mina" />
