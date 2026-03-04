@@ -142,7 +142,7 @@ const CircleMarketingCheck = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       {/* Minimal header */}
       <header className="py-4 px-6">
-        <img src="/altovate-logo.png" alt="Altovate" className="h-8" />
+        <img src="/altovate-logo.png" alt="Altovate" className="h-8 brightness-0 invert" />
       </header>
 
       <main className="flex-1 flex items-center justify-center px-6 py-12">
