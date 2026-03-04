@@ -12,22 +12,22 @@ const Offers = () => {
 
   const offers = [
     {
-      icon: Clock, title: "Strategie-Session", duration: "60 Minuten", price: "390",
-      forWho: ["Klarheit brauchen", "ihr Marketing sortieren wollen", "eine saubere Entscheidungsgrundlage suchen"],
-      results: ["Klare Einschätzung", "Konkrete nächste Schritte", "Entscheidung: selber umsetzen oder skalieren"],
-      cta: "60-Min-Session anfragen", offerType: "Strategie-Session 60 Minuten"
+      icon: Clock, title: "Marketing Diagnose", duration: "60 Minuten", price: "590",
+      forWho: ["Klarheit über dein Marketing benötigen", "die größten Wachstumshebel identifizieren wollen", "eine fundierte Entscheidungsgrundlage brauchen"],
+      results: ["Klare Einschätzung", "Priorisierte Maßnahmen", "Entscheidung: selbst umsetzen oder System entwickeln"],
+      cta: "Diagnose anfragen", offerType: "Marketing Diagnose 60 Minuten"
     },
     {
-      icon: Zap, title: "Strategie-Session", duration: "90 Minuten", price: "590",
-      forWho: ["ein konkretes Vorhaben haben", "Leads, Content oder Ads sauber aufsetzen wollen", "ein belastbares Konzept brauchen"],
-      results: ["Klare System-Empfehlung", "Priorisierte Maßnahmen", "Konkrete Umsetzungslogik"],
-      cta: "90-Min-Session anfragen", offerType: "Strategie-Session 90 Minuten"
+      icon: Zap, title: "Marketing System Analyse", duration: "90 Minuten", price: "890",
+      forWho: ["ihr Marketing strukturiert aufbauen oder skalieren wollen", "systemische Marketinghebel identifizieren möchten", "konkrete Handlungsempfehlungen brauchen"],
+      results: ["Konkrete Systemempfehlung", "Priorisierte Maßnahmen", "Klare Umsetzungslogik"],
+      cta: "Analyse anfragen", offerType: "Marketing System Analyse 90 Minuten"
     },
     {
-      icon: Building, title: "Social Media Setup", duration: "Projektbasiert", price: "ab 1.800",
-      forWho: ["Marketing nicht selbst tragen wollen", "ein funktionierendes Setup brauchen", "unabhängig von Einzelpersonen werden möchten"],
-      results: [], note: "Kein Paket von der Stange. Umsetzung nur nach Strategie-Session.",
-      cta: "Setup besprechen", offerType: "Social Media Setup", isFundingReduced: true
+      icon: Building, title: "Marketing System Blueprint", duration: "Projektbasiert", price: "ab 3.500",
+      forWho: ["ein vollständiges Marketing-System entwickeln wollen", "planbare Kundenanfragen generieren möchten", "ein funktionierendes Lead-System aufbauen wollen"],
+      results: [], note: "Umsetzung kann durch Altovate oder dein internes Team erfolgen.",
+      cta: "Blueprint besprechen", offerType: "Marketing System Blueprint", isFundingReduced: true
     }
   ];
 
@@ -48,9 +48,19 @@ const Offers = () => {
             </Reveal>
           </div>
           <Reveal delay={0.15}>
-            <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-16 leading-relaxed">
-              Altovate bietet drei Angebotsformate: eine 60-Minuten-Strategie-Session für erste Klarheit, eine 90-Minuten-Session für konkrete Konzepte und ein projektbasiertes Social Media Setup für die vollständige Umsetzung. Alle Formate sind einzeln buchbar – ohne Abo oder Mindestlaufzeit.
-            </p>
+            <div className="mb-12">
+              <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-4 leading-relaxed">
+                Die Zusammenarbeit mit Altovate folgt einer klaren Struktur:
+              </p>
+              <ul className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6 leading-relaxed space-y-1">
+                <li>Analyse der aktuellen Situation</li>
+                <li>Entwicklung eines funktionierenden Marketing-Systems</li>
+                <li>Strategische Begleitung oder Umsetzung</li>
+              </ul>
+              <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
+                So entstehen Marketingstrukturen, die langfristig planbare Kundenanfragen generieren.
+              </p>
+            </div>
           </Reveal>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>

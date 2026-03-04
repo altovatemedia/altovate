@@ -10,8 +10,8 @@ const OneOnOneSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const packages = [
-    { duration: "12 Wochen", price: "3.900", description: "Fokussierte strategische Begleitung für klare Entscheidungen" },
-    { duration: "24 Wochen", price: "7.200", description: "Tiefgreifende Zusammenarbeit für nachhaltige Transformation" }
+    { duration: "12 Wochen", price: "4.800", description: "Fokussierte strategische Begleitung für klare Entscheidungen" },
+    { duration: "24 Wochen", price: "8.400", description: "Tiefgreifende Zusammenarbeit für nachhaltige Transformation" }
   ];
 
   return (
@@ -56,10 +56,10 @@ const OneOnOneSection = () => {
                       <Calendar className="w-5 h-5 text-primary" />
                       <span className="text-lg font-semibold text-foreground">{pkg.duration}</span>
                     </div>
-                    <div className="mb-3">
-                      <span className="text-4xl font-bold text-foreground">{pkg.price} €</span>
-                      <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
-                    </div>
+                     <div className="mb-3">
+                       <span className="text-4xl font-bold text-foreground">{pkg.price} €</span>
+                       <span className="text-sm text-muted-foreground ml-2">inkl. MwSt.</span>
+                     </div>
                     <Link to="/foerderung" className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-4 bg-primary/10 hover:bg-primary/15 text-primary text-xs font-medium rounded-full transition-colors">
                       <BadgePercent className="w-3.5 h-3.5" />
                       Bis zu 80% förderfähig
