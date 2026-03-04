@@ -64,7 +64,7 @@ const DoneForYouSection = () => {
             <Reveal blur delay={0.1}>
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Done for You</h2>
               <p className="text-xl text-primary font-medium mb-6">
-                Marketing als vollständiges System – komplett ausgelagert
+                Komplette Marketingumsetzung durch Altovate
               </p>
             </Reveal>
           </div>
@@ -72,16 +72,13 @@ const DoneForYouSection = () => {
           <Reveal delay={0.15}>
             <div className="mb-12">
               <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
-                Done for You ist ein Betreuungsmodell, bei dem Altovate die komplette Marketing-Architektur übernimmt. Das umfasst Strategie, Content-Produktion, Kampagnensteuerung, technischen Aufbau und laufende Optimierung.
+                Für Unternehmen, die ihr Marketing vollständig auslagern möchten. Altovate übernimmt Strategie, Contentsteuerung und Werbekampagnen, während du dich auf dein Kerngeschäft konzentrieren kannst.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
-                Der Vorteil von Done for You ist, dass Unternehmer kein internes Marketing-Team aufbauen müssen. Stattdessen erhalten sie ein funktionierendes System mit dokumentierten Prozessen und regelmäßigem Reporting.
-              </p>
-               <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
-                 Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern wollen und einen festen Ansprechpartner für die gesamte Umsetzung suchen.
-               </p>
-               <p className="text-muted-foreground text-center">
+               <p className="text-muted-foreground text-center mb-2">
                  <span className="font-semibold text-foreground">ab 5.000 € / Monat</span>
+               </p>
+               <p className="text-sm text-muted-foreground text-center">
+                 Nur auf Anfrage verfügbar.
                </p>
             </div>
           </Reveal>
@@ -107,7 +104,7 @@ const DoneForYouSection = () => {
                 <span className="text-foreground font-medium">Aktuell keine freien Plätze</span>
               </div>
               <p className="text-muted-foreground text-sm mb-8">
-                Trag dich ein und erfahre vorab, wenn wieder ein Platz frei wird.
+                Trag dich ein oder stelle direkt eine Anfrage.
               </p>
 
               {!isSubmitted ? (

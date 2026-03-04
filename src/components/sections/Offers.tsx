@@ -13,21 +13,24 @@ const Offers = () => {
   const offers = [
     {
       icon: Clock, title: "Marketing Diagnose", duration: "60 Minuten", price: "590",
-      forWho: ["Klarheit über dein Marketing benötigen", "die größten Wachstumshebel identifizieren wollen", "eine fundierte Entscheidungsgrundlage brauchen"],
-      results: ["Klare Einschätzung", "Priorisierte Maßnahmen", "Entscheidung: selbst umsetzen oder System entwickeln"],
+      description: "Für Unternehmer, die Klarheit über ihr Marketing benötigen.\n\nIn dieser Session analysieren wir deine aktuelle Marketing-Situation und identifizieren die größten Wachstumshebel für dein Unternehmen.",
+      forWho: ["Analyse des aktuellen Marketings", "Bewertung von Positionierung und Angebot", "Identifikation der größten Wachstumshebel", "konkrete Handlungsempfehlungen"],
+      results: ["Klare Einschätzung", "Priorisierte Maßnahmen", "Entscheidungsgrundlage für nächste Schritte"],
       cta: "Diagnose anfragen", offerType: "Marketing Diagnose 60 Minuten"
     },
     {
       icon: Zap, title: "Marketing System Analyse", duration: "90 Minuten", price: "890",
-      forWho: ["ihr Marketing strukturiert aufbauen oder skalieren wollen", "systemische Marketinghebel identifizieren möchten", "konkrete Handlungsempfehlungen brauchen"],
-      results: ["Konkrete Systemempfehlung", "Priorisierte Maßnahmen", "Klare Umsetzungslogik"],
+      description: "Vertiefte Analyse für Unternehmer, die ihr Marketing strukturiert aufbauen oder skalieren möchten.\n\nWir analysieren, wie Content, Werbung und Leadgewinnung aktuell zusammenspielen und identifizieren systemische Wachstumshebel.",
+      forWho: ["Analyse der Marketingstruktur", "Bewertung von Content- und Ads-Strategie", "Bewertung der Leadgewinnung", "Identifikation systemischer Marketinghebel"],
+      results: ["Konkrete Systemempfehlung", "Klare Umsetzungslogik", "Priorisierte Wachstumsmaßnahmen"],
       cta: "Analyse anfragen", offerType: "Marketing System Analyse 90 Minuten"
     },
     {
-      icon: Building, title: "Marketing System Blueprint", duration: "Projektbasiert", price: "ab 3.500",
-      forWho: ["ein vollständiges Marketing-System entwickeln wollen", "planbare Kundenanfragen generieren möchten", "ein funktionierendes Lead-System aufbauen wollen"],
-      results: [], note: "Umsetzung kann durch Altovate oder dein internes Team erfolgen.",
-      cta: "Blueprint besprechen", offerType: "Marketing System Blueprint", isFundingReduced: true
+      icon: Building, title: "Marketing System Blueprint", duration: "Projekt", price: "ab 4.500",
+      description: "Entwicklung eines vollständigen Marketing-Systems für planbare Kundenanfragen.\n\nIm Blueprint entwickeln wir eine klare Marketingarchitektur für dein Unternehmen. Statt einzelner Maßnahmen entsteht ein strukturiertes System, bei dem Content, Werbung und Leadprozesse ineinandergreifen.",
+      forWho: ["Positionierung und Angebotsstruktur", "Content-System für Sichtbarkeit", "Ads- und Kampagnenstruktur", "Lead-System für planbare Anfragen", "technische Marketingarchitektur"],
+      results: [], note: "Ein vollständiger Marketing-Fahrplan mit klarer Strategie, Kampagnenstruktur und Umsetzungsplan.",
+      cta: "Blueprint anfragen", offerType: "Marketing System Blueprint", isFundingReduced: true
     }
   ];
 
@@ -43,20 +46,20 @@ const Offers = () => {
           <div className="text-center mb-6">
             <Reveal blur>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                So kannst du mit Altovate <span className="text-primary">arbeiten</span>
+                So arbeiten wir <span className="text-primary">zusammen</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.15}>
             <div className="mb-12">
               <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-4 leading-relaxed">
-                Die Zusammenarbeit mit Altovate folgt einer klaren Struktur:
+                Die Zusammenarbeit mit Altovate folgt einer klaren Struktur.
               </p>
-              <ul className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6 leading-relaxed space-y-1">
+              <ol className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6 leading-relaxed space-y-1 list-decimal list-inside">
                 <li>Analyse der aktuellen Situation</li>
                 <li>Entwicklung eines funktionierenden Marketing-Systems</li>
                 <li>Strategische Begleitung oder Umsetzung</li>
-              </ul>
+              </ol>
               <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
                 So entstehen Marketingstrukturen, die langfristig planbare Kundenanfragen generieren.
               </p>
@@ -89,8 +92,16 @@ const Offers = () => {
                       {'isFundingReduced' in offer ? 'Bis zu 50% förderfähig' : 'Bis zu 80% förderfähig'}
                     </Link>
 
+                    {'description' in offer && offer.description && (
+                      <div className="mb-4">
+                        {offer.description.split('\n\n').map((p, i) => (
+                          <p key={i} className="text-sm text-muted-foreground mb-2 last:mb-0">{p}</p>
+                        ))}
+                      </div>
+                    )}
+
                     <div className="mb-6 flex-grow">
-                      <p className="text-sm font-semibold text-foreground mb-3">Für Unternehmer, die:</p>
+                      <p className="text-sm font-semibold text-foreground mb-3">Inhalte:</p>
                       <ul className="space-y-2">
                         {offer.forWho.map((item, i) => (
                           <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -123,7 +134,7 @@ const Offers = () => {
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                     <p className="text-xs text-muted-foreground text-center mt-2">
-                      Bezahlte Session – du bekommst echten Wert.
+                      Bezahlte Session – du bekommst echten Mehrwert.
                     </p>
                   </div>
                 </TiltCard>
