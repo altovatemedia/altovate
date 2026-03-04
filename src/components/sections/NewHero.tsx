@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
-import BookingModal from '@/components/BookingModal';
 import TrustBar from '@/components/sections/TrustBar';
 
 const NewHero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollY } = useScroll();
   const portraitY = useTransform(scrollY, [0, 600], [0, 80]);
 
@@ -17,8 +14,9 @@ const NewHero = () => {
     "Kein Abhängigkeitsmodell – du behältst die Kontrolle"
   ];
 
-  const handleBooking = () => {
-    setIsModalOpen(true);
+  const scrollToAnalyse = () => {
+    const analyseSection = document.getElementById('marketing-analyse');
+    analyseSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToOffers = () => {
@@ -48,7 +46,16 @@ const NewHero = () => {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
             >
-              Altovate entwickelt Lead- & Content-Systeme, die planbare Anfragen generieren – ohne dass du selbst zum Influencer werden musst. Für mittelständische Unternehmen in Saarburg, Trier und der Region Saar-Mosel.
+              Altovate entwickelt Marketing- und Lead-Systeme, die planbar Kundenanfragen generieren – ohne dass du selbst zum Influencer werden musst.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-base md:text-lg text-muted-foreground leading-relaxed font-light"
+            >
+              Strategie, Content und Performance-Ads kombiniert zu einem System, das dauerhaft für dein Unternehmen arbeitet.
             </motion.p>
 
             {/* Bullet Points */}
@@ -79,9 +86,9 @@ const NewHero = () => {
               <Button 
                 size="lg"
                 className="btn-hero px-8 py-6 text-base"
-                onClick={handleBooking}
+                onClick={scrollToAnalyse}
               >
-                Strategie-Session anfragen
+                Kostenlose Marketing Analyse
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               
@@ -102,7 +109,7 @@ const NewHero = () => {
               transition={{ duration: 0.5, delay: 0.9 }}
               className="text-sm text-muted-foreground relative z-30"
             >
-              Bezahlte Session. Keine Verkaufsshow.
+              Unverbindlich. Analyse in 24h.
             </motion.p>
           </div>
 
@@ -140,11 +147,6 @@ const NewHero = () => {
         </motion.div>
       </div>
 
-      <BookingModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        offerType="Strategie-Session"
-      />
     </section>
   );
 };

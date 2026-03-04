@@ -85,6 +85,17 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>Details:</strong></p>
         <p>${message?.replace(/\n/g, '<br>') || 'Keine weiteren Details'}</p>
       `;
+    } else if (type === 'marketing-analyse') {
+      subject = `Neue Marketing-Analyse-Anfrage von ${firstName}`;
+      htmlContent = `
+        <h2>Marketing-Analyse Anfrage</h2>
+        <p><strong>Name:</strong> ${firstName}</p>
+        ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ''}
+        ${website ? `<p><strong>Website:</strong> ${website}</p>` : ''}
+        ${instagram ? `<p><strong>Instagram/LinkedIn:</strong> ${instagram}</p>` : ''}
+        <p><strong>Details:</strong></p>
+        <p>${message?.replace(/\n/g, '<br>') || 'Keine weiteren Details'}</p>
+      `;
     } else if (type === 'waitlist') {
       subject = `Neue Wartelisten-Eintragung: Done for You`;
       htmlContent = `
