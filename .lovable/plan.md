@@ -1,79 +1,100 @@
 
 
-# Plan: Dropdown-Fix + SEO/GEO-Audit
+# Plan: Textliche Optimierung der Startseite altovate.de
 
-## Teil 1: Dropdown "Losungen" – UX-Fix (Desktop)
-
-**Problem:** Das Dropdown verschwindet, sobald die Maus den Button verlasst, weil zwischen dem Button und dem Dropdown-Menu ein Abstand (`mt-2`) existiert. Wenn die Maus diesen Zwischenraum passiert, wird `onMouseLeave` ausgelost und das Menu schließt sich.
-
-**Losung:** Einen unsichtbaren Bereich (Padding/Bridge) zwischen Button und Dropdown einbauen, sodass die Maus den Hover-Bereich nie verlasst. Konkret:
-- Den `mt-2` Gap durch ein `pt-2` innerhalb eines Container-Elements ersetzen, das den gesamten Hover-Bereich abdeckt
-- So bleibt der `onMouseEnter/onMouseLeave` durchgangig auf dem Eltern-Element
-
-**Datei:** `src/components/sections/NewNavigation.tsx`
-- Zeile 112: Die Dropdown-`div` bekommt statt `mt-2` ein Wrapper-Element mit `pt-2` und `top-full`, um eine nahtlose Hover-Zone zu schaffen
+Alle Anderungen sind rein textlich. Layout, Design, Farbschema und Struktur bleiben vollstandig erhalten.
 
 ---
 
-## Teil 2: SEO/GEO-Audit – Ergebnisse
+## Ubersicht der Anderungen
 
-### Was bereits gut funktioniert
-
-| Bereich | Status |
-|---|---|
-| Prerender Edge Function | Vollstandig implementiert fur alle 14 statischen Seiten + dynamische Blog-Artikel |
-| vercel.json Rewrites | Crawler-Erkennung per User-Agent (Google, Bing, GPT, Perplexity, Claude, etc.) aktiv |
-| JSON-LD Schema | Organization, LocalBusiness, Person, WebSite, FAQPage, BreadcrumbList, Service, Article |
-| Canonical Tags | Auf allen Seiten korrekt gesetzt |
-| Geo-Meta-Tags | `geo.region`, `geo.placename`, `geo.position`, `ICBM` vorhanden |
-| noscript Fallback | Strukturierter HTML-Content in `index.html` |
-| llms.txt | Vollstandig mit allen Leistungen, Preisen, USPs und Ressourcen-Links |
-| Sitemap | Statische XML + dynamische Edge Function fur Blog-Artikel |
-| OG/Twitter Tags | Auf allen Seiten vorhanden |
-| Lokale Fonts | DSGVO-konform lokal gehostet |
-
-### Gefundene Optimierungspotenziale
-
-#### 1. `twitter:site` in index.html zeigt auf `@lovable_dev` statt `@altovatemedia`
-- **Datei:** `index.html`, Zeile 38
-- **Fix:** Andern zu `@altovatemedia` (oder entfernen, falls kein Twitter/X-Account existiert)
-
-#### 2. Fehlende `width` und `height` Attribute auf Images (CLS-Problem)
-- Mehrere `<img>`-Tags in Komponenten wie `CaseStudies.tsx`, `AboutAlex.tsx`, `NewHero.tsx`, `GoogleReviews.tsx` haben keine expliziten `width`/`height` Attribute
-- **Fix:** Explizite Dimensionen hinzufugen, um Cumulative Layout Shift (CLS) zu vermeiden
-
-#### 3. Fehlende Seiten in Sitemap
-- `/impressum` und `/datenschutz` fehlen in der statischen `sitemap.xml` (sind zwar `noindex`, aber konnen trotzdem gelistet sein)
-- Cluster-Seiten fehlen (z.B. `/marketing-wissen/roi-wirtschaftlichkeit`)
-- **Fix:** Cluster-Seiten in Sitemap aufnehmen
-
-#### 4. Fehlende Prerender-Routen in vercel.json
-- `/impressum` und `/datenschutz` haben keine Prerender-Rewrites (weniger kritisch wegen `noindex`)
-- Cluster-Seiten (`/marketing-wissen/:clusterSlug`) fehlen im Prerender – Crawler bekommen leere SPA-Shell
-- **Fix:** Prerender-Regel fur `/marketing-wissen/:slug` (Cluster-Ebene) hinzufugen und passende statische Seiten in der Prerender-Funktion definieren
-
-#### 5. Einige Seiten haben sehr lange Title-Tags (uber 50 Zeichen)
-- `SoftwareKI.tsx`: "Individuelle Software & KI-Losungen | Altovate Saarburg / Region Saar-Mosel" (75 Zeichen)
-- `MarketingAutomation.tsx`: "Marketing Automation & Funnel Systeme | Altovate Saarburg / Region Saar-Mosel" (78 Zeichen)
-- `Foerderung.tsx`: "Forderung fur Marketing & Beratung | Bis zu 80 % Zuschuss – altovate" (70 Zeichen)
-- **Fix:** Title-Tags auf max. 55-60 Zeichen kurzen
-
-#### 6. Fehlende `loading="lazy"` auf einigen Bildern
-- Bilder in `CaseStudies.tsx` (Logos), `GoogleReviews.tsx`, `TrustBar.tsx` fehlt `loading="lazy"`
-- **Fix:** `loading="lazy"` auf alle Below-the-fold Bilder setzen
+| # | Anforderung | Umsetzung |
+|---|---|---|
+| 1 | Hero-Text scharfen | Subline + Zusatztext + CTA-Button in `NewHero.tsx` andern |
+| 2 | Diagnose-Abschnitt | Bestehende `PainPoints.tsx` textlich anpassen (gleiche Komponente, neuer Text) |
+| 3 | Altovate System | Bestehende `SystemProcess.tsx` textlich anpassen (gleiche Komponente, neuer Text) |
+| 4 | Strategische Positionierung | Bestehende `Positioning.tsx` textlich anpassen |
+| 5 | Referenz-Einleitung | Kurzen Einleitungstext in `CaseStudies.tsx` anpassen |
+| 6 | Zielgruppe | Neue schlanke Textkomponente `TargetAudience.tsx` erstellen (nutzt bestehendes `Reveal`-Pattern) |
+| 7 | Lead-Magnet | Neue Textkomponente `MarketingAnalyse.tsx` mit CTA-Button, der das bestehende `BookingModal` offnet |
+| 8 | Formular | Neues Inline-Formular `MarketingAnalyseForm.tsx` mit den 6 Feldern, sendet uber bestehende `send-contact-email` Edge Function |
+| 9 | Alex-Abschnitt | Bleibt komplett unverandert |
+| 10 | Abschluss-CTA | `FinalCTA.tsx` Text anpassen |
 
 ---
 
-## Technischer Umsetzungsplan
+## Technische Details
 
-### Schritt 1: Dropdown-Fix
-- `NewNavigation.tsx`: Hover-Bridge zwischen Button und Menu einfugen (unsichtbarer Bereich schließt den Gap)
+### Datei-Anderungen (bestehende Dateien)
 
-### Schritt 2: SEO-Fixes
-1. `index.html`: `twitter:site` korrigieren
-2. `sitemap.xml`: Cluster-Seiten erganzen
-3. `vercel.json`: Prerender-Regel fur Cluster-Seiten erganzen
-4. `prerender/index.ts`: Cluster-Seiten als statische Seiten hinzufugen
-5. Title-Tags auf betroffenen Seiten kurzen
-6. `loading="lazy"` und `width`/`height` auf relevante Images setzen
+**`src/components/sections/NewHero.tsx`**
+- Subline-Text andern zu: "Altovate entwickelt Marketing- und Lead-Systeme, die planbar Kundenanfragen generieren..."
+- Zusatztext erganzen: "Strategie, Content und Performance-Ads kombiniert..."
+- Primary CTA-Button: "Kostenlose Marketing Analyse" (scrollt zum Lead-Magnet-Abschnitt statt BookingModal)
+- Secondary CTA bleibt
+- Microcopy anpassen: "Unverbindlich. Analyse in 24h."
+
+**`src/components/sections/PainPoints.tsx`**
+- Headline andern zu: "Warum Social Media fur viele Unternehmen nicht funktioniert"
+- Subtext andern zum geforderten Text
+- Die 4 Pain-Point-Karten textlich anpassen: "Content ohne klare Strategie", "fehlende Werbekampagnen", "kein System zur Leadgewinnung", "Social Media wird nur bespielt, nicht als Vertriebskanal genutzt"
+- Conclusion andern zu: "Genau hier setzt Altovate an."
+
+**`src/components/sections/Positioning.tsx`**
+- Headline andern zu: "Mehr als eine klassische Marketingagentur"
+- Text andern zu den geforderten Inhalten
+- Drei Focus-Points anpassen: "Klare Strategie statt Aktionismus", "Strukturierte Leadgewinnung statt zufalliger Reichweite", "Marketing, das dauerhaft fur dein Unternehmen arbeitet"
+- Optional-Text erganzen
+
+**`src/components/sections/SystemProcess.tsx`**
+- Headline andern zu: "Das Altovate Marketing System"
+- Subtext andern
+- Die 4 (auf 5) Schritte anpassen: Analyse, Positionierung, Content-System, Performance Ads, Lead-System (5 Schritte statt 4, Grid anpassen auf `md:grid-cols-5`)
+
+**`src/components/sections/CaseStudies.tsx`**
+- Einleitungstext andern zu: "Ergebnisse aus realen Projekten zeigen, wie Marketing-Systeme in der Praxis funktionieren."
+
+**`src/components/sections/FinalCTA.tsx`**
+- Headline andern zu: "Bereit fur planbare Kundenanfragen?"
+- Text erganzen: "Lass uns dein aktuelles Marketing analysieren..."
+- CTA-Button: "Kostenlose Marketing Analyse anfordern" (scrollt zum Formular)
+
+### Neue Dateien
+
+**`src/components/sections/TargetAudience.tsx`**
+- Einfache Textsektion im bestehenden Stil (nutzt `Reveal`, `container`, gleiche Typografie)
+- Headline: "Fur welche Unternehmen Altovate arbeitet"
+- Text + Branchenliste als einfache Aufzahlung mit bestehenden Check-Icons
+
+**`src/components/sections/MarketingAnalyse.tsx`**
+- Lead-Magnet-Sektion mit Headline, Text, Vorteils-Liste und eingebettetem Formular
+- Formular direkt inline (keine Modal): Name, Unternehmen, Website, Instagram/LinkedIn, Branche, großte Herausforderung
+- Sendet uber bestehende `send-contact-email` Edge Function (type: `marketing-analyse`)
+- CTA-Button: "Analyse anfordern"
+- Nutzt bestehende UI-Komponenten (`Input`, `Textarea`, `Button`, `Label`)
+
+### Seitenreihenfolge in `Index.tsx`
+
+```text
+NewHero
+PainPoints (= Diagnose, Punkt 2)
+Positioning (= Strategische Positionierung, Punkt 4)
+SystemProcess (= Altovate System, Punkt 3)
+Offers
+FoerderungHint
+OneOnOneSection
+WhyNotFree
+AboutAlex (unverandert, Punkt 9)
+DoneForYouSection
+TargetAudience (NEU, Punkt 6)
+CaseStudies (mit neuem Einleitungstext, Punkt 5)
+GoogleReviews
+MarketingAnalyse (NEU, Punkt 7+8, mit Formular)
+FAQ
+FinalCTA (angepasst, Punkt 10)
+```
+
+### Edge Function
+
+Die bestehende `send-contact-email` Edge Function unterstutzt bereits verschiedene `type`-Werte. Es wird ein neuer Type `marketing-analyse` mit den entsprechenden Feldern erganzt.
 
