@@ -103,6 +103,18 @@ const handler = async (req: Request): Promise<Response> => {
         <p><strong>E-Mail:</strong> ${email}</p>
         <p>Diese Person möchte informiert werden, wenn ein Platz im Done for You Modell frei wird.</p>
       `;
+    } else if (type === 'circle-marketing-check') {
+      subject = `Circle Marketing-Check Anfrage von ${firstName}`;
+      htmlContent = `
+        <h2>Circle Marketing-Check Anfrage</h2>
+        <p><strong>Name:</strong> ${firstName}</p>
+        <p><strong>E-Mail:</strong> ${email}</p>
+        ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ''}
+        ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
+        ${website ? `<p><strong>Website/Profil:</strong> ${website}</p>` : ''}
+        <h3>Check-Antworten:</h3>
+        <p>${message?.replace(/\n/g, '<br>') || '-'}</p>
+      `;
     } else if (type === 'waitlist-ads') {
       subject = `Neue Wartelisten-Eintragung: Meta Ads Betreuung`;
       htmlContent = `
