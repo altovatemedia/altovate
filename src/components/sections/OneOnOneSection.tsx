@@ -26,12 +26,12 @@ const OneOnOneSection = () => {
             </Reveal>
             <Reveal blur delay={0.1}>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Strategische 1:1 <span className="text-primary">Zusammenarbeit</span>
+                Strategische <span className="text-primary">Begleitung</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Für Unternehmer, die Marketing nicht mehr nebenbei entscheiden wollen.
+                1:1 Zusammenarbeit beim Aufbau und der Optimierung deines Marketing-Systems.
               </p>
             </Reveal>
           </div>
@@ -39,10 +39,20 @@ const OneOnOneSection = () => {
           <Reveal delay={0.1}>
             <div className="liquid-glass rounded-2xl p-8 md:p-12 mb-12">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Keine Agenturbetreuung. Kein klassisches Coaching. Sondern enge strategische Begleitung bei Positionierung, Angebotsstruktur und Systementscheidungen.
+                Strategische Begleitung beim Aufbau und der Optimierung deines Marketing-Systems. Wir priorisieren Maßnahmen, entwickeln Kampagnen weiter und optimieren deine Marketingstruktur kontinuierlich.
               </p>
-              <p className="text-lg text-foreground leading-relaxed">
-                Ich begleite dich bei den Entscheidungen, die Umsatz, Zeit und Wachstum bestimmen – und koordiniere bei Bedarf Tools, Umsetzung und externe Beteiligte.
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-foreground mb-3">Inhalte:</p>
+                <ul className="space-y-2">
+                  {["strategische Begleitung", "Priorisierung von Marketingmaßnahmen", "Optimierung bestehender Kampagnen", "kontinuierliche Weiterentwicklung des Systems"].map((item, i) => (
+                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>{item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-foreground font-medium">
+                Ein funktionierendes Marketing-System, das dauerhaft neue Kundenanfragen generiert.
               </p>
             </div>
           </Reveal>
@@ -74,14 +84,14 @@ const OneOnOneSection = () => {
           <Reveal scale delay={0.1}>
             <div className="text-center">
               <p className="text-sm text-muted-foreground mb-8">
-                Zusammenarbeit nur nach vorheriger Strategie-Session. Begrenzte Kapazität.
+                Zusammenarbeit nur nach vorheriger Analyse-Session. Begrenzte Kapazität.
               </p>
               <Button 
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold"
                 onClick={() => setIsModalOpen(true)}
               >
-                Zusammenarbeit besprechen
+                Zusammenarbeit starten
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>

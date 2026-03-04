@@ -73,12 +73,15 @@ const MarketingAnalyse = () => {
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  Wir analysieren deinen aktuellen Marketing-Auftritt und zeigen dir, wo aktuell Potenzial für mehr Kundenanfragen liegt.
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  Wir schauen uns dein aktuelles Marketing an und prüfen, wo das größte Potenzial für mehr Kundenanfragen liegt.
                 </p>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <p className="text-base text-muted-foreground mb-6">Du erhältst:</p>
+                <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                  Jede Anfrage wird persönlich von mir geprüft.
+                </p>
+                <p className="text-base text-muted-foreground leading-relaxed mb-8">
+                  Wenn ich der Meinung bin, dass ich dir nicht helfen kann, sage ich das offen.
+                </p>
               </Reveal>
               <StaggerContainer className="space-y-3" staggerDelay={0.1}>
                 {benefits.map((benefit, index) => (
