@@ -97,6 +97,7 @@
     { "source": "/marketing-system/:slug", "destination": "/index.html" },
     { "source": "/marketingwissen", "destination": "/index.html" },
     { "source": "/marketingwissen/:slug", "destination": "/index.html" },
+    { "source": "/circle-marketing-check", "destination": "/index.html" },
     { "source": "/datenschutz", "destination": "/index.html" },
     { "source": "/impressum", "destination": "/index.html" }
   ]
