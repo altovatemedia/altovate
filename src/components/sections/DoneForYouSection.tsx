@@ -77,9 +77,12 @@ const DoneForYouSection = () => {
               <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
                 Der Vorteil von Done for You ist, dass Unternehmer kein internes Marketing-Team aufbauen müssen. Stattdessen erhalten sie ein funktionierendes System mit dokumentierten Prozessen und regelmäßigem Reporting.
               </p>
-              <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto">
-                Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern wollen und einen festen Ansprechpartner für die gesamte Umsetzung suchen.
-              </p>
+               <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
+                 Dieses Modell richtet sich an Unternehmen, die Marketing nicht intern steuern wollen und einen festen Ansprechpartner für die gesamte Umsetzung suchen.
+               </p>
+               <p className="text-muted-foreground text-center">
+                 <span className="font-semibold text-foreground">ab 5.000 € / Monat</span>
+               </p>
             </div>
           </Reveal>
 
