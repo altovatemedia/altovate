@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -13,6 +14,7 @@ interface Message {
 }
 
 const ChatBot = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -158,6 +160,9 @@ const ChatBot = () => {
       return <span key={index}>{part}</span>;
     });
   };
+
+  const hiddenRoutes = ['/circle-marketing-check'];
+  if (hiddenRoutes.includes(location.pathname)) return null;
 
   return (
     <>
