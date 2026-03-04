@@ -10,55 +10,50 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface Step {
   question: string;
-  options: string[];
-  type?: 'input';
-  placeholder?: string;
+  options?: string[];
+  type?: 'input' | 'dual-input';
+  placeholders?: string[];
+  labels?: string[];
 }
 
 const steps: Step[] = [
   {
-    question: 'Was beschreibt dein Unternehmen am besten?',
-    options: ['Dienstleistung', 'Handwerk', 'Fitness / Gesundheit', 'lokales Unternehmen', 'anderes'],
+    question: 'Wie gewinnt ihr aktuell die meisten Kunden?',
+    options: ['Empfehlungen', 'Social Media', 'Google / Website', 'Anzeigen (Meta oder Google Ads)', 'nicht planbar'],
   },
   {
-    question: 'Wie gewinnst du aktuell neue Kunden?',
-    options: ['Empfehlungen', 'Social Media', 'Google / Website', 'Werbung', 'nicht planbar'],
+    question: 'Wie planbar sind eure Anfragen aktuell?',
+    options: ['sehr planbar', 'schwankt stark', 'abhängig von Empfehlungen', 'kaum planbar'],
   },
   {
-    question: 'Wie aktiv nutzt du Social Media aktuell?',
-    options: ['gar nicht', 'gelegentlich', 'regelmäßig', 'regelmäßig mit Werbung'],
+    question: 'Wie groß ist euer Unternehmen aktuell?',
+    options: ['Solo oder Freelancer', '2 bis 5 Mitarbeiter', '6 bis 20 Mitarbeiter', 'über 20 Mitarbeiter'],
   },
   {
-    question: 'Was ist aktuell deine größte Herausforderung im Marketing?',
-    options: [
-      'zu wenig Sichtbarkeit',
-      'zu wenig Kundenanfragen',
-      'Social Media kostet zu viel Zeit',
-      'Werbung funktioniert nicht',
-      'Marketing ist nicht strukturiert',
-    ],
+    question: 'Was ist aktuell eure größte Herausforderung im Marketing?',
+    options: ['mehr Kundenanfragen', 'bessere Sichtbarkeit', 'Social Media funktioniert nicht', 'Marketing kostet zu viel Zeit', 'keine klare Strategie'],
   },
   {
-    question: 'Website oder Social Media Profil',
-    type: 'input',
-    placeholder: 'Website oder Instagram Profil eintragen',
-    options: [],
+    question: 'Wo können wir euren aktuellen Auftritt sehen?',
+    type: 'dual-input',
+    labels: ['Website (optional)', 'Social Media Profil (optional)'],
+    placeholders: ['www.unternehmen.de', 'instagram.com/deinunternehmen'],
   },
 ];
 
-type Phase = 'hero' | 'check' | 'result' | 'form' | 'done';
+type Phase = 'hero' | 'check' | 'form' | 'done';
 
 const CircleMarketingCheck = () => {
   const [phase, setPhase] = useState<Phase>('hero');
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState('');
+  const [dualInput, setDualInput] = useState({ website: '', social: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     email: '',
     phone: '',
+    company: '',
   });
 
   const progress = ((step + 1) / steps.length) * 100;
@@ -69,18 +64,15 @@ const CircleMarketingCheck = () => {
     if (step < steps.length - 1) {
       setStep(step + 1);
     } else {
-      setPhase('result');
+      setPhase('form');
     }
   };
 
-  const handleInputSubmit = () => {
-    if (!inputValue.trim()) {
-      toast.error('Bitte trage deine Website oder dein Profil ein.');
-      return;
-    }
-    const newAnswers = [...answers, inputValue.trim()];
+  const handleDualInputSubmit = () => {
+    const combined = [dualInput.website, dualInput.social].filter(Boolean).join(' | ') || '-';
+    const newAnswers = [...answers, combined];
     setAnswers(newAnswers);
-    setPhase('result');
+    setPhase('form');
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -103,19 +95,20 @@ const CircleMarketingCheck = () => {
           email: formData.email,
           company: formData.company,
           phone: formData.phone,
-          website: answers[4] || '',
+          website: dualInput.website || '',
+          instagram: dualInput.social || '',
           message: [
-            `Unternehmenstyp: ${answers[0] || '-'}`,
-            `Kundengewinnung: ${answers[1] || '-'}`,
-            `Social Media Aktivität: ${answers[2] || '-'}`,
+            `Kundengewinnung: ${answers[0] || '-'}`,
+            `Planbarkeit: ${answers[1] || '-'}`,
+            `Unternehmensgröße: ${answers[2] || '-'}`,
             `Größte Herausforderung: ${answers[3] || '-'}`,
-            `Website/Profil: ${answers[4] || '-'}`,
+            `Website: ${dualInput.website || '-'}`,
+            `Social Media: ${dualInput.social || '-'}`,
           ].join('\n'),
         },
       });
       if (error) throw error;
 
-      // Fire conversion event
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'marketing_check_request', {
           event_category: 'conversion',
@@ -140,7 +133,6 @@ const CircleMarketingCheck = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      {/* Minimal header */}
       <header className="py-4 px-6">
         <img src="/altovate-logo.png" alt="Altovate" className="h-8 brightness-0 invert" />
       </header>
@@ -160,11 +152,9 @@ const CircleMarketingCheck = () => {
                   Kostenloser Marketing-Check für Unternehmer bei Circle Fitness
                 </h1>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Du bist selbstständig oder führst ein Unternehmen und bist Mitglied bei Circle?
+                  Viele Unternehmen gewinnen ihre Kunden hauptsächlich über Empfehlungen und haben deshalb kaum planbare Anfragen.
                   <br /><br />
-                  Dann kannst du exklusiv diesen Marketing-Check nutzen.
-                  <br /><br />
-                  In wenigen Schritten analysieren wir deinen aktuellen Marketing-Auftritt und zeigen dir, wo Potenzial für mehr Kundenanfragen liegt.
+                  Mit diesem kurzen Check finden wir heraus, wo aktuell der größte Marketing-Hebel für dein Unternehmen liegt.
                 </p>
                 <Button
                   size="lg"
@@ -192,20 +182,32 @@ const CircleMarketingCheck = () => {
                   {steps[step].question}
                 </h2>
 
-                {steps[step].type === 'input' ? (
+                {steps[step].type === 'dual-input' ? (
                   <div className="space-y-4">
-                    <Input
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      placeholder={steps[step].placeholder}
-                      className="py-6 text-base"
-                      maxLength={200}
-                      onKeyDown={(e) => e.key === 'Enter' && handleInputSubmit()}
-                    />
+                    <div>
+                      <Label className="text-sm text-muted-foreground">{steps[step].labels?.[0]}</Label>
+                      <Input
+                        value={dualInput.website}
+                        onChange={(e) => setDualInput(prev => ({ ...prev, website: e.target.value }))}
+                        placeholder={steps[step].placeholders?.[0]}
+                        className="py-6 text-base mt-1"
+                        maxLength={200}
+                      />
+                    </div>
+                    <div>
+                      <Label className="text-sm text-muted-foreground">{steps[step].labels?.[1]}</Label>
+                      <Input
+                        value={dualInput.social}
+                        onChange={(e) => setDualInput(prev => ({ ...prev, social: e.target.value }))}
+                        placeholder={steps[step].placeholders?.[1]}
+                        className="py-6 text-base mt-1"
+                        maxLength={200}
+                      />
+                    </div>
                     <Button
                       size="lg"
                       className="w-full py-6 text-lg font-semibold btn-hero"
-                      onClick={handleInputSubmit}
+                      onClick={handleDualInputSubmit}
                     >
                       Weiter <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
@@ -226,56 +228,19 @@ const CircleMarketingCheck = () => {
               </motion.div>
             )}
 
-            {/* RESULT */}
-            {phase === 'result' && (
-              <motion.div key="result" {...fadeVariants} transition={{ duration: 0.4 }} className="text-center space-y-6">
-                <div className="flex justify-center">
-                  <CheckCircle className="w-16 h-16 text-primary" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold">
-                  Dein Marketing hat Potenzial.
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  Basierend auf deinen Antworten schauen wir uns deinen Marketing-Auftritt kurz genauer an und geben dir eine ehrliche Einschätzung.
-                </p>
-                <div className="text-left space-y-3 liquid-glass rounded-2xl p-6">
-                  <p className="font-semibold text-foreground mb-3">Du erhältst:</p>
-                  {[
-                    'kurze Analyse deiner aktuellen Situation',
-                    'konkrete Handlungsempfehlungen',
-                    'Einschätzung der größten Wachstumshebel',
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                      <span className="text-foreground">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button
-                  size="lg"
-                  className="w-full py-6 text-lg font-semibold btn-hero"
-                  onClick={() => setPhase('form')}
-                >
-                  Analyse anfragen <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </motion.div>
-            )}
-
             {/* FORM */}
             {phase === 'form' && (
               <motion.div key="form" {...fadeVariants} transition={{ duration: 0.4 }} className="space-y-6">
-                <div className="text-muted-foreground text-sm leading-relaxed space-y-2">
-                  <p>Jede Anfrage wird persönlich von mir geprüft.</p>
-                  <p>Wenn ich der Meinung bin, dass ich dir nicht helfen kann, sage ich das offen.</p>
-                </div>
+                <h2 className="text-xl md:text-2xl font-semibold">
+                  Wohin sollen wir deine Einschätzung senden?
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Ich schaue mir deinen Auftritt kurz an und gebe dir eine ehrliche Einschätzung.
+                </p>
                 <form onSubmit={handleFormSubmit} className="liquid-glass rounded-2xl p-6 space-y-4">
                   <div>
                     <Label htmlFor="name">Name *</Label>
                     <Input id="name" name="name" value={formData.name} onChange={handleFormChange} placeholder="Dein Name" required maxLength={100} className="py-5" />
-                  </div>
-                  <div>
-                    <Label htmlFor="company">Unternehmen</Label>
-                    <Input id="company" name="company" value={formData.company} onChange={handleFormChange} placeholder="Firmenname" maxLength={100} className="py-5" />
                   </div>
                   <div>
                     <Label htmlFor="email">E-Mail *</Label>
@@ -285,13 +250,21 @@ const CircleMarketingCheck = () => {
                     <Label htmlFor="phone">Telefon (optional)</Label>
                     <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleFormChange} placeholder="+49..." maxLength={30} className="py-5" />
                   </div>
+                  <div>
+                    <Label htmlFor="company">Unternehmen oder Branche</Label>
+                    <Input id="company" name="company" value={formData.company} onChange={handleFormChange} placeholder="Firmenname oder Branche" maxLength={100} className="py-5" />
+                  </div>
                   <Button type="submit" size="lg" className="w-full py-6 text-lg font-semibold btn-hero" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Wird gesendet...</>
                     ) : (
-                      <>Analyse anfragen <ArrowRight className="ml-2 w-5 h-5" /></>
+                      <>Analyse anfordern <ArrowRight className="ml-2 w-5 h-5" /></>
                     )}
                   </Button>
+                  <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                    Jede Anfrage wird persönlich geprüft.<br />
+                    Wenn ich der Meinung bin, dass ich nicht helfen kann, sage ich das offen.
+                  </p>
                 </form>
               </motion.div>
             )}
@@ -303,10 +276,14 @@ const CircleMarketingCheck = () => {
                   <CheckCircle className="w-16 h-16 text-primary" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold">
-                  Anfrage erhalten!
+                  Danke – ich schaue mir deinen Auftritt kurz an.
                 </h2>
-                <p className="text-muted-foreground text-lg">
-                  Wir melden uns innerhalb von 24 Stunden bei dir.
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Ich werfe einen kurzen Blick auf deine Website oder dein Social-Media-Profil und melde mich mit einer ehrlichen Einschätzung.
+                  <br /><br />
+                  Das dauert in der Regel 24 bis 48 Stunden.
+                  <br /><br />
+                  Wenn wir Potenzial sehen, können wir anschließend kurz besprechen, welche nächsten Schritte sinnvoll sind.
                 </p>
               </motion.div>
             )}
@@ -314,7 +291,6 @@ const CircleMarketingCheck = () => {
         </div>
       </main>
 
-      {/* Minimal footer */}
       <footer className="py-4 px-6 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} Altovate · <a href="/datenschutz" className="underline hover:text-foreground">Datenschutz</a> · <a href="/impressum" className="underline hover:text-foreground">Impressum</a>
       </footer>
