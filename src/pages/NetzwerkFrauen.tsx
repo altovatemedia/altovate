@@ -46,12 +46,28 @@ const NetzwerkFrauen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
+  const [showReview, setShowReview] = useState(false);
+
+  const GOOGLE_REVIEW_LINK = "https://g.page/r/DEIN-GOOGLE-REVIEW-LINK/review"; // TODO: echten Link einfügen
 
   useEffect(() => {
     document.title = "Die 5 KI-Prompts für Social Media · Gratis · Altovate";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", "4 interaktive Claude-Prompts + Kombinations-Prompt. 6 Monate Content in 15 Minuten. Kostenlos anfordern.");
   }, []);
+
+  useEffect(() => {
+    if (status === "success") {
+      const timer = setTimeout(() => setShowReview(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  const reviewChips = [
+    "Was hat dich heute am meisten überrascht?",
+    "Was nimmst du direkt mit?",
+    "Würdest du den Workshop weiterempfehlen?",
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -123,8 +139,59 @@ const NetzwerkFrauen = () => {
                     <circle cx="24" cy="24" r="22" stroke="url(#checkGrad)" strokeWidth="2.5" fill="none" />
                     <path d="M15 24.5L21.5 31L33 18" stroke="url(#checkGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
-                   <h3 className="text-xl font-bold text-[#F0A818] mb-2">Fertig — check dein Postfach.</h3>
+                  <h3 className="text-xl font-bold text-[#F0A818] mb-2">Fertig — check dein Postfach.</h3>
                   <p className="text-sm text-[#8B95A8] leading-relaxed">Schau in dein Postfach — die Prompts sind auf dem Weg zu dir. Check auch deinen Spam-Ordner.</p>
+
+                  {/* ── REVIEW REQUEST (delayed fade-in) ── */}
+                  <div
+                    className="mt-8 pt-6 border-t border-white/[0.06] text-left"
+                    style={{
+                      opacity: showReview ? 1 : 0,
+                      transform: showReview ? "translateY(0)" : "translateY(16px)",
+                      transition: "opacity 0.7s ease, transform 0.7s ease",
+                      pointerEvents: showReview ? "auto" : "none",
+                    }}
+                  >
+                    <h4 className="text-[16px] font-bold text-[#F0A818] mb-3">
+                      Eine kurze Bitte — 60 Sekunden, große Wirkung.
+                    </h4>
+                    <p className="text-[13px] text-[#8B95A8] leading-relaxed mb-5">
+                      Hat dir der Workshop heute etwas gebracht?
+                      <br />Eine Google-Bewertung hilft mir enorm —
+                      <br />und damit du nicht vor einem leeren Textfeld sitzt,
+                      <br />hier ein paar Impulse:
+                    </p>
+
+                    {/* Inspiration Chips */}
+                    <div className="glass-card border-[#F0A818]/20 bg-[#F0A818]/[0.04] p-4 mb-5">
+                      <div className="flex flex-wrap gap-2">
+                        {reviewChips.map((chip) => (
+                          <a
+                            key={chip}
+                            href={GOOGLE_REVIEW_LINK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-3 py-2 text-[12px] text-[#F0A818] border border-[#F0A818]/25 rounded-lg bg-[#F0A818]/[0.06] hover:bg-[#F0A818]/[0.12] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                          >
+                            {chip}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <a
+                      href={GOOGLE_REVIEW_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3.5 rounded-xl font-bold text-base text-center bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00] text-[#0B1120] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(240,168,24,0.3)] transition-all duration-300"
+                    >
+                      ⭐ Jetzt kurz bewerten →
+                    </a>
+                    <p className="text-[10px] text-[#8B95A8]/50 text-center mt-2">
+                      Kein Account nötig. Dauert 60 Sekunden.
+                    </p>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
