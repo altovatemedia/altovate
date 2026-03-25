@@ -75,7 +75,7 @@ const NetzwerkFrauen = () => {
       {/* ── NAV ── */}
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#0B1120]/70 border-b border-white/[0.04]">
         <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
-          <span className="text-sm font-bold tracking-[0.18em] uppercase bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00] bg-clip-text text-transparent">ALTOVATE</span>
+          <img src="/altovate-logo.png" alt="Altovate" className="h-6 brightness-0 invert" />
           <a href="https://altovate.de" target="_blank" rel="noopener" className="text-xs text-[#8B95A8] hover:text-[#F0A818] transition-colors">altovate.de →</a>
         </div>
       </nav>
