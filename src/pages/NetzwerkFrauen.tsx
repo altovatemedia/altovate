@@ -180,10 +180,9 @@ const NetzwerkFrauen = () => {
         <FadeUp delay={0.1} className="mt-5">
           <div className="glass-card relative overflow-hidden border-[#F0A818]/20 bg-[#F0A818]/[0.04]">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00]" />
-            <div className="p-6 flex gap-4 items-start">
-              <span className="text-4xl shrink-0">⚡</span>
-              <div>
-                <h3 className="text-base font-bold text-[#F0A818] mb-2">Bonus: Kombinations-Prompt</h3>
+            <div className="p-6">
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818] mb-2">BONUS</p>
+              <h3 className="text-base font-bold text-[#F1F1F1] mb-3">Kombinations-Prompt</h3>
                 <p className="text-[13px] leading-relaxed text-[#8B95A8]">Füge alle 4 Markdown-Dokumente in einen letzten Prompt ein — Claude kombiniert alles zu deiner persönlichen Social Media Strategie. Ein Dokument. Vollständig. Ready to use.</p>
               </div>
             </div>
