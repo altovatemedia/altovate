@@ -110,13 +110,23 @@ const NetzwerkFrauen = () => {
             <div className="p-6 md:p-8">
               {status === "success" ? (
                 <div className="text-center py-6">
-                  <p className="text-5xl mb-4">✅</p>
-                  <h3 className="text-xl font-bold text-[#F0A818] mb-2">Du bist dabei.</h3>
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="mx-auto mb-4">
+                    <defs>
+                      <linearGradient id="checkGrad" x1="0" y1="0" x2="48" y2="48">
+                        <stop offset="0%" stopColor="#FFEB3B" />
+                        <stop offset="50%" stopColor="#FFC107" />
+                        <stop offset="100%" stopColor="#F57C00" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="24" cy="24" r="22" stroke="url(#checkGrad)" strokeWidth="2.5" fill="none" />
+                    <path d="M15 24.5L21.5 31L33 18" stroke="url(#checkGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                   <h3 className="text-xl font-bold text-[#F0A818] mb-2">Fertig — check dein Postfach.</h3>
                   <p className="text-sm text-[#8B95A8] leading-relaxed">Schau in dein Postfach — die Prompts sind auf dem Weg zu dir. Check auch deinen Spam-Ordner.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818]">🎁 GRATIS · KEIN SPAM</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818]">GRATIS · KEIN SPAM</p>
                   <h2 className="text-[22px] font-bold">Direkt in dein Postfach.</h2>
                   <p className="text-[13px] text-[#8B95A8]">Trag dich ein — die Prompts kommen automatisch zu dir.</p>
                   <input
@@ -170,12 +180,10 @@ const NetzwerkFrauen = () => {
         <FadeUp delay={0.1} className="mt-5">
           <div className="glass-card relative overflow-hidden border-[#F0A818]/20 bg-[#F0A818]/[0.04]">
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00]" />
-            <div className="p-6 flex gap-4 items-start">
-              <span className="text-4xl shrink-0">⚡</span>
-              <div>
-                <h3 className="text-base font-bold text-[#F0A818] mb-2">Bonus: Kombinations-Prompt</h3>
-                <p className="text-[13px] leading-relaxed text-[#8B95A8]">Füge alle 4 Markdown-Dokumente in einen letzten Prompt ein — Claude kombiniert alles zu deiner persönlichen Social Media Strategie. Ein Dokument. Vollständig. Ready to use.</p>
-              </div>
+            <div className="p-6">
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818] mb-2">BONUS</p>
+              <h3 className="text-base font-bold text-[#F1F1F1] mb-3">Kombinations-Prompt</h3>
+              <p className="text-[13px] leading-relaxed text-[#8B95A8]">Füge alle 4 Markdown-Dokumente in einen letzten Prompt ein — Claude kombiniert alles zu deiner persönlichen Social Media Strategie. Ein Dokument. Vollständig. Ready to use.</p>
             </div>
           </div>
         </FadeUp>
