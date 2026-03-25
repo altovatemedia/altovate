@@ -183,8 +183,7 @@ const NetzwerkFrauen = () => {
             <div className="p-6">
               <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818] mb-2">BONUS</p>
               <h3 className="text-base font-bold text-[#F1F1F1] mb-3">Kombinations-Prompt</h3>
-                <p className="text-[13px] leading-relaxed text-[#8B95A8]">Füge alle 4 Markdown-Dokumente in einen letzten Prompt ein — Claude kombiniert alles zu deiner persönlichen Social Media Strategie. Ein Dokument. Vollständig. Ready to use.</p>
-              </div>
+              <p className="text-[13px] leading-relaxed text-[#8B95A8]">Füge alle 4 Markdown-Dokumente in einen letzten Prompt ein — Claude kombiniert alles zu deiner persönlichen Social Media Strategie. Ein Dokument. Vollständig. Ready to use.</p>
             </div>
           </div>
         </FadeUp>
