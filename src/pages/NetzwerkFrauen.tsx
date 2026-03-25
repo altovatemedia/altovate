@@ -56,6 +56,19 @@ const NetzwerkFrauen = () => {
     if (meta) meta.setAttribute("content", "4 interaktive Claude-Prompts + Kombinations-Prompt. 6 Monate Content in 15 Minuten. Kostenlos anfordern.");
   }, []);
 
+  useEffect(() => {
+    if (status === "success") {
+      const timer = setTimeout(() => setShowReview(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  const reviewChips = [
+    "Was hat dich heute am meisten überrascht?",
+    "Was nimmst du direkt mit?",
+    "Würdest du den Workshop weiterempfehlen?",
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
