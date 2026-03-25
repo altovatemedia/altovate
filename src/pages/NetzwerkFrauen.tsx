@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import signaturImg from "@/assets/signatur-alex-handschrift.png";
 
 /* ─── fade-up hook ─── */
 const useFadeUp = () => {
@@ -74,7 +75,7 @@ const NetzwerkFrauen = () => {
       {/* ── NAV ── */}
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#0B1120]/70 border-b border-white/[0.04]">
         <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
-          <span className="text-sm font-bold tracking-[0.18em] uppercase bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00] bg-clip-text text-transparent">ALTOVATE</span>
+          <img src="/altovate-logo.png" alt="Altovate" className="h-6 brightness-0 invert" />
           <a href="https://altovate.de" target="_blank" rel="noopener" className="text-xs text-[#8B95A8] hover:text-[#F0A818] transition-colors">altovate.de →</a>
         </div>
       </nav>
@@ -194,8 +195,8 @@ const NetzwerkFrauen = () => {
         <FadeUp className="max-w-[700px] mx-auto glass-card relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00]" />
           <div className="p-8 md:p-10 flex flex-col items-center text-center">
-            <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-[#FFEB3B] to-[#F57C00] flex items-center justify-center mb-4">
-              <span className="text-[#0B1120] font-extrabold text-2xl">AB</span>
+            <div className="w-[76px] h-[76px] rounded-full p-[2px] bg-gradient-to-br from-[#FFEB3B] to-[#F57C00] mb-4">
+              <img src="/alexander-portrait-circle.png" alt="Alex Buchmann" className="w-full h-full rounded-full object-cover" />
             </div>
             <h3 className="text-xl font-bold mb-1">Alex Buchmann</h3>
             <p className="text-[13px] text-[#8B95A8] mb-5">Gründer · Altovate GmbH · B2B Marketing & Strategy</p>
@@ -203,7 +204,7 @@ const NetzwerkFrauen = () => {
             <p className="text-[15px] italic text-[#8B95A8] leading-relaxed max-w-lg">
               "Social Media funktioniert nicht wegen Quantität. Es funktioniert wegen Klarheit — über wen du erreichst, was du sagst und wie du klingst. Das System gibt dir beides."
             </p>
-            <p className="mt-5 text-2xl text-[#F0A818]" style={{ fontFamily: "'Dancing Script', cursive" }}>Alex Buchmann</p>
+            <img src={signaturImg} alt="Alex Buchmann Signatur" className="mt-5 h-10 mx-auto" style={{ filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(15deg)" }} />
           </div>
         </FadeUp>
       </section>
@@ -211,7 +212,7 @@ const NetzwerkFrauen = () => {
       {/* ── FOOTER ── */}
       <footer className="border-t border-[#1E293B] px-5 py-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <span className="font-bold tracking-[0.18em] uppercase bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00] bg-clip-text text-transparent">ALTOVATE</span>
+          <img src="/altovate-logo.png" alt="Altovate" className="h-5 brightness-0 invert" />
           <div className="flex items-center gap-4 text-[#8B95A8]">
             <a href="https://altovate.de" target="_blank" rel="noopener" className="hover:text-[#F0A818] transition-colors">altovate.de</a>
             <a href="https://www.linkedin.com/in/alexander-buchmann/" target="_blank" rel="noopener" className="hover:text-[#F0A818] transition-colors">LinkedIn</a>
