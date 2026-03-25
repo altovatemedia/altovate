@@ -212,7 +212,7 @@ const NetzwerkFrauen = () => {
       {/* ── FOOTER ── */}
       <footer className="border-t border-[#1E293B] px-5 py-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <span className="font-bold tracking-[0.18em] uppercase bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00] bg-clip-text text-transparent">ALTOVATE</span>
+          <img src="/altovate-logo.png" alt="Altovate" className="h-5 brightness-0 invert" />
           <div className="flex items-center gap-4 text-[#8B95A8]">
             <a href="https://altovate.de" target="_blank" rel="noopener" className="hover:text-[#F0A818] transition-colors">altovate.de</a>
             <a href="https://www.linkedin.com/in/alexander-buchmann/" target="_blank" rel="noopener" className="hover:text-[#F0A818] transition-colors">LinkedIn</a>
