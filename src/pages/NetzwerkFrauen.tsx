@@ -204,7 +204,7 @@ const NetzwerkFrauen = () => {
             <p className="text-[15px] italic text-[#8B95A8] leading-relaxed max-w-lg">
               "Social Media funktioniert nicht wegen Quantität. Es funktioniert wegen Klarheit — über wen du erreichst, was du sagst und wie du klingst. Das System gibt dir beides."
             </p>
-            <p className="mt-5 text-2xl text-[#F0A818]" style={{ fontFamily: "'Dancing Script', cursive" }}>Alex Buchmann</p>
+            <img src={signaturImg} alt="Alex Buchmann Signatur" className="mt-5 h-10 mx-auto" style={{ filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(15deg)" }} />
           </div>
         </FadeUp>
       </section>
