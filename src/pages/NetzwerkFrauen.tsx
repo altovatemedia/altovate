@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import signaturImg from "@/assets/signatur-alex-handschrift.png";
+import portraitImg from "@/assets/alexander-portrait-circle.png";
 
 /* ─── fade-up hook ─── */
 const useFadeUp = () => {
