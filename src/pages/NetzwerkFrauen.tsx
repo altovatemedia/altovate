@@ -126,7 +126,7 @@ const NetzwerkFrauen = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818]">🎁 GRATIS · KEIN SPAM</p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F0A818]">GRATIS · KEIN SPAM</p>
                   <h2 className="text-[22px] font-bold">Direkt in dein Postfach.</h2>
                   <p className="text-[13px] text-[#8B95A8]">Trag dich ein — die Prompts kommen automatisch zu dir.</p>
                   <input
