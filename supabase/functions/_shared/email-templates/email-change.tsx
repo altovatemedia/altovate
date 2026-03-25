@@ -27,32 +27,31 @@ export const EmailChangeEmail = ({
   newEmail,
   confirmationUrl,
 }: EmailChangeEmailProps) => (
-  <Html lang="en" dir="ltr">
+  <Html lang="de" dir="ltr">
     <Head />
-    <Preview>Confirm your email change for {siteName}</Preview>
+    <Preview>E-Mail-Änderung bestätigen für {siteName}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Confirm your email change</Heading>
+        <Heading style={h1}>E-Mail-Änderung bestätigen</Heading>
         <Text style={text}>
-          You requested to change your email address for {siteName} from{' '}
+          Du hast eine Änderung deiner E-Mail-Adresse für {siteName} von{' '}
           <Link href={`mailto:${email}`} style={link}>
             {email}
           </Link>{' '}
-          to{' '}
+          zu{' '}
           <Link href={`mailto:${newEmail}`} style={link}>
             {newEmail}
-          </Link>
-          .
+          </Link>{' '}
+          angefordert.
         </Text>
         <Text style={text}>
-          Click the button below to confirm this change:
+          Klicke auf den Button, um die Änderung zu bestätigen:
         </Text>
         <Button style={button} href={confirmationUrl}>
-          Confirm Email Change
+          E-Mail-Änderung bestätigen
         </Button>
         <Text style={footer}>
-          If you didn't request this change, please secure your account
-          immediately.
+          Falls du diese Änderung nicht angefordert hast, sichere bitte sofort dein Konto.
         </Text>
       </Container>
     </Body>
@@ -61,12 +60,12 @@ export const EmailChangeEmail = ({
 
 export default EmailChangeEmail
 
-const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
+const main = { backgroundColor: '#ffffff', fontFamily: "'Inter', Arial, sans-serif" }
 const container = { padding: '20px 25px' }
 const h1 = {
   fontSize: '22px',
   fontWeight: 'bold' as const,
-  color: '#000000',
+  color: '#0B1120',
   margin: '0 0 20px',
 }
 const text = {
@@ -75,12 +74,13 @@ const text = {
   lineHeight: '1.5',
   margin: '0 0 25px',
 }
-const link = { color: 'inherit', textDecoration: 'underline' }
+const link = { color: '#F0A818', textDecoration: 'underline' }
 const button = {
-  backgroundColor: '#000000',
-  color: '#ffffff',
+  backgroundColor: '#F0A818',
+  color: '#0B1120',
   fontSize: '14px',
-  borderRadius: '8px',
+  fontWeight: 'bold' as const,
+  borderRadius: '16px',
   padding: '12px 20px',
   textDecoration: 'none',
 }
