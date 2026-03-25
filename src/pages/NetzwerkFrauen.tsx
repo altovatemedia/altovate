@@ -110,8 +110,18 @@ const NetzwerkFrauen = () => {
             <div className="p-6 md:p-8">
               {status === "success" ? (
                 <div className="text-center py-6">
-                  <p className="text-5xl mb-4">✅</p>
-                  <h3 className="text-xl font-bold text-[#F0A818] mb-2">Du bist dabei.</h3>
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="mx-auto mb-4">
+                    <defs>
+                      <linearGradient id="checkGrad" x1="0" y1="0" x2="48" y2="48">
+                        <stop offset="0%" stopColor="#FFEB3B" />
+                        <stop offset="50%" stopColor="#FFC107" />
+                        <stop offset="100%" stopColor="#F57C00" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="24" cy="24" r="22" stroke="url(#checkGrad)" strokeWidth="2.5" fill="none" />
+                    <path d="M15 24.5L21.5 31L33 18" stroke="url(#checkGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                   <h3 className="text-xl font-bold text-[#F0A818] mb-2">Fertig — check dein Postfach.</h3>
                   <p className="text-sm text-[#8B95A8] leading-relaxed">Schau in dein Postfach — die Prompts sind auf dem Weg zu dir. Check auch deinen Spam-Ordner.</p>
                 </div>
               ) : (
