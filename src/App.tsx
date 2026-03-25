@@ -24,6 +24,7 @@ import Tools from "./pages/Tools";
 import GlossaryOverview from "./pages/GlossaryOverview";
 import GlossaryTerm from "./pages/GlossaryTerm";
 import CircleMarketingCheck from "./pages/CircleMarketingCheck";
+import NetzwerkFrauen from "./pages/NetzwerkFrauen";
 
 const ChatBot = lazy(() => import("./components/ChatBot"));
 const StickyMobileCTA = lazy(() => import("./components/StickyMobileCTA"));
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/marketingwissen" element={<Navigate to="/marketing-wissen" replace />} />
           <Route path="/marketingwissen/:slug" element={<RedirectArticle from="marketingwissen" />} />
           <Route path="/circle-marketing-check" element={<CircleMarketingCheck />} />
+          <Route path="/netzwerkfrauen" element={<NetzwerkFrauen />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
