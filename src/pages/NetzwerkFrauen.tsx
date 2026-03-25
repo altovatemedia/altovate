@@ -48,7 +48,7 @@ const NetzwerkFrauen = () => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
   const [showReview, setShowReview] = useState(false);
 
-  const GOOGLE_REVIEW_LINK = "https://g.page/r/DEIN-GOOGLE-REVIEW-LINK/review"; // TODO: echten Link einfügen
+  const GOOGLE_REVIEW_LINK = "https://g.page/r/CcGGDUIfQaUWEBM/review";
 
   useEffect(() => {
     document.title = "Die 5 KI-Prompts für Social Media · Gratis · Altovate";
