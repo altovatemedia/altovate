@@ -197,7 +197,7 @@ const NetzwerkFrauen = () => {
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFEB3B] via-[#FFC107] to-[#F57C00]" />
           <div className="p-8 md:p-10 flex flex-col items-center text-center">
             <div className="w-[76px] h-[76px] rounded-full p-[2px] bg-gradient-to-br from-[#FFEB3B] to-[#F57C00] mb-4">
-              <img src="/alexander-portrait-circle.png" alt="Alex Buchmann" className="w-full h-full rounded-full object-cover" />
+              <img src={portraitImg} alt="Alex Buchmann" className="w-full h-full rounded-full object-cover" />
             </div>
             <h3 className="text-xl font-bold mb-1">Alex Buchmann</h3>
             <p className="text-[13px] text-[#8B95A8] mb-5">Gründer · Altovate GmbH · B2B Marketing & Strategy</p>
