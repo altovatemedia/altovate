@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import signaturImg from "@/assets/signatur-alex-handschrift.png";
+import signaturImg from "@/assets/signatur-alex-transparent.png";
 import portraitImg from "@/assets/alex-netzwerkfrauen.jpg";
 
 /* ─── fade-up hook ─── */
