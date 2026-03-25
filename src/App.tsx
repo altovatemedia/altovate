@@ -61,6 +61,7 @@ const App = () => (
           <Route path="/marketingwissen" element={<Navigate to="/marketing-wissen" replace />} />
           <Route path="/marketingwissen/:slug" element={<RedirectArticle from="marketingwissen" />} />
           <Route path="/circle-marketing-check" element={<CircleMarketingCheck />} />
+          <Route path="/netzwerkfrauen" element={<NetzwerkFrauen />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
