@@ -63,6 +63,7 @@ const App = () => (
           <Route path="/marketingwissen/:slug" element={<RedirectArticle from="marketingwissen" />} />
           <Route path="/circle-marketing-check" element={<CircleMarketingCheck />} />
           <Route path="/netzwerkfrauen" element={<NetzwerkFrauen />} />
+          <Route path="/unsubscribe" element={<Unsubscribe />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="*" element={<NotFound />} />
