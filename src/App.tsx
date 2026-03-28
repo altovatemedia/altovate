@@ -25,6 +25,7 @@ import GlossaryOverview from "./pages/GlossaryOverview";
 import GlossaryTerm from "./pages/GlossaryTerm";
 import CircleMarketingCheck from "./pages/CircleMarketingCheck";
 import NetzwerkFrauen from "./pages/NetzwerkFrauen";
+import Unsubscribe from "./pages/Unsubscribe";
 
 const ChatBot = lazy(() => import("./components/ChatBot"));
 const StickyMobileCTA = lazy(() => import("./components/StickyMobileCTA"));
