@@ -79,8 +79,25 @@ const NetzwerkFrauen = () => {
         if (error.code === "23505") { setStatus("duplicate"); return; }
         throw error;
       }
-      // trigger email edge function
-      await supabase.functions.invoke("send-lead-email", { body: { name: name.trim(), email: email.trim() } });
+      // Send prompts email to lead
+      const leadId = crypto.randomUUID();
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "netzwerkfrauen-prompts",
+          recipientEmail: email.trim(),
+          idempotencyKey: `netzwerk-prompts-${leadId}`,
+          templateData: { name: name.trim() },
+        },
+      });
+      // Notify Alex about new lead
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "lead-notification",
+          recipientEmail: "alex@altovate.de",
+          idempotencyKey: `netzwerk-notify-${leadId}`,
+          templateData: { leadName: name.trim(), leadEmail: email.trim(), source: "NetzwerkFrauenTag Merzig 2026" },
+        },
+      });
       setStatus("success");
     } catch {
       setStatus("error");
