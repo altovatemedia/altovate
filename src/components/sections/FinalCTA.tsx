@@ -1,9 +1,13 @@
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Reveal from '@/components/animations/Reveal';
+import CalComModal from '@/components/CalComModal';
 
 const FinalCTA = () => {
+  const [isCalOpen, setIsCalOpen] = useState(false);
+
   const scrollToAnalyse = () => {
     const analyseSection = document.getElementById('marketing-analyse');
     analyseSection?.scrollIntoView({ behavior: 'smooth' });
