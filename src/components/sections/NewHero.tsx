@@ -1,10 +1,13 @@
-import { ArrowRight, Check } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Check, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
 import TrustBar from '@/components/sections/TrustBar';
+import CalComModal from '@/components/CalComModal';
 
 const NewHero = () => {
+  const [isCalOpen, setIsCalOpen] = useState(false);
   const { scrollY } = useScroll();
   const portraitY = useTransform(scrollY, [0, 600], [0, 80]);
 
@@ -96,9 +99,10 @@ const NewHero = () => {
                 size="lg"
                 variant="outline"
                 className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground"
-                onClick={scrollToOffers}
+                onClick={() => setIsCalOpen(true)}
               >
-                Direkt Klarheit statt Erstgespräch
+                <Calendar className="mr-2 w-5 h-5" />
+                Gespräch buchen
               </Button>
             </motion.div>
 
@@ -147,6 +151,7 @@ const NewHero = () => {
         </motion.div>
       </div>
 
+      <CalComModal isOpen={isCalOpen} onClose={() => setIsCalOpen(false)} />
     </section>
   );
 };

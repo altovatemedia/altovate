@@ -1,9 +1,13 @@
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Reveal from '@/components/animations/Reveal';
+import CalComModal from '@/components/CalComModal';
 
 const FinalCTA = () => {
+  const [isCalOpen, setIsCalOpen] = useState(false);
+
   const scrollToAnalyse = () => {
     const analyseSection = document.getElementById('marketing-analyse');
     analyseSection?.scrollIntoView({ behavior: 'smooth' });
@@ -42,6 +46,15 @@ const FinalCTA = () => {
                 Kostenlose Marketing Analyse anfordern
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="px-8 py-7 text-lg font-semibold border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground w-full sm:w-auto"
+                onClick={() => setIsCalOpen(true)}
+              >
+                <Calendar className="mr-2 w-5 h-5" />
+                Gespräch buchen
+              </Button>
             </div>
           </Reveal>
 
@@ -52,6 +65,7 @@ const FinalCTA = () => {
           </Reveal>
         </div>
       </div>
+      <CalComModal isOpen={isCalOpen} onClose={() => setIsCalOpen(false)} />
     </section>
   );
 };
