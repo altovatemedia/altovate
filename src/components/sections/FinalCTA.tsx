@@ -46,6 +46,15 @@ const FinalCTA = () => {
                 Kostenlose Marketing Analyse anfordern
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="px-8 py-7 text-lg font-semibold border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground w-full sm:w-auto"
+                onClick={() => setIsCalOpen(true)}
+              >
+                <Calendar className="mr-2 w-5 h-5" />
+                Gespräch buchen
+              </Button>
             </div>
           </Reveal>
 
