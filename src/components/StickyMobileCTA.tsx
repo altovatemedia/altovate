@@ -24,20 +24,31 @@ const StickyMobileCTA = () => {
   return (
     <>
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-card/95 backdrop-blur-sm border-t border-border shadow-lg">
-        <p className="text-xs text-muted-foreground text-center mb-1.5">Ab 390 € – Antwort in 24h</p>
-        <Button
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-5 text-base font-semibold"
-          onClick={() => setIsModalOpen(true)}
-        >
-          Strategie-Session anfragen
-          <ArrowRight className="ml-2 w-4 h-4" />
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground py-5 text-sm font-semibold"
+            onClick={() => {
+              const el = document.getElementById('marketing-analyse');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Marketing Analyse
+            <ArrowRight className="ml-1 w-4 h-4" />
+          </Button>
+          <Button
+            variant="outline"
+            className="flex-1 py-5 text-sm font-semibold border-border"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <Calendar className="mr-1 w-4 h-4" />
+            Gespräch buchen
+          </Button>
+        </div>
       </div>
 
-      <BookingModal
+      <CalComModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        offerType="Strategie-Session"
       />
     </>
   );

@@ -65,6 +65,7 @@ const FinalCTA = () => {
           </Reveal>
         </div>
       </div>
+      <CalComModal isOpen={isCalOpen} onClose={() => setIsCalOpen(false)} />
     </section>
   );
 };

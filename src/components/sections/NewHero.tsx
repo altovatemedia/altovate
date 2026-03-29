@@ -151,6 +151,7 @@ const NewHero = () => {
         </motion.div>
       </div>
 
+      <CalComModal isOpen={isCalOpen} onClose={() => setIsCalOpen(false)} />
     </section>
   );
 };
