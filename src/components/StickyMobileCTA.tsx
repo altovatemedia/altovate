@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import BookingModal from '@/components/BookingModal';
+import CalComModal from '@/components/CalComModal';
 
 const StickyMobileCTA = () => {
   const location = useLocation();
