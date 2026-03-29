@@ -7,6 +7,7 @@ import TrustBar from '@/components/sections/TrustBar';
 import CalComModal from '@/components/CalComModal';
 
 const NewHero = () => {
+  const [isCalOpen, setIsCalOpen] = useState(false);
   const { scrollY } = useScroll();
   const portraitY = useTransform(scrollY, [0, 600], [0, 80]);
 
