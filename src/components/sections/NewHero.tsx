@@ -1,8 +1,10 @@
-import { ArrowRight, Check } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Check, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
 import TrustBar from '@/components/sections/TrustBar';
+import CalComModal from '@/components/CalComModal';
 
 const NewHero = () => {
   const { scrollY } = useScroll();
