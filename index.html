@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T5VHLN95');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJNMLPW6RZ"></script>
+    <!-- Google Consent Mode V2 - Default DENIED before user consent (DSGVO) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-XJNMLPW6RZ');
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+      gtag('set', 'ads_data_redaction', true);
     </script>
+    <!-- GA/GTM scripts are injected dynamically AFTER user consent (see useCookieConsent.tsx) -->
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,10 +49,7 @@
 </head>
 
   <body style="background-color: #0B1120; margin: 0;">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VHLN95"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- GTM noscript fallback removed: would load tracking without consent (DSGVO) -->
     <div id="root"></div>
     <noscript>
       <div style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:system-ui,sans-serif;color:#e2e8f0;background:#0B1120;">
