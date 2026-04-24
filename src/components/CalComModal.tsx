@@ -1,4 +1,3 @@
-import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
 import {
   Dialog,
@@ -6,6 +5,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { useConsent } from '@/contexts/ConsentContext';
+import CalEmbed from '@/components/CalEmbed';
 
 interface CalComModalProps {
   isOpen: boolean;
@@ -13,15 +14,25 @@ interface CalComModalProps {
 }
 
 const CalComModal = ({ isOpen, onClose }: CalComModalProps) => {
+  const { consent } = useConsent();
+
+  // Cal.com UI-Konfiguration nur initialisieren, wenn Embed erlaubt ist
   useEffect(() => {
-    (async function () {
+    if (!consent.external_embeds || !isOpen) return;
+    let cancelled = false;
+    (async () => {
+      const { getCalApi } = await import('@calcom/embed-react');
       const cal = await getCalApi();
+      if (cancelled) return;
       cal('ui', {
         theme: 'dark',
         styles: { branding: { brandColor: '#c8a960' } },
       });
     })();
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [consent.external_embeds, isOpen]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -35,11 +46,7 @@ const CalComModal = ({ isOpen, onClose }: CalComModalProps) => {
           </p>
         </DialogHeader>
         <div className="px-6 pb-6">
-          <Cal
-            calLink="alex-buchmann/discovery-call"
-            config={{ layout: 'month_view', theme: 'dark' }}
-            style={{ width: '100%', height: '100%', overflow: 'auto', minHeight: '450px' }}
-          />
+          <CalEmbed calLink="alex-buchmann/discovery-call" minHeight="450px" />
         </div>
       </DialogContent>
     </Dialog>
