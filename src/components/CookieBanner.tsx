@@ -137,10 +137,18 @@ export const CookieBanner = () => {
         </div>
       </div>
 
-      <div className="space-y-3 pt-4 border-t border-border">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-border">
+        <Button
+          onClick={handleEssentialOnly}
+          variant="outline"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
+        >
+          Alle ablehnen
+        </Button>
         <Button
           onClick={handleSaveSelection}
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-[10px] shadow-md h-12 font-medium"
+          variant="outline"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
         >
           Auswahl speichern
         </Button>
@@ -151,12 +159,6 @@ export const CookieBanner = () => {
         >
           Alle akzeptieren
         </Button>
-        <button
-          onClick={handleEssentialOnly}
-          className="w-full text-primary hover:underline font-medium py-2"
-        >
-          Nur essenzielle Cookies
-        </button>
       </div>
     </div>
   ) : (
@@ -197,25 +199,28 @@ export const CookieBanner = () => {
         </a>
       </div>
 
-      <div className="space-y-3 pt-4 border-t border-border">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-border">
+        <Button
+          onClick={handleEssentialOnly}
+          variant="outline"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
+        >
+          Alle ablehnen
+        </Button>
+        <Button
+          onClick={() => setShowDetails(true)}
+          variant="outline"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
+        >
+          Einstellungen
+        </Button>
         <Button
           onClick={handleAcceptAll}
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-[10px] shadow-md h-12 font-medium"
+          variant="outline"
+          className="w-full border-2 border-border hover:bg-muted text-foreground rounded-[10px] h-12 font-medium"
         >
           Alle akzeptieren
         </Button>
-        <Button
-          onClick={handleEssentialOnly}
-          className="w-full bg-muted hover:bg-muted/80 text-foreground rounded-[10px] h-12 font-medium"
-        >
-          Nur essenzielle
-        </Button>
-        <button
-          onClick={() => setShowDetails(true)}
-          className="w-full text-primary hover:underline font-medium py-2"
-        >
-          Einstellungen
-        </button>
       </div>
     </div>
   );
