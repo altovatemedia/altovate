@@ -46,6 +46,8 @@ const APPROVED_HOSTS_PRE_CONSENT = [
   "vercel.app",
   "supabase.co",
   "euglobmdsrurbbmfargp.supabase.co",
+  // Statisches Asset-CDN für OG-/Hero-Bilder (kein Tracking, kein Cookie)
+  "storage.googleapis.com",
 ];
 
 const APPROVED_HOSTS_POST_CONSENT = [

@@ -33,10 +33,22 @@
     "Lovable Cloud (Supabase, EU)",
     "Vercel (Hosting)",
     "Resend (E-Mail-Versand, EU)",
+    "Google Cloud Storage (statische OG-/Hero-Bilder, kein Tracking)",
     "Google Tag Manager / GA4 (nach Consent)",
     "Cal.com (Terminbuchung, nach Consent)",
     "Google Gemini (KI, Mina-Chatbot)"
   ],
+  "compliance_scan": {
+    "schedule": "quarterly (1st of Jan/Apr/Jul/Oct, 03:00 UTC)",
+    "endpoint": "/functions/v1/compliance-live-scan",
+    "history_table": "public.compliance_scan_runs",
+    "scanned_routes": [
+      "/", "/kontakt", "/erstkontakt", "/marketing-wissen",
+      "/datenschutz", "/impressum", "/werbeanzeigen-saarburg",
+      "/marketing-automation-saarburg", "/software-ki-loesungen-saarburg",
+      "/employer-branding-saarburg"
+    ]
+  },
   "dpo": {
     "required": false,
     "name": "",
