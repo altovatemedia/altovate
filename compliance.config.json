@@ -1,0 +1,45 @@
+{
+  "company": {
+    "legal_name": "altovate GmbH",
+    "legal_form": "GmbH",
+    "address": {
+      "street": "Max-Planck-Straße 6",
+      "zip": "54439",
+      "city": "Saarburg",
+      "country": "Deutschland"
+    },
+    "register": {
+      "court": "Amtsgericht Wittlich",
+      "number": ""
+    },
+    "vat_id": "",
+    "ceo": ["Alexander Buchmann"],
+    "contact": {
+      "email": "info@altovate.de",
+      "phone": "+49 1520 892 2097"
+    },
+    "responsible_for_content": "Alexander Buchmann, Max-Planck-Straße 6, 54439 Saarburg"
+  },
+  "website": {
+    "url": "https://altovate.de",
+    "audience": "B2B",
+    "reach": "EU-only"
+  },
+  "vsbg": {
+    "participates": false,
+    "statement": "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+  },
+  "known_services_approved": [
+    "Lovable Cloud (Supabase, EU)",
+    "Vercel (Hosting)",
+    "Resend (E-Mail-Versand, EU)",
+    "Google Tag Manager / GA4 (nach Consent)",
+    "Cal.com (Terminbuchung, nach Consent)",
+    "Google Gemini (KI, Mina-Chatbot)"
+  ],
+  "dpo": {
+    "required": false,
+    "name": "",
+    "contact": ""
+  }
+}
