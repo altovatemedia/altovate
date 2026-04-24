@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <!-- Google Consent Mode V2 - Default DENIED before user consent (DSGVO) -->
+    <!-- Google Consent Mode V2 - Default DENIED vor User-Einwilligung (§ 25 TDDDG / DSGVO) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('consent', 'default', {
+        'analytics_storage': 'denied',
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'functionality_storage': 'denied',
-        'personalization_storage': 'denied',
+        'functionality_storage': 'granted',
         'security_storage': 'granted',
         'wait_for_update': 500
       });
       gtag('set', 'ads_data_redaction', true);
     </script>
-    <!-- GA/GTM scripts are injected dynamically AFTER user consent (see useCookieConsent.tsx) -->
+    <!-- GTM wird dynamisch nach Consent geladen (src/lib/analytics.ts) -->
+    <!-- GA4 läuft ausschließlich über GTM, keine separate gtag.js -->
+    <!-- Cal.com lädt nur bei Consent für externe Einbettungen (src/components/CalEmbed.tsx) -->
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
