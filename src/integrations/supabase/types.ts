@@ -62,6 +62,39 @@ export type Database = {
         }
         Relationships: []
       }
+      compliance_scan_runs: {
+        Row: {
+          created_at: string
+          id: string
+          routes_scanned: number
+          routes_with_issues: number
+          status: string
+          summary: Json
+          target_domain: string
+          unknown_hosts: string[]
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          routes_scanned?: number
+          routes_with_issues?: number
+          status: string
+          summary: Json
+          target_domain: string
+          unknown_hosts?: string[]
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          routes_scanned?: number
+          routes_with_issues?: number
+          status?: string
+          summary?: Json
+          target_domain?: string
+          unknown_hosts?: string[]
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
