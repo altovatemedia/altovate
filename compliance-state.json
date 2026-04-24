@@ -1,0 +1,21 @@
+{
+  "last_run": "2026-04-24T10:05:00Z",
+  "last_legal_framework_version": "2026-Q2",
+  "detected_services": [
+    "supabase-lovable-cloud",
+    "vercel-hosting",
+    "resend-email",
+    "google-tag-manager",
+    "google-analytics-4",
+    "cal-com",
+    "google-gemini-mina-chat"
+  ],
+  "pending_manual_actions": [
+    "Handelsregisternummer in compliance.config.json + Impressum.tsx ergänzen",
+    "Umsatzsteuer-ID in compliance.config.json + Impressum.tsx ergänzen"
+  ],
+  "applied_fixes": [
+    "compliance.config.json initial angelegt",
+    "compliance-state.json initial angelegt"
+  ]
+}
