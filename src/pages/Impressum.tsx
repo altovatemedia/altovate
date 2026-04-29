@@ -61,7 +61,7 @@ const Impressum = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Eintragung im Handelsregister.<br />
                   Registergericht: Amtsgericht Wittlich<br />
-                  Registernummer: wird nachgereicht
+                  Registernummer: HRB 47822
                 </p>
               </section>
 

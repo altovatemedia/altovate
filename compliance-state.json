@@ -12,8 +12,7 @@
     "google-gemini-mina-chat"
   ],
   "pending_manual_actions": [
-    "Handelsregisternummer in compliance.config.json + Impressum.tsx ergänzen",
-    "Umsatzsteuer-ID in compliance.config.json + Impressum.tsx ergänzen"
+    "Umsatzsteuer-ID in compliance.config.json + Impressum.tsx ergänzen (vom Mandanten nachzureichen)"
   ],
   "applied_fixes": [
     "compliance.config.json initial angelegt",
