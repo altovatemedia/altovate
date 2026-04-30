@@ -103,11 +103,6 @@
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
       "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/impressum"
     },
-    {
-      "source": "/",
-      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|perplexity|gptbot|chatgpt-user|claude-web|anthropic|bingpreview|facebookexternalhit|whatsapp|telegrambot|linkedinbot|twitterbot|applebot|yandex|baidu|duckduckbot|ia_archiver|semrush|ahref).*" }],
-      "destination": "https://euglobmdsrurbbmfargp.supabase.co/functions/v1/prerender?path=/"
-    },
     { "source": "/", "destination": "/index.html" },
     { "source": "/socialmedia", "destination": "/index.html" },
     { "source": "/werbeanzeigen-saarburg", "destination": "/index.html" },
