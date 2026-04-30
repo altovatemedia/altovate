@@ -344,6 +344,48 @@ const STATIC_PAGES: Record<string, StaticPage> = {
     bodyContent: `<h1>Instagram-Profil-Check für Unternehmen</h1>
 <p>Kostenloser Instagram-Profil-Check: Analyse von Bio, Content-Strategie und Optimierungspotenzial.</p>`,
   },
+  "/impressum": {
+    title: "Impressum | altovate GmbH – Saarburg",
+    description: "Impressum der altovate GmbH, Max-Planck-Straße 6, 54439 Saarburg. Geschäftsführer Alexander Buchmann. Handelsregister Wittlich HRB 47822.",
+    canonical: "https://altovate.de/impressum",
+    breadcrumbs: [
+      { name: "Startseite", url: "https://altovate.de/" },
+      { name: "Impressum", url: "https://altovate.de/impressum" },
+    ],
+    bodyContent: `<h1>Impressum</h1>
+<h2>Angaben gemäß DDG</h2>
+<p>altovate GmbH<br>Max-Planck-Straße 6<br>54439 Saarburg</p>
+<h2>Vertreten durch</h2>
+<p>Geschäftsführer Alexander Buchmann</p>
+<h2>Kontakt</h2>
+<p>Telefon: +49 1520 892 2097<br>E-Mail: info@altovate.de</p>
+<h2>Registereintrag</h2>
+<p>Eintragung im Handelsregister. Registergericht: Amtsgericht Wittlich. Registernummer: HRB 47822.</p>
+<h2>Umsatzsteuer-ID</h2>
+<p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: wird nachgereicht.</p>
+<h2>Verbraucherstreitbeilegung</h2>
+<p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`,
+  },
+  "/datenschutz": {
+    title: "Datenschutzerklärung | altovate GmbH",
+    description: "Datenschutzerklärung der altovate GmbH gemäß DSGVO. Informationen zu Verarbeitung personenbezogener Daten, Cookies, Analytics und Betroffenenrechten.",
+    canonical: "https://altovate.de/datenschutz",
+    breadcrumbs: [
+      { name: "Startseite", url: "https://altovate.de/" },
+      { name: "Datenschutz", url: "https://altovate.de/datenschutz" },
+    ],
+    bodyContent: `<h1>Datenschutzerklärung</h1>
+<h2>Verantwortlicher</h2>
+<p>altovate GmbH, Max-Planck-Straße 6, 54439 Saarburg. Geschäftsführer: Alexander Buchmann. E-Mail: info@altovate.de.</p>
+<h2>Verarbeitung personenbezogener Daten</h2>
+<p>Wir verarbeiten personenbezogene Daten ausschließlich auf Grundlage der DSGVO. Eine Übermittlung in Drittländer findet grundsätzlich nicht statt. Hosting und Datenbank werden in der EU betrieben.</p>
+<h2>Cookies und Tracking</h2>
+<p>Tracking-Technologien wie Google Analytics 4 und Google Tag Manager werden ausschließlich nach ausdrücklicher Einwilligung über unser Consent-Banner geladen. Ohne Consent erfolgt keine Datenübermittlung an Drittanbieter.</p>
+<h2>Betroffenenrechte</h2>
+<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Anfragen richten Sie bitte an info@altovate.de.</p>
+<h2>Beschwerderecht</h2>
+<p>Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren – zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>`,
+  },
 };
 
 // ── Helpers ──
