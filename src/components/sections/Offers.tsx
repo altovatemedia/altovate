@@ -13,23 +13,23 @@ const Offers = () => {
   const offers = [
     {
       icon: Clock, title: "Marketing Diagnose", duration: "60 Minuten", price: "590",
-      description: "Für Unternehmer, die Klarheit über ihr Marketing benötigen.\n\nIn dieser Session analysieren wir deine aktuelle Marketing-Situation und identifizieren die größten Wachstumshebel für dein Unternehmen.",
-      forWho: ["Analyse des aktuellen Marketings", "Bewertung von Positionierung und Angebot", "Identifikation der größten Wachstumshebel", "konkrete Handlungsempfehlungen"],
-      results: ["Klare Einschätzung", "Priorisierte Maßnahmen", "Entscheidungsgrundlage für nächste Schritte"],
+      description: "Für Unternehmer, die Klarheit wollen, bevor sie investieren.\n\nIn 60 Minuten: Analyse der aktuellen Marketing-Situation, Bewertung von Positionierung und Angebot, drei priorisierte Hebel mit konkreten nächsten Schritten.",
+      forWho: ["Analyse der aktuellen Marketing-Situation", "Bewertung von Positionierung und Angebot", "Drei priorisierte Hebel", "Konkrete nächste Schritte"],
+      result: "Du gehst raus mit einer Entscheidungsgrundlage, nicht mit Hausaufgaben.",
       cta: "Diagnose anfragen", offerType: "Marketing Diagnose 60 Minuten"
     },
     {
       icon: Zap, title: "Marketing System Analyse", duration: "90 Minuten", price: "890",
-      description: "Vertiefte Analyse für Unternehmer, die ihr Marketing strukturiert aufbauen oder skalieren möchten.\n\nWir analysieren, wie Content, Werbung und Leadgewinnung aktuell zusammenspielen und identifizieren systemische Wachstumshebel.",
+      description: "Für Unternehmer, die ihr Marketing strukturiert ausbauen wollen.\n\nWir analysieren, wie Content, Ads und Lead-Prozesse aktuell zusammenspielen — und wo das System bricht. Vertieft, mit Systemarchitektur-Empfehlung.",
       forWho: ["Analyse der Marketingstruktur", "Bewertung von Content- und Ads-Strategie", "Bewertung der Leadgewinnung", "Identifikation systemischer Marketinghebel"],
-      results: ["Konkrete Systemempfehlung", "Klare Umsetzungslogik", "Priorisierte Wachstumsmaßnahmen"],
+      result: "Konkrete Systemempfehlung, klare Umsetzungslogik, priorisierte Wachstumsmaßnahmen.",
       cta: "Analyse anfragen", offerType: "Marketing System Analyse 90 Minuten"
     },
     {
       icon: Building, title: "Marketing System Blueprint", duration: "Projekt", price: "ab 4.500",
-      description: "Entwicklung eines vollständigen Marketing-Systems für planbare Kundenanfragen.\n\nIm Blueprint entwickeln wir eine klare Marketingarchitektur für dein Unternehmen. Statt einzelner Maßnahmen entsteht ein strukturiertes System, bei dem Content, Werbung und Leadprozesse ineinandergreifen.",
-      forWho: ["Positionierung und Angebotsstruktur", "Content-System für Sichtbarkeit", "Ads- und Kampagnenstruktur", "Lead-System für planbare Anfragen", "technische Marketingarchitektur"],
-      results: [], note: "Ein vollständiger Marketing-Fahrplan mit klarer Strategie, Kampagnenstruktur und Umsetzungsplan.",
+      description: "Für Unternehmer, die ein vollständiges System bauen wollen.\n\nWir entwickeln Positionierung, Content-Architektur, Ads-Struktur, Lead-Logik und technische Marketingebene — als ein Plan.",
+      forWho: ["Positionierung und Angebotsstruktur", "Content-Architektur", "Ads- und Kampagnenstruktur", "Lead-Logik", "Technische Marketingebene"],
+      result: "Ein Marketing-Fahrplan, an dem dein Team oder Altovate umsetzen kann. Nichts bleibt offen.",
       cta: "Blueprint anfragen", offerType: "Marketing System Blueprint", isFundingReduced: true
     }
   ];
@@ -43,28 +43,18 @@ const Offers = () => {
     <section id="angebote" className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-6">
+          <div className="text-center mb-16">
             <Reveal blur>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                So arbeiten wir <span className="text-primary">zusammen</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Drei Wege zu <span className="text-primary">starten</span>.
               </h2>
             </Reveal>
+            <Reveal delay={0.15}>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Drei klar abgegrenzte Einstiege — von der schnellen Diagnose bis zum vollständigen System-Blueprint.
+              </p>
+            </Reveal>
           </div>
-          <Reveal delay={0.15}>
-            <div className="mb-12">
-              <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-4 leading-relaxed">
-                Die Zusammenarbeit mit Altovate folgt einer klaren Struktur.
-              </p>
-              <ol className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6 leading-relaxed space-y-1 list-decimal list-inside">
-                <li>Analyse der aktuellen Situation</li>
-                <li>Entwicklung eines funktionierenden Marketing-Systems</li>
-                <li>Strategische Begleitung oder Umsetzung</li>
-              </ol>
-              <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
-                So entstehen Marketingstrukturen, die langfristig planbare Kundenanfragen generieren.
-              </p>
-            </div>
-          </Reveal>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
             {offers.map((offer, index) => (
