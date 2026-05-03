@@ -56,8 +56,16 @@ const TrustBar = () => {
         className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
       >
         <BadgePercent className="w-4 h-4 text-primary" />
-        <span className="text-sm font-medium">Förderfähig bis 80 %</span>
+        <span className="text-sm font-medium">Bis zu 80 % förderfähig</span>
       </Link>
+
+      {/* Divider */}
+      <div className="hidden md:block w-px h-6 bg-border" />
+
+      {/* Leads */}
+      <div className="flex items-center gap-2 text-muted-foreground">
+        <span className="text-sm font-medium">+200 Leads pro Kampagne</span>
+      </div>
     </div>
   );
 };
