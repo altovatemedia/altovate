@@ -18,15 +18,15 @@ const FoerderungHint = () => {
                 </div>
                 <div>
                   <p className="text-lg font-semibold text-foreground mb-1">
-                    Wusstest du, dass strategische Beratung staatlich gefördert wird?
+                    Bis zu 80 % staatlicher Zuschuss.
                   </p>
                   <p className="text-muted-foreground">
-                    Bis zu 80% Zuschuss möglich – je nach Ausgangslage.
+                    Strategische Marketingberatung wird in Deutschland gefördert. Wir prüfen, was in deiner Konstellation geht — bevor du buchst.
                   </p>
                 </div>
               </div>
               <div className="flex items-center gap-2 text-primary font-semibold shrink-0 group-hover:gap-3 transition-all duration-300">
-                Mehr erfahren
+                Förderung prüfen
                 <ArrowRight className="w-5 h-5" />
               </div>
             </Link>

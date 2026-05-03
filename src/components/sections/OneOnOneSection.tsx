@@ -10,8 +10,8 @@ const OneOnOneSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const packages = [
-    { duration: "12 Wochen", price: "4.800", description: "Fokussierte strategische Begleitung für klare Entscheidungen" },
-    { duration: "24 Wochen", price: "8.400", description: "Tiefgreifende Zusammenarbeit für nachhaltige Transformation" }
+    { duration: "12 Wochen", price: "4.800", description: "Fokussierte Begleitung für klare Entscheidungsphasen." },
+    { duration: "24 Wochen", price: "8.400", description: "Tiefere Zusammenarbeit, wenn das System gerade hochfährt." }
   ];
 
   return (
@@ -26,12 +26,12 @@ const OneOnOneSection = () => {
             </Reveal>
             <Reveal blur delay={0.1}>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Strategische <span className="text-primary">Begleitung</span>
+                Wenn das System steht, <span className="text-primary">beginnt die Arbeit</span>.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                1:1 Zusammenarbeit beim Aufbau und der Optimierung deines Marketing-Systems.
+                Ein Blueprint allein liefert keine Anfragen. Strategische Begleitung heißt: Maßnahmen priorisieren, Kampagnen weiterentwickeln, Reporting interpretieren, Entscheidungen treffen.
               </p>
             </Reveal>
           </div>

@@ -1,31 +1,17 @@
 import { useState } from 'react';
-import { ArrowRight, Check, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
 import TrustBar from '@/components/sections/TrustBar';
 import CalComModal from '@/components/CalComModal';
+import BookingModal from '@/components/BookingModal';
 
 const NewHero = () => {
   const [isCalOpen, setIsCalOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const { scrollY } = useScroll();
   const portraitY = useTransform(scrollY, [0, 600], [0, 80]);
-
-  const bulletPoints = [
-    "Kein Dauer-Posten – Systeme, die für dich arbeiten",
-    "Kein Agentur-Blabla – direkt mit dem Experten",
-    "Kein Abhängigkeitsmodell – du behältst die Kontrolle"
-  ];
-
-  const scrollToAnalyse = () => {
-    const analyseSection = document.getElementById('marketing-analyse');
-    analyseSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToOffers = () => {
-    const offersSection = document.getElementById('angebote');
-    offersSection?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -39,8 +25,8 @@ const NewHero = () => {
               transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
             >
-              Online-Marketing für Unternehmer, die{' '}
-              <span className="gold-gradient-text">keine Zeit für Marketing</span> haben.
+              Wir bauen Marketing-Systeme,{' '}
+              <span className="gold-gradient-text">die Anfragen liefern.</span>
             </motion.h1>
 
             <motion.p
@@ -49,53 +35,26 @@ const NewHero = () => {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
             >
-              Altovate entwickelt Marketing- und Lead-Systeme, die planbar Kundenanfragen generieren – ohne dass du selbst zum Influencer werden musst.
+              Für Mittelständler in Saar-Mosel, Trier und Luxemburg. Strategie, Content und Performance-Ads als ein System. Qualifizierte Anfragen statt Reichweiten-Reports.
             </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-              className="text-base md:text-lg text-muted-foreground leading-relaxed font-light"
-            >
-              Strategie, Content und Performance-Ads kombiniert zu einem System, das dauerhaft für dein Unternehmen arbeitet.
-            </motion.p>
-
-            {/* Bullet Points */}
-            <div className="space-y-3">
-              {bulletPoints.map((point, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.35 + index * 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-foreground/80 text-base">{point}</span>
-                </motion.div>
-              ))}
-            </div>
 
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
               className="flex flex-col sm:flex-row items-start gap-4 pt-2 relative z-30"
             >
-              <Button 
+              <Button
                 size="lg"
                 className="btn-hero px-8 py-6 text-base"
-                onClick={scrollToAnalyse}
+                onClick={() => setIsBookingOpen(true)}
               >
-                Kostenlose Marketing Analyse
+                Kostenlose Analyse anfordern
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              
-              <Button 
+
+              <Button
                 size="lg"
                 variant="outline"
                 className="px-8 py-6 text-base border-2 border-border hover:border-primary hover:bg-primary/5 text-foreground"
@@ -110,10 +69,10 @@ const NewHero = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
               className="text-sm text-muted-foreground relative z-30"
             >
-              Unverbindlich. Analyse in 24h.
+              Unverbindlich. Antwort in 24 Stunden.
             </motion.p>
           </div>
 
@@ -126,9 +85,9 @@ const NewHero = () => {
             className="hidden lg:flex justify-center items-end relative"
           >
             <div className="relative">
-                <img 
+              <img
                 src={alexanderPortrait}
-                alt="Alexander – Gründer von Altovate"
+                alt="Alexander Buchmann – Gründer von Altovate"
                 className="w-full max-w-lg h-auto object-contain relative z-0"
                 width={512}
                 height={640}
@@ -152,6 +111,7 @@ const NewHero = () => {
       </div>
 
       <CalComModal isOpen={isCalOpen} onClose={() => setIsCalOpen(false)} />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} offerType="Marketing Diagnose 60 Minuten" />
     </section>
   );
 };

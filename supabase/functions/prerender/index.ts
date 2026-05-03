@@ -30,23 +30,37 @@ interface StaticPage {
 
 const STATIC_PAGES: Record<string, StaticPage> = {
   "/": {
-    title: "altovate | Online-Marketing für Unternehmer",
-    description: "Lead- & Content-Systeme für mittelständische Unternehmen in Saarburg, Trier & Region. Planbare Anfragen statt Reichweiten-Blabla. Strategie-Session ab 390 €.",
+    title: "Altovate | Marketing-Systeme für Mittelständler",
+    description: "Wir bauen Marketing-Systeme, die Anfragen liefern. Strategie, Content & Performance-Ads als ein System – für Mittelständler in Saar-Mosel, Trier & Luxemburg.",
     canonical: "https://altovate.de/",
     ogType: "website",
     breadcrumbs: [],
-    bodyContent: `<h1>altovate – Online-Marketing für Unternehmer</h1>
-<p>Lead- &amp; Content-Systeme für mittelständische Unternehmen in Saarburg, Trier &amp; Region. Planbare Anfragen statt Reichweiten-Blabla.</p>
-<h2>Leistungen</h2>
+    bodyContent: `<h1>Wir bauen Marketing-Systeme, die Anfragen liefern.</h1>
+<p>Für Mittelständler in Saar-Mosel, Trier und Luxemburg. Strategie, Content und Performance-Ads als ein System. Qualifizierte Anfragen statt Reichweiten-Reports.</p>
+<h2>Wenn Marketing keine Anfragen liefert, fehlt das System.</h2>
+<p>Die meisten Mittelständler posten regelmäßig, schalten gelegentlich Anzeigen und wundern sich, warum am Ende des Quartals keine Termine im Kalender stehen. Altovate baut die Schicht zwischen Klick und Termin.</p>
+<h2>Wir bauen Systeme. Keine Content-Pakete.</h2>
+<p>Strategie zuerst, Content danach. Direkt mit dem Gründer. Du behältst die Kontrolle – System-Eigentum bleibt bei dir, auch nach Vertragsende.</p>
+<h2>Fünf Bausteine, ein System.</h2>
+<ol>
+  <li><strong>Analyse</strong> – Wo liegt das größte Wachstumspotenzial?</li>
+  <li><strong>Positionierung</strong> – Warum kauft man bei dir, nicht beim Wettbewerb?</li>
+  <li><strong>Content-System</strong> – Sichtbarkeit, die Vertrauen aufbaut.</li>
+  <li><strong>Performance Ads</strong> – Reichweite mit konkretem Ziel pro Kampagne.</li>
+  <li><strong>Lead-System</strong> – Vom Kontakt zum qualifizierten Termin.</li>
+</ol>
+<h2>So arbeitet Altovate.</h2>
+<p>Drei Phasen: Analyse (1–2 Wochen), Blueprint (3–4 Wochen), Umsetzung (ab 12 Wochen).</p>
+<h2>Drei Wege zu starten.</h2>
 <ul>
-  <li><strong>Social Media Marketing</strong> – Content-Erstellung, Instagram-Betreuung und Reels-Produktion</li>
-  <li><strong>Meta Ads Betreuung</strong> – Facebook &amp; Instagram Werbeanzeigen mit messbarem ROI</li>
-  <li><strong>Employer Branding</strong> – Mitarbeitergewinnung durch authentische Arbeitgeberpräsenz</li>
-  <li><strong>Marketing Automation</strong> – Funnel-Systeme für planbare Lead-Generierung</li>
-  <li><strong>Software &amp; KI-Lösungen</strong> – Individuelle Tools und Automatisierungen</li>
+  <li><strong>Marketing Diagnose</strong> – 60 Minuten, 590 € zzgl. MwSt., bis zu 80 % förderfähig.</li>
+  <li><strong>Marketing System Analyse</strong> – 90 Minuten, 890 € zzgl. MwSt., bis zu 80 % förderfähig.</li>
+  <li><strong>Marketing System Blueprint</strong> – Projekt ab 4.500 € zzgl. MwSt., bis zu 50 % förderfähig.</li>
 </ul>
-<h2>Über altovate</h2>
-<p>Altovate ist eine Marketing-Agentur in Saarburg, gegründet von Alexander Buchmann. Wir entwickeln Lead- und Content-Systeme für mittelständische Unternehmen in der Region Trier, Saarburg und Saar-Mosel.</p>
+<h2>Bis zu 80 % staatlicher Zuschuss.</h2>
+<p>Strategische Marketingberatung wird in Deutschland gefördert. Je nach Bundesland, Unternehmensgröße und Beratungsthema sind 50 % bis 80 % Zuschuss möglich.</p>
+<h2>Wer hier antwortet.</h2>
+<p>Alex Buchmann, Gründer der Altovate GmbH in Saarburg. Marketing-Systeme für mittelständische Unternehmen in Saar-Mosel, Trier und Luxemburg. Direkte Zusammenarbeit ohne Umweg über Projektmanager oder Junior-Teams.</p>
 <p>Kontakt: info@altovate.de | +49 1520 892 2097 | Max-Planck-Straße 6, 54439 Saarburg</p>`,
     jsonLdExtra: [
       {

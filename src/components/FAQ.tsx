@@ -14,10 +14,11 @@ import {
 const FAQ = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const faqs = [
-    { question: "Muss ich als Unternehmer selbst Content erstellen?", answer: "Nein. Altovate entwickelt Content-Strategien und übernimmt auf Wunsch die komplette Erstellung – von der Themenplanung über den Dreh bis zur Veröffentlichung. Voraussetzung ist lediglich, dass du deine Zielgruppe und dein Angebot kennst. Alternativ kann Altovate dir ein System aufbauen, mit dem du selbst effizient Content produzierst." },
-    { question: "Arbeitet Altovate mit bezahlter Werbung (Ads)?", answer: "Ja, wenn bezahlte Werbung das effizienteste Mittel ist, um dein Ziel zu erreichen. Werbeanzeigen auf Meta (Facebook & Instagram) und Google werden eingesetzt, wenn sie schneller und günstiger Ergebnisse liefern als rein organische Maßnahmen. Die Entscheidung basiert auf Daten, nicht auf Bauchgefühl." },
-    { question: "Gibt es langfristige Vertragsbindungen?", answer: "Nein. Altovate arbeitet projektbasiert mit klar definierten Leistungen und Ergebnissen. Es gibt keine Knebelverträge und keine versteckten Laufzeiten. Jede Zusammenarbeit beginnt mit einer Strategie-Session, die einzeln buchbar ist." },
-    { question: "Für wen ist Altovate nicht geeignet?", answer: "Altovate ist nicht geeignet für Unternehmer, die schnelle Likes und Follower-Zahlen als Ziel definieren. Der Fokus liegt auf messbaren Geschäftsergebnissen wie qualifizierten Anfragen, Terminbuchungen und Umsatz. Wenn Reichweite ohne Vertriebsziel im Vordergrund steht, ist Altovate der falsche Ansprechpartner." }
+    { question: "Muss ich als Unternehmer selbst Content erstellen?", answer: "Wenn du Gesicht der Marke bist: ja, aber gezielt. Wir minimieren den Aufwand auf 1–2 Stunden pro Monat — und produzieren in dieser Zeit Content für 4 Wochen. Wenn du im Hintergrund bleiben willst: auch das geht, mit Mitarbeiter-Content, Kunden-Cases und Brand-Storytelling." },
+    { question: "Arbeitet Altovate mit bezahlter Werbung?", answer: "Ja. Performance-Ads sind ein Pflichtbaustein, weil organische Reichweite allein nicht planbar ist. Budget ab 500 € / Monat aufwärts, je nach Markt und Ziel." },
+    { question: "Gibt es langfristige Vertragsbindungen?", answer: "Nein. Strategische Begleitung läuft in 12- oder 24-Wochen-Blöcken. Done-for-You monatlich kündbar nach Mindestlaufzeit von 3 Monaten. Du behältst die Kontrolle." },
+    { question: "Für wen ist Altovate nicht geeignet?", answer: "Für Unternehmer, die schnelle Tricks suchen, viral gehen wollen, oder erwarten dass Marketing in 4 Wochen Anfragen liefert. Systeme brauchen 90 Tage, bis sie greifen. Wenn du das nicht aushältst — nicht Altovate." },
+    { question: "Warum gibt es keine kostenlosen Erstgespräche?", answer: "Eine Strategie-Session ist eine Beratungsleistung, kein Verkaufsgespräch. In 60 oder 90 Minuten bekommst du eine echte Analyse mit konkreten Empfehlungen. Bezahlt heißt: beide Seiten kommen vorbereitet, beide Seiten holen etwas raus." }
   ];
 
   return (

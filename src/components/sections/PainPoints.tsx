@@ -1,46 +1,67 @@
-import { Clock, TrendingDown, User, FileQuestion } from 'lucide-react';
+import { Megaphone, MousePointerClick, Inbox } from 'lucide-react';
 import Reveal, { StaggerContainer, StaggerItem } from '@/components/animations/Reveal';
 
 const PainPoints = () => {
   const painPoints = [
-    { icon: Clock, text: "Content ohne klare Strategie" },
-    { icon: TrendingDown, text: "Fehlende Werbekampagnen" },
-    { icon: User, text: "Kein System zur Leadgewinnung" },
-    { icon: FileQuestion, text: "Social Media wird nur bespielt, aber nicht als Vertriebskanal genutzt" }
+    {
+      icon: Megaphone,
+      symptom: 'Posten ohne Strategie',
+      cause: 'Reichweite ohne Käufer',
+    },
+    {
+      icon: MousePointerClick,
+      symptom: 'Ads ohne Conversion-Pfad',
+      cause: 'Teurer Klick, keine Anfrage',
+    },
+    {
+      icon: Inbox,
+      symptom: 'Kein Lead-System',
+      cause: 'Interessenten verschwinden',
+    },
   ];
 
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-16">
             <Reveal blur>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-                Warum Social Media für viele Unternehmen nicht funktioniert
+                Wenn Marketing keine Anfragen liefert, fehlt das System.
               </h2>
             </Reveal>
             <Reveal delay={0.15} blur>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Viele Unternehmen investieren Zeit und Geld in Social Media. Beiträge werden erstellt, Videos produziert und Profile gepflegt. Trotzdem entstehen kaum neue Kundenanfragen. Der Grund ist selten der Content selbst, sondern die fehlende Struktur dahinter.
+                Die meisten Mittelständler posten regelmäßig, schalten gelegentlich Anzeigen und wundern sich, warum am Ende des Quartals keine Termine im Kalender stehen. Das Problem ist nicht der Content. Es ist die fehlende Verbindung zwischen Sichtbarkeit, Vertrauen und Anfrage.
               </p>
             </Reveal>
           </div>
 
-          {/* Pain point list */}
-          <StaggerContainer className="grid md:grid-cols-2 gap-6 mb-16" staggerDelay={0.12}>
+          {/* Symptom / Cause Grid */}
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 mb-16" staggerDelay={0.12}>
             {painPoints.map((point, index) => (
-              <StaggerItem
-                key={index}
-                direction={index % 2 === 0 ? 'left' : 'right'}
-              >
-                <div className="group flex items-start gap-4 p-6 rounded-2xl liquid-glass hover:border-primary/30 transition-all duration-300">
-                  <div className="shrink-0 w-16 h-16 rounded-full liquid-glass-icon flex items-center justify-center">
-                    <point.icon className="w-7 h-7 text-primary" />
+              <StaggerItem key={index} scale blur>
+                <div className="group flex flex-col gap-5 p-7 rounded-2xl liquid-glass hover:border-primary/30 transition-all duration-300 h-full">
+                  <div className="w-14 h-14 rounded-2xl liquid-glass-icon flex items-center justify-center">
+                    <point.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <p className="text-lg text-foreground font-medium leading-relaxed pt-2">
-                    {point.text}
-                  </p>
+                  <div className="space-y-3">
+                    <p className="text-xs uppercase tracking-[0.18em] text-primary font-semibold">
+                      Symptom
+                    </p>
+                    <p className="text-lg font-bold text-foreground leading-snug">
+                      {point.symptom}
+                    </p>
+                  </div>
+                  <div className="space-y-2 pt-4 border-t border-border/50">
+                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                      Was wirklich fehlt
+                    </p>
+                    <p className="text-base text-muted-foreground leading-relaxed">
+                      {point.cause}
+                    </p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}
@@ -51,7 +72,7 @@ const PainPoints = () => {
             <div className="text-center">
               <div className="inline-block liquid-glass rounded-2xl px-8 py-6">
                 <p className="text-xl md:text-2xl font-bold text-primary">
-                  Genau hier setzt Altovate an.
+                  Altovate baut die Schicht zwischen Klick und Termin.
                 </p>
               </div>
             </div>

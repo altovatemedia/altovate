@@ -16,12 +16,11 @@ const DoneForYouSection = () => {
 
   const services = [
     "Strategische Gesamtarchitektur (Lead, Sales, Delivery)",
-    "Angebots- & Funnel-Logik",
-    "Content- & Kampagnenkonzeption",
-    "Koordination von Design, Video, Copy & Ads",
-    "Technischer Aufbau (Tracking, Automationen, Tools)",
-    "Ausspielung & laufende Optimierung",
-    "Analyse, Reporting & Entscheidungsgrundlagen"
+    "Angebots- und Funnel-Logik",
+    "Content- und Kampagnenkonzeption",
+    "Koordination von Design, Video, Copy, Ads",
+    "Tracking, Automationen, Tool-Stack",
+    "Laufende Optimierung und Reporting"
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -62,24 +61,23 @@ const DoneForYouSection = () => {
               </div>
             </Reveal>
             <Reveal blur delay={0.1}>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Done for You</h2>
-              <p className="text-xl text-primary font-medium mb-6">
-                Komplette Marketingumsetzung durch Altovate
-              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Komplette Umsetzung. <span className="text-primary">Auf Anfrage.</span>
+              </h2>
             </Reveal>
           </div>
 
           <Reveal delay={0.15}>
             <div className="mb-12">
               <p className="text-muted-foreground text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6">
-                Für Unternehmen, die ihr Marketing vollständig auslagern möchten. Altovate übernimmt Strategie, Contentsteuerung und Werbekampagnen, während du dich auf dein Kerngeschäft konzentrieren kannst.
+                Für Unternehmen, die ihr Marketing vollständig auslagern wollen. Altovate übernimmt Strategie, Content-Steuerung, Werbekampagnen und Reporting. Du konzentrierst dich auf dein Kerngeschäft.
               </p>
-               <p className="text-muted-foreground text-center mb-2">
-                 <span className="font-semibold text-foreground">ab 5.000 € / Monat</span>
-               </p>
-               <p className="text-sm text-muted-foreground text-center">
-                 Nur auf Anfrage verfügbar.
-               </p>
+              <p className="text-muted-foreground text-center mb-2">
+                <span className="font-semibold text-foreground">ab 5.000 € / Monat</span>
+              </p>
+              <p className="text-sm text-muted-foreground text-center">
+                Aktuell keine freien Plätze.
+              </p>
             </div>
           </Reveal>
 

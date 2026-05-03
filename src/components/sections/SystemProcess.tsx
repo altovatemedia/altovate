@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 
 const SystemProcess = () => {
   const steps = [
-    { icon: Search, number: "1", title: "Analyse", description: "Analyse des aktuellen Marketings" },
-    { icon: Crosshair, number: "2", title: "Positionierung", description: "Positionierung und Angebotsstruktur" },
-    { icon: FileText, number: "3", title: "Content-System", description: "Content-System für Sichtbarkeit" },
-    { icon: Megaphone, number: "4", title: "Performance Ads", description: "Performance Ads für Reichweite" },
-    { icon: Link2, number: "5", title: "Lead-System", description: "Lead-System für planbare Anfragen" }
+    { icon: Search, number: "1", title: "Analyse", description: "Wo liegt das größte Wachstumspotenzial?" },
+    { icon: Crosshair, number: "2", title: "Positionierung", description: "Warum kauft man bei dir, nicht beim Wettbewerb?" },
+    { icon: FileText, number: "3", title: "Content-System", description: "Sichtbarkeit, die Vertrauen aufbaut." },
+    { icon: Megaphone, number: "4", title: "Performance Ads", description: "Reichweite mit konkretem Ziel pro Kampagne." },
+    { icon: Link2, number: "5", title: "Lead-System", description: "Vom Kontakt zum qualifizierten Termin." }
   ];
 
   return (
@@ -19,12 +19,12 @@ const SystemProcess = () => {
           <div className="text-center mb-16">
             <Reveal blur>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Das <span className="text-primary">Altovate Marketing System</span>
+                <span className="text-primary">Fünf Bausteine,</span> ein System.
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Altovate entwickelt Marketing-Systeme, die Strategie, Content und Performance-Marketing miteinander verbinden. Ziel ist es, Social Media nicht nur als Content-Kanal zu nutzen, sondern als System zur planbaren Leadgewinnung.
+                Jeden Baustein einzeln verkauft dir jede Agentur. Den Stack als zusammenhängendes System bekommst du selten.
               </p>
             </Reveal>
           </div>
