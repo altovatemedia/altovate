@@ -101,31 +101,20 @@ const Offers = () => {
                       </ul>
                     </div>
 
-                    {offer.results.length > 0 ? (
+                    {offer.result && (
                       <div className="mb-6 p-4 bg-muted/50 rounded-xl">
                         <p className="text-sm font-semibold text-foreground mb-2">Ergebnis:</p>
-                        <ul className="space-y-1">
-                          {offer.results.map((result, i) => (
-                            <li key={i} className="text-sm text-muted-foreground">{result}</li>
-                          ))}
-                        </ul>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{offer.result}</p>
                       </div>
-                    ) : offer.note ? (
-                      <div className="mb-6 p-4 bg-muted/50 rounded-xl">
-                        <p className="text-sm text-muted-foreground italic">{offer.note}</p>
-                      </div>
-                    ) : null}
+                    )}
 
-                    <Button 
+                    <Button
                       className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-base font-semibold"
                       onClick={() => handleBooking(offer.offerType)}
                     >
                       {offer.cta}
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
-                    <p className="text-xs text-muted-foreground text-center mt-2">
-                      Bezahlte Session – du bekommst echten Mehrwert.
-                    </p>
                   </div>
                 </TiltCard>
               </StaggerItem>
@@ -134,9 +123,10 @@ const Offers = () => {
 
           <Reveal delay={0.2}>
             <div className="mt-12 text-center max-w-2xl mx-auto">
-              <p className="text-muted-foreground text-sm italic">
+              <p className="text-muted-foreground text-base italic">
                 „Wenn du nach der Session keinen klaren nächsten Schritt hast, war sie nicht gut genug."
               </p>
+              <p className="text-xs text-muted-foreground mt-2">— Alex Buchmann</p>
             </div>
           </Reveal>
         </div>
