@@ -56,7 +56,7 @@ const PainPoints = () => {
                   </div>
                   <div className="space-y-2 pt-4 border-t border-border/50">
                     <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
-                      Was wirklich fehlt
+                      Die Folge
                     </p>
                     <p className="text-base text-muted-foreground leading-relaxed">
                       {point.cause}
