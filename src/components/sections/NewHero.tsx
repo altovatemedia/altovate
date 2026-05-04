@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import alexanderPortrait from '@/assets/alexander-portrait.png';
@@ -65,15 +65,28 @@ const NewHero = () => {
               </Button>
             </motion.div>
 
-            {/* Microcopy */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="text-sm text-muted-foreground relative z-30"
-            >
-              Unverbindlich. Antwort in 24 Stunden.
-            </motion.p>
+            {/* Trust Key Points */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 relative z-30">
+              {[
+                'Direkte Zusammenarbeit',
+                'Bis zu 80 % förderfähig',
+                'Erste Antwort innerhalb von 24 h',
+                'Festpreise – kein Fass ohne Boden',
+              ].map((point, i) => (
+                <motion.div
+                  key={point}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 + i * 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="mt-0.5 w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
+                  <span className="text-foreground/80 text-sm">{point}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Right: Portrait with parallax */}
